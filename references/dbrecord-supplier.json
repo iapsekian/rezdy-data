@@ -1,0 +1,201 @@
+{
+   "_id": ObjectId("585a3a76a0af889f18c24f36"),
+   "text": "Barefoot Downunder",
+   "typeId": "585a3111a0af88917cc24f3a",
+   "version": NumberInt(2),
+   "online": true,
+   "lastUpdateTime": NumberInt(1482308287),
+   "createTime": NumberInt(1482308214),
+   "isProduct": false,
+   "productProperties": "",
+   "workspace": {
+     "fields": {
+       "alias": "barefootdownunder",
+       "firstName": "Debbie",
+       "lastName": "Hammond",
+       "address": {
+         "addressLine": "",
+         "postCode": "",
+         "city": "Sydney",
+         "state": "NSW",
+         "countryCode": "au",
+         "latitude": -33.8674869,
+         "longitude": 151.2069902 
+      },
+       "position": {
+         "address": "Sydney NSW AU",
+         "location": {
+           "type": "Point",
+           "coordinates": [
+             151.20699,
+             -33.867487 
+          ] 
+        },
+         "lat": -33.867487,
+         "lon": 151.20699 
+      },
+       "destinationName": "Sydney",
+       "destinationCountryCode": "au",
+       "destinationPath": "South Pacific,Australia,New South Wales,Sydney",
+       "companyLogoUrl": "https://img.rezdy.com/LOGO/41958/Untitled_1.png",
+       "currency": "AUD",
+       "locale": "en_au",
+       "timezone": "Australia/Sydney",
+       "category": "Adventure Tours",
+       "companyDescription": "<p>Barefoot Downunder provides adventure day trips to the Figure 8 Pools Royal National Park and the Blue Mountain to youth and student travellers, ba [...]",
+       "phone": "+61 2 9664 8868",
+       "mobile": "",
+       "fax": "",
+       "skype": "",
+       "terms": "Barefoot Downunder (BD) Terms and Conditions: Must be at pick-up location 10 minutes prior to pick-up time, cancellations 72 hrs prior incur 100% book [...]",
+       "openingHours": "Mon-Sun 8am - 7pm",
+       "facebookPage": "https://www.facebook.com/barefootdownunder",
+       "googlePlus": "",
+       "yelp": "",
+       "instagram": "barefootdownunder",
+       "pinterest": "",
+       "youtubeChannel": "",
+       "tripAdvisor": "http://www.tripadvisor.com.au/Attraction_Review-g255060-d8646991-Reviews-Barefoot_Downunder_Aussie_Tours-Sydney_New_South_Wales.html",
+       "twitter": "https://twitter.com/BFDownunder",
+       "website": "http://www.barefootdownunder.com.au",
+       "id": "41958" 
+    },
+     "status": "published",
+     "taxonomy": {
+       "navigation": [
+         "57e227bb6d0e81ad168b4768",
+         "580726bd6d0e810b3d7b23c6",
+         "582bf94c6d0e81d65f7b293b" 
+      ],
+       "585a1984a0af882f3dc24f3d": "585a19c8a0af88394dc24f37",
+       "585a19e0a0af885009c24f42": "585a19ffa0af886847c24f36",
+       "57b18d746d0e81e174c66328": [
+         "57b18d776d0e81e174c66564" 
+      ],
+       "57b18d746d0e81e174c66322": [
+         "57b18d776d0e81e174c66540" 
+      ] 
+    },
+     "startPublicationDate": null,
+     "endPublicationDate": null,
+     "target": [
+       "global" 
+    ],
+     "writeWorkspace": "global",
+     "pageId": "",
+     "maskId": "",
+     "blockId": "",
+     "i18n": {
+       "en": {
+         "fields": {
+           "text": "Barefoot Downunder",
+           "urlSegment": "",
+           "summary": "Barefoot Downunder" 
+        },
+         "locale": "en" 
+      } 
+    },
+     "nativeLanguage": "en",
+     "clickStreamEvent": "" 
+  },
+   "live": {
+     "fields": {
+       "alias": "barefootdownunder",
+       "firstName": "Debbie",
+       "lastName": "Hammond",
+       "address": {
+         "addressLine": "",
+         "postCode": "",
+         "city": "Sydney",
+         "state": "NSW",
+         "countryCode": "au",
+         "latitude": -33.8674869,
+         "longitude": 151.2069902 
+      },
+       "position": {
+         "address": "Sydney NSW AU",
+         "location": {
+           "type": "Point",
+           "coordinates": [
+             151.20699,
+             -33.867487 
+          ] 
+        },
+         "lat": -33.867487,
+         "lon": 151.20699 
+      },
+       "destinationName": "Sydney",
+       "destinationCountryCode": "au",
+       "destinationPath": "South Pacific,Australia,New South Wales,Sydney",
+       "companyLogoUrl": "https://img.rezdy.com/LOGO/41958/Untitled_1.png",
+       "currency": "AUD",
+       "locale": "en_au",
+       "timezone": "Australia/Sydney",
+       "category": "Adventure Tours",
+       "companyDescription": "<p>Barefoot Downunder provides adventure day trips to the Figure 8 Pools Royal National Park and the Blue Mountain to youth and student travellers, ba [...]",
+       "phone": "+61 2 9664 8868",
+       "mobile": "",
+       "fax": "",
+       "skype": "",
+       "terms": "Barefoot Downunder (BD) Terms and Conditions: Must be at pick-up location 10 minutes prior to pick-up time, cancellations 72 hrs prior incur 100% book [...]",
+       "openingHours": "Mon-Sun 8am - 7pm",
+       "facebookPage": "https://www.facebook.com/barefootdownunder",
+       "googlePlus": "",
+       "yelp": "",
+       "instagram": "barefootdownunder",
+       "pinterest": "",
+       "youtubeChannel": "",
+       "tripAdvisor": "http://www.tripadvisor.com.au/Attraction_Review-g255060-d8646991-Reviews-Barefoot_Downunder_Aussie_Tours-Sydney_New_South_Wales.html",
+       "twitter": "https://twitter.com/BFDownunder",
+       "website": "http://www.barefootdownunder.com.au",
+       "id": "41958" 
+    },
+     "status": "published",
+     "taxonomy": {
+       "navigation": [
+         "57e227bb6d0e81ad168b4768",
+         "580726bd6d0e810b3d7b23c6",
+         "582bf94c6d0e81d65f7b293b" 
+      ],
+       "585a1984a0af882f3dc24f3d": "585a19c8a0af88394dc24f37",
+       "585a19e0a0af885009c24f42": "585a19ffa0af886847c24f36",
+       "57b18d746d0e81e174c66328": [
+         "57b18d776d0e81e174c66564" 
+      ],
+       "57b18d746d0e81e174c66322": [
+         "57b18d776d0e81e174c66540" 
+      ] 
+    },
+     "startPublicationDate": null,
+     "endPublicationDate": null,
+     "target": [
+       "global" 
+    ],
+     "writeWorkspace": "global",
+     "pageId": "",
+     "maskId": "",
+     "blockId": "",
+     "i18n": {
+       "en": {
+         "fields": {
+           "text": "Barefoot Downunder",
+           "urlSegment": "",
+           "summary": "Barefoot Downunder" 
+        },
+         "locale": "en" 
+      } 
+    },
+     "nativeLanguage": "en",
+     "clickStreamEvent": "" 
+  },
+   "lastUpdateUser": {
+     "id": "55a4ab8b86c747a0758b4567",
+     "login": "admin",
+     "fullName": "Web Admin" 
+  },
+   "createUser": {
+     "id": "55a4ab8b86c747a0758b4567",
+     "login": "admin",
+     "fullName": "Web Admin" 
+  } 
+}

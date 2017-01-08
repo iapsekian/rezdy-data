@@ -1,0 +1,35 @@
+{
+	"categories": [{
+		"id": 124118, //taxonomy
+		"name": "Tours", //title, description
+		"visible": true
+	}, {
+		"id": 127530,
+		"name": "Bali",
+		"visible": false
+	}, {
+		"id": 124509,
+		"name": "Sydney",
+		"visible": false
+	}, {
+		"id": 125319,
+		"name": "Thailand",
+		"visible": false
+	}, {
+		"id": 125336,
+		"name": "For Taiwan Market",
+		"visible": false
+	}, {
+		"id": 127693,
+		"name": "New York City",
+		"visible": false
+	}, {
+		"id": 127695,
+		"name": "Langkawi - Malaysia",
+		"visible": false
+	}, {
+		"id": 127700,
+		"name": "Sabah - Malaysia",
+		"visible": false
+	}]
+}

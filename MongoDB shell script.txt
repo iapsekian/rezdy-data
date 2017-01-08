@@ -1,0 +1,77 @@
+MongoDB shell script
+
+//Rezdy tour Product Code/ObjectId mapping
+
+var cur = db.getCollection('TaxonomyTerms').find({"vocabularyId":"586df55fa0af88a741bcb6b5"});
+var p = {};
+while(cur.hasNext()){
+    var data = cur.next();
+    p[data.text]=data._id.str;
+}
+printjson(p);
+
+//WordsTravel city and taxonomy region city id mapping
+
+var locale = 'en';
+var cur = db.getCollection('Contents').find({"typeId":"57ed26a06d0e810b357b23c7"}); //content type = "City"
+var vocabularyId = "57b18d746d0e81e174c66328"; //region city id taxonomy vocabularyId
+var result = '';
+while(cur.hasNext()){
+	var city = cur.next();
+	var cityName = city.workspace.i18n[locale].fields.text;
+	var termId = city.workspace.taxonomy[vocabularyId];
+    if(termId === undefined){
+        result += attractionName + ' ---> ' + 'undefined' + '\n';
+    }else{
+		var cur1 = db.getCollection('TaxonomyTerms').find({"_id":ObjectId(termId)});
+		while(cur1.hasNext()){
+			var term = cur1.next();
+			result += cityName + ' ---> ' + term.text + '\n';
+		}
+	}
+}
+print(result);
+
+//WordsTravel Attraction and taxonomy attraction id mapping
+
+var locale = 'en';
+var cur = db.getCollection('Contents').find({"typeId":"57ea19736d0e81454c7b23d2"}); //content type = "Attraction"
+var vocabularyId = "57b18d746d0e81e174c6632e"; //attraction id taxonomy vocabularyId
+var result = '';
+while(cur.hasNext()){
+	var attration = cur.next();
+	var attractionName = attration.workspace.i18n[locale].fields.text;
+	var termId = attration.workspace.taxonomy[vocabularyId];
+    if(termId === undefined){
+        result += attractionName + ' ---> ' + 'undefined' + '\n';
+    }else{
+        var cur1 = db.getCollection('TaxonomyTerms').find({"_id":ObjectId(termId)});
+        while(cur1.hasNext()){
+                var term = cur1.next();
+                result += attractionName + ' ---> ' + term.text + '\n';
+        }
+    }
+}
+print(result);
+
+//WordsTravel Country and taxonomy country code mapping
+
+var locale = 'en';
+var cur = db.getCollection('Contents').find({"typeId":"57e9e2556d0e819c44dc0fc0"}); //content type = "Country"
+var vocabularyId = "57b18d746d0e81e174c66322"; //country code taxonomy vocabularyId
+var result = '';
+while(cur.hasNext()){
+	var country = cur.next();
+	var countryName = country.workspace.i18n[locale].fields.text;
+	var termId = country.workspace.taxonomy[vocabularyId];
+    if(termId === undefined){
+        result += attractionName + ' ---> ' + 'undefined' + '\n';
+    }else{
+        var cur1 = db.getCollection('TaxonomyTerms').find({"_id":ObjectId(termId)});
+        while(cur1.hasNext()){
+                var term = cur1.next();
+                result += countryName + ' ---> ' + term.text + '\n';
+        }
+    }
+}
+print(result);

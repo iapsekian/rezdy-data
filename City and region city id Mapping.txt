@@ -1,0 +1,732 @@
+Aberdeen ---> 497
+Abidjan ---> 646
+Abu Dhabi ---> 449
+Abuja ---> 491
+Accra ---> 811
+Addis Ababa ---> 489
+Adelaide ---> 15
+Adirondacks ---> 303
+Aegean Coast ---> 430
+Agadir ---> 796
+Agra ---> 125
+Ahmedabad ---> 807
+Aitutaki ---> 713
+Al Ain ---> 762
+Albuquerque ---> 331
+Alderney ---> 381
+Aleppo ---> 831
+Algiers ---> 817
+Alicante ---> 798
+Alice Springs ---> 14
+Almaty ---> 824
+Alsace Lorraine ---> 718
+Amalfi Coast ---> 461
+Amarillo ---> 357
+Amazon Basin ---> 197
+Amber Coast ---> 424
+Amman ---> 391
+Amritsar ---> 709
+Amsterdam ---> 180
+Anchorage ---> 281
+Ankara ---> 527
+Annapolis ---> 318
+Antananarivo ---> 588
+Antigua ---> 8
+Antigua Guatemala ---> 111
+Antwerp ---> 548
+Aqaba ---> 392
+Arequipa ---> 196
+Asheville ---> 541
+Ashgabat ---> 809
+Astana ---> 1167
+Asuncion ---> 746
+Athens ---> 113
+Atlanta ---> 283
+Auckland ---> 183
+Austin ---> 360
+Austrian Alps ---> 28
+Avignon ---> 780
+Baja California ---> 167
+Baku ---> 818
+Bali ---> 135
+Baltimore ---> 317
+Bandar Seri Begawan ---> 832
+Bangkok ---> 245
+Barbuda ---> 9
+Barcelona ---> 224
+Basel ---> 810
+Basque Country ---> 90
+Bath ---> 256
+Baton Rouge ---> 316
+Battlefields ---> 432
+Bazaruto Archipelago ---> 487
+Beijing ---> 65
+Beirut ---> 648
+Belfast ---> 495
+Belgrade ---> 516
+Belize City ---> 504
+Belo Horizonte ---> 882
+Bengaluru ---> 614
+Bergen ---> 191
+Berlin ---> 102
+Bernese Oberland ---> 251
+Biarritz ---> 1180
+Big Island ---> 296
+Bilbao ---> 228
+Billings ---> 475
+Billund ---> 838
+Biloxi ---> 1020
+Birmingham ---> 557
+Birmingham Alabama ---> 512
+Bishkek ---> 827
+Black Hills ---> 553
+Black Sea Coast ---> 382
+Blantyre ---> 563
+Bloemfontein ---> 546
+Bogota ---> 634
+Boise ---> 517
+Bologna ---> 819
+Bora Bora ---> 404
+Bordeaux ---> 91
+Boston ---> 328
+Brasilia ---> 645
+Bratislava ---> 526
+Brecon Beacons ---> 672
+Bridgetown ---> 30
+Brighton ---> 575
+Brisbane ---> 434
+Bristol ---> 474
+Brittany ---> 92
+Bruges ---> 549
+Brussels ---> 31
+Bucharest ---> 211
+Budapest ---> 120
+Buenos Aires ---> 5
+Bulawayo ---> 769
+Burlington ---> 481
+Busan ---> 660
+Cairns ---> 446
+Cairo ---> 86
+Cajamarca ---> 747
+Calgary ---> 46
+Cambridge ---> 657
+Canadian Rocky Mountains ---> 47
+Canberra ---> 16
+Cancun ---> 789
+Cape Cod ---> 329
+Cape Town ---> 217
+Cape Winelands ---> 431
+Cappadocia ---> 263
+Caracas ---> 414
+Cardiff ---> 465
+Carpathian Mountains ---> 675
+Cartagena ---> 702
+Casablanca ---> 578
+Cascade Mountain Range ---> 687
+Castries ---> 242
+Cayman Brac ---> 57
+Cebu ---> 200
+Central Coast ---> 309
+Central Pacific Coast ---> 70
+Cephalonia ---> 426
+Champagne Country ---> 93
+Charleston ---> 344
+Charleston West Virginia ---> 625
+Charlotte ---> 633
+Charlottetown ---> 711
+Chengdu ---> 698
+Chennai ---> 731
+Cheyenne ---> 688
+Chiang Mai ---> 246
+Chiang Rai ---> 760
+Chicago ---> 299
+Chilean Patagonia ---> 63
+Chincoteague Island ---> 540
+Chiriqui ---> 655
+Christchurch ---> 186
+Civitavecchia ---> 506
+Cleveland ---> 333
+Cody ---> 348
+Coimbra ---> 656
+Cologne ---> 800
+Colombo ---> 240
+Colorado Springs ---> 884
+Copenhagen ---> 388
+Cordoba ---> 970
+Corfu ---> 116
+Cork ---> 457
+Corsica ---> 94
+Costa Almeria ---> 395
+Costa Blanca ---> 225
+Costa Brava ---> 396
+Costa de la Luz ---> 493
+Costa del Sol ---> 227
+Costa do Estoril ---> 389
+Costa Dorada ---> 366
+Cote d Azur ---> 95
+Crete ---> 117
+Crimea ---> 674
+Cultural Triangle ---> 755
+Curitiba ---> 974
+Cuzco ---> 195
+Da Lat ---> 715
+Da Nang ---> 717
+Dakar ---> 435
+Dallas-Fort Worth ---> 356
+Dalmatian Coast ---> 1160
+Damascus ---> 525
+Dammam ---> 812
+Dar Es Salaam ---> 1173
+Darjeeling ---> 729
+Darwin ---> 13
+Davao ---> 201
+Delft ---> 652
+Delhi ---> 124
+Denver ---> 286
+Des Moines ---> 679
+Detroit ---> 321
+Dhaka ---> 815
+Doha ---> 570
+Door County ---> 539
+Dordogne and Lot ---> 96
+Dresden ---> 823
+Dubai ---> 416
+Dublin ---> 136
+Dubrovnik ---> 447
+Duluth ---> 681
+Durban ---> 220
+Durham ---> 524
+Dusseldorf ---> 799
+East Anglia ---> 255
+East Coast ---> 423
+East London ---> 545
+Easter Island ---> 64
+Eastern Shore ---> 319
+Edinburgh ---> 257
+Edmonton ---> 635
+Eger ---> 123
+Eindhoven ---> 805
+Entebbe ---> 808
+Etosha National Park ---> 483
+Fairbanks ---> 720
+Fajardo ---> 442
+Fargo ---> 685
+Faro ---> 1168
+Fez ---> 173
+Fianarantsoa ---> 728
+Fish River Canyon ---> 408
+Fjordland ---> 188
+Florence ---> 418
+Flores ---> 723
+Florianopolis ---> 975
+Florida Keys ---> 451
+Fort de France ---> 739
+Fort Lauderdale ---> 957
+Fortaleza ---> 993
+Frankfurt ---> 104
+Fraser Coast ---> 604
+Freetown ---> 821
+French Alps ---> 97
+Fuerteventura ---> 367
+Fukuoka ---> 273
+Funchal ---> 804
+Gaborone ---> 37
+Galapagos Islands ---> 85
+Galilee ---> 277
+Galveston ---> 502
+Galway ---> 458
+Garden Route ---> 218
+Gdansk ---> 203
+Geneva ---> 249
+Genoa ---> 712
+Ghent ---> 550
+Glasgow ---> 258
+Goa ---> 130
+Gold Coast ---> 371
+Gold Coast, Queensland ---> 12
+Gothenburg ---> 450
+Gozo ---> 165
+Gran Canaria ---> 236
+Grand Cayman ---> 56
+Grand Strand and Myrtle Beach ---> 345
+Grand Turk ---> 398
+Grandvalira ---> 619
+Groningen ---> 529
+Guadalajara ---> 742
+Guadalcanal Island ---> 756
+Guangzhou ---> 595
+Guatemala City ---> 727
+Guernsey ---> 379
+Guilin ---> 638
+Gulf Coast ---> 372
+Gulfport ---> 1022
+Gyeongju ---> 659
+Haifa ---> 735
+Halifax ---> 53
+Hamburg ---> 106
+Hamilton ---> 32
+Hangzhou ---> 637
+Hannover ---> 561
+Hanoi ---> 264
+Harare ---> 594
+Harpers Ferry ---> 626
+Hartford ---> 513
+Havana ---> 75
+Helsinki ---> 394
+Hill Resorts ---> 158
+Himalayas ---> 377
+Hiroshima ---> 1170
+Ho Chi Minh City ---> 266
+Hobart ---> 21
+Hoi An ---> 692
+Hong Kong City ---> 292
+Honolulu ---> 766
+Houston ---> 359
+Huaraz Region ---> 194
+Hudson Valley and the Catskills ---> 304
+Hue ---> 265
+Hyderabad ---> 826
+Ibiza ---> 230
+Indianapolis ---> 521
+Inhambane ---> 750
+Innsbruck ---> 694
+Inverness ---> 794
+Iowa City ---> 522
+Isaan ---> 759
+Isla Grande de Chiloe ---> 62
+Isla Margarita ---> 616
+Islamabad ---> 813
+Islands ---> 784
+Islay ---> 612
+Isle of Arran ---> 613
+Isle of Mull ---> 611
+Isle of Wight ---> 609
+Istanbul ---> 261
+Italian Alps ---> 162
+Jackson Mississippi ---> 325
+Jackson Wyoming ---> 347
+Jacksonville ---> 503
+Jaipur ---> 127
+Jakarta ---> 568
+Java ---> 134
+Jeddah ---> 533
+Jersey ---> 378
+Jerusalem ---> 275
+Johannesburg ---> 221
+Juneau ---> 764
+Kalamata ---> 1175
+Kaliningrad Oblast ---> 752
+Kampala ---> 682
+Kansas City ---> 362
+Karachi ---> 828
+Kariba ---> 770
+Kathmandu ---> 469
+Kauai ---> 298
+Kerala ---> 132
+Ketchikan ---> 880
+Khartoum ---> 814
+Kiev ---> 492
+Kigali ---> 748
+Killarney ---> 644
+Kimberley ---> 544
+Kingston ---> 144
+Kiruna ---> 596
+Kochi ---> 733
+Kolkata ---> 585
+Kos ---> 363
+Kotor ---> 749
+Krakow ---> 204
+Kruger National Park ---> 385
+Kuala Lumpur ---> 157
+Kunming ---> 639
+Kyoto ---> 271
+La Coruna ---> 792
+La Digue ---> 754
+La Paz ---> 35
+La Romana ---> 556
+Ladakh ---> 732
+Lagos ---> 490
+Lahore ---> 822
+Lake Atitlan ---> 112
+Lake Balaton ---> 122
+Lake Country ---> 141
+Lake District ---> 61
+Lake Erie Islands ---> 334
+Lake Malawi ---> 589
+Lake Superior and Thunder Bay ---> 50
+Lake Titicaca ---> 198
+Lake Titicaca Bolivia ---> 617
+Lanai ---> 767
+Lanzarote ---> 239
+Larnaca ---> 77
+Las Palmas ---> 1163
+Las Vegas ---> 280
+Leeds ---> 531
+Lesvos ---> 433
+Lille ---> 532
+Lilongwe ---> 562
+Lima ---> 193
+Limassol ---> 80
+Limerick ---> 724
+Lisbon ---> 205
+Little Cayman ---> 58
+Little Rock ---> 618
+Liverpool ---> 473
+Ljubljana ---> 510
+Llandudno ---> 669
+Loire Valley ---> 98
+Lombok ---> 346
+London ---> 252
+Long Island ---> 301
+Los Angeles ---> 306
+Louisville ---> 311
+Luanda ---> 599
+Luang Prabang ---> 153
+Lusaka ---> 802
+Luxembourg-Ville ---> 154
+Luxor ---> 797
+Luzern ---> 505
+Lyon ---> 498
+Mackay ---> 600
+Mackinaw City ---> 322
+Madeira ---> 209
+Madison ---> 538
+Madrid ---> 1166
+Mahe ---> 373
+Maine Ski Resorts ---> 622
+Malaga ---> 1165
+Male ---> 736
+Mallorca ---> 229
+Malmo ---> 684
+Managua ---> 658
+Manama ---> 572
+Manchester ---> 470
+Manchester NH ---> 1146
+Manila ---> 199
+Maputo ---> 488
+Marigot ---> 324
+Marrakech ---> 172
+Marseille ---> 494
+Maseru ---> 734
+Matara ---> 241
+Maui ---> 295
+Mediterranean Coast ---> 429
+Melbourne ---> 17
+Memphis ---> 343
+Mexico City ---> 168
+Miami ---> 288
+Milan ---> 161
+Milwaukee ---> 537
+Minneapolis-St Paul ---> 320
+Minorca ---> 231
+Minsk ---> 519
+Mobile ---> 676
+Molokai ---> 297
+Monrovia ---> 825
+Monte-Carlo ---> 485
+Montego Bay ---> 145
+Montevideo ---> 511
+Montgomery ---> 763
+Montgomery County ---> 768
+Montpelier ---> 686
+Montreal ---> 52
+Moorea ---> 405
+Moscow ---> 214
+Mount Desert Island ---> 478
+Mountains ---> 383
+Mpumalanga ---> 222
+Mumbai ---> 129
+Munich ---> 103
+Muscat ---> 573
+Mykonos ---> 119
+Nairobi ---> 149
+Naples ---> 143
+Nashville ---> 342
+Nassau ---> 571
+Natchez ---> 326
+National Parks and Reserves ---> 243
+Negril ---> 147
+Nevis ---> 444
+New Haven ---> 514
+New Jersey Shore ---> 327
+New Orleans ---> 315
+New York City ---> 285
+Newcastle-Upon-Tyne ---> 471
+Newport ---> 341
+Nha Trang ---> 714
+Nicosia ---> 78
+Norfolk ---> 555
+Normandy ---> 99
+North Carolina Coast ---> 336
+North Coast Redwoods District ---> 308
+North Island ---> 182
+Northern Argentina ---> 7
+Northern Cyprus ---> 705
+Northern Wales ---> 667
+Northwest Costa Rica ---> 69
+Nosy Be ---> 1171
+Nottingham ---> 536
+Oahu ---> 294
+Oaxaca ---> 741
+Ocho Rios ---> 146
+Odessa ---> 761
+Okavango Delta ---> 38
+Oklahoma City ---> 534
+Omaha ---> 530
+Oranjestad ---> 455
+Orlando ---> 290
+Osaka ---> 647
+Oslo ---> 189
+Ottawa ---> 49
+Oudtshoorn ---> 738
+Outer Hebrides ---> 610
+Oviedo ---> 1176
+Oxford ---> 253
+Pacific Coast ---> 169
+Palermo ---> 1051
+Palma de Mallorca ---> 803
+Panama Canal ---> 855
+Panama City ---> 745
+Paphos ---> 79
+Paramaribo ---> 758
+Paris ---> 89
+Patmos ---> 721
+Peloponnese Peninsula ---> 114
+Pemba and Northern Mozambique ---> 786
+Pensacola ---> 291
+Perth ---> 22
+Petra ---> 393
+Philadelphia ---> 337
+Philipsburg ---> 323
+Phillip Island and Gippsland ---> 18
+Phnom Penh ---> 43
+Phoenix ---> 278
+Phu Quoc ---> 716
+Phuket ---> 664
+Pisa ---> 801
+Pittsburgh ---> 338
+Plymouth ---> 608
+Pokhara ---> 376
+Ponce ---> 441
+Port Antonio ---> 439
+Port Elizabeth ---> 219
+Port Louis ---> 166
+Port of Spain ---> 665
+Portland ---> 477
+Portland Oregon ---> 479
+Porto ---> 207
+Potosi ---> 36
+Prague ---> 101
+Praslin Island ---> 374
+Pretoria ---> 584
+Provence ---> 100
+Providence ---> 340
+Providenciales ---> 397
+Puerto Limon ---> 507
+Pushkar ---> 730
+Quebec City ---> 415
+Queenstown ---> 187
+Quito ---> 84
+Rabat ---> 174
+Raleigh ---> 543
+Rangiroa ---> 406
+Rarotonga ---> 701
+Recife ---> 973
+Regina ---> 988
+Reno ---> 621
+Resort Islands ---> 163
+Reykjavik ---> 445
+Rhodes ---> 118
+Richmond ---> 349
+Riga ---> 496
+Rio de Janeiro ---> 39
+Riyadh ---> 437
+Rocky Mountains ---> 287
+Rome ---> 138
+Roseau ---> 500
+Roskilde ---> 640
+Rotterdam ---> 653
+Russian Far East ---> 751
+Sabah ---> 466
+Saint George ---> 1156
+Saint-Denis ---> 484
+Sal ---> 410
+Salt Lake City ---> 354
+Salvador da Bahia ---> 42
+Salzburg ---> 27
+Samos ---> 420
+San Antonio ---> 567
+San Cristobal de las Casas ---> 171
+San Diego ---> 307
+San Francisco ---> 305
+San Jose ---> 969
+San Jose Costa Rica ---> 703
+San Juan ---> 210
+San Miguel de Allende ---> 740
+San Pedro de Atacama ---> 60
+Santa Cruz de la Sierra ---> 696
+Santa Fe ---> 332
+Santiago ---> 59
+Santiago de Compostela ---> 663
+Santiago de Cuba ---> 76
+Santiago Island ---> 412
+Santo Antao ---> 411
+Santo Domingo ---> 82
+Santorini ---> 427
+Sao Luis ---> 972
+Sao Paulo ---> 40
+Sao Vicente ---> 413
+Sapporo ---> 274
+Sarawak ---> 467
+Sardinia ---> 140
+Sark ---> 380
+Saronic Gulf Islands ---> 722
+Savannah ---> 284
+Seattle ---> 353
+Sedona ---> 677
+Seoul ---> 417
+Seville ---> 226
+Shanghai ---> 66
+Shannon ---> 806
+Sharjah ---> 691
+Shenandoah Valley ---> 350
+Shikoku ---> 725
+Sicily ---> 365
+Siem Reap ---> 580
+Singapore ---> 216
+Skagway ---> 765
+Ski Resorts ---> 460
+Skiathos ---> 368
+Skopelos ---> 428
+Sochi ---> 569
+Sofia ---> 384
+South Coast ---> 148
+South Island ---> 185
+Southern Argentina ---> 6
+Southern Bucovina ---> 213
+Southern National Parks ---> 355
+Southwest England ---> 401
+Split ---> 448
+Springfield ---> 300
+St Croix ---> 269
+St John ---> 268
+St Johns ---> 1169
+St Johns Antigua ---> 628
+St Kitts ---> 443
+St Louis ---> 361
+St Petersburg ---> 215
+St Petersburg Florida ---> 552
+St Thomas ---> 267
+Stavanger ---> 693
+Stockholm ---> 390
+Stuttgart ---> 560
+Sucre ---> 615
+Sumatra ---> 133
+Sunshine Coast ---> 603
+Swansea ---> 666
+Swiss Alps ---> 250
+Sydney ---> 25
+Sylhet ---> 820
+Tahiti ---> 403
+Taipei ---> 523
+Tallinn ---> 407
+Tampa ---> 289
+Tangier ---> 175
+Tashkent ---> 830
+Tbilisi ---> 816
+Tehran ---> 829
+Tel Aviv ---> 276
+Tenby ---> 670
+Tenerife ---> 238
+Thassos ---> 419
+The Algarve ---> 206
+The Amazon ---> 41
+The Andes ---> 627
+The Azores ---> 208
+The Berkshire Hills ---> 330
+The Black Forest ---> 105
+The Caribbean Lowlands ---> 72
+The Coast ---> 247
+The Copper Canyon ---> 370
+The Cotswolds ---> 254
+The Danube Bend ---> 121
+The East Coast ---> 386
+The Great Rift Valley ---> 150
+The Highlands ---> 259
+The Inside Passage ---> 282
+The Islands ---> 29
+The Kenyan Coast ---> 151
+The Lake District ---> 472
+The Namib Desert ---> 178
+The New Territories ---> 643
+The Nile Valley ---> 87
+The Rhineland ---> 642
+The Romantic Road ---> 719
+The Sinai Peninsula and the Red Sea ---> 88
+The Valley ---> 629
+Thessaloniki ---> 115
+Thimphu ---> 737
+Thunder Bay ---> 50
+Tibet ---> 68
+Tijuana ---> 788
+Tokyo ---> 270
+Toronto ---> 48
+Tortola ---> 409
+Toulouse ---> 683
+Townsville ---> 598
+Transkei ---> 791
+Transylvania ---> 212
+Trinidad ---> 422
+Tripoli ---> 649
+Tromso ---> 192
+Trondheim ---> 654
+Tucson ---> 279
+Tulsa ---> 535
+Tunis ---> 597
+Tuscany ---> 139
+Udaipur ---> 126
+Umbria ---> 636
+Uppsala ---> 662
+Valencia ---> 520
+Valletta ---> 164
+Vancouver ---> 44
+Vancouver Island ---> 453
+Vang Vieng ---> 559
+Varanasi ---> 128
+Venice ---> 142
+Vermont Ski Resorts ---> 482
+Verona ---> 623
+Victoria Falls ---> 593
+Vienna ---> 26
+Vientiane ---> 152
+Vigo ---> 795
+Vilnius ---> 452
+Vinales Valley ---> 421
+Virgin Gorda ---> 440
+Virginia Coast ---> 351
+Vitoria ---> 889
+Vojvodina ---> 753
+Walvis Bay ---> 650
+Warsaw ---> 202
+Washington DC ---> 352
+Wellington ---> 184
+West Coast ---> 757
+West Okoboji Lake ---> 937
+Western Maryland ---> 680
+Western New York State ---> 302
+Whitehorse ---> 476
+Whitsunday Islands ---> 602
+Wilmington ---> 515
+Windhoek ---> 179
+Winnipeg ---> 710
+Xi An ---> 67
+Yangon ---> 591
+Yellowknife ---> 459
+Yerevan ---> 630
+Yogyakarta ---> 454
+York ---> 468
+Yucatan Peninsula ---> 170
+Zagreb ---> 73
+Zakynthos ---> 425
+Zanzibar ---> 1172
+Zurich ---> 248

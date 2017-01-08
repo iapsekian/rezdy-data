@@ -1,0 +1,306 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fs",
+				"fs.readFile(path, options, callback_);"
+			],
+			[
+				"request",
+				"https.request(options, cb);"
+			],
+			[
+				"ajax",
+				"ajaxSettings"
+			],
+			[
+				"crea",
+				"createElement"
+			],
+			[
+				"w",
+				"wType"
+			],
+			[
+				"com",
+				"compile"
+			],
+			[
+				"tour",
+				"tourcms-wedget"
+			],
+			[
+				"me",
+				"mediaId"
+			],
+			[
+				"sce",
+				"sce"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"re",
+				"readFile"
+			],
+			[
+				"out",
+				"outputFile"
+			],
+			[
+				"sour",
+				"sourceFile"
+			],
+			[
+				"file",
+				"file"
+			],
+			[
+				"cont",
+				"content1"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 187.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"node",
+				"Nodejs::Default File Settings"
+			],
+			[
+				"Snippet: j",
+				"Snippet: jQuery.ajax"
+			],
+			[
+				"Package Control: remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Install Package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 201.0,
+		"history":
+		[
+			"node",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/casper/code/rezdyapi-server-side/call.js",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Nodejs/Nodejs.sublime-settings",
+		"/Users/casper/code/rezdyapi-server-side/test1.js",
+		"/Users/casper/code/rezdyapi/rezdyapicallthrougcors-anywhere1.js",
+		"/Users/casper/code/rezdyapi/rezdyapicallthrougcors-anywhere.js",
+		"/Users/casper/code/rezdyapi/rezdyapicall-factory-1.js",
+		"/Users/casper/code/rezdyapi/rezdyapicall-factory.js",
+		"/Users/casper/code/angularjs/write the http service as a factory method.js",
+		"/Users/casper/code/tourcms/tourcmsWidget.js",
+		"/Users/casper/code/tourcms/callUrlFromBrowser.js",
+		"/Users/casper/adsenseTpl1.html",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/tst.tourbooks.cc",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1481694056/tst.tourbooks.cc/var/www/rubedo/public/.htaccess",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/SFTP/SFTP.sublime-settings",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/casper/Downloads/pdump/var/www/rubedo/public/components/webtales/rubedo-localization/ja/Generic/genericTranslations.json",
+		"/Users/casper/temp/a/var/www/rubedo/public/components/webtales/rubedo-localization/zh-TW/FrontOffice/Blocks/Search/search.json",
+		"/Users/casper/temp/a/var/www/rubedo/public/components/webtales/rubedo-localization/zh-TW/FrontOffice/Fields/ProductBox/product.json",
+		"/Users/casper/temp/test/listdir.js",
+		"/Users/casper/temp/test/transform.js",
+		"/Users/casper/Downloads/mongo4idea-0.7.6/README.md",
+		"/Users/casper/Downloads/genericTranslations_ja.json",
+		"/Users/casper/temp/test/t.js",
+		"/Users/casper/temp/test/trc.js",
+		"/Users/casper/temp/test/csvoutput/country-new3.csv",
+		"/Users/casper/temp/test/xmloutput/Angola.xml",
+		"/Users/casper/temp/test/xmloutput/Taipei.xml",
+		"/Users/casper/temp/test/xmloutput/Thailand.xml",
+		"/Users/casper/temp/test/output/Thailand1.xml",
+		"/Users/casper/temp/test/data/Thailand.xml",
+		"/Users/casper/temp/test/data/Thailand1.xml",
+		"/Users/casper/temp/test/data/Taipei1.xml",
+		"/Users/casper/temp/test/data/Taipei.xml",
+		"/Users/casper/Downloads/lighttable-0.8.1-mac/light",
+		"/Users/casper/Downloads/CCD_Converter/CCD.xsl",
+		"/Users/casper/Downloads/city site page export.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"auto_complete_selector",
+			"<",
+			"[",
+			"<p ",
+			"home"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 159.0
+	},
+	"pinned_build_system": "",
+	"project": "call.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 195.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

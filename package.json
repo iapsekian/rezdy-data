@@ -1,0 +1,18 @@
+{
+  "name": "rezdyapi-server-side",
+  "version": "1.0.0",
+  "description": "Get Rezdy data through API to store in bookur db",
+  "main": "main.js",
+  "dependencies": {
+    "bson-ext": "^1.0.1",
+    "debug": "^2.4.5",
+    "mongodb": "^2.2.16",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Casper Yeh",
+  "license": "MIT"
+}

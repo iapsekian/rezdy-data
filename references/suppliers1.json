@@ -1,0 +1,45 @@
+"alias": "barefootdownunder", //taxonomy
+"companyName": "Barefoot Downunder", //title, summary
+"firstName": "Debbie",
+"lastName": "Hammond",
+"address": {
+	"addressLine": "",
+	"postCode": "",
+	"city": "Sydney",
+	"state": "NSW",
+	"countryCode": "au",
+	"latitude": -33.8674869,
+	"longitude": 151.20699020000006
+}, //json obj & position field
+"destinationName": "Sydney",
+"destinationCountryCode": "au",
+"destinationPath": "South Pacific,Australia,New South Wales,Sydney",
+"companyLogoUrl": "https://img.rezdy.com/LOGO/41958/Untitled_1.png",
+"currency": "AUD",
+"locale": "en_au",
+"timezone": "Australia/Sydney",
+"category": "Adventure Tours",
+"companyDescription": "<p>Barefoot Downunder provides adventure day trips to the Figure 8 Pools Royal National Park and the Blue Mountain&nbsp;to youth and student travellers, backpackers or for the young at heart. With a focus on the outdoors, hiking&nbsp;and cultural activities&nbsp;led by local, friendly and experienced&nbsp;guides - we have fun every step of the way.</p><p>Our team is&nbsp;full of energy and personality, we love to laugh and tell jokes, do the odd prank just to keep things light-hearted. We know our history and culture and are full of information, tips and advice from the best local places to visit to catching the best wave around OZ.</p><p>As an owner-operator tour company we are present in every&nbsp;moment and passionate in what we do. With a combined and extensive background in adventure guiding, surf instructing, events, hostel and accommodation management we&nbsp;understand what our guests want and how to give them the best experience possible.</p><span>To us you're&nbsp;not just another guest but a friend we haven't met yet.&nbsp;So what are you waiting for? Get out there!<br></span><br>",
+"phone": "+61 2  9664 8868",
+"mobile": "",
+"fax": "",
+"skype": "",
+"terms": "Barefoot Downunder (BD) Terms and Conditions: Must be at pick-up location 10 minutes prior to pick-up time, cancellations 72 hrs prior incur 100% booking fee, no refunds for late arrivals and missed pickup or no-shows. A $10 admin fee applies for any cancellations made after 72 hours for each booking or for any booking changes thereafter. BD reserves the right to change an itinerary and tour at any time without notice due to weather, safety and at company’s discretion. BD reserves the right to cancel a tour if the minimum number of persons required is not met (6 persons on Blue Mtns, 5 persons Figure 8 Pools) and if such occurs a full refund will be given or alternate date made. At least a medium fitness level is required, if you are late throughout the day and miss the departure time you will need to make your way back to Sydney at your own expense. Minimum age is 15 years and up. Other operator prices may change and vary. Please visit our website for full terms and conditions.",
+"openingHours": "Mon-Sun 8am - 7pm",
+"facebookPage": "https://www.facebook.com/barefootdownunder",
+"googlePlus": "",
+"yelp": "",
+"instagram": "barefootdownunder/",
+"pinterest": "",
+"youtubeChannel": "",
+"tripAdvisor": "http://www.tripadvisor.com.au/Attraction_Review-g255060-d8646991-Reviews-Barefoot_Downunder_Aussie_Tours-Sydney_New_South_Wales.html",
+"twitter": "https://twitter.com/BFDownunder",
+"website": "http://www.barefootdownunder.com.au"
+
+//additional field
+//supplierId
+//
+//additional taxonomy
+//Supplier ID
+//region_city_id
+//country_code

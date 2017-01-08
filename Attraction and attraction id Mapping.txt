@@ -1,0 +1,3048 @@
+798 Space ---> 2225
+A Maze N Things ---> 3380
+Abacos Islands ---> 2399
+Abbey House Museum ---> 2037
+Abbey Road Studios ---> 3264
+Aberdeen ---> 1196
+Aberdeen Art Gallery ---> 1957
+Aberdeen Maritime Museum ---> 1956
+Aberystwyth ---> 3942
+Abokouamekro National Park ---> 3503
+Abu Simbel ---> 293
+Achilleion ---> 406
+Acropolis ---> 257
+Acropolis ---> 380
+Acropolis of Rhodes ---> 418
+Acuario Nacional ---> 2869
+Adams Peak ---> 960
+Adare ---> 3481
+Addo Elephant Park ---> 855
+Adelaide Botanic Garden ---> 3957
+Adler Planetarium and Astronomy Museum ---> 2115
+Adolpho Ducke Botanical Garden ---> 138
+Adventuredome ---> 2645
+Aegean Maritime Museum ---> 2740
+Aegina ---> 3468
+Afrikaans Monument and Museum ---> 1665
+Agadir ---> 3799
+Agia Solomoni Catacombs ---> 256
+Agnes Falls Scenic Reserve ---> 55
+Agra Fort ---> 441
+Agura Waterfalls ---> 2488
+Airfield House and Farm ---> 2615
+Airlie Beach ---> 2982
+Ait Benhaddou ---> 3562
+Aix-les-Bains ---> 3151
+Akaroa ---> 1854
+Aki Ras Landmine Museum ---> 3064
+Akihabara ---> 1067
+Al Dar Island ---> 3366
+Al Hajar Mountains ---> 3185
+Al Hosn Palace (White Fort) ---> 1720
+Al Jalali and Al Mirani Forts ---> 2522
+Al Khor Museum ---> 3193
+Al Murabba’a Historical Palace ---> 1680
+Al Musmak Castle ---> 1679
+Al Nasr Leisureland ---> 2606
+Al Wakrah ---> 2482
+Al-Omari Mosque ---> 3512
+Alamo Square ---> 2171
+Alaska Native Heritage Center ---> 2992
+Alaskan Ferry ---> 2433
+Alaskan Ferry ---> 2434
+Albi ---> 3441
+Albuquerque Museum ---> 1337
+Alcatraz ---> 1232
+Alcazar of Seville ---> 908
+Alcudia (Old Town) ---> 1470
+Alexander Nevsky Cathedral ---> 1535
+Alfama ---> 771
+Alghero ---> 3879
+Allied Museum ---> 3121
+Allou Fun Park ---> 2562
+Almeria City ---> 1576
+Alte Feste (Old Fortress) ---> 2087
+Alte Pinakothek ---> 353
+Alton Towers ---> 1023
+Amarillo Museum of Art ---> 1450
+Amber Museum ---> 272
+Amber Palace ---> 442
+Ambergris Caye ---> 3822
+Amboise ---> 3152
+Amboro National Park ---> 3390
+Amboseli National Park ---> 539
+Amelia Island ---> 3746
+American Cemetery and Memorial ---> 739
+American International Rattlesnake Museum ---> 1335
+American Museum of Natural History ---> 1160
+Amethyst Mine ---> 168
+Amiens ---> 1796
+Ampenan ---> 1771
+Amsterdam Canal Tour ---> 3566
+Amsterdam Coffeeshops ---> 2370
+Amsterdam Museum ---> 669
+Anaheim ---> 2956
+Anchorage Museum of History and Art ---> 1661
+Ancient Agora ---> 381
+Ancient Corinth ---> 393
+Ancient Kition ---> 240
+Ancient Theatre of Fourvière ---> 3106
+Ancient Theatre of Pythagorio ---> 2770
+Ancient Troy ---> 1610
+Ancón Beach ---> 1651
+Andautonia Archaeological Park ---> 221
+Andros Island ---> 2396
+Angel Oak ---> 2453
+Angers ---> 3153
+Angkor National Museum ---> 3067
+Anglican Cathedral and Slave Market ---> 2205
+Angra dos Reis ---> 134
+Anitkabir ---> 2024
+Anjuna ---> 3859
+Anjuna Flea Market ---> 458
+Ann Arbor ---> 1290
+Annapurna Region ---> 1850
+Anne Frank House ---> 664
+Annecy ---> 3154
+Antigua Rum Distillery ---> 3045
+Anuradhapura ---> 958
+Appleton Rum Estate ---> 534
+Aquaboulevard ---> 3102
+Aqualand Gran Canaria ---> 2760
+Aqualand Mallorca ---> 2755
+Aqualand Water Park ---> 2734
+Aqualandia ---> 2245
+Aquaparc ---> 2787
+Aquarium of the Bay ---> 2170
+Aquatica by Seaworld ---> 3725
+Aran Islands ---> 480
+Arc de Triomphe ---> 2144
+Archaeological Museum ---> 212
+Arctic Cathedral ---> 715
+Arenal Volcano National Park ---> 207
+Arikok National Park ---> 1545
+Arizona-Sonora Desert Museum ---> 2309
+Arkansas Governors Mansion ---> 3014
+Arkhangelskoye Palace ---> 3806
+Arlington Antebellum Home and Gardens ---> 3285
+Armley Mills Industrial Museum ---> 2033
+Arrecife Museum of Contemporary Art ---> 949
+Arrowtown ---> 703
+Art Institute of Chicago ---> 1220
+Art Nouveau Architecture ---> 2886
+Arta ---> 1394
+Arthurs Seat ---> 3273
+Artis Zoo ---> 2553
+Artspace ---> 2074
+Arucas ---> 943
+Asfour Crystal Factory ---> 2305
+Ashmolean Museum ---> 1592
+Asian Art Museum of San Francisco ---> 3042
+Asian Civilisations Museum ---> 3229
+Asilah ---> 661
+Assisi ---> 3074
+Atlanta Botanical Garden ---> 1137
+Atlanta History Center ---> 1133
+Atlantic Beach ---> 3955
+Attica Zoological Gardens ---> 2559
+Auckland Museum ---> 690
+Auckland Sky Tower ---> 692
+Audubon Aquarium of the Americas ---> 1265
+Audubon House and Tropical Gardens ---> 1737
+Augsburg ---> 3449
+Auschwitz Memorial Museum ---> 769
+Australian War Memorial ---> 3374
+Automotive Hall of Fame ---> 1284
+Avenue of Stars ---> 3139
+Avery Island ---> 3767
+Avon Valley Adventure and Wildlife Park ---> 2951
+Axum ---> 2686
+Ayacucho ---> 3544
+Ayutthaya ---> 2424
+Azem Palace ---> 2967
+Azure Window ---> 3514
+Bab Agnaou ---> 2322
+Baconao Park ---> 235
+Baden-Baden ---> 3843
+Badlands National Park ---> 3290
+Baga Beach ---> 3860
+Bagan ---> 2239
+Bahir Dar ---> 3096
+Bahla ---> 3184
+Bahrain Fort ---> 2503
+Bairro Alto ---> 774
+Bait al Baranda ---> 2510
+Baiyun Mountain ---> 2962
+Bakken Amusement Park ---> 2724
+Baku Water Park ---> 2778
+Balagne ---> 3111
+Balatonfured ---> 3845
+Balboa Park ---> 1244
+Bald Head Island ---> 2072
+Baldwin Home Museum ---> 1209
+Bali Bird Park ---> 2837
+Ballarat ---> 60
+Balmoral Castle ---> 1958
+Balti Triangle ---> 2216
+BALTIC Centre for Contemporary Art ---> 1866
+Baltimore and Ohio (B&O) Railroad Museum ---> 1278
+Baltimore Museum of Art ---> 2069
+Banaue ---> 743
+Banff ---> 3963
+Bangkok Butterfly Garden and Insectarium ---> 2713
+Bangkok Children’s Discovery Museum ---> 2709
+Bangkok National Museum ---> 2289
+Banos ---> 3992
+Banpo Village Remains ---> 198
+Banyoles ---> 1583
+Banys Arabs ---> 926
+Barbados Garrison ---> 3384
+Barber Institute of Fine Arts ---> 2215
+Barbier-Mueller Museum ---> 2165
+Barcelona Aquarium ---> 2565
+Barcelona Beaches ---> 2106
+Barossa Valley ---> 38
+Barri Gotic ---> 2110
+Basilica dei Frari ---> 581
+Basilica di San Giovanni ---> 2169
+Basilica Minore de Santo Nino ---> 747
+Basilica of SantAmbrogio ---> 2372
+Basilique St-Michel ---> 3016
+Basque Museum and Cultural Center ---> 1995
+Basseterre ---> 1697
+Bastakiya ---> 1627
+Bastia ---> 3155
+Bateaux Dubai Dinner Cruise ---> 2440
+Baths of Aphrodite ---> 258
+Bathsheba ---> 93
+Battlefields Park (Plains of Abraham) ---> 1623
+Batu Caves ---> 572
+Batubulan ---> 2833
+Bay of Islands ---> 693
+Bay of Pigs Museum ---> 3430
+Bayeaux ---> 1805
+Bayonne ---> 3156
+Bayou Bend ---> 1456
+Bayworld ---> 851
+Bazaruto Island ---> 1931
+Beach Communities ---> 1243
+Beaches ---> 2894
+Beaches ---> 3519
+Beaches ---> 751
+Beaches ---> 967
+Beaches in Busan ---> 3619
+Beaches in Mauritius ---> 614
+Beaches in Oman ---> 3588
+Beaches near Palma ---> 927
+Beaches on Fuerteventura ---> 1503
+Beatles Story Experience ---> 1882
+Beau Vallon Bay ---> 1612
+Beihai Park ---> 2224
+Beijing Aquarium ---> 2228
+Beijing World Park ---> 2717
+Beira ---> 3916
+Beirut Hippodrome ---> 3466
+Beit Shean National Park ---> 1114
+Belfast Botanic Gardens and the Ulster Museum ---> 1943
+Belfast Zoo ---> 1944
+Belgian Centre of Comic Strip Art ---> 2285
+Bell Tower (Campanile di San Marco) ---> 2382
+Bellagio Hotel and Casino ---> 1121
+Belle Meade Plantation ---> 1381
+Belle of Louisville ---> 1253
+Belvedere ---> 83
+Belvedere Park ---> 3677
+Bemis Center for Contemporary Arts ---> 2031
+Ben and Jerrys Ice Cream Factory ---> 1914
+Ben Nevis ---> 3773
+Ben Thanh Market ---> 2406
+Ben Youssef Madrasa ---> 2320
+Benaki Museum ---> 2250
+Benefit Street ---> 1370
+Beng Mealea ---> 3066
+Benguerra Island ---> 1932
+Berastagi ---> 2842
+Berchtesgaden ---> 355
+Berkeley Castle ---> 1298
+Berlin Jewish Museum ---> 346
+Berlin Wall East Side Gallery ---> 345
+Berlin Zoo-Aquarium ---> 2572
+Berliner Dom ---> 2108
+Bermuda Railway Trail ---> 2906
+Bern ---> 1879
+Berry Islands ---> 3362
+Betancuria ---> 1500
+Bethlehem ---> 1107
+Bhaktapur ---> 1846
+Bhubing Palace ---> 2448
+Bialowieza National Park ---> 3581
+Bieszczady Mountains ---> 3580
+Big Ben and the Houses of Parliament ---> 3263
+Big Buddha ---> 2154
+Bilbao City Hall ---> 918
+Bimini Islands ---> 2392
+Binondo (Chinatown) ---> 3575
+Bioluminescent Bay ---> 3191
+Biot ---> 3100
+Birmingham Civil Rights Institute ---> 1978
+Birmingham Museum and Art Gallery ---> 2218
+Birmingham Zoo ---> 1980
+Biscayne National Park ---> 2578
+Bishop Museum ---> 1201
+Black Heritage Trail ---> 1326
+Black River ---> 535
+Black River Gorges National Park ---> 2076
+Blankenese ---> 370
+Blarney Castle ---> 478
+Blickling Estate ---> 1028
+Block Island ---> 1376
+Blois ---> 3157
+Blood River/Ncome Heritage Site ---> 1666
+Blue Caves ---> 2826
+Blue Grotto (Grotta Azzurra) ---> 3496
+Blue Lagoon ---> 1684
+Blue Lagoon ---> 1707
+Blue Mosque (Sultan Ahmet Camii) ---> 1039
+Blue Mountains ---> 515
+Blue Mountains ---> 686
+Blue Penny Museum ---> 612
+Blue Ridge Parkway ---> 1349
+Blyde River Canyon ---> 881
+Bo-Kaap ---> 1632
+Boatswains Beach ---> 181
+Bob Marley Mausoleum ---> 527
+Bob Marley Museum ---> 509
+Boca Chica ---> 269
+Bodleian Library ---> 1591
+Bogus Basin Mountain Recreation Area ---> 3949
+Bogyoke Aung San Market ---> 2432
+Bohol ---> 3920
+Bolshoi Opera and Ballet Theatre ---> 815
+Bongoyo Island ---> 2536
+Bonifacio ---> 3158
+Bonn ---> 3117
+Boracay ---> 3921
+Bordeaux Wine Country ---> 305
+Bornholm ---> 3969
+Borobudur ---> 466
+Borodino Panorama Museum ---> undefined
+Borough Market ---> 3758
+Boston Museum of Fine Arts ---> 2119
+Boston Public Garden ---> 2117
+Boston Tea Party Ship and Museum ---> 1327
+Botanical Gardens ---> 1705
+Botanical Gardens ---> 99
+Boudhanath Stupa ---> 1848
+Boulder ---> 3735
+Boundary Waters Canoe Area ---> 3312
+Bowling Green Bay National Park ---> 26
+Bowling, Paintball and Table Tennis ---> 2939
+Boyana Church ---> 3404
+Brac Island ---> 2083
+Braganca ---> 1863
+Bran Castle ---> 809
+Brandberg ---> 1910
+Brandenburg Gate ---> 343
+Brandywine Valley ---> 1361
+Brasov ---> 1870
+Bratislava Castle ---> 2022
+Briançon ---> 3179
+Bridgewater Hall ---> 1864
+Brig o Balgownie ---> 1955
+Brighton Lanes ---> 1011
+Brighton Palace Pier ---> 2529
+Brimstone Hill Fortress ---> 1698
+Bristol Cathedral ---> 1887
+Bristol City Museum and Art Gallery ---> 1888
+Bristol Zoo and Garden ---> 2950
+British Columbia Parliament Buildings ---> 1758
+British Museum ---> 1001
+Broadway ---> 2354
+Broken Hill ---> 689
+Bromo-Tengger-Semeru National Park ---> 1400
+Brooklyn Bridge ---> 2389
+Brooklyn Childrens Museum ---> 2678
+Bruges Diamond Museum ---> 3452
+Bruparck ---> 2720
+Bryggen ---> 710
+Bryggens Museum ---> 712
+Buck Island ---> 1063
+Buckhorn Saloon and Museum ---> 2475
+Buckingham Fountain ---> 3020
+Buckingham Palace and the Queens Gallery ---> 1004
+Budapest Puppet Theatre ---> 2942
+Buenos Aires Botanical Gardens ---> 2592
+Buenos Aires Zoo ---> 2105
+Buffalo ---> 1833
+Buffalo Bills ---> 2647
+Building of Bath Museum ---> 1587
+Bukit Larut ---> 3872
+Bukit Lawang ---> 1772
+Bukit Timah Nature Reserve ---> 831
+Bukittinggi ---> 1773
+Burrell Collection ---> 1033
+Busan Aquarium ---> 3620
+Busch Gardens ---> 1171
+Butchart Gardens ---> 1756
+Butterfly Conservatory ---> 1736
+Buzios Peninsula ---> 135
+Byron Bay ---> 3818
+Byzantine Museum ---> 248
+Cabarete ---> 3993
+Cabildo ---> 6
+Cable Cars ---> 1236
+Cabo de Gata-Nijar Natural Park ---> 1578
+Caernarfon ---> 1826
+Caesarea ---> 1116
+Cagliari ---> 1471
+Cahora Bassa Lake ---> 2259
+Cahors ---> 1798
+Cahuita National Park ---> 209
+Calan Porter ---> 2540
+Calangute Beach ---> 3861
+Calaway Park ---> 3457
+Calgary Tower ---> 3456
+Calgary Zoo ---> 155
+Callwood Distillery ---> 3407
+Calouste Gulbenkian Museum ---> 773
+Calouste Gulbenkian Planetarium ---> 2810
+Cambodia Cooking Class ---> 3419
+Cambridge ---> 1328
+Camden Market ---> 1006
+Camel Racing ---> 2441
+Camera Oscura ---> 2870
+Cameron Highlands ---> 3873
+Camiguin ---> 759
+Canada Olympic Park ---> 3455
+Canadian Museum of Civilisation ---> 165
+Cancun Beaches ---> 3925
+Cane Garden Bay ---> 1607
+Cannon Beach ---> 2435
+Canterbury ---> 1012
+Cap Corse ---> 3112
+Cape Cod Lighthouses ---> 3307
+Cape Maclear ---> 2253
+Cape Point ---> 850
+Cape Sounion ---> 387
+Cape Town Beaches ---> 844
+Cape Town Ostrich Ranch ---> 3961
+Cape Tribulation ---> 2973
+Capilano Suspension Bridge ---> 1743
+Capitol Square ---> 1404
+Capitoline Hill ---> 481
+Capitolio Nacional ---> 1642
+Capri ---> 1783
+Capuchin Catacombs ---> 1484
+Cardiff Castle ---> 2946
+Carfax Tower ---> 1594
+Caribbean National Forest (El Yunque) ---> 801
+Carlsbad Caverns ---> 3791
+Carmel Market ---> 3516
+Carnac ---> 3159
+Carnegie Museums ---> 1362
+Carrick-a-Rede Rope Bridge ---> 3705
+Carthage ---> 3678
+Casa Bacardi Visitor Centre ---> 3594
+Casa de Colon ---> 941
+Casa Gorordo Museum ---> 750
+Casa Loma ---> 160
+Casa Rosada ---> 5
+Casablanca Twin Centre ---> 2545
+Cassis ---> 331
+Castell dAlaro ---> 3071
+Castell de Bellver ---> 924
+Castell de Santa Barbara ---> 903
+Castelo de Sao Jorge ---> 770
+Castillo de San Pedro del Morro (Morro Castle) ---> 236
+Castle Howard ---> 1852
+Castle Keep and New Castle ---> 1868
+Castle of Good Hope ---> 838
+Castle Park ---> 2657
+Castlerigg Stone Circle ---> 3761
+Castries Central Market ---> 3658
+Castro ---> 1785
+Cat Ba island ---> 2407
+Catania ---> 1492
+Cathedral Metropolitana ---> 7
+Cathedral of Christ the Saviour ---> 2349
+Cathedral of Santa Maria ---> 263
+Cathedral of St Nicholas ---> 1969
+Cathedral of the Assumption ---> 1255
+Cathedral Quarter ---> 1942
+Cathedral Treasury ---> 219
+Cattle Raisers Museum ---> 1446
+Caves of Xaghra ---> 607
+Caw Caw Interpretive Center and Charleston County Park ---> 2454
+Cayo Largo Del Sur ---> 3831
+Cedar Point Amusement Park ---> 3335
+Celebrity Gravesites ---> 3721
+Central Kalahari Game Reserve ---> 2986
+Central Market ---> 1934
+Central Market ---> 1952
+Central Market ---> 2207
+Central Market (Psah Thmay) ---> 2417
+Central Park ---> 1156
+Central Park Zoo ---> 2675
+Centre Le Corbusier ---> 2132
+Cerro San Cristóbal ---> 187
+Ceský Krumlov ---> 2338
+Chain Bridge ---> 427
+Chain of Lakes ---> 3776
+Chairman Mao Mausoleum ---> 2223
+Chandni Chowk ---> 439
+Changdeokgung ---> 2361
+Changi Museum ---> 834
+Changu Narayan Temple ---> 1849
+Chapmans Peak ---> 1922
+Charles Bridge (Karluv Most) ---> 339
+Charleston Museum ---> 1616
+Charlestown ---> 1700
+Charlotte Amalie ---> 1844
+Charlottenburg Palace ---> 2107
+Château dAngers ---> 323
+Château de Chambord ---> 324
+Château de Chenonceau ---> 321
+Château de Chillon ---> 995
+Château dIf ---> 330
+Château dUssé ---> 3105
+Château-Thierry ---> 1795
+Châteauneuf-du-Pape ---> 336
+Chatsworth House ---> 1878
+Chattanooga ---> 1385
+Chatuchak Market ---> 2408
+Checkpoint Charlie ---> 344
+Cheddar Gorge ---> 3760
+Chefchaouen ---> 660
+Chengdu Panda Breeding and Research Center ---> 3403
+Chessington World of Adventures ---> 2663
+Chiang Kai-shek Memorial Park ---> 2016
+Chiang Mai City Arts and Cultural Center ---> 2446
+Chiang Mai Temples ---> 2445
+Chiang Mai Zoo ---> 3018
+Chiang Rai Temples ---> 3670
+Chianti Region ---> 498
+Chicago Beaches ---> 3748
+Chicago Botanic Gardens ---> 2601
+Chicago Childrens Museum ---> 2600
+Chicago Field Museum ---> 1221
+Chicago History Museum ---> 3296
+Chicago Loop ---> 3747
+Chichen Itza ---> 628
+Chico Hot Springs ---> 3800
+Chiemsee ---> 358
+Childrens City ---> 2608
+Childrens Fairyland ---> 2669
+Chilean Museum of Pre-Columbian Art ---> 185
+Chilean Tierra del Fuego ---> 3397
+Chimelong ---> 2958
+Chinatown ---> 149
+Chinatown ---> 2172
+Chinatown ---> 565
+Chinatown ---> 824
+Chinese and Japanese Gardens ---> 832
+Chobe National Park ---> 127
+Choco-Story Museum ---> 3451
+Choeung Ek (The Killing Fields) ---> 145
+Choirokoitia ---> 243
+Cholon ---> 1060
+Christchurch Gondola ---> 700
+Christchurch Picture Gallery ---> 1593
+Christchurch Tramway ---> 699
+Christiansborg Palace ---> 2375
+Christiansted ---> 1843
+Christuskirche ---> 2086
+Church of Ayios Lazaros ---> 241
+Church of San Francisco ---> 721
+Church of St Mary the Great ---> 3212
+Church of the Holy Sepulchre ---> 1100
+Church Tower of Shandon ---> 2849
+Churches of Thessaloniki ---> 399
+Churchill Downs ---> 3295
+Cigar Factories ---> 1645
+Cinque Terre ---> 594
+Citadel ---> 174
+Citadel Hill ---> 1560
+Citadel or Tower of David ---> 1106
+Cite De Lespace ---> 3324
+City of Arts and Science ---> 2001
+City of Caves ---> 2050
+City of old Diriyah ---> 1681
+Ciudad del Este ---> 3541
+Ciudad Vieja ---> 3034
+Ciutadella de Menorca ---> 937
+Clervaux ---> 562
+Cliffs of Moher ---> 1779
+Clinton Presidential Center ---> 3012
+Clonmacnoise ---> 477
+CN Tower ---> 159
+Cockington Green ---> 43
+Codzilla ---> 2585
+Coffee Bay ---> 3930
+Coffin Island ---> 1692
+Coit Tower ---> 3038
+Colaba ---> 449
+Colmar ---> 3437
+Colombo National Museum ---> 954
+Colombo Zoological Gardens ---> 956
+Colonia del Sacramento ---> 1977
+Colonial City ---> 264
+Colonial Michilimackinac ---> 1292
+Colossal Cave Mountain Park ---> 2302
+Columbia Icefields ---> 158
+Columbus Lighthouse Monument ---> 265
+Colva ---> 3862
+Commercial Drive ---> 1748
+Concertgebouw ---> 3568
+Coney Island ---> 3322
+Confederation Centre for the Arts ---> 1761
+Confederation Trail ---> 1762
+Congress Avenue Bridge ---> 1464
+Connemara ---> 479
+Conques ---> 1800
+Constantia ---> 1873
+Constitution Hill ---> 2379
+Coober Pedy ---> 37
+Cooks Cottage ---> 46
+Cooperative Mines of Cerro Rico ---> 120
+Copacabana ---> 133
+COPE Visitors Centre ---> 3175
+Copenhagen Historical Museums ---> 1550
+Copenhagen Zoo ---> 2727
+Coptic Church of St. George (Mari Girgis) ---> 2303
+Coral Castle ---> 1167
+Coral World ---> 3352
+Corcovado ---> 129
+Corfu Archaeological Museum ---> 403
+Coricancha Inca Ruins ---> 725
+Coroico ---> 3060
+Coronado Island ---> 1249
+Corregidor ---> 741
+Corte ---> 3113
+Cortona ---> 3081
+Costa Smeralda ---> 3880
+Côte dAzur Beaches ---> 312
+Cotopaxi National Park ---> 283
+Country Music Hall of Fame and Museum ---> 1378
+County Kerry ---> 1778
+Cova de Can Marca ---> 933
+Covered Bazaar (Kapali Çarsi) ---> 1042
+Coyaba River Garden and Museum ---> 3508
+Cradle Mountain ---> 63
+Cradle of Humankind and Maropeng Visitor Centre ---> 2381
+Crandon Park Beach ---> 2579
+Crane Point ---> 1735
+Crans-Montana ---> 4001
+Craters of the Moon ---> 3294
+Crawford Market ---> 451
+Crazy Horse Memorial ---> 3809
+Creekside Park ---> 2612
+Cresswell Crags ---> 2055
+Crete Aquarium ---> 2746
+Cristo Rei ---> 3188
+Croatian History Museum ---> 222
+Croatian National Theatre ---> 223
+Crocodylus Park and Zoo ---> 2511
+Crook Hall ---> 2020
+Croydon in the Mountains ---> 522
+Crypt of Saint Vicente ---> 2005
+Crystal Caves ---> 102
+Cu Chi Tunnels ---> 1061
+Cubbon Park ---> 2995
+Cuenca ---> 1792
+Cuenca ---> 3645
+Cueva del Indio ---> 2867
+Culebra and Vieques ---> 1695
+Custer National Forest ---> 1893
+Cyprus Archaeological Museum ---> 247
+Cyprus Medieval Museum ---> 260
+D-Day Beaches ---> 325
+Dachau Memorial Site ---> 356
+Dagomys ---> 3801
+Dahshur ---> 3840
+Daintree Rainforest Discovery Centre ---> 1718
+Dallas Heritage Village ---> 1442
+Dallas Holocaust Museum ---> 1631
+Dam Sen Water Park ---> 2423
+Dambulla Cave Temples ---> 3240
+Damnoen Saduak Floating Market ---> 983
+Dan-yr-Ogof Caves ---> 3276
+Dandenong Ranges National Park ---> 58
+Dar el Makhzen ---> 658
+Darien ---> 1148
+Darling ---> 3628
+Darling Harbour ---> 682
+Davenport House ---> 1142
+Dazaifu ---> 1092
+Deadwood ---> 2053
+Death Valley National Park ---> 1251
+Deauville ---> 3971
+Deckchair Cinema ---> 2513
+DeGrazia Gallery in the Sun ---> 2299
+Delaware Art Museum ---> 3007
+Delaware Museum of Natural History ---> 3006
+Delos ---> 2741
+Delphi ---> 390
+Denali National Park and Preserve ---> 1131
+Denmark Aquarium ---> 2725
+Denver Art Museum ---> 1151
+Denver Mint ---> 3733
+Denver Museum of Nature and Science ---> 3299
+Derek Walcott Square ---> 969
+Desert Botanical Garden ---> 2272
+Desert Castle Loop ---> 1563
+Desert Safari ---> 2124
+Detroit Historical Museum ---> 1286
+Detroit Institute of Arts ---> 1287
+Deutsches Museum ---> 3120
+Devils Pool ---> 2927
+Devin Castle ---> 2023
+Devon House ---> 3239
+Devonport ---> 3956
+Dharamsala ---> 3863
+Dhobi Ghat ---> 2701
+Diamond Head Crater ---> 3755
+Dig This ---> 3790
+Dinard ---> 3160
+Dinkelsbühl ---> 3448
+Dinosaur National Monument ---> 1439
+Dinosaur National Monument ---> 3737
+Diocletians Palace ---> 211
+Discovery Cove Orlando ---> 3301
+Discovery Sphere Planetarium ---> 2804
+Disneyland Paris ---> 2670
+Disneyland Resort ---> 1241
+Distillery Historic District ---> 1726
+District Six Museum ---> 2094
+Dive Sites ---> 3962
+Dive Sites ---> 3967
+Djemaa el-Fna ---> 633
+DMZ (Demilitarised Zone) and Vinh Moc ---> 1058
+Doctors Cave Beach ---> 517
+Doha Corniche ---> 3599
+Doha Fort (Al Koot) ---> 2480
+Doha Souqs ---> 3601
+Doi Suthep ---> 989
+Doi Tung Royal Villa ---> 3672
+Dokmai Garden ---> 2449
+Dolmabahce Palace ---> 2331
+Dolomite Mountains ---> 3885
+Dolphin Encounters ---> 2875
+Dolphin Research Center ---> 1738
+Dom Cathedral ---> 1949
+Domaine Les Pailles ---> 615
+Dombai ---> 3802
+Don Harrington Discovery Center ---> 1449
+Donkey trekking ---> 2751
+Dove Cottage and the William Wordsworth Museum ---> 2988
+Downtown San Diego ---> 1247
+Doylestown ---> 1357
+Dr Salim Ali Bird Sanctuary ---> 2817
+Dr. Ragabs Pharaonic Village ---> 2729
+Drakensberg Mountains ---> 868
+Drayton Manor Theme Park ---> 2221
+Dream Park ---> 2731
+Dubai Aquarium & Underwater Zoo ---> 2443
+Dubai Creek ---> 1626
+Dubai Dolphinarium ---> 2610
+Dubai Mall ---> 2442
+Dubai Museum ---> 2121
+Dubai Souks ---> 1628
+Dublin Castle ---> 470
+Dublin Zoo ---> 2204
+Dubrovnik City Walls ---> 217
+Dubrovnik Port ---> 2527
+Dubrovnik Riviera ---> 220
+Ducal Mansion (Nottingham Castle) ---> 2049
+Dudhsagar Waterfall ---> 2816
+Dumfries ---> 3944
+Dundee ---> 3945
+Dunns River Falls and Dolphin Cove ---> 524
+Duomo di Milano (Milan Cathedral) ---> 585
+Duomo San Gennaro ---> 502
+Durban Botanic Gardens ---> 863
+Durbar Square ---> 1529
+Durham Castle ---> 2021
+Durham Cathedral ---> 2017
+Durham Heritage Centre ---> 2018
+Dusit Zoo ---> 2710
+Dutch Country ---> 1358
+Dutch Forts ---> 1301
+Duthie Park ---> 1954
+Ebenezer Baptist Church ---> 3751
+Echternach ---> 563
+Edinburgh Castle ---> 1029
+Edinburgh Dungeon ---> 2791
+Edinburgh Festival Theatre ---> 2377
+Edinburgh Zoo ---> 2792
+Edison and Ford Winter Estates ---> 1515
+Edo-Tokyo Museum ---> 1066
+Eftalou Thermal Baths ---> 2749
+Efteling ---> 2554
+Eger Castle ---> 432
+Egyptian Museum of Antiquities ---> 286
+Eiffel Tower ---> 294
+Eilat ---> 2860
+Einar Jónsson Museum ---> 1706
+Eiteljorg Museum of American Indians and Western Art ---> 2009
+El Badi Palace ---> 2326
+El Carmen ---> 2002
+El Cotillo ---> 3632
+El Malécon ---> 3429
+El Mitad del Mundo ---> 281
+El Rancho de las Golondrinas ---> 1345
+El Raval ---> 3646
+El Tatio Geysers ---> 189
+El Zocalo ---> 620
+Elafiti Islands ---> 2080
+Elche ---> 905
+Eleko Beach ---> 2502
+Elephant Cave ---> 2836
+Elephant Trunk Hill ---> 3401
+Elephanta Caves ---> 2702
+Eleuthera Island ---> 2400
+Elfsborg Fortress ---> 1729
+Elitch Gardens Theme Park ---> 3734
+Ellis Island ---> 3796
+Elvis Presley Birthplace ---> 1318
+Emilio Bacardi Moreau Museum ---> 237
+Empire State Building ---> 1155
+Encarnacion ---> 3542
+English Harbour ---> 1540
+Epernay ---> 1793
+Ephesus ---> 1043
+Epidaurus ---> 395
+Eretz Israel Museum (The Land of Israel Museum) ---> 1110
+Ernest Hemingway Home and Museum ---> 1732
+Ernest Hemingway Museum ---> 3085
+Esbjerg ---> 3968
+Eschenheimer Turm ---> 2182
+Espinho ---> 3927
+Essaouira ---> 3798
+Estadio Centenario ---> 3351
+Estádio do Maracanã ---> 2365
+Estancias ---> 3350
+Estonian Open Air Museum ---> 1605
+Esztergom ---> 1814
+Ethan Allen Homestead and Museum ---> 1911
+Ethnographic Museum ---> 2027
+Ethnographic Museum (former Folk Art Museum) ---> 249
+Etruscan Sites ---> 500
+Eudora Welty House ---> 3314
+Eugene ---> 3326
+Eureka Tower ---> 1967
+European Park ---> 1752
+Everglades National Park ---> 1168
+Everland ---> 3226
+Evian-les-Bains ---> 3161
+Evora ---> 3589
+Experience Music Project ---> 1422
+Experimentarium ---> 2728
+Exploratorium ---> 2168
+Exumas Islands ---> 2397
+Èze ---> 3101
+Fado Bars ---> 3592
+Faial ---> 3984
+Fairmont Empress Hotel ---> 1757
+Falkirk Wheel ---> 3771
+Fallingwater ---> 3331
+Falmouth ---> 521
+Faneuil Hall Marketplace ---> 2118
+Fantasy of Flight ---> 1184
+Farish Street Historical District ---> 1316
+Fashion Museum ---> 1589
+Fasouri Water Mania ---> 3037
+Fatehpur Sikri ---> 1377
+Fatima ---> 778
+FC Barcelona Museum and Stadium ---> 2101
+Featherdale Wildlife Park ---> 2681
+Federal Bureau of Investigation ---> 1415
+Federation Square ---> 2134
+Fenway Park ---> 3309
+Fernbank Museum of Natural History ---> 1138
+Ferrari World ---> 3180
+Ferreries ---> 2539
+Figueres ---> 3647
+Filadelfia ---> 3543
+Filerimos Hill ---> 2758
+Filitosa ---> 1673
+Finger Lakes ---> 1832
+Firefly ---> 526
+Fisherman’s Bastion ---> 424
+Fishermans Wharf ---> 1233
+Fjordland National Park ---> 705
+Flamenco at Corral de la Moreria ---> 1764
+Flinders Ranges ---> 36
+Floralis Generica ---> 2097
+Flores ---> 3985
+Florida Aquarium ---> 1175
+Folk Art Museum ---> 259
+Folk Research Centre ---> 973
+Folklore Museum of Skopelos ---> 2819
+Fontainebleau ---> 303
+Fontevraud Abbey ---> 3103
+Football Museum ---> 3410
+Forbidden City ---> 542
+Ford’s Theatre ---> 3340
+Foreign Correspondents Club ---> 2418
+Forest of Steles ---> 3400
+Forest Park ---> 1467
+Formentera ---> 935
+Fornells ---> 2538
+Fort Area ---> 448
+Fort Calgary ---> 156
+Fort Hamilton ---> 98
+Fort Jackson ---> 1146
+Fort Knox ---> 3763
+Fort Mackinac ---> 1519
+Fort McHenry ---> 1279
+Fort San Felipe del Morro ---> 792
+Fort San Pedro ---> 748
+Fort St Catherine ---> 109
+Fort St Louis ---> 1304
+Fort Sumter ---> 1397
+Fort William ---> 3946
+Fort Worth Stockyards ---> 1444
+Fort Worth Zoo ---> 1447
+Fortifications ---> 1620
+Fortuna ---> 1789
+Founders Hall ---> 1763
+Fowlers Yard Creative Workspaces ---> 2019
+France Miniature ---> 2674
+Francis Farewell Square ---> 859
+Franciscan Monastery ---> 216
+Frank Lloyd Wrights Home ---> 1222
+Frankfort ---> 1261
+Frankfurt Botanical Gardens ---> 362
+Frankfurt Zoo ---> 2180
+Franklin Court ---> 1355
+Franklin Institute Science Museum ---> 1352
+Franschhoek ---> 1871
+Franz Kafka Museum ---> 3414
+Frasassi Caves (Grotte di Frasassi) ---> 3497
+Fraser Island ---> 1776
+Frasers Hill ---> 3874
+Fraumünster Church ---> 990
+Frederico de Freitas Museum ---> 788
+Freedom Schooner Amistad ---> 1987
+Freedom Trail ---> 1325
+Freetown Christiania ---> 2373
+Freiburg ---> 1807
+Fremantle ---> 1396
+Fremont Street Experience ---> 1126
+French Quarter ---> 1263
+Freud Museum ---> 3361
+Freudenstadt ---> 3444
+Friday Mosque (Masjid Jamek) ---> 568
+Frigate Bay Peninsula ---> 1699
+Front Street (Voorstraat) ---> 1299
+Fuerte San Felipe ---> 275
+Fuerteventura Oasis Park ---> 1501
+Fukuoka Asian Art Museum ---> 1090
+Funchal Cathedral ---> 786
+Fundazzle ---> 2718
+Funicular ---> 1619
+Gaborone Game Reserve ---> 2089
+Gaciosa ---> 3986
+Galata Tower ---> 2330
+Galbi Restaurants ---> 3621
+Galeries Royales Saint Hubert ---> 2281
+Galicia Jewish Museum ---> 1613
+Galileo Galilei Planetarium ---> 2591
+Galle ---> 966
+Galleria Regionale ---> 1482
+Gallerie Accademia ---> 583
+Gallery of Modern Art ---> 1034
+Galta Monkey Temple (Galtaji) ---> 3131
+Gamla Uppsala ---> 3241
+Gan Hashlosha National Park (Sahne) ---> 1115
+Garachico ---> 3638
+Gardens ---> 90
+Gardens by the Bay ---> 3606
+Gardiner Museum of Ceramics ---> 2188
+Garibaldis House ---> 1475
+Garrotxa Nature Reserve ---> 3245
+Gastown ---> 150
+Gateway Arch ---> 1466
+Gatineau Park ---> 166
+Gatorland ---> 3739
+Gediminas Castle ---> 1750
+Gelendzhik ---> 3803
+Gellert Hill ---> 426
+Gendarmenmarkt ---> 2104
+Genoa Aquarium ---> 3432
+Genting Highlands ---> 3875
+Georgia Aquarium ---> 1948
+Georgia Mountains ---> 1141
+Georgia OKeeffe Museum ---> 1343
+German Clock Museum ---> 3124
+Getty Center ---> 3387
+Getty Villa ---> 3386
+Gettysburg National Military Park ---> 1359
+Geylang ---> 3607
+Geysir ---> 1709
+Ggantija Temples ---> 606
+Ghirardelli Square ---> 3255
+Giant Wheel ---> 82
+Giants Causeway ---> 3704
+Giants Ring ---> 1946
+Gibraltar ---> 3334
+Gili Islands ---> 3851
+Gion ---> 1078
+Girona ---> 902
+Glacier Bay National Park ---> 1132
+Glacier Express ---> 4000
+Glasgow Cathedral ---> 3772
+Glasgow Science Centre ---> 3770
+Glenbow Museum ---> 154
+Glendalough ---> 475
+Glensheen Mansion ---> 3777
+Gloucester ---> 3280
+Glovers Reef Atoll ---> 3393
+Goa Beaches ---> 2815
+Goethe-Haus ---> 360
+Gold Coast Railroad Museum ---> 2580
+Gold Reef City ---> 869
+Golden Gate Bridge ---> 1231
+Golden Gate Park ---> 1235
+Golden Pavilion (Kinkakuji) ---> 1076
+Golden Ring ---> 3584
+Golden Temple of Amritsar ---> 3416
+Goldfields ---> 70
+Gondar ---> 3097
+Gondola Rides ---> 3499
+Gondwana Rainforests of Australia ---> 2978
+Goreme ---> 1884
+Goreme Open-Air Museum ---> 1047
+Gorongosa National Park ---> 2260
+Gortyna ---> 414
+Göta Canal ---> 1730
+Göteborg Botanical Garden ---> 1727
+Gothenburg Archipelago ---> 1731
+Gotland ---> 3652
+Governors Mansion ---> 1462
+Gower Peninsula ---> 3941
+Graceland ---> 1386
+Graeme Hall Swamp ---> 89
+Grahamstown ---> 857
+Grampians National Park ---> 62
+Gran Canaria Golf ---> 3936
+Gran Caverna de Santo Tomás ---> 1648
+Granada ---> 3217
+Granada and the Alhambra ---> 1508
+Grand Bahama Island ---> 2395
+Grand Canal ---> 3078
+Grand Canyon Helicopter and Ranch Adventure ---> 2649
+Grand Case ---> 1307
+Grand Central Station ---> 2466
+Grand Ducal Palace ---> 558
+Grand Isle ---> 3766
+Grand Mosque ---> 1629
+Grand Ole Opry ---> 1380
+Grand Place (Central Square) ---> 96
+Grand Socco ---> 655
+Grand Teton National Park ---> 1402
+Grand Théâtre de Bordeaux ---> 3017
+Grand Village of the Natchez Indians ---> 1320
+Granville Island ---> 1741
+Great Banyan Tree ---> 2780
+Great Barrier Reef ---> 1719
+Great Bell Temple ---> 2226
+Great Circus ---> 2941
+Great Lakes Science Center ---> 1348
+Great Lakes Shipwreck Museum ---> 1520
+Great Mosque ---> 200
+Great Ocean Road ---> 1962
+Great Patriotic War Museum ---> 1940
+Great Salt Lake ---> 1438
+Great Smoky Mountains National Park ---> 1350
+Great Smoky Mountains National Park ---> 1384
+Great Wall of China ---> 544
+Great Wildebeest Migration ---> 3976
+Greater Vancouver Zoo ---> 2913
+Green Gables House ---> 1760
+Green Grotto Caves ---> 525
+Greenmarket Square ---> 841
+Greenwich ---> 1007
+Greenwich Village ---> 3319
+Greenwood Great House ---> 3505
+Grenoble ---> 1803
+Griffith Park and Observatory ---> 2345
+Grindelwald ---> 4002
+Grizedale Forest ---> 2989
+Groeninge Museum ---> 3453
+Gröna Lund ---> 2936
+Gros Islet ---> 974
+Grouse Mountain ---> 152
+Guadalupe Mountains National Park ---> 1465
+Guanajuato ---> 1835
+Guell Park ---> 895
+Guggenheim Museum ---> 915
+Guimaraes ---> 1862
+Guinness Storehouse ---> 474
+Gulf Islands ---> 1749
+Gulf Islands National Seashore ---> 3744
+Gullfoss Falls ---> 1708
+Gumbo Limbo Environmental Complex ---> 1512
+Gunung Batur Volcano ---> 2830
+Gyeongbokgung ---> 1633
+Haarlem ---> 3570
+Habana Vieja (Old Havana) ---> 1640
+Hadrians Wall ---> 1867
+Hagar Qim ---> 604
+Hagia Sophia (Aya Sofya) ---> 1038
+Hagley Museum and Library ---> 3009
+Hahndorf ---> 34
+Haight Ashbury ---> 3039
+Haji Ali Dargah ---> 2697
+Hal Saflieni Hypogeum ---> 602
+Haleakala National Park ---> 1206
+Half Moon Cay ---> 2401
+Hallgrimskirkja ---> 1703
+Halong Bay ---> 1053
+Hamat Tiberias National Park ---> 1113
+Hamburg Warehouse Complex ---> 368
+Hamburger Bahnhof ---> 347
+Hamburger Kunsthalle ---> 369
+Hameln ---> 374
+Hamilton ---> 3546
+Hamilton Island ---> 2980
+Hamleys ---> 2660
+Hampi ---> 3491
+Hampton Court Palace ---> 1015
+Hamra Street ---> 3462
+Hana Highway ---> 1210
+Hancock Observatory ---> 2116
+Hanging Church (El Muallaqa, Sitt Mariam, St Mary) ---> 2304
+Hanseatic Museum ---> 711
+Happy Valley Amusement Park (Beijing Huanle Gu) ---> 2714
+Harar ---> 3095
+Harbour Bridge ---> 1575
+Harbourfront Centre ---> 2193
+Harrington Sound ---> 100
+Harrison’s Cave ---> 92
+Harrods ---> 1005
+Harvard University ---> 1329
+Hassan Tower ---> 649
+Hatta ---> 3692
+Hauraki Gulf Islands ---> 691
+Haus der Musik ---> 2195
+Haut-Koenigsbourg Castle ---> 3842
+Haw Par Villa ---> 836
+Hawaii Volcanoes National Park ---> 1213
+Hawar Islands ---> 3367
+Hay-on-Wye ---> 3700
+Head-Smashed-In Buffalo Jump ---> 3458
+Heard Museum ---> 2273
+Hearst Castle ---> 3729
+Hector Pieterson Memorial Site and Museum ---> 2380
+Heidelberg ---> 366
+Heineken Experience ---> 2092
+Hell ---> 3396
+Hellenic Childrens Museum ---> 2563
+Hells Gate National Park ---> 549
+Helsinki Zoo ---> 3435
+Henry B. Plant Museum ---> 1174
+Heraklion Archaeological Museum ---> 411
+Heritage Park Historical Village ---> 3454
+Heritage Village ---> 1721
+Hermanus ---> 3231
+Herschel Museum of Astronomy ---> 1588
+Hershey’s Chocolate World ---> 1360
+Heviz ---> 431
+Hezekiahs Tunnel ---> 3515
+Hidden People ---> 3479
+High Museum of Art ---> 2275
+High Park ---> 2630
+High Tatras National Park ---> 3221
+Hili Fun City ---> 2940
+Hill Top ---> 2990
+Hilltribe Museum and Education Centre ---> 3671
+Hilo ---> 3952
+Hiltonia Beach Club ---> 3695
+Hip Strip ---> 3504
+Hippodrome ---> 3269
+Hiroshima Castle ---> 1085
+Hiroshima City Museum of Contemporary Art ---> 1084
+Historic Mill Creek Discovery Park ---> 1293
+Historical Museum (Historisches Museum) ---> 2177
+Historical Museum of Crete ---> 412
+Historical Museum of Lyon and International Puppet Museum ---> 1960
+Historical Village ---> 1096
+History Colorado Center ---> 1150
+Ho Chi Minh’s Mausoleum ---> 1050
+Ho Phra Kaew ---> 3510
+Hockey Hall of Fame ---> 2194
+Hofburg ---> 78
+Hoge Veluwe National Park ---> 3567
+Hohensalzburg Fortress ---> 85
+Hohenzollern Castle ---> 3123
+Holiday World ---> 2762
+Holker Estate ---> 2991
+Holkham Hall ---> 1027
+Hollywood ---> 1238
+Holyhead ---> 3943
+Honfleur ---> 1806
+Hong Kong Disneyland ---> 2153
+Hong Kong Museum of Art ---> 3472
+Hong Kong Museum of History ---> 1193
+Hong Kong Police Museum ---> 1191
+Hong Kong Science Museum ---> 2156
+Hong Kong Wetland Park ---> 2643
+Honolulus Chinatown ---> 1205
+Hoover Dam ---> 1129
+Hope Botanical Gardens ---> 512
+Horatio Nelson Museum ---> 1701
+Horton Plains National Park and Worlds End ---> 3618
+Hospice Comtesse Museum ---> 2043
+Hot Springs ---> 3718
+Hotel de Ville ---> 2280
+Houey Hong Vocational Training Center for Women ---> 3509
+House of Wonders (Beit el-Ajaib) ---> 2206
+Hoyt Arboretum ---> 3327
+Huaqing Hot Springs ---> 199
+Huayna Potosi ---> 3002
+Hubbard Glacier ---> 1965
+Huguenot Monument and Museum ---> 1664
+Hulihee Palace ---> 1212
+Humayuns Tomb ---> 437
+Hunter Region ---> 685
+Hurricane Katrina Tour ---> 1725
+Hvar Island ---> 215
+Hwaseong Fortress ---> 3225
+Hydra ---> 3469
+Hydropark ---> 3687
+Ibirapuera Park ---> 3068
+Ibiza Old Town ---> 931
+Iglesia de San Francisco ---> 115
+Igreja de Sao Francisco ---> 780
+Iguaçu Falls ---> 141
+Iguazu National Park ---> 1766
+Ile Aux Cerfs ---> 1834
+Ile St Honorat & Ile St Marguerite ---> 310
+Ilha de Mozambique ---> 2261
+Imagine It! Childrens Museum of Atlanta ---> 2704
+Imaginosity ---> 2616
+Imperial Palace Auto Collection ---> 1125
+Imperial War Museum ---> 3759
+Incheon ---> 1639
+Independence National Historical Park ---> 1351
+Indian Museum ---> 2782
+Indian Pueblo Cultural Center ---> 1333
+Indianapolis Motor Speedway ---> 2007
+Indonesia Miniature Park/Taman Mini ---> 2486
+Inhaca Island ---> 3810
+Inkwenkwezi Game Reserve ---> 3932
+Inokashira Park ---> 3148
+Insadong ---> 1636
+Interlaken ---> 3999
+International Red Cross and Red Crescent Museum ---> 2159
+International Rose Test Garden ---> 1900
+International Spy Museum ---> 1416
+International Tennis Hall of Fame ---> 1372
+Intramuros ---> 734
+Iolani Palace ---> 1203
+Ipanema ---> 132
+Isandlwana Hill ---> 1667
+iSimangaliso / St Lucia Wetland Park ---> 866
+Isla Mujeres ---> 3535
+Isla Tabarca ---> 906
+Isla Verde ---> 3596
+Isle of Skye ---> 3937
+Istanbul Dolphinarium ---> 2802
+Itaewon ---> 3622
+Ithaca ---> 3138
+J.R. ONeal Botanical Gardens ---> 1608
+Jablum Coffee Company ---> 516
+Jack S. Blanton Museum of Art ---> 1463
+Jacobean Mansions ---> 94
+Jaffa ---> 1112
+Jain Temples of Ranakpur ---> 446
+Jaipur City Palace ---> 443
+Jalan Jaksa ---> 2427
+Jallianwala Bagh ---> 3866
+Jama Masjid ---> 435
+James Bond Beach ---> 2859
+James Joyce Museum ---> 476
+Jane Austen Centre ---> 1590
+Jardim Tunduru Botanical Gardens ---> 3564
+Jardin des Plantes ---> 2149
+Jasper ---> 1782
+Jayapura ---> 2428
+Jean Lafitte National Historical Park and Preserve ---> 3765
+Jebel Al Dukhan and the Tree of Life ---> 2507
+Jeffreys Bay ---> 858
+Jeita Grotto ---> 3460
+Jeju Island ---> 3230
+Jerash ---> 1562
+Jeronimos Monastery ---> 3593
+Jesuit Missions of the Chiquitos ---> 3388
+Jet dEau ---> 2158
+Jewish Memorials ---> 1753
+Jim Thompson’s House ---> 987
+Jiuxiang Scenic Area ---> 3402
+Joan Miro Foundation ---> 2103
+Jogyesa ---> 2364
+Johannesburg Zoo ---> 871
+John Brown House ---> 1366
+Jokhang Temple ---> 202
+Jökulsárlón ---> 3478
+Jonesboro ---> 1140
+Jongmyo Shrine ---> 3224
+Jorvik Viking Centre ---> 1855
+Joshua Tree National Park ---> 3289
+Joypolis Sega ---> 2623
+Jozani Chwaka Bay Conservation Area ---> 2209
+Joze Plecnik House ---> 1970
+Julio Prestes Cultural Center ---> 3959
+Juma Masjid Mosque ---> 862
+Jumalon Museum ---> 749
+Jumeirah Beach Park ---> 2439
+Jumeirah Mosque ---> 2120
+Jungle Cat World Wildlife Park ---> 3424
+Jungle Island ---> 2201
+Jurmala ---> 2888
+Jurong Birdpark ---> 828
+Kadriorg Palace and Park ---> 1604
+Kakadu National Park ---> 33
+Kala Ghoda Bazaar ---> 3972
+Kalalau Trail ---> 3303
+Kalemegdan ---> 1989
+Kalighat Temple ---> 2784
+Kamakura ---> 1072
+Kampong Gelam and Arab Street ---> 826
+Kanchanaburi ---> 988
+Kandy ---> 961
+Kangaroo Island ---> 35
+Karaouine Mosque ---> 641
+Karen Blixen Museum ---> 2847
+Karijini National Park ---> 66
+Karlovy Vary (Karlsbad) ---> 2337
+Karlskirche ---> 2198
+Karpathos ---> 1505
+Kartchner Caverns State Park ---> 2308
+Kasbah des Oudaias ---> 646
+Katmandu Park ---> 3698
+Katsura Imperial Villa ---> 1080
+Kazimierz District and the Old Synagogue ---> 767
+Kecskemet ---> 3476
+Kelvingrove Art Gallery and Museum ---> 1035
+Kennebunkport ---> 3304
+Kennedy Center ---> 3343
+Kennedy Space Centre ---> 1182
+Kennesaw Mountain Battlefield ---> 1136
+Kensington Market ---> 2190
+Kentucky Derby Museum ---> 1252
+Kentucky Horse Park ---> 1259
+Kentucky Science Center ---> 1256
+Kerkouane ---> 3679
+Keszthely ---> 1811
+Ketchikan ---> 3707
+Kettles Yard ---> 3208
+Keukenhof ---> 3929
+Key Largo ---> 3742
+Key West Lighthouse Museum ---> 1733
+Kgalagadi Transfrontier Park ---> 2985
+Khan al-Khalili ---> 285
+Khor al Adaid (Inland Sea) ---> 3200
+Khutse Game Reserve ---> 2984
+Kiev-Pechersk Lavra (Caves Monastery) ---> 1939
+Kigali Genocide Memorial Centre ---> 3549
+Kilkee ---> 3482
+Kingdom Centre ---> 1677
+Kingman ---> 3712
+Kings College Chapel ---> 3209
+Kings Cross ---> 2141
+Kings Park ---> 2696
+Kings Park and Botanic Garden ---> 2495
+Kings Square ---> 103
+Kinsale ---> 1777
+Kirstenbosch Botanical Gardens ---> 843
+Kish ---> 3693
+Kitty Hawk ---> 3332
+Kiyomizu-dera ---> 1079
+Klondike ---> 177
+Kluane National Park ---> 179
+Knights Action Park and Caribbean Water Adventure ---> 3749
+Knights Castle ---> 2745
+Knotts Berry Farm ---> 2957
+Knoxville ---> 3292
+Koh Samet ---> 3975
+Koh Yao Islands ---> 3251
+Kolonaki/Lykavittos Hill ---> 385
+Kona Coffee Museum and Farm ---> 1217
+Korcula Island ---> 2081
+Korean DMZ ---> 3306
+Koreshan State Historic Site ---> 1516
+Kos Archaeological Museum ---> 2222
+Kostnice Ossuary ---> 3086
+Kota ---> 2493
+Kourion ---> 3035
+Koutoubia Mosque ---> 632
+Kowloon Park ---> 2622
+Krasnaya Polyana ---> 3804
+Krk Island ---> 3965
+Krong Kep ---> 2411
+Kruger House Museum ---> 2692
+Kruger National Park ---> 1682
+Kuala Lumpur Railway Station ---> 567
+Kuang Si Falls ---> 2230
+Kuanzhai Ancient Street ---> 3827
+Kumbhalgarh Fort ---> 3865
+Kunsthaus Zurich (Fine Arts Museum) ---> 2125
+Kunstmuseum Stuttgart ---> 2233
+Kushida Shrine ---> 1091
+Kuta Lombok ---> 3853
+Kutna Hora ---> 3966
+KwaMuhle Museum ---> 861
+Kyoto Imperial Palace ---> 1074
+La Baule ---> 3162
+La Boca ---> 11
+La Brea Tar Pits ---> 2343
+La Croisette ---> 308
+La Cueva de los Verdes ---> 951
+La Fortaleza ---> 793
+La Oliva ---> 1502
+La Orotava ---> 3639
+La Pedrera (Casa Mila) ---> 2098
+La Rambla ---> 893
+La Recoleta Cemetery ---> 8
+La Sagrada Familia ---> 896
+La Salinas ---> 934
+La Scala Opera ---> 587
+La Seo Cathedral ---> 922
+La Vanille Reserve des Mascareigne ---> 2077
+Lacrosse Museum and National Hall of Fame ---> 2068
+Ladybird Johnson Wildflower Center ---> 1461
+Ladysmith Siege Museum ---> 1669
+Lafayette ---> 1274
+Lake Bled ---> 3612
+Lake Champlain Chocolates ---> 1912
+Lake Geneva (Lac Léman) ---> 993
+Lake Inle ---> 2430
+Lake Janauari Ecological Park ---> 137
+Lake Malawi National Park ---> 2252
+Lake Maninjau ---> 2840
+Lake Mead and Hoover Dam ---> 3950
+Lake Naivasha and Elsamere ---> 548
+Lake Nakuru National Park ---> 550
+Lake Nicaragua ---> 3218
+Lake Sebu ---> 758
+Lake Superior ---> 4012
+Lake Toba ---> 3854
+Lake Wanaka ---> 2238
+Lal Bagh ---> 2996
+Lalibela ---> 2685
+Lambeau Field ---> 2064
+Lamu ---> 3868
+Lan Su Chinese Garden ---> 1902
+Langebaan ---> 3623
+Langkawi ---> 3876
+Lantau ---> 1197
+Larnaca District Museum ---> 239
+Larnaca Medieval Museum ---> 242
+Las Cabezas de San Juan Nature Reserve ---> 802
+Las Cruces ---> 3792
+Las Grutas ---> 3816
+Las Pinas ---> 740
+Lascaris War Rooms ---> 598
+Latvian National Opera ---> 3521
+Laumeier Sculpture Park ---> 3315
+Lausanne ---> 994
+Le Jardin dAcclimatation ---> 2672
+Le Marche ---> 1597
+Lee County Manatee Park ---> 1514
+Leeds Art Gallery ---> 2035
+Leeds Castle ---> 1013
+Lefkara ---> 245
+Legoland Billund ---> 2376
+Legoland California ---> 3726
+Legoland Discovery Centre ---> 1961
+Lejre Research Centre ---> 3839
+Lekki Beach Resort ---> 3573
+Lekki Conservation Centre ---> 2499
+Lekki Market ---> 2501
+Leonardo da Vinci National Science & Technology Museum ---> 591
+Les Calanques ---> 1675
+Les Eyzies ---> 1802
+Les Invalides ---> 2148
+Lexington ---> 1839
+Leysin ---> 4003
+Lhasa ---> 3825
+Liberia ---> 3412
+Lido Waterpark ---> 2743
+Liebieghaus ---> 2175
+Likoma Island ---> 2884
+LÎle dOrléans ---> 1625
+Lillehammer ---> 3183
+Limnoupolis Waterpark ---> 2747
+Lincoln Library and Museum ---> 1614
+Lincoln Memorial ---> 1414
+Lincoln Park ---> 1223
+Lincoln Road Mall ---> 2200
+Lincolns Home ---> 1227
+Lingyin Temple ---> 3828
+Linnaeus Garden and Museum ---> 3243
+Linville Caverns ---> 2462
+Liseberg Amusement Park ---> 1728
+Lisu Hill-Tribe Display ---> 2447
+Little India ---> 825
+Little Rock Nine Memorial ---> 3010
+Liwa Oasis ---> 1724
+Ljubljana Castle ---> 1971
+Ljubljana Zoo ---> 3222
+Llandaff Cathedral ---> 3701
+Loch Ness ---> 1036
+Loftus Versfeld Stadium ---> 2691
+Lombard Street ---> 2173
+London Court ---> 2497
+London Dungeons ---> 1008
+London Eye ---> 1002
+London Science Museum ---> 2662
+London Zoo ---> 2661
+Lone Pine Koala Sanctuary ---> 2975
+Long Island ---> 2398
+Longleat ---> 2953
+Longshan Temple ---> 2013
+Lonsdale Quay ---> 1742
+Lopburi Monkey Temple ---> 2413
+Loretto Chapel ---> 1344
+Loro Parque ---> 3636
+Los Angeles Zoo ---> 2342
+Los Tres Ojos National Park ---> 268
+Lost City ---> 1683
+Lost Paradise of Dilmun Water Park ---> 3365
+Loterie Farm ---> 3650
+Lotte World ---> 1635
+Lough Gur ---> 3867
+Louisas Walk ---> 3378
+Louisiana Art and Science Museum ---> 1273
+Louisiana Childrens Museum ---> 2853
+Louisiana State Museum ---> 1267
+Louisville Glassworks ---> 1257
+Lourdes ---> 3163
+Louvre ---> 296
+Lower Town (Basse-Ville) ---> 3425
+Lowveld National Botanical Garden ---> 878
+Lübeck ---> 375
+Lucca ---> 3084
+Ludington ---> 1289
+Luxembourg American Cemetery and Memorial ---> 560
+Lykourgos Castle ---> 2773
+Lyndon B. Johnson Space Center ---> 1452
+Lyon National Opera House ---> 1959
+Maastricht ---> 674
+Macau ---> 1198
+Machu Picchu ---> 729
+Mackinac Island ---> 1294
+Madaba ---> 1804
+Madame Tussauds ---> 996
+Madeira Cable Car ---> 785
+Madrid Zoo and Aquarium ---> 2575
+Madurodam ---> 2555
+Mae Sa Waterfall ---> 2444
+Maesa Elephant Camp ---> 2451
+Mafia Island ---> 3253
+Magdalena Island Penguin Reserve ---> 3398
+Magic Galaxy ---> 2730
+Magicopolis ---> 2656
+Magnetic Island ---> 27
+Magnificent Mile ---> 3021
+Mahon ---> 936
+Main Market Square (Rynek Glówny) ---> 765
+Mainz ---> 3116
+Majorelle Garden ---> 2323
+Makarska ---> 3836
+Makgadikgadi Salt Pans ---> 2983
+Makhtesh Ramon (Ramon Crater) ---> 3517
+Makumbusho Village Museum ---> 2534
+Malacanang Palace ---> 738
+Malbork Castle ---> 764
+Malindi ---> 3869
+Mall of America ---> 1282
+Malt Whisky Trail ---> 1953
+Malta Experience ---> 599
+Mammoth Cave ---> 1262
+Manama Souk ---> 2506
+Mandalay ---> 2431
+Mandalay Bay ---> 3788
+Mani Bhavan Gandhi Museum ---> 2700
+Manneken-Pis ---> 97
+Marathon ---> 3743
+Marathon ---> 389
+Marathonisi Island ---> 2828
+Marble Palace ---> 2785
+Marcahuasi ---> 3919
+Mardi Gras World ---> 1266
+Margaret River ---> 1395
+Maria Luisa Park ---> 911
+Marienplatz ---> 350
+Marigot Archaeological Museum ---> 1306
+Marigot Bay ---> 972
+Marigot Beaches ---> 1310
+Marigot Open-Air Market ---> 1305
+Marin Drzics House ---> 218
+Marina Mall Fun City ---> 2938
+Marine Aquarium ---> 2766
+Marine Drive ---> 450
+Marine Life Center of Juno Beach ---> 1513
+Marineland ---> 2756
+Marionette Museum ---> 1481
+Maritime Museum of the Atlantic ---> 176
+Mark Twain House and Museum ---> 3300
+Market Square ---> 1571
+Market Square ---> 852
+Marseille Beaches ---> 329
+Marthas Vineyard ---> 1330
+Martin Luther King Jr National Historic Site ---> 1134
+Maryland Science Center ---> 1276
+Masada ---> 1660
+Masai Mara National Reserve ---> 541
+Masca ---> 947
+Massif des Calanques ---> 328
+Matsesta Spa ---> 2492
+Matthias Church ---> 425
+Maui Ocean Centre ---> 1207
+Mayaguana Island ---> 3364
+Mayaguez Zoo ---> 3597
+Mayan Ruins ---> 3392
+Mayfield Falls ---> 533
+Mdina ---> 600
+Mecca ---> 2930
+Medieval Times ---> 3724
+Meiji Jingu ---> 2385
+Meknes ---> 3560
+Mekong Delta ---> 1062
+Melaka (Historic City) ---> 574
+Melbourne Cricket Ground (MCG) ---> 3381
+Melbourne Museum ---> 2137
+Melbourne Zoo ---> 2136
+Melissani and Drogarati Caves ---> 3137
+Melville ---> 2318
+Memento Park ---> 430
+Memory Lane Heritage Village ---> 175
+Memphis and Saqqara ---> 3431
+Memphis Botanic Garden ---> 1391
+Memphis Rock n Soul Museum ---> 1388
+Mendenhall Glacier ---> 3708
+Mendoza ---> 1768
+Mercado Central ---> 186
+Mercado del Puerto (Port Market) ---> 1973
+Mercato ---> 2332
+Mercedes-Benz Museum ---> 2234
+Merdeka Square (Dataran Merdeka) ---> 564
+Merseyside Maritime Museum ---> 1883
+Mesa Verde National Park ---> 3736
+Metropolitan Museum of Art ---> 1159
+MGM Grand ---> 3787
+Miami Beaches ---> 3741
+Miami Childrens Museum ---> 2581
+Miami Science Museum ---> 1162
+Miami Seaquarium ---> 1163
+Midlands Meander ---> 867
+Mijas ---> 3648
+Milford Track ---> 3980
+Mill Iron Ranch ---> 3349
+Millennium Park ---> 2114
+Miller Brewing Company ---> 2061
+Miller Park ---> 2063
+Miluniæ and Gehrys Dancing House ---> 2357
+Minamiza Kabuki Theatre ---> 2386
+Mineral Bath Swimming Pool Park ---> 3849
+Mineral Baths ---> 2236
+Mini Town ---> 2933
+Miniature Wonderland ---> 3128
+Minnesota Childrens Museum ---> 3775
+Minnesota History Center ---> 3774
+Minnesota Science Museum ---> 3779
+Minnesota Zoo ---> 3311
+Minopolis – City of Children ---> 2639
+Minorca Beaches ---> 939
+Mississippi Museum of Art ---> 1315
+Mississippi Museum of Natural Science ---> 3313
+Mississippi River Boat Rides ---> 2854
+Missoula ---> 2438
+MIT Museum ---> 3780
+Mitchell Park Horticultural Conservatory ---> 2062
+Miyajima ---> 1086
+Mljet Island ---> 2079
+Modern Art Museum of Fort Worth ---> 1445
+Mokolodi Nature Reserve ---> 124
+Mombasa ---> 3870
+Momchilovtsi ---> 1781
+Monaco Cathedral ---> 1927
+Monastery of Arkádhi ---> 1507
+Monastery of Daphni ---> 388
+Monastery of San Lorenzo de El Escorial ---> 891
+Moncada Barracks ---> 1655
+Mondorf-les-Bains ---> 3889
+Monetary Museum at the Federal Reserve Bank ---> 3302
+Monkey Bay ---> 3483
+Monkey Mia Resort ---> 67
+Monkey Park ---> 3640
+Monreale Cathedral ---> 1483
+Mont Saint-Michel Abbey ---> 306
+Montauban ---> 1799
+Montblanc ---> 3939
+Monte-Carlo Casino ---> 1928
+Montego Bay Marine Park ---> 519
+Montelimar Beach ---> 3214
+Montemar Natural Park ---> 233
+Montepulciano ---> 499
+Monterey ---> 3730
+Monteverde ---> 1790
+Monticello ---> 3346
+Montjuic ---> 897
+Montmorency Falls Park ---> 1624
+Montreal Botanical Garden ---> 1759
+Montreal Museum of Fine Arts ---> 173
+Montserrat ---> 900
+Monument to the Discoveries ---> 775
+Moraine Lake ---> 3420
+Moremi Wildlife Reserve ---> 126
+Morne Fortune ---> 970
+Morne Seychellois National Park ---> 3598
+Moscow Metro ---> 2351
+Moselle Valley ---> 4007
+Moses Mabhida Stadium ---> 3048
+Moss Mansion Historic House ---> 1890
+Mossel Bay ---> 1875
+Mother House ---> 2783
+Motor Museum ---> 2887
+Motown Historical Museum ---> 1288
+Mount Ararat ---> 3795
+Mount Aso ---> 1093
+Mount Athos ---> 400
+Mount Cook National Park ---> 701
+Mount Etna ---> 1493
+Mount Evans ---> 3298
+Mount Everest ---> 204
+Mount Everest Region ---> 1851
+Mount Fuji ---> 1071
+Mount Hood ---> 2452
+Mount Isabel de Torres ---> 273
+Mount Kenya National Park ---> 540
+Mount Kinabalu ---> 577
+Mount Liamuiga ---> 3615
+Mount Moiwa ---> 1098
+Mount Nebo ---> 1566
+Mount Olympus ---> 402
+Mount Qincheng ---> 3826
+Mount Rainier National Park ---> 1429
+Mount Rushmore ---> 3033
+Mount St. Helens ---> 1430
+Mount Vernon ---> 3339
+Mount Victoria ---> 3979
+Mount Wellington ---> 3057
+Mozarts Birthplace ---> 2469
+Mt Kilimanjaro National Park ---> 980
+Mtoni Palace Ruins ---> 2210
+Muay Thai ---> 2409
+Mud Island River Park ---> 1390
+Muhammad Ali Center ---> 1711
+Mui Ne ---> 2414
+Muir Woods ---> 3043
+Muizenberg ---> 2102
+Muktuk Adventures ---> 3428
+Murano ---> 2633
+Musandam ---> 3691
+Musée des Beaux-Arts ---> 3015
+Musée des Moulins ---> 2039
+Musée dHistorie Naturelle ---> 2786
+Musée dOrsay ---> 298
+Musee Leon Dierx ---> 1916
+Musée National dHistoire Naturelle ---> 2671
+Musée National Picasso ---> 300
+Musée Rodin ---> 299
+Museo Archeologico Nazionale ---> 501
+Museo Canario ---> 940
+Museo Castillo Serralles ---> 1691
+Museo dArt Espanyol Contemporani ---> 925
+Museo de Arte ---> 798
+Museo de Arte Contemporaneo de Alicante ---> 904
+Museo de Bellas Artes ---> 916
+Museo de Coca (Coca Museum) ---> 117
+Museo de la Casa de la Moneda ---> 122
+Museo de la Ciudad (Museum of the City) ---> 1644
+Museo de la Nacion (National Museum) ---> 718
+Museo de la Revolución ---> 1641
+Museo de Oro del Peru (Gold Museum) ---> 719
+Museo del Banco Central ---> 280
+Museo e Gallerie di Capodimonte ---> 503
+Museo Histórico Municipal ---> 1650
+Museo Maya ---> 3924
+Museo Nacional de Bellas Artes ---> 1643
+Museo Provincial de Bellas Artes de Sevilla ---> 910
+Museo Rafael Larco Herrera ---> 720
+Museo Romántico ---> 1649
+Museo Santuarios Andinos (Museum of Andean Sanctuaries) ---> 731
+Museo Vasco ---> 917
+Museu de Marinha (Maritime Museum) ---> 2328
+Museu Nacional de Soares dos Reis ---> 779
+Museum and White House of the Confederacy ---> 1405
+Museum District ---> 1453
+Museum of Anatolian Civilizations ---> 2025
+Museum of Anthropology ---> 148
+Museum of Art and History ---> 2174
+Museum of Asian Art ---> 404
+Museum of Communism ---> 2355
+Museum of Contemporary Art ---> 2111
+Museum of Contemporary Canadian Art ---> 2185
+Museum of Design Zurich ---> 2127
+Museum of Edinburgh ---> 2056
+Museum of Epigraphy ---> 2966
+Museum of Fine Arts (Kunsthistorisches Museum) ---> 2192
+Museum of Flight ---> 1425
+Museum of Genocide Victims ---> 1754
+Museum of Hamburg History ---> 371
+Museum of Historic Art of the Sforzesco Castle ---> 590
+Museum of Insects and Natural Wonders ---> 3019
+Museum of International Folk Art ---> 1342
+Museum of Islamic Art ---> 3195
+Museum of Modern and Contemporary Art ---> 2162
+Museum of Modern Art ---> 1157
+Museum of National Antiquities ---> 1558
+Museum of Newport History ---> 1374
+Museum of Pre-Historic Thera ---> 3135
+Museum of Puerto Rico Music ---> 1690
+Museum of Sant Agostino ---> 3434
+Museum of Science and Industry ---> 1172
+Museum of Science and Industry ---> 1860
+Oregon Museum of Science and Industry ---> 1904
+Museum of the History of Science and Technology ---> 2803
+Museum of the Jewish Diaspora (Beit Hatefutsot) ---> 1111
+Museum of Warsaw ---> 761
+Museum of Yachting ---> 1375
+Muttrah Fish Market ---> 2963
+Mycenae ---> 394
+Mykonos Windmills ---> 2742
+Myriad Botanical Gardens ---> 2044
+Myrtos Beach ---> 3136
+Mystic Seaport ---> 1985
+Nagasaki ---> 1094
+Nairobi National Museum ---> 2846
+Nairobi National Park and Sheldrick Elephant Orphanage ---> 538
+Nambung National Park ---> 3382
+Namche Bazaar ---> 3538
+Namsan Park ---> 1637
+Nantes ---> 3164
+Nantucket ---> 1331
+Napali Coast State Wilderness Park ---> 3756
+Nara ---> 1081
+Natal Sharks Board ---> 2932
+Natchez Churches ---> 1321
+Natchez Historic Houses ---> 1319
+Natchez Trace Parkway ---> 1323
+Natchez Under-the-Hill ---> 1322
+National Aquarium ---> 1277
+National Aquarium ---> 266
+National Archaeological Museum ---> 382
+National Archaeological Museum of Spain ---> 2146
+National Archives ---> 3341
+National Aviary ---> 1363
+National Botanic Garden ---> 3918
+National Botanical Gardens ---> 1524
+National Cowboy and Western Heritage Museum ---> 2046
+National Ethnographic Museum ---> 1536
+National Gallery ---> 1000
+National Gallery ---> 510
+National Gallery of Art ---> 1418
+National Gallery of Australia ---> 44
+National Gallery of Scotland ---> 1031
+National Gardens ---> 2560
+National History Museum ---> 1974
+National History Museum ---> 808
+National Key Deer Refuge ---> 1739
+National Library of Ireland ---> 472
+National Mall ---> 1410
+National Marine Park ---> 2820
+National Maritime Museum ---> 2093
+National Monument of Indonesia ---> 2485
+National Museum ---> 143
+National Museum ---> 2498
+National Museum ---> 2533
+National Museum (Muzium Negara) ---> 571
+National Museum and Art Gallery ---> 2088
+National Museum of American Illustration ---> 3328
+National Museum of Archaeology ---> 597
+National Museum of Beirut ---> 3464
+National Museum of Ethiopia ---> 2333
+National Museum of Finland ---> 1574
+National Museum of Funeral History ---> 1457
+National Museum of Naval Aviation ---> 1185
+National Museum of Nicaragua ---> 3219
+National Museum of Serbia ---> 1993
+National Museum of Slovenia ---> 1972
+National Museum of the Philippines ---> 737
+National Museums of Ireland ---> 471
+National Palace Museum ---> 2012
+National Parks ---> 2928
+National Zoo ---> 3344
+National Zoological Gardens of South Africa ---> 2690
+Natural History Museum ---> 1917
+Natural History Museum ---> 2028
+Natural History Museum ---> 2197
+Natural History Museum ---> 3757
+Nature Museum ---> 2570
+Natures Valley ---> 3630
+Naveta des Tudons ---> 938
+Navy Pier ---> 2112
+Nazareth ---> 1117
+NCAA Hall of Champions ---> 2008
+Nehru Centre ---> 2698
+Neptunes Grotto (Grotta di Nettuno) ---> 1474
+Nerja ---> 3938
+Neuschwanstein Castle ---> 354
+Nevsky Prospekt ---> 820
+New England ---> 688
+New England Aquarium ---> 2586
+New Mexico Museum of Art ---> 1341
+New Mexico Museum of Natural History and Science ---> 1336
+New Orleans Museum of Art ---> 2295
+Newport Mansions ---> 1371
+Newtown Cultural Precinct ---> 870
+Ngong Ping 360 ---> 2155
+Ngorongoro Conservation Area ---> 979
+Ngwe Saung ---> 2429
+Niagara Falls ---> 1230
+Niagara Falls ---> 163
+Nias Island ---> 2839
+Niassa Game Reserve ---> 3565
+Nicaraguas Volcanoes ---> 3928
+Niederdorf ---> 2128
+Nieu-Bethesda ---> 3631
+Nizwa Fort ---> 3585
+Nkhata Bay ---> 3485
+Nkhotakota ---> 3484
+Noboribetsu ---> 1099
+Norfolk Broads ---> 1026
+North Beach ---> 1234
+North Carolina Museum of Art ---> 2075
+North Carolina Museum of Natural Sciences ---> 2073
+Northern Beaches of Zanzibar ---> 982
+Northern Highlands ---> 1822
+Norton Museum of Art ---> 1511
+Norwich ---> 3871
+Notre-Dame ---> 295
+Notre-Dame de la Treille Cathedral ---> 2042
+Nubia Museum ---> 292
+Nueve de Julio Avenue ---> 2099
+Nuraghe ---> 1472
+Nyhavn Canal ---> 1552
+Nymphenburg Palace ---> 352
+Nymphes ---> 3132
+Oahu Beaches ---> 1199
+Oak Mountain State Park ---> 3716
+Oak Ridge Cemetery ---> 1229
+Oakland Zoo ---> 2667
+Ocean Park ---> 1195
+Oceanario de Lisboa (Lisbon Oceanarium) ---> 2327
+Oceanographic Museum and Aquarium ---> 1926
+Odense ---> 3970
+Okefenokee Swamp ---> 1147
+Oklahoma City National Memorial and Museum ---> 2045
+Oklahoma City Zoo ---> 2047
+Old and New State Gallery ---> 2232
+Old Cairo ---> 288
+Old Capitol Museum ---> 1311
+Old City Gaol ---> 1780
+Old City Walls ---> 251
+Old Dispensary (Aga Khan Cultural Centre) ---> 2212
+Old Fort ---> 2202
+Old Fort William ---> 167
+Old Goa ---> 455
+Old Melbourne Gaol ---> 50
+Old Muttrah Souk ---> 2509
+Old Orchard Beach ---> 3305
+Old Port of Montreal ---> 1621
+Old Quarter ---> 1049
+Old San Juan ---> 791
+Old State Capitol ---> 1269
+Old State House ---> 1984
+Old Town (Starego Miasta) ---> 760
+Old Town Hall ---> 3610
+Old Town Square ---> 340
+Old Trafford ---> 1859
+Oliewenhuis Art Gallery ---> 2695
+Olympia ---> 392
+Olympiapark ---> 351
+Olympic National Park ---> 1428
+Olympic Park ---> 171
+Omaha Childrens Museum ---> 3026
+Omaha Zoo ---> 2029
+Ometepe Island ---> 3220
+One Pillar Pagoda ---> 1051
+Open Air Ethnographic Museum ---> 1951
+Orange ---> 335
+Orchard Road ---> 3604
+Oregon Zoo ---> 1901
+Orlando Museum of Art ---> 1181
+Orlando Odditorium ---> 1180
+Orléans ---> 3165
+Orto Botanico di Brera ---> 2371
+Ortygia ---> 1489
+Orvieto ---> 3075
+Osun-Osogbo ---> 3572
+Otavalo ---> 282
+Othello Tunnels ---> 3421
+Oualie Beach ---> 3655
+Ouirgane ---> 639
+Oukaimeden ---> 637
+Our Dynamic Earth ---> 2795
+Our Lady of Lebanon ---> 3463
+Outback Ballooning ---> 3376
+Oxford Botanic Gardens ---> 1595
+Paarl ---> 1874
+Pacific Tsunami Museum ---> 1214
+Padang ---> 2841
+Padua (Padova) ---> 2246
+Paestum ---> 505
+Pai ---> 2425
+Pak Ou Caves ---> 2229
+Palace Museum ---> 2203
+Palace of Governors ---> 1340
+Palace of Holyrood House ---> 1030
+Palace of Parliament ---> 805
+Palace of the Grandmaster ---> 596
+Palace of the Winds (Hawa Mahal) ---> 444
+Palace Square ---> 819
+Palace Square (Schlossplatz) ---> 2231
+Palais des Beaux-Arts ---> 2038
+Palais des Nations (United Nations) ---> 2163
+Palais des Papes ---> 332
+Palais du Prince ---> 1925
+Palais Longchamp ---> 327
+Palais Royal ---> 2282
+Palau de lAlmudaina ---> 923
+Palawan ---> 746
+Palazzo Mirto ---> 1485
+Palazzo Pitti and Giardino Boboli ---> 495
+Palazzo Tursi ---> 3433
+Palenque ---> 631
+Paleokastritsa ---> 3850
+Palkhor Monastery ---> 205
+Palmitos Park ---> 944
+Palo Duro Canyon ---> 1451
+Palolem ---> 3864
+Pamplona ---> 921
+Pamukkale ---> 1044
+Panajachel ---> 3114
+Panaji ---> 459
+Panama City ---> 3745
+Pantheon ---> 484
+Paradise Island ---> 2394
+Paradise Peak ---> 1309
+Paramount Canadas Wonderland ---> 2629
+Parc Asterix ---> 2673
+Parc de La Ciutadella ---> 2564
+Park City ---> 3812
+Parliament Buildings ---> 1617
+Parliament Buildings ---> 429
+Parliament Hill ---> 164
+Paronella Park ---> 1717
+Parque de Atracciones ---> 2577
+Parque de los Cocodrilo ---> 1434
+Parque del Buen Retiro ---> 889
+Parque Nacional Alejandro de Humboldt ---> 2871
+Parque Nacional Chiloé ---> 190
+Parque Nacional Laguna San Rafael ---> 2214
+Parque Nacional Torres del Paine ---> 191
+Parque Natural de Bardenas Reales ---> 3246
+Parthenon ---> 1382
+Pashupatinath Temple ---> 1847
+Patagonia ---> 1774
+Patan ---> 3537
+Patek Philippe Museum ---> 2213
+Paternoster ---> 3626
+Patmos ---> 1506
+Pau ---> 3166
+Pavlovsk Palace ---> 3807
+Peabody Museum of Natural History ---> 1988
+Peace Memorial Museum ---> 2208
+Peace Memorial Park ---> 1083
+Peace Palace ---> 675
+Peach Tree Pottery ---> 2658
+Peak District ---> 1877
+Pearl District ---> 1903
+Pearl Museum ---> 1599
+Pedro St James Castle ---> 182
+Peggy Guggenheim Collection ---> 584
+Peles Castle ---> 810
+Pemba Island ---> 3998
+Pembrokeshire Coast National Park ---> 1824
+Penzance ---> 3283
+Perdana Botanical Gardens ---> 569
+Pergamon Museum ---> 2109
+Perhentian Islands ---> 3877
+Perito Moreno Glacier ---> 1923
+Periyar Wildlife Sanctuary ---> 462
+Petaloudes - Valley of the Butterflies ---> 2764
+Peter and Paul Fortress ---> 822
+Petit Palais ---> 333
+Petrified Forest National Park ---> 3710
+Petrified Forest of Sigri ---> 2750
+Petrin Hill ---> 2856
+Petroglyph National Monument ---> 1334
+Petronas Towers ---> 566
+Pettah ---> 955
+Pforzheim ---> 1808
+Phaistos ---> 415
+Pham Ngu Lau ---> 2405
+Phang Nga Bay ---> 3247
+Philabaum Glass ---> 2313
+Philadelphia Museum of Art ---> 1353
+Philadelphia Zoo ---> 1356
+Philippine Eagle Centre ---> 756
+Philipsburg Beaches ---> 1303
+Phillip Island Circuit ---> 56
+Phou Si ---> 2878
+Phuket Beaches ---> 3974
+Piazza del Duomo (Cathedral Square) ---> 491
+Piazza delle Erbe ---> 3030
+Picasso Museum ---> 894
+Piccadilly Circus ---> 1010
+Pico ---> 3987
+Pictograph Cave State Park ---> 3317
+Piestany ---> 3609
+Pigeon Island ---> 975
+Pigeon Key ---> 1734
+Pike Place Market ---> 1420
+Pilgrims Rest ---> 880
+Pilsen ---> 3947
+Pinacoteca di Brera ---> 2340
+Pinel Island ---> 1308
+Pink Palace Museum ---> 1389
+Pinnacles National Monument ---> 3731
+Pinnawela Elephant Orphanage ---> 959
+Pinney’s Beach ---> 1702
+Pioneer Memorial Museum ---> 1437
+Pioneer Square ---> 1424
+Piraeus ---> 383
+Piramides de Guimar ---> 946
+Pirin National Park ---> 1532
+Pisa ---> 3083
+Pisco ---> 722
+Pitsilia ---> 262
+Piwnica pod Baranami ---> 3579
+Place Neuve ---> 2166
+Place Royale ---> 1618
+Plain of Jars (Phonsavan) ---> 556
+Plaka ---> 384
+Plantations ---> 1398
+Planten un Blomen ---> 3126
+Playas del Este ---> 1647
+Plaza de Armas ---> 184
+Plaza de Armas ---> 724
+Plaza de la Cultura ---> 267
+Plaza de la Independencia ---> 278
+Plaza de la Revolución ---> 1646
+Plaza de la Virgen ---> 2006
+Plaza Dorrego ---> 9
+Plaza Independencia ---> 1976
+Plaza Mayor ---> 887
+Plaza Mayor and Plaza San Martin ---> 717
+Plaza San Francisco ---> 279
+Please Touch Museum ---> 3329
+Plitvice Lakes National Park ---> 2085
+PNC Park ---> 3330
+Po Delta Natural Park ---> 2636
+Poble Espanyol ---> 2568
+Point State Park ---> 1364
+Poklonnaya Hill ---> 2348
+Polana Hotel ---> 1935
+Polaria ---> 716
+Polish Poster Gallery ---> 3578
+Pollensa ---> 1393
+Polybahn and Rigiblick Funiculars ---> 2126
+Polynesian Cultural Centre ---> 1200
+Pompeii ---> 504
+Pompidou Centre ---> 297
+Ponce Art Museum ---> 1689
+Pont dAvignon ---> 334
+Ponta dOuro ---> 2269
+Ponte Scaligero ---> 3029
+Ponte Vecchio ---> 494
+Popeye Village ---> 2892
+Poros ---> 3470
+Porsche Museum ---> 2237
+Port Antonio Beaches ---> 1687
+Port Arthur ---> 64
+Port Louis Central Market ---> 610
+Port Royal ---> 514
+Port St Johns ---> 3933
+PortAventura Theme Park ---> 1495
+Portland Downtown Arts District ---> 1898
+Portland Head Light ---> 1896
+Portmeirion ---> 3275
+Porto ---> 3167
+Porto Santo ---> 790
+Porto-Vecchio ---> 3841
+Portofino ---> 593
+Postojna Cave ---> 3613
+Potala Palace ---> 201
+Potami Waterfalls ---> 2771
+Potsdamer Platz ---> 348
+Prague Astronomical Clock ---> 2356
+Prague Toy Museum ---> 2857
+Prambanan Temple Complex ---> 465
+Preservation Hall ---> 1924
+President Brand Street ---> 2694
+Pretoria National Botanical Garden ---> 2693
+Prince of Wales Museum ---> 2699
+Prinos Streetmarket ---> 2821
+Progressive Field ---> 3336
+Provost Dungeon and Old Exchange Building ---> 2456
+Psar Chaa - Old Market ---> 3065
+Public Parks ---> 2161
+Pueblo Canario ---> 942
+Pueblo Grande Museum and Archaeological Park ---> 3713
+Puerta del Sol ---> 2142
+Puerto del Rosario ---> 1499
+Puerto Galera ---> 3922
+Puerto Plata ---> 3995
+Puerto Princesa Subterranean River National Park ---> 3577
+Puerto Viejo de Talamanca ---> 1791
+Puffing Billy Railway ---> 3958
+Puget Sound Islands ---> 1427
+Pukara de Quitor Ruins ---> 3835
+Pulau Ubin ---> 835
+Punta del Este ---> 3973
+Pura Besakih ---> 2831
+Pura Kehen ---> 2832
+Puuhonua O Honaunau National Historical Park ---> 1216
+Puy du Fou ---> 3271
+Pyramids of Giza ---> 287
+Pythagoras Cave ---> 2769
+Qasr Al Alam Royal Palace ---> 2523
+Qin Terracotta Army Museum ---> 196
+Queen Elizabeth II Botanic Park ---> 183
+Queen Elizabeth Park ---> 1744
+Queen Sirikit Botanic Garden ---> 2450
+Queen Victoria Market ---> 2135
+Quimper ---> 3168
+Quirimbas Islands ---> 3563
+Qutub Minar ---> 436
+Radio City Music Hall ---> 3320
+Raffles Hotel ---> 823
+Rain Forest Adventures ---> 3235
+Ramses II Statue ---> 2307
+Randall Museum ---> 2668
+Rantanakiri ---> 3633
+Rashtrapati Bhavan ---> 438
+Ratanga Junction ---> 2593
+Reach Falls ---> 1685
+Red Fort ---> 434
+Red Light District (De Wallen) ---> 670
+Red Rock Canyon ---> 1130
+Red Square ---> 813
+Redonda ---> 1941
+Redwood National and State Park ---> 3727
+Reed Flute Cave ---> 3079
+Reef HQ Aquarium ---> 2971
+Reeperbahn ---> 372
+Reichstag ---> 3122
+Reims ---> 1794
+Reina Sofia National Art Centre Museum ---> 885
+Rembrandt House ---> 668
+Reserva Nacional Los Flamencos ---> 188
+Residence of Princess Ljubica ---> 1994
+Rhode Island School of Design Museum ---> 1368
+Rhodes Beaches ---> 2763
+Rhodes Hall Plantation ---> 532
+Rhodes Old Town ---> 2759
+Rialto Bridge ---> 508
+Richards Bay ---> 3931
+Richmond National Battlefield Park ---> 1406
+Riga Castle ---> 1950
+Rijeka ---> 3837
+Rila Monastery ---> 1539
+Rio Grande ---> 1686
+Ripleys Believe it or Not! Museum ---> 2665
+River Dolphins ---> 2415
+Riversleigh ---> 2972
+Riverwalk ---> 2473
+Riverway ---> 2969
+Rizal Park ---> 735
+Robben Island ---> 845
+Rocamadour ---> 1801
+Rocinha ---> 3409
+Rock and Roll Hall of Fame ---> 1347
+Rockefeller Centre ---> 2388
+Rockford ---> 1226
+Rockland ---> 3768
+Rocklands Bird Sanctuary ---> 3506
+Rocky Mountain National Park ---> 1152
+Roger Williams Park Zoo ---> 1369
+Roman Baths ---> 1296
+Roman Forum ---> 397
+Roman Forum (Foro Romano) ---> 482
+Roman Theatre ---> 1561
+Romantic Road ---> 359
+Ronda ---> 3333
+Rorkes Drift ---> 1668
+Rose Hall ---> 518
+Rosenborg Castle ---> 1553
+Roskilde Cathedral ---> 3087
+Rosslyn Chapel ---> 2060
+Roswell ---> 1339
+Rothenburg ---> 3447
+Rotorua ---> 3846
+Rouen ---> 3169
+Route 66 Sign ---> 3023
+Royal Armouries Museum ---> 2036
+Royal Barges National Museum ---> 985
+Royal Botanic Garden ---> 2057
+Royal Botanic Garden ---> 2143
+Royal Botanic Gardens ---> 680
+Royal Botanical Gardens of Pamplemousses ---> 613
+Royal Chitwan National Park ---> 1531
+Royal Djurgården ---> 1555
+Royal Grand Palace ---> 984
+Royal Mile ---> 2378
+Royal Museum of Central Africa ---> 2287
+Royal Museums of Fine Arts ---> 2283
+Royal Ontario Museum ---> 161
+Royal Palace ---> 1990
+Royal Palace ---> 423
+Royal Palace ---> 886
+Royal Palace (Haw Kham) ---> 554
+Royal Palace and Gamla Stan ---> 1556
+Royal Pavilion ---> 2531
+Royal Tombs ---> 1056
+Royal Warship Vasa ---> 3654
+Royal Yacht Britannia ---> 2059
+Rum Point ---> 1656
+Rural Life Museum and Windrush Gardens ---> 1272
+Russell C. Davis Planetarium ---> 1314
+Russell Cave National Monument ---> 3715
+Russian Market ---> 3635
+Ryman Auditorium ---> 1379
+Sa Pa and Bac Ha ---> 1054
+Saadian Tombs ---> 636
+SAB World of Beer ---> 2316
+Sabino Canyon ---> 2310
+Sacred Monkey Forest of Padangtegal ---> 2838
+Sacsayhuamán ---> 726
+Safari Park ---> 2574
+Saint Pauls Cathedral ---> 3143
+Saint Rémy de Provence ---> 3442
+Saint-Gilles-les-Bains ---> 1920
+Sala Silver Mine ---> 3653
+Saladin Citadel (Al-Qalaa) ---> 2306
+Salalah ---> 3587
+Salar de Uyuni ---> 1963
+Saldanha ---> 3624
+Salima ---> 2254
+Salisbury Cathedral ---> 1585
+Salvador Dali Museum House ---> 1581
+Salzkammergut Lakes ---> 2470
+Sam Adams Brewery ---> 3781
+Sam Houston Historical Park ---> 1455
+Samaipata ---> 3389
+Samal Island ---> 757
+Samana Peninsula ---> 1658
+Samos Beaches ---> 2767
+San Agustin Church ---> 736
+San Angel ---> 624
+San Antonio de la Florida ---> 888
+San Diego Beaches ---> 1248
+San Diego Wine Country ---> 3728
+San Diego Zoo and Safari Park ---> 1245
+San Francisco MOMA ---> 3041
+San Francisco Plantation ---> 1271
+San Germán ---> 3189
+San Gimignano ---> 3082
+San Juan and the Gulf Islands ---> 2436
+San Juan Chamula and Zinacantan villages ---> 630
+San Juan Islands ---> 2437
+San Pedro La Laguna ---> 3115
+San Sebastian ---> 919
+Sancti Spiritus ---> 1654
+Sanctuary Cove ---> 3820
+Sandankyo Gorge ---> 1087
+Sandia Peak Tramway ---> 1332
+Sandy Point ---> 3616
+Sanjusangen-do ---> 1077
+Santa Barbara ---> 3960
+Santa Catalina Monastery ---> 730
+Santa Clara ---> 1653
+Santa Claus Village ---> 1611
+Santa Croce ---> 493
+Santa Cruz ---> 3732
+Santa Cruz ---> 909
+Santa Cruz Beach Boardwalk ---> 2666
+Santa Eulalia del Rio ---> 932
+Santa Ifigenia Cemetery ---> 238
+Santa Maria ---> 3988
+Santa Maria delle Grazie ---> 588
+Santa Teresa ---> 3408
+Santillana del Mar ---> 3649
+Santo Domingo ---> 629
+Santorini Beaches ---> 2776
+Santorini Wineries ---> 3134
+Santuari de Lluc ---> 929
+Sao Jorge ---> 3989
+Sao Vicente Caves ---> 787
+Sapporo Beer Museum ---> 1097
+Saronic Islands ---> 391
+Sassi de Matera ---> 3495
+Saugatuck-Douglas ---> 3783
+Saumur ---> 3104
+Sausalito ---> 2167
+Savannah History Museum ---> 1144
+Scandola Nature Reserve ---> 307
+Scenic Railway ---> 3656
+Schloss Kleßheim Palace ---> 2471
+Schönbrunn Palace ---> 81
+School of St Roch ---> 582
+Scotch Whisky Experience ---> 2058
+Sé de Lisboa ---> 772
+Sea World ---> 3025
+Seal Island ---> 2597
+Sears Tower (Willis Tower) ---> 2113
+Seattle Aquarium ---> 2157
+Seattle Art Museum ---> 1423
+Seattle Space Needle ---> 1421
+SeaWorld ---> 1246
+SeaWorld Aquatica ---> 4008
+SeaWorld Orlando ---> 1177
+Segovia ---> 892
+Selfridges Store ---> 2217
+Seminole Reservation ---> 1510
+Senate Square ---> 1569
+Senckenberg Museum of Natural History ---> 2798
+Senggigi ---> 3856
+Senso-ji Temple ---> 1068
+Sentosa Island ---> 833
+Sepilok Forest Reserve and Orangutan Sanctuary ---> 580
+Serengeti National Park ---> 978
+Serra de Estrela ---> 3591
+Setúbal ---> 1554
+Seurasaari Open Air Museum ---> 1573
+Seven Mile Beach ---> 180
+Seven Mile Beach ---> 530
+Seville Cathedral ---> 907
+Sex Museum Amsterdam ---> 3838
+Seychelles National Museum of History ---> 1523
+Shaanxi Provincial History Museum ---> 197
+Shakespeares Globe Theatre ---> 1003
+Shamwari Game Reserve ---> 856
+Shanghai Museum ---> 193
+Sharjah Desert Park ---> 3697
+Sharjah Heritage District ---> 3696
+Shedd Aquarium ---> 1225
+Sheikh Saeed Al-Maktoum Museum ---> 2123
+Shell Factory and Nature Park ---> 1518
+Shenandoah National Park ---> 1838
+Sherry Bodegas ---> 3644
+Sherwood Forest ---> 2054
+Shilin Night Market ---> 2011
+Shisha Bars ---> 3600
+Shofukuji Temple ---> 1089
+Shooting Ranges ---> 2419
+Shwedagon Pagoda ---> 2240
+Si Phan Don ---> 2873
+Siam Ocean World ---> 2711
+Siam Park ---> 3637
+Sibenik ---> 2084
+Sidemen Valley ---> 3480
+Sidon (Saida) ---> 3513
+Siena ---> 3884
+Sighisoara ---> 1869
+Sigiriya ---> 968
+Sigulda ---> 3520
+Sihanoukville ---> 2410
+Silk Exchange (Lonja de la Seda) ---> 2004
+Simartin Museum ---> 1300
+Similan Islands National Park ---> 3250
+Simonstown and Boulders Beach ---> 849
+Singapore Art Museum ---> 829
+Singapore Botanical Gardens ---> 830
+Singapore Discovery Centre ---> 2917
+Singapore Flyer ---> 3605
+Singapore Zoological Gardens ---> 827
+Sintra ---> 3983
+Sipadan Island ---> 576
+Six Flags Discovery Kingdom ---> 3722
+Six Flags Fiesta Texas ---> 2474
+Six Flags Great America ---> 2604
+Six Flags Magic Mountain ---> 3288
+Six Flags Over Georgia ---> 2707
+Six Flags Over Texas ---> 3337
+Sixth Floor Museum ---> 1443
+Skadarlija Street ---> 1992
+Skansen ---> 2090
+Skeleton Coast National Park ---> 3536
+Ski Dubai ---> 2122
+Ski resorts ---> 3005
+Skopelos Beaches ---> 2818
+Skyline Gondola ---> 702
+Skyrail ---> 1713
+Sleeping Giant Provincial Park ---> 169
+Smithsonian Institution ---> 1417
+Smugglers Cove ---> 3406
+Snake Farm (Thai Red Cross Farm) ---> 2712
+Snoqualmie Falls ---> 1426
+Snowdonia National Park ---> 1825
+Snowy Mountains ---> 76
+Sognefjord ---> 3940
+Solar Vinho do Porto ---> 781
+Solitude ---> 3813
+Soller ---> 928
+Solunto ---> 1488
+Somers Garden ---> 104
+Somers Wharf ---> 108
+Sony ExploraScience ---> 2716
+Sopot ---> 3582
+Sorolla Museum ---> 2147
+Sossusvlei ---> 662
+Sosua ---> 3996
+Soufriere ---> 976
+Souillac ---> 2078
+Souks ---> 2325
+Souq Al Alawi ---> 4011
+South African Museum and Planetarium ---> 840
+South Bank ---> 2976
+South Carolina Aquarium ---> 1615
+South China Botanical Garden ---> 2961
+Southwest Florida Museum of History ---> 1517
+Soweto ---> 3719
+Spanish Governors Palace ---> 2476
+Spanish Monastery ---> 1166
+Spanish Riding School ---> 79
+Spanish Town ---> 513
+Sparta ---> 3133
+Speakers Corner at Hyde Park ---> 3265
+Speke Hall ---> 1885
+Spetses ---> 3471
+Spier Wine Estate ---> 1662
+Split Rock Lighthouse ---> 3778
+Spoleto ---> 3076
+Sponza Palace ---> 2526
+St Andrews ---> 1032
+St Anne Marine National Park ---> 1525
+St Annes Cathedral ---> 3703
+St Bartholomew Cathedral ---> 3125
+St Basils Cathedral ---> 814
+St Croix SCUBA ---> 3354
+St Fagans National History Museum ---> 2948
+St George Rotunda ---> 1534
+St Georges Cathedral ---> 2334
+St Georges Cathedral ---> 842
+St Georges Market ---> 1945
+St Georges Park ---> 854
+St Isaacs Cathedral ---> 821
+St John’s Cathedral (Agios Ioannis) ---> 250
+St Johns Co-Cathedral ---> 595
+St Johns Episcopal Church ---> 1408
+St Joseph’s Oratory ---> 172
+St Louis City Museum ---> 3785
+St Maarten Zoo ---> 1302
+St Marks Square ---> 507
+St Marys Church ---> 603
+St Marys Church (Mariakirken) ---> 713
+St Michaelis Church ---> 3127
+St Patricks Cathedral ---> 2465
+St Pauls Cathedral ---> 1009
+St Peters Abbey ---> 86
+St Peters Basilica (Basilica di San Pietro) ---> 487
+St Peters Cathedral ---> 2160
+St Peters Church ---> 105
+St Sernin Basilica ---> 3325
+St Sophia Cathedral ---> 1938
+St Stephen’s Cathedral ---> 2187
+St Thomas Skyride ---> 2067
+St Tropez and Surrounds ---> 314
+St Vitus Cathedral ---> 338
+St. Johns Cathedral ---> 3044
+St. Patricks Cathedral ---> 473
+St. Sofia Church ---> 1533
+Städel Gallery ---> 2178
+Stanley ---> 3474
+Stanley Park ---> 147
+Star Beach Water Park ---> 2748
+State Capitol ---> 1365
+Staten Island Ferry ---> 3054
+Statue Square ---> 1192
+Stavropoleos Church and Monastery ---> 807
+Stavrovouni Monastery ---> 244
+Stax Museum of American Soul Music ---> 3291
+Stedelijk Museum of Modern Art ---> 667
+Stellenbosch ---> 1872
+Stingray City and Sandbar ---> 1657
+Stirling Castle ---> 3274
+Stockholm Archipelago ---> 1559
+Stockholm City Hall ---> 1557
+Stockyards City ---> 2048
+Stone Forest ---> 3080
+Stone Mountain Park ---> 1139
+Stonehenge ---> 1016
+Story Bridge ---> 2977
+Stradun ---> 2528
+Strasbourg ---> 3436
+Strategic Air and Space Museum ---> 2030
+Stratford-Upon-Avon ---> 1584
+Subic Bay Freeport Zone ---> 744
+Sudeley Castle ---> 1022
+Sugar Loaf ---> 130
+Sultan Qaboos Grand Mosque ---> 2508
+Šumava National Park ---> 3270
+Summer Palace ---> 545
+Sun Studio ---> 1387
+Sungbos Eredo ---> 2500
+Sunken Palace ---> 2329
+Suomenlinna Fortress ---> 1568
+Surfers Paradise ---> 3821
+Surfing in Oahu ---> 3951
+Swakopmund ---> 3917
+Swarovski Crystal World ---> 3385
+Swayambhunath Stupa ---> 1530
+Swiss Alps ---> 2368
+Swiss National Museum ---> 991
+Sydney Beaches ---> 684
+Sydney Opera House ---> 679
+Sydney Tower ---> 2140
+Sylt ---> 373
+Syntagma Square ---> 386
+Syracuse ---> 3882
+Szentendre ---> 1812
+Szépasszony Valley (Valley of the Pretty Woman) ---> 433
+Tabernas ---> 1577
+Table Mountain ---> 837
+Tagaytay City ---> 742
+Taif ---> 3603
+Taipei 101 ---> 2010
+Taipei Zoo ---> 2014
+Taj Mahal ---> 440
+Tala Game Reserve ---> 3061
+Talat Sao (Morning Market) ---> 3511
+Taliesin West ---> 2271
+Talladega Superspeedway ---> 1981
+Tallahassee ---> 1188
+Tallinn Botanical Gardens ---> 1602
+Tallinn Zoo ---> 1601
+Talloires ---> 3440
+Taman Negara National Park ---> 573
+Tamassos ---> 252
+Tamborine Mountain ---> 31
+Tampa Museum of Art ---> 1173
+Tanah Lot ---> 2829
+Tangier American Legation Museum ---> 656
+Tanneries ---> 642
+Taormina ---> 3883
+Taos ---> 1346
+Taranaki ---> 3539
+Target Field ---> 3310
+Tarragona ---> 1494
+Tarrytown ---> 1829
+Tashi Lhunpo Monastery ---> 203
+Tate Liverpool ---> 1881
+Tate Modern ---> 999
+Te Anau ---> 3847
+Te Papa Museum ---> 696
+Teatro Colon ---> 10
+Teide National Park ---> 945
+Tel Aviv Museum of Art ---> 1109
+Telfair Museum of Art ---> 1145
+Temple Bar District ---> 468
+Temple Mount (Al-Haram al-Sharif) ---> 1101
+Temple of Augustus ---> 2026
+Temple of Hera ---> 2768
+Temple of Karnak ---> 290
+Temple of Literature (Van Mieu) ---> 1052
+Temple of Saint Sava ---> 1991
+Temple of the Golden Buddha (Wat Traimit) ---> 2288
+Temple of the Reclining Buddha (Wat Pho) ---> 986
+Temple of the Six Banyan Trees ---> 2960
+Temple Square ---> 1435
+Temples of Angkor ---> 2546
+Temples of Baalbek ---> 3461
+Templo Mayor ---> 621
+Temppeliaukio Church ---> 1572
+Ten Thousand Buddhas Monastery ---> 3140
+Tenerife Beaches ---> 948
+Tennant Creek ---> 3819
+Tennessee State Museum ---> 1383
+Teotihuacan ---> 626
+Terceira ---> 3990
+Terra Mitica ---> 1469
+Texas State Capitol ---> 1459
+Thackray Museum ---> 2034
+Thalang National Museum ---> 3248
+Thassos Beaches ---> 2823
+That Luang (Royal Stupa) ---> 552
+The Alamo ---> 2472
+The Albertina ---> 2189
+The Apartheid Museum ---> 2319
+The Backwaters of Kerala ---> 463
+The Bargello (Museo Nazionale del Bargello) ---> 492
+The BAT Centre ---> 864
+The Beaches ---> 1541
+The Beijing National Stadium ---> 2296
+The Bund ---> 192
+The Cactus Garden ---> 952
+The Castle District ---> 337
+The Cederberg ---> 3629
+The Chocolate Hills ---> 3574
+The Citadel ---> 1055
+The Citadel ---> 605
+The Citadel of Chellah ---> 648
+The Colca Canyon ---> 732
+The Colosseum ---> 483
+The Corniche ---> 3465
+The Dead Sea ---> 1108
+The Dead Sea ---> 1564
+The Delaware Contemporary ---> 3008
+The Dutch Resistance Museum (Verzetsmuseum) ---> 672
+The Eden Project ---> 1017
+The English Market ---> 2850
+The Esplanade ---> 1712
+The Fairy Tale Road ---> 3445
+The Fitzwilliam Museum ---> 3207
+The Fortress ---> 557
+The Fox Theatre ---> 2279
+The Frick Collection ---> 3053
+The Gabba ---> 2335
+The Giraffe Centre ---> 2845
+The Golden Mile ---> 3720
+The Gorge Amphitheater ---> 2468
+The Governors Mansion ---> 1312
+The Grand Canal (Canalazzo) ---> 506
+The Grand Canyon ---> 1119
+The Grand Canyon ---> 1128
+The Great Synagogue and Jewish Museum ---> 428
+The Guggenheim Museum ---> 1158
+The Henry Ford Museum ---> 1283
+The Holy Land Experience ---> 3740
+The House on the Rock ---> 3934
+The Hunley ---> 2455
+The Ibiza Express ---> 2738
+The Israel Museum ---> 1105
+The Jewish Museum ---> 341
+The King Hassan II Mosque ---> 2542
+The Kon-Tiki Museum ---> 708
+The Kremlin ---> 812
+The Little Mermaid Statue ---> 2374
+The Luxor ---> 1123
+The Medes Islands ---> 1582
+The Meeting of the Waters ---> 136
+The Mirage ---> 1122
+The Mission San Xavier del Bac ---> 2298
+The Mosaics of Paphos ---> 255
+The Museum of Childhood ---> 2794
+The Museum of Marrakech ---> 2321
+The Museum of the Occupation of Riga ---> 2885
+The National Museum ---> 1678
+The National Museum for History and Art ---> 559
+The National WWII Museum ---> 1264
+The Nazca Lines ---> 723
+The Old Jameson Distillery ---> 2247
+The Old Town ---> 1600
+The Orange Show ---> 1454
+The Painted Monasteries ---> 811
+The Palace of Knossos ---> 410
+The Pampas ---> 1770
+The Pearl–Qatar ---> 3602
+The Perfume River ---> 1057
+The Pitons ---> 3660
+The Prado ---> 883
+The Pyrenees ---> 3848
+The Rijksmuseum ---> 666
+The Rocks ---> 678
+The Royal Palace ---> 142
+The Royal Palace (Koninklijk Paleis) ---> 673
+The Royal Way ---> 762
+The Sacred Valley (Urubamba River Valley) ---> 728
+The Samaria Gorge ---> 416
+The Sedgwick Museum of Earth Sciences ---> 3210
+The Shrine of Sidi Abderrahman ---> 2544
+The Spanish Steps and Piazza di Spagna ---> 485
+The Spitzkoppe ---> 1909
+The Statue of Liberty ---> 1153
+The Story of Berlin ---> 1659
+The Strand ---> 2968
+The Strip ---> 3657
+The Uffizi (Gallerie degli Uffizi) ---> 489
+The Underground City ---> 2227
+The Underwater Observatory Marine Park ---> 2861
+The Viking Ships Museum ---> 709
+The Village Museum ---> 806
+The Wall in the Wilderness ---> 3379
+The White Tower ---> 398
+The Winter Palace and the Hermitage Museum ---> 818
+The Witches’ Market (Mercado de Brujas) ---> 116
+Theologos ---> 2822
+Thessaloniki Archaeological Museum ---> 396
+Thian Hock Keng Temple ---> 3228
+Thingvellir National Park ---> 1710
+Thiruvananthapuram (Trivandrum) ---> 460
+Thomas Edisons House ---> 1254
+Three Cities ---> 601
+Thyssen-Bornemisza Museum ---> 884
+Tiananmen Square ---> 543
+Tianmen Mountain National Park ---> 3824
+Tibidabo ---> 898
+Tierra del Fuego ---> 1775
+Tiger Temple ---> 2412
+Tijuana, Mexico ---> 1275
+Timanfaya National Park ---> 950
+Times Square ---> 2387
+Tintern Abbey ---> 3702
+Tioman ---> 3878
+Tiritiri Matangi Island ---> 3978
+Tivoli Gardens ---> 1549
+Tivoli Park ---> 3223
+Tjapukai Aboriginal Cultural Park ---> 1716
+To-ji ---> 1075
+Todra Gorge ---> 3561
+Tokyo Disney Resort ---> 1069
+Tokyo Imperial Palace ---> 1064
+Tokyo National Museum ---> 1070
+Tokyo Tower ---> 2384
+Toledo ---> 890
+Tombs of the Kings ---> 254
+Tombs of the Ming Dynasty ---> 4013
+Tombstone ---> 1118
+Tonlé Sap Lake ---> 2547
+Topkapi Palace Museum ---> 1040
+Toronto Islands ---> 2186
+Toronto Zoo ---> 162
+Tortuguero National Park ---> 208
+Tossa de Mar ---> 901
+Touro Synagogue ---> 1373
+Tours ---> 3170
+Tower Bridge ---> 3266
+Tower of Belem ---> 776
+Tower of London ---> 997
+Town Squares ---> 224
+Township Tours ---> 1671
+Tracy Aviary ---> 3347
+Traffic Rules Playground Prosek ---> 2858
+Trail Dust Town ---> 2301
+Trakoscan Castle ---> 225
+Tram 28 ---> 3926
+Trastevere ---> 2184
+Treasure Island ---> 3789
+Treichville ---> 3500
+Trenino Verde ---> 1473
+Tretyakov Gallery ---> 817
+Trevi Fountain (Fontana di Trevi) ---> 486
+Triberg ---> 1809
+Trier ---> 365
+Triglav National Park ---> 3614
+Trincomalee ---> 962
+Trinity College Dublin ---> 467
+Trogir ---> 2082
+Tromso Museum ---> 714
+Troodos Mountains ---> 261
+Troyes ---> 1797
+Trump-Wollman Rink ---> 2677
+Tsarskoe Selo ---> 3808
+Tsavo National Park ---> 551
+Tsitsikamma National Park ---> 882
+Tsodilo Hills ---> 128
+Tucson Botanical Gardens ---> 2312
+Tucson Rodeo Parade Museum ---> 2300
+Tunku Abdul Rahman National Park ---> 575
+Tuol Sleng Museum ---> 144
+Tupiza ---> 2998
+Turkish and Islamic Art Museum ---> 1041
+Turner Field ---> 3752
+Turquoise Trail ---> 1338
+Two Oceans Aquarium ---> 2095
+Twyfelfontein ---> 1915
+Tybee Island ---> 1149
+Ubud ---> 1769
+Udaipur Lake Palace ---> 445
+Udzungwa Mountains National Park ---> 3682
+Ulster American Folk Park ---> 1947
+Uluru - Kata Tjuta National Park ---> 1968
+Umayyad Mosque ---> 2091
+Umgeni River Bird Park ---> 3062
+Underground Cities of Cappadocia ---> 1048
+Union Buildings ---> 2689
+Union Square ---> 3040
+Universal Studios Florida ---> 1178
+Universal Studios Hollywood ---> 1239
+Universal Studios Singapore ---> 3608
+University of Arizona Art Museum ---> 2297
+University of Cambridge ---> 1024
+Uppsala Cathedral ---> 3242
+US Capitol ---> 1411
+US Holocaust Memorial Museum ---> 1419
+uShaka Marine World ---> 860
+Uspenski Cathedral ---> 1570
+USS Arizona Memorial Museum ---> 1204
+USS Kidd Veterans Museum ---> 1270
+Ustica ---> 1487
+Utah State Capitol ---> 1436
+Vác ---> 3475
+Valencia Cathedral ---> 2003
+Valldemossa ---> 930
+Valle de los Ingenios (Valley of the Sugar Mills) ---> 1652
+Valley of Fire State Park ---> 3028
+Valley of the Giants Tree Top Walk ---> 3383
+Valley of the Moon ---> 2314
+Valley of the Temples ---> 1202
+Valley of the Temples (Valle dei Templi) ---> 3494
+Valleyfair ---> 3072
+Valparaiso ---> 4014
+Valpolicella ---> 3032
+Van Gogh Museum ---> 665
+Vancouver Aquarium Marine Science Centre ---> 2912
+Vancouver Art Gallery ---> 1745
+Vancouver Lookout at the Harbour Centre ---> 1746
+VanDusen Botanical Garden ---> 1747
+Varadero ---> 3832
+Varkala ---> 3493
+Vasco da Gama Aquarium ---> 2809
+Vatican City and the Sistine Chapel ---> 488
+Venetian Hotel and Casino ---> 1120
+Vergina ---> 401
+Verona Arena (Arena di Verona) ---> 3031
+Versailles ---> 301
+Veysonnaz ---> 4004
+Via Dolorosa ---> 1103
+Vianden ---> 561
+Vicksburg National Military Park ---> 1317
+Victoria ---> 1521
+Victoria & Alfred (V&A) Waterfront ---> 1670
+Victoria and Albert Museum ---> 3267
+Victoria Falls ---> 2924
+Victoria Memorial ---> 2781
+Victoria Peak ---> 1189
+Victory Gate (Patuxai) ---> 3174
+Vidam Park ---> 2943
+Vienna State Opera ---> 84
+Vieux Bordeaux ---> 304
+Vieux Fort ---> 977
+Vigan ---> 3576
+Vigeland Park ---> 707
+Viking Ship Museum ---> 3088
+Vila do Conde ---> 3991
+Vila Nova de Gaia ---> 782
+Vilanculos ---> 2274
+Villa Doria Pamphili Park ---> 2599
+Villages on Stilts ---> 3634
+Villandry ---> 322
+Vilnius Cathedral ---> 1751
+Vimanmek Mansion Museum ---> 2292
+Vina del Mar ---> 4015
+Vinales Botanical Garden ---> 3833
+Virginia Museum of Fine Arts ---> 1407
+Virginia Science Museum ---> 1409
+Visegrad ---> 1813
+Vitoria-Gasteiz ---> 920
+Vitosha Mountain ---> 1537
+Vizcaya Villa ---> 1165
+Vlkolinec ---> 3611
+Volcan San Pedro ---> 4005
+Volubilis ---> 652
+Vondelpark ---> 3569
+Vulcan Park ---> 1979
+Vysehrad ---> 342
+Wadsworth Atheneum Museum of Art ---> 1983
+Wadsworth-Longfellow House ---> 1897
+Wahiba Sands ---> 3586
+Wai-O-Tapu Thermal Reserve ---> 695
+Waikiki Aquarium ---> 3753
+Wales Millennium Centre ---> 2949
+Walker Art Center ---> 1281
+Wall Street ---> 3321
+Walt Disney Concert Hall ---> 2346
+Walt Disney World ---> 1176
+Walter Sisulu National Botanical Gardens ---> 2317
+Walters Art Museum ---> 2070
+War Photo Limited ---> 1765
+War Remnants Museum ---> 1059
+Warmbaths ---> 875
+Warner Bros Studios ---> 1240
+Warwick Castle ---> 1021
+Washington Monument ---> 1413
+Washington National Cathedral ---> 3342
+Washington State Ferries ---> 2390
+Wat Benchamabophit (The Marble Temple) ---> 2291
+Wat Chalong Buddhist Temple ---> 3249
+Wat Suthat and the Giant Swing ---> 2290
+Wat Xieng Thong (Golden City Temple) ---> 555
+Waterplace Park ---> 1367
+Wawel ---> 766
+Wayang Kulit (Shadow Puppets) ---> 464
+Wellington Cable Car ---> 697
+West Bank ---> 291
+West Coast Beaches ---> 88
+West Coast National Park ---> 3625
+West End Shows ---> 2654
+West LA ---> 1242
+West Lake ---> 3829
+Western Desert Oases ---> 289
+Western Heritage Center ---> 1889
+Western Market ---> 1190
+Western Wall (HaKotel HaMaaravi) ---> 1102
+Westerplatte ---> 763
+Westminster Abbey ---> 3262
+Wet n Wild Cancun ---> 3923
+Wet n Wild Orlando ---> 1179
+Wet n Wild Water World ---> 32
+Wewurukannala Temple ---> 964
+Whalers Village Museum ---> 1208
+White House ---> 1412
+White River Valley ---> 3507
+Whitehaven Beach ---> 2981
+Wieliczka Salt Mine ---> 768
+Wiener Prater ---> 2637
+Wiesbaden ---> 3844
+Wild Wadi ---> 1630
+Wilderness ---> 1876
+Wildflower Region ---> 68
+Wildlife ---> 91
+Wildlife Dome ---> 2974
+Wilhelma Zoo ---> 2235
+Wilmington ---> 3954
+Wilsons Promontory National Park ---> 57
+Winchester Mystery House ---> 3723
+Windermere ---> 3278
+Windsor Castle ---> 1014
+Wine Country ---> 1237
+Wine Country ---> 3399
+Wisconsin Dells ---> 3935
+Wizarding World of Harry Potter ---> 3738
+Wolfsonian Museum ---> 2199
+Wonderland ---> 2609
+Wong Tai Sin Temple ---> 1194
+Wooden Churches of Chiloe ---> 3834
+Woodford Reserve Distillery ---> 1260
+Woodland Park Zoo ---> 2909
+World of Birds and Monkey Park ---> 2596
+World Of Coca-Cola ---> 1135
+World Trade Center - Ground Zero ---> 1154
+Würzburg ---> 3446
+Xai Xai ---> 3181
+Xieng Khouan (Buddha Park) ---> 553
+Yad VaShem ---> 1104
+Yala National Park ---> 965
+Yale University ---> 1986
+Yarra River ---> 47
+Yasnaya Polyana ---> 3583
+Yasukuni Shrine ---> 1065
+Ybor City ---> 1170
+Yellowstone Art Museum ---> 1891
+Yellowstone National Park ---> 1401
+Yellowstone National Park ---> 1894
+Yokohama ---> 1073
+York Dungeons ---> 1857
+York Minster ---> 1853
+Yosemite National Park ---> 1250
+YS Falls ---> 3237
+Yuantong Temple ---> 3830
+Yungas Road ---> 3000
+Yuyuan Gardens ---> 194
+Yzerfontein ---> 3627
+Zante Beaches ---> 2824
+Zhoukoudian Cave ---> 546
+Zilker Park ---> 1460
+Zitouna Mosque ---> 3676
+Zona Rosa ---> 625
+Zoo Atlanta ---> 2706
+Zoo Montana ---> 1892
+Zululand Battlefields ---> 865
+Zurich Zoo ---> 2133

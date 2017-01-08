@@ -1,0 +1,118 @@
+"productType": "EVENT",
+"name": "Great Opera Hits - A Reserve",
+"shortDescription": "Stroll down to the Sydney Opera House and join the stars of Opera Australia for a concert of the greatest hits of opera.",
+"description": "<p></p><p>These relaxed concerts take place on summer afternoons as the sun sets across Sydney Harbour, and last around 90 minutes.&nbsp;</p><p>Listen to famous arias from Bizet, Puccini, Rossini and Verdi performed by some of Opera Australia’s finest opera singers.<br><br>Location: Joan Sutherland Theatre, Sydney Opera House</p><p><br></p><p><strong>Great Opera Hits </strong><span><br><br>December 2016: 26, 27 at 17:00<br><br>January 2017: 1, 15, 22 at 17:00<br><br>February 2017: 12, 22, 26 at 17:00</span></p><p><br><br></p><p>March 2017: 5, 12, 19, 26 at 17:00</p><p></p>",
+"productCode": "PEFRD0",
+"internalCode": "",
+"supplierId": 30638,
+"supplierAlias": "operaaustralia",
+"supplierName": "Opera Australia",
+"timezone": "Australia/Sydney",
+"advertisedPrice": 69,
+"priceOptions": [{
+	"id": 178718,
+	"price": 69,
+	"label": "Adult",
+	"seatsUsed": 1
+}],
+"currency": "AUD",
+"unitLabel": "Guest",
+"unitLabelPlural": "Guests",
+"quantityRequired": true,
+"quantityRequiredMin": 1,
+"quantityRequiredMax": 10,
+"images": [{
+	"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great_Opera_Hits_1.jpg",
+	"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great_Opera_Hits_1_tb.jpg",
+	"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great_Opera_Hits_1_med.jpg",
+	"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great_Opera_Hits_1_lg.jpg"
+}, {
+	"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/opera_style_04_audience_mother_and_daughter_hi_res.jpg",
+	"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/opera_style_04_audience_mother_and_daughter_hi_res_tb.jpg",
+	"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/opera_style_04_audience_mother_and_daughter_hi_res_med.jpg",
+	"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/opera_style_04_audience_mother_and_daughter_hi_res_lg.jpg"
+}, {
+	"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great-Opera-Hits-1280x470.jpg",
+	"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great-Opera-Hits-1280x470_tb.jpg",
+	"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great-Opera-Hits-1280x470_med.jpg",
+	"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/30638/Great-Opera-Hits-1280x470_lg.jpg"
+}],
+"bookingMode": "INVENTORY",
+"charter": false,
+"terms": "",
+"generalTerms": "",
+"extras": [],
+"bookingFields": [{
+	"label": "Title",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "First Name",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Last Name",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Phone",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Email",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Address",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "City",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Country",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "State/County/Region",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Postcode/ZIP",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Subscribe to the newsletter",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "I agree to receive marketing emails",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "How did you hear about us?",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}, {
+	"label": "Special Requirements",
+	"requiredPerParticipant": false,
+	"requiredPerBooking": false
+}],
+"latitude": -33.8571965,
+"longitude": 151.21513979999997,
+"confirmMode": "AUTOCONFIRM",
+"confirmModeMinParticipants": 0,
+"agentPaymentType": "PAYOUTS",
+"maxCommissionPercent": 5,
+"commissionIncludesExtras": false,
+"cancellationPolicyDays": 7,
+"minimumNoticeMinutes": 0,
+"durationMinutes": 90,
+"dateUpdated": "2016-11-23T04:35:48Z",
+"locationAddress": {
+	"latitude": -33.8571965,
+	"longitude": 151.21513979999997
+},
+"additionalInformation": "Collect tickets from the Opera Australia Service Desk, from 1 hr prior to performance, Sydney Opera House, Bennelong Point, Sydney\r\n\r\nWe recommend arriving for the performance at least 30 minutes prior to commencement as latecomers can only be admitted into the auditorium at a suitable break in the performance. \r\n\r\nSuitable breaks vary between operas and may not be until the first interval.",
+"languages": ["en_au"]

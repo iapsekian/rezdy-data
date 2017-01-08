@@ -1,0 +1,188 @@
+	"productType": "DAYTOUR", //Taxonomy
+	"name": "Blue Mountains Adventure & Hike", //Title & field
+	//Summary and field
+	"shortDescription": "Barefoot Downunder's Blue Mountains Day Tour is an exciting day out in the beautiful Blue Mountains. Our small-group guided tour is an active day including hiking, sightseeing and cultural experiences all led by experienced and fun guides.",
+	"description": "<p>Barefoot Downunder’s&nbsp;<strong>Blue Mountains Adventure &amp; Hike</strong>&nbsp;is not your&nbsp;average bus tour! &nbsp;We take you on an&nbsp;<strong>adventure</strong>&nbsp;in the Blue Mountains&nbsp;<strong>hiking</strong>, sightseeing and&nbsp;<strong>animal watching –&nbsp;</strong>while learning about&nbsp;the Australian Indigenous culture through&nbsp;<strong>dreamtime stories</strong>&nbsp;and hearing the&nbsp;insightful history of the Blue Mountains.</p><p>We are one of the more&nbsp;<strong>active day trips</strong>&nbsp;in the Blue Mountains as we like to get out there and hike down to the bottom of&nbsp;<strong>waterfalls</strong>&nbsp;and back, visit unique&nbsp;<strong>aboriginal rock sights</strong>, see kangaroo’s in the wild and&nbsp;other&nbsp;must-visit&nbsp;sights including the&nbsp;<strong>Three Sisters</strong>&nbsp;and more.</p><p>Our tours are led by&nbsp;<strong>fun, local and experienced adventure guides</strong>&nbsp;who love to share&nbsp;the insightful history of the Blue Mountains (and Sydney) as well as having a laugh and telling a few jokes along the way. Our groups are smaller&nbsp;so&nbsp;we&nbsp;can show you places&nbsp;<strong>off-the-beaten-track</strong>&nbsp;where not many tour groups visit&nbsp;making it a more personalised day out.</p><p>If you are looking for a fun and&nbsp;<strong>active tour</strong>, love the&nbsp;<strong>outdoors and hiking</strong>&nbsp;then&nbsp;this&nbsp;<strong>adventure trip</strong>&nbsp;is for you!</p>", /field
+	"productCode": "P7K001",
+	"internalCode": "BLUE ADV",
+	"supplierId": 41958, //taxonomy
+	"supplierAlias": "barefootdownunder", //taxonomy
+	"supplierName": "Barefoot Downunder",
+	"timezone": "Australia/Sydney",
+	"advertisedPrice": 88,
+	"priceOptions": [{
+		"id": 260225,
+		"price": 88,
+		"label": "Quantity",
+		"seatsUsed": 1
+	}],
+	"currency": "AUD",
+	"unitLabel": "Participant",
+	"unitLabelPlural": "Participants",
+	"quantityRequired": true,
+	"quantityRequiredMin": 1,
+	"quantityRequiredMax": 13,
+	"images": [{
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/20161207_154633.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/20161207_154633_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/20161207_154633_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/20161207_154633_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Blue_Mountains.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Blue_Mountains_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Blue_Mountains_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Blue_Mountains_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3698.JPG",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3698_tb.JPG",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3698_med.JPG",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3698_lg.JPG"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3224.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3224_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3224_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3224_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Hike_to_Waterfalls.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Hike_to_Waterfalls_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Hike_to_Waterfalls_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Hike_to_Waterfalls_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_views.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_views_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_views_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_views_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3774__1_.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3774__1__tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3774__1__med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_3774__1__lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Awesome_Guides.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Awesome_Guides_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Awesome_Guides_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Awesome_Guides_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/b51789475b3d4110a0f539e5083daf24IMG_3237.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/b51789475b3d4110a0f539e5083daf24IMG_3237_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/b51789475b3d4110a0f539e5083daf24IMG_3237_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/b51789475b3d4110a0f539e5083daf24IMG_3237_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wild_Kangaroos.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wild_Kangaroos_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wild_Kangaroos_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wild_Kangaroos_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wentworth_Falls_copy.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wentworth_Falls_copy_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wentworth_Falls_copy_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Wentworth_Falls_copy_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/ADVENTUREBFDU.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/ADVENTUREBFDU_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/ADVENTUREBFDU_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/ADVENTUREBFDU_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_1064.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_1064_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_1064_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/IMG_1064_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Screen_Shot_2015_11_14_at_2.02.30_am.png",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Screen_Shot_2015_11_14_at_2.02.30_am_tb.png",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Screen_Shot_2015_11_14_at_2.02.30_am_med.png",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Screen_Shot_2015_11_14_at_2.02.30_am_lg.png"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/a_day_out_with_barefoot.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/a_day_out_with_barefoot_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/a_day_out_with_barefoot_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/a_day_out_with_barefoot_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/hiking.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/hiking_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/hiking_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/hiking_lg.jpg"
+	}, {
+		"itemUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_hikes.jpg",
+		"thumbnailUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_hikes_tb.jpg",
+		"mediumSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_hikes_med.jpg",
+		"largeSizeUrl": "https://img.rezdy.com/PRODUCT_IMAGE/41958/Amazing_hikes_lg.jpg"
+	}],
+	"bookingMode": "INVENTORY",
+	"charter": false,
+	"terms": "",
+	"generalTerms": "Barefoot Downunder (BD) Terms and Conditions: Must be at pick-up location 10 minutes prior to pick-up time, cancellations 72 hrs prior incur 100% booking fee, no refunds for late arrivals and missed pickup or no-shows. A $10 admin fee applies for any cancellations made after 72 hours for each booking or for any booking changes thereafter. BD reserves the right to change an itinerary and tour at any time without notice due to weather, safety and at company’s discretion. BD reserves the right to cancel a tour if the minimum number of persons required is not met (6 persons on Blue Mtns, 5 persons Figure 8 Pools) and if such occurs a full refund will be given or alternate date made. At least a medium fitness level is required, if you are late throughout the day and miss the departure time you will need to make your way back to Sydney at your own expense. Minimum age is 15 years and up. Other operator prices may change and vary. Please visit our website for full terms and conditions.",
+	"extras": [],
+	"bookingFields": [{
+		"label": "Email",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "Special Requirements",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "Mobile",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "First Name",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "Last Name",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "Country",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "How did you hear about us?",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false
+	}, {
+		"label": "Age",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false,
+		"listOptions": "1. 15-17 yrs\r\n2. 18-29 yrs\r\n3. 30-39 yrs\r\n4. 40-49 yrs\r\n5. 50+ yrs"
+	}, {
+		"label": "Pick-up location - please choose from the following list:",
+		"requiredPerParticipant": false,
+		"requiredPerBooking": false,
+		"listOptions": "1. Coogee Beach 6:30am, Coogee Bay Hotel - 212-230 Arden Street, Coogee (Corner of Coogee Bay Road and Arden Street)\r\n2. Bondi Beach 6:45am, Ravesi’s Hotel - 118 Campbell Parade, Bondi (Corner of Hall Street and Campbell Parade)\r\n3. Kings Cross 7:00am, at the Bus Stop in front of the El Alamein Memorial Fountain (the Dandelion Fountain)                                                                                              Macleay St, Kings Cross\r\n4. Circular Quay 7:15am, Sydney Harbour Marriott Hotel - 30 Pitt Street, Sydney\r\n5. Central 7:30am, Sydney Central YHA Hostel - 11 Rawson Place, Haymarket"
+	}],
+	"latitude": 0, 
+	"longitude": 0,
+	"confirmMode": "AUTOCONFIRM",
+	"confirmModeMinParticipants": 0,
+	"agentPaymentType": "PAYOUTS", //taxonomy
+	"maxCommissionPercent": 15,
+	"commissionIncludesExtras": false,
+	"cancellationPolicyDays": 7,
+	"dateCreated": "2016-03-11T06:33:36Z",
+	"minimumNoticeMinutes": 30,
+	"durationMinutes": 600,
+	"dateUpdated": "2016-12-19T09:38:52Z",
+	"locationAddress": {
+		"addressLine": "",
+		"postCode": "",
+		"city": "",
+		"state": "",
+		"countryCode": "",
+		"latitude": 0,
+		"longitude": 0
+	}, //json object field & position field
+	"additionalInformation": "-Barefoot Downunder PH: 02 9664 8868 | www.barefootdownunder.com.au",
+	"languages": ["en_au"]
+
+	//additional field
+	//categoryId - multi-value
+	//booknow
+	//tour category - default by supplier category
+	//image
+
+	//additional taxonomy
+	//region_city_id
+	//category id
+	//attraction id

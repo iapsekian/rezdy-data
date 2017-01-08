@@ -1,0 +1,109 @@
+{
+   "_id": ObjectId("585a2b7da0af88176ec24f4e"),
+   "text": "Sydney",
+   "typeId": "585a29dea0af88396cc24f38",
+   "version": NumberInt(3),
+   "online": true,
+   "lastUpdateTime": NumberInt(1482377845),
+   "createTime": NumberInt(1482304381),
+   "isProduct": false,
+   "productProperties": "",
+   "workspace": {
+     "fields": {
+       "id": "124509",
+       "visible": false 
+    },
+     "status": "published",
+     "taxonomy": {
+       "57b18d746d0e81e174c66322": [
+         "57b18d776d0e81e174c66540" 
+      ],
+       "585a28dfa0af88046dc24f36": [
+         "585a2931a0af88396cc24f36" 
+      ],
+       "navigation": [
+         "57e227bb6d0e81ad168b4768",
+         "580726bd6d0e810b3d7b23c6",
+         "582bf94c6d0e81d65f7b293b" 
+      ],
+       "57b18d746d0e81e174c66328": [
+         "57b18d776d0e81e174c66564" 
+      ] 
+    },
+     "startPublicationDate": null,
+     "endPublicationDate": null,
+     "target": [
+       "global" 
+    ],
+     "writeWorkspace": "global",
+     "pageId": "",
+     "maskId": "",
+     "blockId": "",
+     "i18n": {
+       "en": {
+         "fields": {
+           "text": "Sydney",
+           "urlSegment": "",
+           "summary": "Sydney" 
+        },
+         "locale": "en" 
+      } 
+    },
+     "nativeLanguage": "en",
+     "clickStreamEvent": "" 
+  },
+   "live": {
+     "fields": {
+       "id": "124509",
+       "visible": false 
+    },
+     "status": "published",
+     "taxonomy": {
+       "57b18d746d0e81e174c66322": [
+         "57b18d776d0e81e174c66540" 
+      ],
+       "585a28dfa0af88046dc24f36": [
+         "585a2931a0af88396cc24f36" 
+      ],
+       "navigation": [
+         "57e227bb6d0e81ad168b4768",
+         "580726bd6d0e810b3d7b23c6",
+         "582bf94c6d0e81d65f7b293b" 
+      ],
+       "57b18d746d0e81e174c66328": [
+         "57b18d776d0e81e174c66564" 
+      ] 
+    },
+     "startPublicationDate": null,
+     "endPublicationDate": null,
+     "target": [
+       "global" 
+    ],
+     "writeWorkspace": "global",
+     "pageId": "",
+     "maskId": "",
+     "blockId": "",
+     "i18n": {
+       "en": {
+         "fields": {
+           "text": "Sydney",
+           "urlSegment": "",
+           "summary": "Sydney" 
+        },
+         "locale": "en" 
+      } 
+    },
+     "nativeLanguage": "en",
+     "clickStreamEvent": "" 
+  },
+   "lastUpdateUser": {
+     "id": "55a4ab8b86c747a0758b4567",
+     "login": "admin",
+     "fullName": "Web Admin" 
+  },
+   "createUser": {
+     "id": "55a4ab8b86c747a0758b4567",
+     "login": "admin",
+     "fullName": "Web Admin" 
+  } 
+}
