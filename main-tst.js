@@ -39,13 +39,13 @@ var existingToursProducts = [];
 
 //DB definition/value
 
-var mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
+var mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks1207';
 
 
 var rTypeId = {
-	"supplier" : "5878743c6d0e81354114b288",
-	"product" : "587866b06d0e810d4114b288",
-	"tours" : "58785c576d0e815f4014b288"
+	"supplier" : "585a3111a0af88917cc24f3a",
+	"product" : "5859ee1fa0af88c339c24f4e",
+	"tours" : "5763a39b6d0e81055c8b456f"
 };
 
 var crudUser = {
@@ -55,11 +55,11 @@ var crudUser = {
 };
 
 var taxonomyVocabularyId = {
-	"supplierId" : "587862d76d0e81dd4014b289",
-	"supplierAlias" : "5878630a6d0e81fc4014b288",
-	"productType" : "587862a26d0e81ce4014b288",
-	"agentPaymentType" : "5878633e6d0e81e44014b289",
-	"productCode" : "587863aa6d0e815d4114b288"
+	"supplierId" : "585a1984a0af882f3dc24f3d",
+	"supplierAlias" : "585a19e0a0af885009c24f42",
+	"productType" : "585a164ca0af88c91bc24f3a",
+	"agentPaymentType" : "585a2041a0af88145dc24f36",
+	"productCode" : "586df55fa0af88a741bcb6b5"
 };
 
 

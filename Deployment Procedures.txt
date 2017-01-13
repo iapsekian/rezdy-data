@@ -1,0 +1,92 @@
+db portion
+1. create new content types and taxonomy vocabularies based on tst env through rubedo backoffice
+	* taxonomy
+		- Product Type
+		- Supplier ID
+		- Supplier Alias
+		- Agent Payment Type
+		- Product Code
+		- Search Selector
+	* content type
+		# New
+			- Tours
+			- RTours
+			- RSupplier
+		# Modification (taxonomy - Search Selector)
+			- City
+			- Attraction
+
+2. get Object IDs for new content types and taxonomy vocabularies
+	* taxonomy vocabularyId
+		{
+			"Product Type" : "587862a26d0e81ce4014b288",
+			"Supplier ID" : "587862d76d0e81dd4014b289",
+			"Supplier Alias" : "5878630a6d0e81fc4014b288",
+			"Agent Payment Type" : "5878633e6d0e81e44014b289",
+			"Product Code" : "587863aa6d0e815d4114b288",
+			"Search Selector" : "587863e56d0e81fb4014b289"
+		}
+	* taxonomy terms
+		- Search Selector
+			{ "BookUr v2 General Search" : "5878647c6d0e816e4114b288" }
+	* content type
+		{
+			"Country" : "57e9e2556d0e819c44dc0fc0",
+			"Attraction" : "57ea19736d0e81454c7b23d2",
+			"City" : "57ed26a06d0e810b357b23c7",
+			"Tours" : "58785c576d0e815f4014b288",
+			"RTours" : "587866b06d0e810d4114b288",
+			"RSupplier" : "5878743c6d0e81354114b288"
+		}
+	* crudUser
+		{
+	        "id" : "55a4ab8b86c747a0758b4567",
+	        "login" : "admin",
+	        "fullName" : "Web Admin"
+	    }	
+	* Navigation
+		{
+			"tourbooks.cc" : "55a7619886c74798168b45c8",
+			"city.tourbooks.cc" : "5760e0206d0e811911819225",
+			"bookur.com" : "57e227bb6d0e81ad168b4768",
+			"cityguide.bookur.com" : "580726bd6d0e810b3d7b23c6",
+			"data.bookur.com" : "582bf94c6d0e81d65f7b293b"
+		}	
+
+3. modify main.js, setSearchSelector.js
+4. backup db tourbooks
+5. run main.js then setSearchSelector.js
+6. add addtional taxonomy terms in content type tour for region city id, attraction id and theme
+
+rubedo portion
+1. copy site level new scripts to the production env
+2. copy new masks/pages from tst to the production env. mark newly created pages' postfix as "-v2" except pages under About
+3. in each mask, there are something needs to be check:
+	* mask creation order - home-v2, theme-v2 then others
+	* after home-v2 mask created, export header with search, footer and modal
+	* after theme-v2 created, export header without search,
+	* after home-v2 and theme-v2 created, when creating other masks, please using import function to create header, footer and modal 
+	* philter - trigger events for showing modal windows of about
+	* background image setting (home and theme should implement background image selector)
+4. replace old pages with new ones based on the following mapping - modify the Name and URL fields in the page properties tab. Old one -> append "-v1" as the postfix; New one -> remove the postfx "-v2". all SEO fields should be copied to new pages.
+	mapping:
+		Under root:
+			home 					<--> home-v2
+			details					<--> details-v2
+			under-construction		<--> under-construction-v2
+			*search-result			<--> search-result-v2
+			region-cities			<--> region-cities-v2
+			landmark				<--> landmark-v2
+			tour 					<--> tour
+			signup					<--> signup
+			help					<--> help
+			search 					<--> search
+			Under theme: (rename the old one with the postfix "-v1" then create new one under the new home)
+				world-heritage-site <--> world-heritage-site-v2
+				national-park		<--> national-park-v2
+				museum				<--> museum
+		Under each country:
+			use mask city-tour to create new one for existing pages.
+
+5. modify the homepage setting, Default detail page, 404 page and SEO search page in the sites setting
+6. check images with links on each new page
