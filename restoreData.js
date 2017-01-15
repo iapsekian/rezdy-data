@@ -16,7 +16,7 @@ var contentTypeId = {
 
 
 MongoClient.connect(mdbUrl, (err, db) => {
-	if(null === err) console.log("Connected successfully to server");
+	if(null === err) console.log("Connected successfully to server");	
 
 	var collection = db.collection('Contents_0111');
 	var collection1 = db.collection('Contents');
