@@ -53,13 +53,14 @@ db portion
 			"data.bookur.com" : "582bf94c6d0e81d65f7b293b"
 		}	
 
-3. modify main.js, setSearchSelector.js
-4. backup db tourbooks
-5. run main.js then setSearchSelector.js
-6. add addtional taxonomy terms in content type tour for region city id, attraction id and theme
+3. new 3 content type - City Details, Attraction Details, Country Details
+4. modify main.js, setSearchSelector.js, newCACDetails.js
+5. backup db tourbooks
+6. run main.js then setSearchSelector.js then newCACDetails.js
+7. add addtional taxonomy terms in content type tour for region city id, attraction id and theme
 
 rubedo portion
-1. copy site level new scripts to the production env
+1. copy site level new scripts to the production env. copy image.html to production.
 2. copy new masks/pages from tst to the production env. mark newly created pages' postfix as "-v2" except pages under About
 3. in each mask, there are something needs to be check:
 	* mask creation order - home-v2, theme-v2 then others
