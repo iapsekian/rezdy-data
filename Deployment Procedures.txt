@@ -78,8 +78,8 @@ rubedo portion
 			*search-result			<--> search-result-v2
 			region-cities			<--> region-cities-v2
 			landmark				<--> landmark-v2
-			tour 					<--> tour
-			signup					<--> signup
+			tour 					<--> tour-v2
+			signup					<--> signup-v2
 			help					<--> help
 			search 					<--> search
 			Under theme: (rename the old one with the postfix "-v1" then create new one under the new home)
@@ -87,6 +87,7 @@ rubedo portion
 				national-park		<--> national-park-v2
 				museum				<--> museum
 		Under each country:
+			mask - city-tour-v2
 			use mask city-tour to create new one for existing pages.
 
 5. modify the homepage setting, Default detail page, 404 page and SEO search page in the sites setting
