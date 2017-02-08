@@ -62,6 +62,13 @@ var taxonomyVocabularyId = {
 	"productCode" : "587863aa6d0e815d4114b288"
 };
 
+var taxonomySSVocabularyId = {
+	"searchSelector" : "587863e56d0e81fb4014b289"
+};
+
+var taxonomySSTermsId = {
+	"generalSearch" : "5878647c6d0e816e4114b288"
+};
 
 var taxonomyNavigation = [
 	"57e227bb6d0e81ad168b4768",
@@ -952,6 +959,10 @@ function step4GenerateMDBRecords(){
 						tours.workspace.nativeLanguage = item.workspace.nativeLanguage;
 						tours.workspace.clickStreamEvent = item.workspace.clickStreamEvent;
 
+						//set Taxonomy Search Selector to Tours
+						tours.workspace.taxonomy[taxonomySSVocabularyId.searchSelector] = [];
+						tours.workspace.taxonomy[taxonomySSVocabularyId.searchSelector].push(taxonomySSTermsId.generalSearch);
+
 					tours.live = tours.workspace;
 
 					tours.lastUpdateUser = crudUser;
@@ -1552,13 +1563,13 @@ var saveProducts2MDB = () => {
 			var filter = {"typeId" : rTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			var options = {};
 
-			//rzdItem.online = existingItem.online;
-			rzdItem.online = true;
+			rzdItem.online = existingItem.online;
+			//rzdItem.online = true;
 			rzdItem.version = existingItem.version;
-			rzdItem.workspace.taxonomy = existingItem.taxonomy;
-			rzdItem.live.taxonomy = existingItem.taxonomy;
-			//rzdItem.workspace.status = existingItem.status;
-			//rzdItem.live.status = existingItem.status;
+			//rzdItem.workspace.taxonomy = existingItem.taxonomy;
+			//rzdItem.live.taxonomy = existingItem.taxonomy;
+			rzdItem.workspace.status = existingItem.status;
+			rzdItem.live.status = existingItem.status;
 			rzdItem.workspace.status = "published";
 			rzdItem.live.status = 'published';
 

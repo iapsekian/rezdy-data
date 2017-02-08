@@ -11,10 +11,54 @@ var MongoClient = require('mongodb').MongoClient;
 //var operateDB = process.argv.slice(2)[0] === 'OPDB' ? true : false;
 //console.log('operateDB = ' + operateDB);
 
-var apiCallComplete = false;
-var getExistingComplete = false;
+var productionEnv = false;
+var testEnv = false;
+var operateDB = false;
+
+var targetEnv = process.argv.slice(2)[0];
+var dbOPSwitch = process.argv.slice(3)[0];
+
+if('PRODUCTION' === targetEnv){
+	console.log('*** CAUTION!!! NOW this program will operate the PRODUCTION ENV.!!! ***');
+	productionEnv = true;
+	if('OPDB' === dbOPSwitch){
+		console.log('*** & Database will be CHANGED!!! ***');
+		operateDB = true;
+	} else {
+		console.log('*** BUT Database will remain unchanged.  ***');
+	}
+} else if('TEST' === targetEnv){
+	console.log('*** Operate TEST ENV. ***');
+	testEnv = true;
+	if('OPDB' === dbOPSwitch){
+		console.log('*** & Database will be CHANGED!!! ***');
+		operateDB = true;
+	} else {
+		console.log('*** BUT Database will remain unchanged.  ***');
+	}
+} else if('OPDB' === targetEnv){
+	console.log('*** Operate TEST ENV. ***');
+	console.log('*** & Database will be CHANGED!!! ***');
+	targetEnv = 'TEST';
+	testEnv = true;
+	operateDB = true;
+} else {
+	console.log('*** Operate TEST ENV. ***');
+	console.log('*** BUT Database will remain unchanged.  ***');
+	targetEnv = 'TEST';
+	testEnv = true;	
+
+	console.log('Arguments Example - ');
+	console.log('	node xxx.js PRODUCTION');
+	console.log('	node xxx.js PRODUCTION OPDB');
+	console.log('	node xxx.js TEST === node xxx.js');
+	console.log('	node xxx.js TEST OPDB === node xxx.js OPDB');
+}
 
 //base configuration
+
+var apiCallComplete = false;
+var getExistingComplete = false;
 
 var conf = {
     host : 'api.rezdy.com',
@@ -39,8 +83,13 @@ var existingToursProducts = [];
 
 //DB definition/value
 
-var mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
+var mdbUrl = '';
 
+if(productionEnv){
+	mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
+} else if (testEnv){
+	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks0202';
+}
 
 var rTypeId = {
 	"supplier" : "5878743c6d0e81354114b288",
@@ -63,6 +112,14 @@ var taxonomyVocabularyId = {
 };
 
 
+var taxonomySSVocabularyId = {
+	"searchSelector" : "587863e56d0e81fb4014b289"
+};
+
+var taxonomySSTermsId = {
+	"generalSearch" : "5878647c6d0e816e4114b288"
+};
+
 var taxonomyNavigation = [
 	"57e227bb6d0e81ad168b4768",
 	"580726bd6d0e810b3d7b23c6",
@@ -75,10 +132,12 @@ var taxonomyProductType = {};
 var taxonomyAgentPaymentType = {};
 var taxonomyProductCode = {};
 
+//Part1-1 - using Rezdy RESTFul API to get tours' information
+
 // get category
 function step1GetCategories(){
 
-	debugDev('step1GetCategories Starts!');
+	console.log('step1GetCategories Starts!');
 
 	var queryParam = 'limit=100';
 	var optionsCategories = {
@@ -132,7 +191,7 @@ function step1GetCategories(){
 // get Products by category "ALL" only
 function step2GetProducts(){
 
-	debugDev('Step2GetProducts starts!');
+	console.log('Step2GetProducts starts!');
 
 	var jsonProducts = { "products":[] };
 	var jsonProductsFromXml = { "products":[] };
@@ -323,7 +382,7 @@ function step2GetProducts(){
 
 function step3GetSuppliersByProducts(supplierAliasFromProducts){
 
-	debugDev('Step3GetSuppliersByProducts starts!');
+	console.log('Step3GetSuppliersByProducts starts!');
 	//debugDev('supplierAliasFromProducts = ' + JSON.stringify(supplierAliasFromProducts));
 
 	var jsonSuppliers = { "companies":[] };
@@ -412,7 +471,7 @@ function step3GetSuppliersByProducts(supplierAliasFromProducts){
 
 function step4GenerateMDBRecords(){
 
-	debugDev('step4GenerateMDBRecords starts!');
+	console.log('step4GenerateMDBRecords starts!');
 	var supplierRecordsGenComplete = false;
 	var productRecordsGenComplete = false;
 
@@ -558,7 +617,7 @@ function step4GenerateMDBRecords(){
 			//add taxonomy - Supplier ID
 			MongoClient.connect(mdbUrl, (err, db) => {
 
-				if(null === err) console.log("checkTaxonomySupplierId Connected successfully to server");
+				if(null === err) console.log("		--- checkTaxonomySupplierId Connected successfully to server");
 
 				var collection = db.collection('TaxonomyTerms');
 
@@ -639,7 +698,7 @@ function step4GenerateMDBRecords(){
 			//add taxonomy - Supplier ID
 			MongoClient.connect(mdbUrl, (err, db) => {
 
-				if(null === err) console.log("checkTaxonomySupplierAlias Connected successfully to server");
+				if(null === err) console.log("		---checkTaxonomySupplierAlias Connected successfully to server");
 
 				var collection = db.collection('TaxonomyTerms');
 
@@ -930,6 +989,7 @@ function step4GenerateMDBRecords(){
 							tours.workspace.fields.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
 							tours.workspace.fields.productPageUrl = item.workspace.fields.productPageUrl;
 							tours.workspace.fields.photoPath = item.workspace.fields.photoPath;
+							tours.workspace.fields.locationAddress = item.workspace.fields.locationAddress;
 						tours.workspace.status = 'draft';
 						tours.workspace.taxonomy = item.workspace.taxonomy;
 						tours.workspace.startPublicationDate = item.workspace.startPublicationDate;
@@ -951,6 +1011,10 @@ function step4GenerateMDBRecords(){
 							tours.workspace.i18n.en.locale = item.workspace.i18n.en.locale;
 						tours.workspace.nativeLanguage = item.workspace.nativeLanguage;
 						tours.workspace.clickStreamEvent = item.workspace.clickStreamEvent;
+						
+						//set Taxonomy Search Selector to Tours
+						tours.workspace.taxonomy[taxonomySSVocabularyId.searchSelector] = [];
+						tours.workspace.taxonomy[taxonomySSVocabularyId.searchSelector].push(taxonomySSTermsId.generalSearch);
 
 					tours.live = tours.workspace;
 
@@ -973,7 +1037,7 @@ function step4GenerateMDBRecords(){
 			//add taxonomy - Product Code
 			MongoClient.connect(mdbUrl, (err, db) => {
 
-				if(null === err) console.log("checkTaxonomyProductCode Connected successfully to server");
+				if(null === err) console.log("		--- checkTaxonomyProductCode Connected successfully to server");
 
 				var collection = db.collection('TaxonomyTerms');
 
@@ -1053,7 +1117,7 @@ function step4GenerateMDBRecords(){
 			//add taxonomy - Product Type
 			MongoClient.connect(mdbUrl, (err, db) => {
 
-				if(null === err) console.log("checkTaxonomyProductType Connected successfully to server");
+				if(null === err) console.log("		--- checkTaxonomyProductType Connected successfully to server");
 
 				var collection = db.collection('TaxonomyTerms');
 
@@ -1133,7 +1197,7 @@ function step4GenerateMDBRecords(){
 			//add taxonomy - Product Type
 			MongoClient.connect(mdbUrl, (err, db) => {
 
-				if(null === err) console.log("checkTaxonomyAgentPaymentType Connected successfully to server");
+				if(null === err) console.log("		--- checkTaxonomyAgentPaymentType Connected successfully to server");
 
 				var collection = db.collection('TaxonomyTerms');
 
@@ -1245,13 +1309,13 @@ function step4GenerateMDBRecords(){
 			stage2Save2MDB();
 		}
 	};
-
-
 }
+
+//Part 1-2 - gettting MDB's current record sets
 
 var getExistingDataFromMDB = () => {
 
-	debugDev('getExistingDataFromMDB starts!');
+	console.log('		--- getExistingDataFromMDB starts to get existing data from DB!');
 	//function-wide variables
 	
 	
@@ -1399,19 +1463,22 @@ var getExistingDataFromMDB = () => {
 	});
 };
 
+//Part 2 - using data generated from Part 1 to deal with MDB stuff
+
 var stage2Save2MDB = () => {
-	debugDev('stage2Save2MDB starts!');
+	console.log('Enter stage2Save2MDB process!');
 	if(getExistingComplete && apiCallComplete){
-		//if(operateDB)
-			debugDev('stage2Save2MDB END!');
+		if(operateDB){
+			console.log('*** Starting to operate DB! ***');
 			saveSuppliers2MDB();
+		}
 	}
 };
 
-
+//Part 2-1 - deal with tour suppliers
 var saveSuppliers2MDB = () => {
 
-	debugDev('saveSuppliers2MDB starts!');
+	console.log('saveSuppliers2MDB starts to persist tour suppliers to DB!');
 	var queryParam = { "typeId" : rTypeId.supplier };
 	var updateCount = 0;
 	var insertCount = 0;
@@ -1422,7 +1489,7 @@ var saveSuppliers2MDB = () => {
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
-		if(null === err) console.log("saveSuppliers2MDB Connected successfully to server");
+		if(null === err) console.log("		--- saveSuppliers2MDB Connected successfully to server");
 
 		var collection = db.collection('Contents');
 
@@ -1487,7 +1554,7 @@ var saveSuppliers2MDB = () => {
 			}
 		};
 
-
+		//seperate new and update documents
 		arrayJsonSuppliers.forEach( (rzdItem,rzdIndex) => {
 			var existing = false;
 			if(0 !== existingSuppliers.length)
@@ -1501,6 +1568,7 @@ var saveSuppliers2MDB = () => {
 				sInsertRecords.push(rzdItem);
 		});
 
+		//update documents to db
 		updateCount = sUpdateRecords.length;
 		if(0 !== updateCount){
 			sUpdateRecords.forEach( (suItem,suIndex) => {
@@ -1515,6 +1583,7 @@ var saveSuppliers2MDB = () => {
 			wait4IUBothComplete();
 		}
 
+		//insert documents to db
 		insertCount = sInsertRecords.length;
 		debugDev('init insertCount = ' + insertCount);
 		if(0 !== insertCount){
@@ -1529,38 +1598,40 @@ var saveSuppliers2MDB = () => {
 	});
 };
 
+//Part 2-2 - deal with content type Tous & RTours
 var saveProducts2MDB = () => {
 
-	debugDev('Enter saveProducts2MDB() !');
+	console.log('Enter saveProducts2MDB() to persist RTours to DB!');
 	var updateCount = 0;
 	var insertCount = 0;
 	var putOfflineCount = 0;
 	var pInsertRecords = [];
 	var pUpdateRecords = [];
-	var pPutOfflineRecords = [];
+	var pPutOfflineRecords = []; //not existed item
 	var updateComplete = false;
 	var insertComplete = false;
 	var putOfflineComplete = false;
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
-		if(null === err) console.log("saveProducts2MDB Connected successfully to server");
+		if(null === err) console.log("		--- saveProducts2MDB Connected successfully to server");
 
 		var collection = db.collection('Contents');
 
+		//update RTours documents to db
 		var updateProduct = (rzdItem, rzdIndex, existingItem) => {
 			var filter = {"typeId" : rTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			var options = {};
 
-			//rzdItem.online = existingItem.online;
-			rzdItem.online = true;
+			rzdItem.online = existingItem.online;
+			//rzdItem.online = true;
 			rzdItem.version = existingItem.version;
 			rzdItem.workspace.taxonomy = existingItem.taxonomy;
 			rzdItem.live.taxonomy = existingItem.taxonomy;
-			//rzdItem.workspace.status = existingItem.status;
-			//rzdItem.live.status = existingItem.status;
-			rzdItem.workspace.status = "published";
-			rzdItem.live.status = 'published';
+			rzdItem.workspace.status = existingItem.status;
+			rzdItem.live.status = existingItem.status;
+			//rzdItem.workspace.status = "published";
+			//rzdItem.live.status = 'published';
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1582,6 +1653,7 @@ var saveProducts2MDB = () => {
 			};
 		};
 
+		//insert RTours documents to db
 		var insertProduct = (rzdItem, rzdIndex) => {
 			var options = {forceServerObjectId:true};
 		    
@@ -1604,6 +1676,7 @@ var saveProducts2MDB = () => {
 		    };
 		};
 
+		//put RTours documents offline for deleted tours in 'ALL' category in Rezdy
 		var putOfflineProduct = (existingItem, existingIndex) => {
 			var filter = {"typeId" : rTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
 			var options = {};
@@ -1650,7 +1723,7 @@ var saveProducts2MDB = () => {
 				pInsertRecords.push(rzdItem);
 		});
 
-		//find out put-offline records
+		//find out deleted records for putting them offline
 		existingProducts.forEach( (existingItem, existingIndex) => {
 			var putOnline = false;
 			arrayJsonProducts.forEach( (rzdItem,rzdIndex) => {
@@ -1663,6 +1736,7 @@ var saveProducts2MDB = () => {
 			}			
 		});
 
+		//update RTours documents to db
 		var updateCount = pUpdateRecords.length;
 		debugDev('init updateCount = ' + updateCount);
 		if(0 !== updateCount){
@@ -1678,6 +1752,7 @@ var saveProducts2MDB = () => {
 			wait4IUDComplete();
 		}
 
+		//insert RTours documents to db
 		insertCount = pInsertRecords.length;
 		debugDev('init insertCount = ' + insertCount);
 		if(0 !== insertCount){
@@ -1689,6 +1764,7 @@ var saveProducts2MDB = () => {
 			wait4IUDComplete();
 		}
 
+		//put deleted tours offline
 		putOfflineCount = pPutOfflineRecords.length;
 		debugDev('init putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
@@ -1703,9 +1779,10 @@ var saveProducts2MDB = () => {
 	});
 };
 
+//deal with content type Tours documents
 var saveToursProducts2MDB = () => {
 
-	debugDev('Enter saveToursProducts2MDB !');
+	console.log('Enter saveToursProducts2MDB to persiste Tours to DB!');
 	var updateCount = 0;
 	var insertCount = 0;
 	var putOfflineCount = 0;
@@ -1718,7 +1795,7 @@ var saveToursProducts2MDB = () => {
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
-		if(null === err) console.log("saveProducts2MDB Connected successfully to server");
+		if(null === err) console.log("		--- saveProducts2MDB Connected successfully to server");
 
 		var collection = db.collection('Contents');
 
@@ -1877,4 +1954,3 @@ var saveToursProducts2MDB = () => {
 
 step1GetCategories();
 getExistingDataFromMDB();
-//if(stage1Complete && operateDB) stage2Save2MDB();
