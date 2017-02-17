@@ -75,7 +75,7 @@ var mdbUrl = '';
 if(productionEnv){
 	mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
 } else if (testEnv){
-	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks0202';
+	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks';
 }
 
 
@@ -157,6 +157,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 	var processingTours = () => {
 
 		var getTermByTxnmyObjId = (objId) => {
+			debugDev('===> getTermByTxnmyObjId()');
 			for (var i = 0; i < taxonomyTerms.length; i++) {
 				if(objId === taxonomyTerms[i]._id.toString()){
 					return taxonomyTerms[i].text;
@@ -165,11 +166,23 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		};
 
 		var getAttNameByAttractionIdTerm = (objId) => {
+			debugDev('===> getAttNameByAttractionIdTerm()');
+			var  attName = '';
 			for (var i = 0; i < attractions.length; i++) {
-				if(objId === attractions[i].workspace.taxonomy[taxonomyVocabularyId.attractionId][0]){
-					return attractions[i].text;
+				var attId = attractions[i].workspace.taxonomy[taxonomyVocabularyId.attractionId];
+				if(util.isNullOrUndefined(attId)){
+					attId = '';
+				} else {
+					attId = attractions[i].workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+					if(util.isNullOrUndefined(attId)){
+						attId = '';
+					}
+				}
+				if(objId === attId){
+					attName =  attractions[i].text;
 				}
 			}
+			return attName;
 		};
 
 		var wait4AllToursComplete = () => {
@@ -189,21 +202,43 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		var logNoThemes = false; // flag for tour with attraction id but no themes
 
 		tours.forEach( (tour) => {
+			debugDev('Tour name = ' + tour.text);
 			tour.updated = false; // a flag for determining if this record needs to be updated
 			logNoThemes = true;
 
 			var txnmyThemesTerms = tour.workspace.taxonomy[taxonomyVocabularyId.themes];
-			if(typeof txnmyThemesTerms === 'undefined' || txnmyThemesTerms === null || txnmyThemesTerms.length === 0){
+			if(util.isNullOrUndefined(txnmyThemesTerms) || txnmyThemesTerms.length === 0){
 				txnmyThemesTerms = [];
 			}
 
 			var attractionIdTerms = tour.workspace.taxonomy[taxonomyVocabularyId.attractionId];
-			if(typeof attractionIdTerms !== 'undefined' && attractionIdTerms !== null && attractionIdTerms.length !== 0){
+			if(util.isNullOrUndefined(attractionIdTerms) || attractionIdTerms.length === 0){
+				attractionIdTerms = [];
+			}
+
+			if(tour.text === 'Paris, Brussels and Amsterdam Tour'){
+				console.log('Debug Starting....');
+			}
+
+			if(attractionIdTerms.length !== 0){
 				attractionIdTerms.forEach((attIdTerm) => {					
+					debugDev('attIdTerm = ' + attIdTerm);
+					if(attIdTerm === '57b18d8c6d0e81e174c66e94'){
+						console.log('break point');
+					}
 					attractions.forEach((attraction) => { //asume there is the only one attraction id for each attraction
-						if(attIdTerm === attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId][0]){
+						var tmpAttIdTerm = attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId];
+						if(util.isNullOrUndefined(tmpAttIdTerm)){
+							tmpAttIdTerm = '';
+						} else {
+							tmpAttIdTerm = attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+							if(util.isNullOrUndefined(tmpAttIdTerm)){
+								tmpAttIdTerm = '';
+							}
+						}
+						if(attIdTerm === tmpAttIdTerm){
 							var tmpTxnmyThemesTerms = attraction.workspace.taxonomy[taxonomyVocabularyId.themes];
-							if(typeof tmpTxnmyThemesTerms !== 'undefined' && tmpTxnmyThemesTerms !== null && tmpTxnmyThemesTerms.length !== 0){
+							if(!util.isNullOrUndefined(tmpTxnmyThemesTerms) && tmpTxnmyThemesTerms.length !== 0){
 								tmpTxnmyThemesTerms.forEach((tmpTxnmyThemesTerm)=>{
 									if(txnmyThemesTerms.indexOf(tmpTxnmyThemesTerm) === -1){
 										txnmyThemesTerms.push(tmpTxnmyThemesTerm);
@@ -222,15 +257,25 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 
 			if(tour.updated){
+				debugDev('===> tour.updated = true');
 				tour.workspace.taxonomy[taxonomyVocabularyId.themes] = txnmyThemesTerms;
 				tour.live.taxonomy[taxonomyVocabularyId.themes] = txnmyThemesTerms;
 				toursUpdateLog += 'Tour - ' + tour.text + ' - with taxonomy attraction id and taxonomy Themes.\n';
 				attractionIdTerms.forEach((attIdTerm)=>{
 					toursUpdateLog += '		--- ' + getTermByTxnmyObjId(attIdTerm) + ' - ' + getAttNameByAttractionIdTerm(attIdTerm) +'\n';
 					attractions.forEach((attraction) => {
-						if(attIdTerm === attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId][0]){
+						var tmpAttIdTerm = attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId];
+						if(util.isNullOrUndefined(tmpAttIdTerm)){
+							tmpAttIdTerm = '';
+						} else {
+							tmpAttIdTerm = attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+							if(util.isNullOrUndefined(tmpAttIdTerm)){
+								tmpAttIdTerm = '';
+							}
+						}
+						if(attIdTerm === tmpAttIdTerm){
 							var tmpTxnmyThemesTerms = attraction.workspace.taxonomy[taxonomyVocabularyId.themes];
-							if(typeof tmpTxnmyThemesTerms !== 'undefined' && tmpTxnmyThemesTerms !== null && tmpTxnmyThemesTerms.length !== 0){
+							if(!util.isNullOrUndefined(tmpTxnmyThemesTerms) && tmpTxnmyThemesTerms.length !== 0){
 								tmpTxnmyThemesTerms.forEach((tmpTxnmyThemesTerm)=>{
 									toursUpdateLog += '			--- ' + getTermByTxnmyObjId(tmpTxnmyThemesTerm) + '\n';
 								});								
@@ -242,6 +287,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 
 			if(logNoThemes){
+				debugDev('===> logNoThemes');
 				tourWAttIdWOThemes += 'Tour - ' + tour.text + ' - with taxonomy attraction id but no taxonomy Themes.\n';
 				attractionIdTerms.forEach((attIdTerm)=>{
 					tourWAttIdWOThemes += '		--- ' + getTermByTxnmyObjId(attIdTerm) + ' - ' + getAttNameByAttractionIdTerm(attIdTerm) +'\n';
