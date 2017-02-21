@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+            <span class="navbar-brand">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} :
+                <span ng-repeat-start="term in searchResultsCtrl.notRemovableTerms track by $index">{{term.operator}}</span><span
+                        class="badge" ng-repeat-end>
+                    <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>
+                </span><span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
+                <span class="badge cursor-as-pointer" ng-repeat-end
+                      ng-click="searchResultsCtrl.clickOnFacets(term.facetId, term.term)">
+                    <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>&nbsp;&times;
+                </span>
+            </span>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form ng-submit="searchResultsCtrl.onSubmit()" role="form">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="searchResultsCtrl.query" placeholder="{{rubedo.translate('Search.Label.Search','Search')}}"/>
+                            <span class="input-group-btn"><button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span></button></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default" ng-repeat="facet in searchResultsCtrl.facets track by $index" ng-if="facet.terms || facet.ranges">
+            <div class="panel-heading">{{facet.label}}&nbsp;<span
+                    ng-if="facet.total && (facet.total - facet.other) <= searchResultsCtrl.count" class="badge pull-right">{{facet.total - facet.other}}</span></div>
+            <div class="panel-body" ng-if="facet['_type']!='date'">
+                <ul>
+                    <li ng-if="facet.terms" class="cursor-as-pointer" ng-repeat="term in facet.terms track by $index"
+                        ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.term)">
+                        {{term.label}}&nbsp;({{term.count}})
+                    </li>
+                    <li ng-if="facet.ranges" class="cursor-as-pointer" ng-repeat="term in facet.ranges track by $index"
+                        ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.key)">
+                        {{term.label}}&nbsp;({{term.count}})
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body" ng-if="facet['_type']=='date'">
+                <datehistogram-facet></datehistogram-facet>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="resultData" ng-repeat="datum in searchResultsCtrl.data track by $index">
+            <h4><a target="{{searchResultsCtrl.target(datum)}}" ng-href="{{datum.url}}">{{datum.title}}</a></h4>
+            <div class="clearfix">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{datum.score}}"
+                         aria-valuemin="30" aria-valuemax="100" ng-style="{'width': datum.score+'%'}">
+                        {{datum.score}}%
+                    </div>
+                </div>&nbsp;
+                <span class="label label-danger">{{datum.type}}</span>
+            </div>
+            <p>{{datum.summary}}</p>
+            <div>Published by <a href ng-click="searchResultsCtrl.clickOnFacets('author', datum.author)">{{datum.authorName}}</a> on {{datum.lastUpdateTime * 1000 | date: 'fullDate'}}</div>
+            <hr/>
+        </div>
+
+        <paginator start="searchResultsCtrl.start" limit="searchResultsCtrl.limit"
+                   count="searchResultsCtrl.count"
+                   change-page-action="searchResultsCtrl.changePageAction()"></paginator>
+    </div>
+</div>

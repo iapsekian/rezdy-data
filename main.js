@@ -88,13 +88,13 @@ var mdbUrl = '';
 if(productionEnv){
 	mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
 } else if (testEnv){
-	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks0202';
+	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks';
 }
 
 var rTypeId = {
 	"supplier" : "5878743c6d0e81354114b288",
-	"product" : "587866b06d0e810d4114b288",
-	"tours" : "58785c576d0e815f4014b288"
+	"product" : "587866b06d0e810d4114b288", //contentType = RTours
+	"tours" : "58785c576d0e815f4014b288" //contentType = Tours
 };
 
 var crudUser = {
@@ -164,7 +164,7 @@ function step1GetCategories(){
 	    	if (tempJsonCategories.requestStatus.success === true) {
 		    	delete tempJsonCategories.requestStatus;
 		    	rawCategories = JSON.stringify(tempJsonCategories);
-		    	fs.writeFileSync('./datafiles/categories.json', rawCategories);
+		    	fs.writeFileSync('./datafiles/rawCategories.json', rawCategories);
 
 		    	//Only "ALL" category
 		    	tempJsonCategories.categories.forEach( (item,index) => {
@@ -174,7 +174,6 @@ function step1GetCategories(){
 		    			arrayJsonCategories.visible = item.visible;
 		    		}
 		    	});
-		        debugDev('arrayJsonCategories = \n' + JSON.stringify(arrayJsonCategories));
 		        debugDev('step1GetCategories Ended!');
 		        step2GetProducts();
 	    	}
@@ -184,7 +183,7 @@ function step1GetCategories(){
 
 	getCatgories.end();
 	getCatgories.on('error', (e) => {
-	    console.error(e);
+	    console.error('getCatgories Error happened - ' + e);
 	});
 }
 
@@ -355,7 +354,7 @@ function step2GetProducts(){
 			});
 		});
     	var rawProducts = JSON.stringify(jsonProducts);
-    	fs.writeFileSync('./datafiles/products.json', rawProducts);
+    	fs.writeFileSync('./datafiles/rawProducts.json', rawProducts);
         arrayJsonProducts = jsonProducts.products;
 
         var supplierAliasFromProducts = [];
@@ -870,23 +869,38 @@ function step4GenerateMDBRecords(){
 						if(item.pickupId !== undefined){
 							item.workspace.fields.pickupId = item.pickupId.toString();
 						}
+						if(util.isNullOrUndefined(item.locationAddress)){
+							item.locationAddress = {};
+						}
 						item.workspace.fields.locationAddress = item.locationAddress;
 						item.workspace.fields.position = {};
-							item.workspace.fields.position.address = item.locationAddress.addressLine + ' ' + item.locationAddress.city + ' ' + item.locationAddress.state + ' ' + item.locationAddress.countryCode + ' ' + item.locationAddress.postCode;
+
+							item.workspace.fields.position.address = util.isNullOrUndefined(item.locationAddress.addressLine) ? '' : item.locationAddress.addressLine
+								+ ' ' + util.isNullOrUndefined(item.locationAddress.city) ? '' : item.locationAddress.city 
+								+ ' ' + util.isNullOrUndefined(item.locationAddress.state) ? '' : item.locationAddress.state
+								+ ' ' + util.isNullOrUndefined(item.locationAddress.countryCode) ? '' : item.locationAddress.countryCode
+								+ ' ' + util.isNullOrUndefined(item.locationAddress.postCode) ? '' : item.locationAddress.postCode;
 							item.workspace.fields.position.location = {};
 								item.workspace.fields.position.location.type = 'Point';
 								item.workspace.fields.position.location.coordinates = [];
-								item.workspace.fields.position.location.coordinates.push(item.locationAddress.longitude);
-								item.workspace.fields.position.location.coordinates.push(item.locationAddress.latitude);
-							item.workspace.fields.position.lat = item.locationAddress.latitude;
-							item.workspace.fields.position.lon = item.locationAddress.longitude;
+								item.workspace.fields.position.location.coordinates.push(util.isNullOrUndefined(item.locationAddress.longitude)?0:item.locationAddress.longitude);
+								item.workspace.fields.position.location.coordinates.push(util.isNullOrUndefined(item.locationAddress.latitude)?0:item.locationAddress.latitude);
+							item.workspace.fields.position.lat = util.isNullOrUndefined(item.locationAddress.latitude)?0:item.locationAddress.latitude;
+							item.workspace.fields.position.lon = util.isNullOrUndefined(item.locationAddress.longitude)?0:item.locationAddress.longitude;
 						item.workspace.fields.additionalInformation = item.additionalInformation;
 						item.workspace.fields.languages = item.languages;
 						item.workspace.fields.rzdId = item.rzdId;
 						item.workspace.fields.calendarWidgetUrl = item.calendarWidgetUrl;
 						item.workspace.fields.productPageUrl = item.productPageUrl;
 						item.workspace.fields.tourCategory = item.tourCategory;
-						item.workspace.fields.photoPath = item.images[0].itemUrl;
+						if(util.isNullOrUndefined(item.images)){
+							item.workspace.fields.photoPath = "https://static.rezdy.com/1487224471/themes/rezdyv2/images/no-image.jpg";
+						} else if(util.isNullOrUndefined(item.images[0])){
+							item.workspace.fields.photoPath = "https://static.rezdy.com/1487224471/themes/rezdyv2/images/no-image.jpg";
+						} else {
+							item.workspace.fields.photoPath = item.images[0].itemUrl;
+						}
+						
 
 						item.workspace.status = "published";
 						item.workspace.taxonomy = setProductTaxonomy(item.workspace.fields.supplierId, item.supplierAlias, item.productType, item.agentPaymentType, item.productCode);
@@ -1329,7 +1343,8 @@ var getExistingDataFromMDB = () => {
 			"version":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
-			"workspace.fields.id":1
+			"workspace.fields.id":1,
+			"lastUpdateTime":1
 		};
 
 		collection.find(queryParam).project(projectParam).toArray()
@@ -1343,6 +1358,7 @@ var getExistingDataFromMDB = () => {
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
+					i.lastUpdateTime = item.lastUpdateTime;
 					s.push(i);
 				});
 				//debugDev(' s existing suppliers = ' + JSON.stringify(s));
@@ -1362,7 +1378,8 @@ var getExistingDataFromMDB = () => {
 			"workspace.fields.productCode":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
-			"workspace.fields.id":1
+			"workspace.fields.id":1,
+			"lastUpdateTime":1
 		};
 
 		collection.find(queryParam).project(projectParam).toArray()
@@ -1376,6 +1393,7 @@ var getExistingDataFromMDB = () => {
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
+					i.lastUpdateTime = item.lastUpdateTime;
 					p.push(i);
 				});
 				callback(p);
@@ -1393,7 +1411,8 @@ var getExistingDataFromMDB = () => {
 			"version":1,
 			"workspace.fields.productCode":1,
 			"workspace.status":1,
-			"workspace.taxonomy":1
+			"workspace.taxonomy":1,
+			"lastUpdateTime":1
 		};
 
 		collection.find(queryParam).project(projectParam).toArray()
@@ -1406,6 +1425,7 @@ var getExistingDataFromMDB = () => {
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
+					i.lastUpdateTime = item.lastUpdateTime;
 					p.push(i);
 				});
 				callback(p);
@@ -1503,6 +1523,7 @@ var saveSuppliers2MDB = () => {
 			rzdItem.live.taxonomy = existingItem.taxonomy;
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
+			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1632,6 +1653,7 @@ var saveProducts2MDB = () => {
 			rzdItem.live.status = existingItem.status;
 			//rzdItem.workspace.status = "published";
 			//rzdItem.live.status = 'published';
+			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1809,6 +1831,7 @@ var saveToursProducts2MDB = () => {
 			rzdItem.live.taxonomy = existingItem.taxonomy;
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
+			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {

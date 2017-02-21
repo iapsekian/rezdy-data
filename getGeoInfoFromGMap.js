@@ -10,7 +10,7 @@ var GoogleMapsAPI = require('googlemaps');
 var ccMap = require('./ccMap.json');
 
 //console.log('process.argv = ' + process.argv);
-//var operateDB = process.argv.slice(2)[0] === 'OPDB' ? true : false;
+//var  = process.argv.slice(2)[0] === 'OPDB' ? true : false;
 //console.log('operateDB = ' + operateDB);
 //
 var productionEnv = false;
@@ -108,7 +108,25 @@ MongoClient.connect(mdbUrl, (err, db) => {
 
 	var preparingData = () => {
 
+		var toursGeoCoded = [];
+		var toursWithCoordinateFromFile = [];
+		var toursWithCityCountryCodeFromFile = [];
+		if(fs.existsSync('./datafiles/toursWithCoordinate-'+ targetEnv +'.json')){
+			toursWithCoordinateFromFile = require('./datafiles/toursWithCoordinate-'+ targetEnv +'.json');
+			toursWithCoordinateFromFile.forEach((tour)=>{
+				toursGeoCoded.push(tour._id);
+			});
+		}
+		if(fs.existsSync('./datafiles/toursWithCityCountryCode-'+ targetEnv +'.json')){
+			toursWithCityCountryCodeFromFile = require('./datafiles/toursWithCityCountryCode-'+ targetEnv +'.json');
+			toursWithCityCountryCodeFromFile.forEach((tour)=>{
+				toursGeoCoded.push(tour._id);
+			});
+		}
+
 		var qualifyTours = () => {
+			//compare to geocoded tour
+
 			//Log string variables
 			var totalToursCount = toursCount;
 			var normalLog = 'Normal tours as below - \n',
@@ -150,64 +168,69 @@ MongoClient.connect(mdbUrl, (err, db) => {
 
 			tours.forEach((tour, idxTour)=>{
 				var noLocationAddress = false; cityFlag = true, stateFlag = true, countryCodeFlag = true, latitudeFlag = true, longitudeFlag = true;
-				if(util.isNullOrUndefined(tour.workspace.fields.locationAddress)){
-					noLocationAddress = true;
-				} else {
-					if( util.isNullOrUndefined(tour.workspace.fields.locationAddress.city) ){
-						cityFlag = false;
-					} else if(tour.workspace.fields.locationAddress.city.length === 0){
-						cityFlag = false;
-					}
 
-					if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.state)){
-						stateFlag = false;
-					} else if(tour.workspace.fields.locationAddress.state.length === 0){
-						stateFlag = false;
-					}
-
-					if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.countryCode)){
-						countryCodeFlag = false;
-					} else if(tour.workspace.fields.locationAddress.countryCode.length === 0){
-						countryCodeFlag = false;				
-					}
-
-					if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.latitude)){
-						latitudeFlag = false;
-					} else if(tour.workspace.fields.locationAddress.latitude === 0){
-						latitudeFlag = false;				
-					}
-
-					if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.longitude)){
-						longitudeFlag = false;
-					} else if(tour.workspace.fields.locationAddress.longitude === 0){
-						longitudeFlag = false;				
-					}				
-				}
-
-				if(noLocationAddress){
-					emptyLog += '	--- ' + tour.text + '\n';
-					emptyLogCount++;
-					wait4AllToursComplete();
-				} else {
-					if(latitudeFlag && longitudeFlag){
-						toursWithCoordinate.push(tour);
-						normalLog += '	--- ' + tour.text + '\n';
-						normalLogCount++;
-						wait4AllToursComplete();
-					} else if(cityFlag && countryCodeFlag){
-						toursWithCityCountryCode.push(tour);
-						noCityStateCountryButCoordinateLog += '	--- ' + tour.text + '\n';
-						noCityStateCountryButCoordinateLogCount++;
-						wait4AllToursComplete();
-					} else if(!cityFlag || !countryCodeFlag){
-						noCityStateCountryLog += '	--- ' + tour.text + '\n';
-						noCityStateCountryLogCount++;
-						wait4AllToursComplete();
+				if(-1 === toursGeoCoded.indexOf(tour._id.toString())){
+					if(util.isNullOrUndefined(tour.workspace.fields.locationAddress)){
+						noLocationAddress = true;
 					} else {
+						if( util.isNullOrUndefined(tour.workspace.fields.locationAddress.city) ){
+							cityFlag = false;
+						} else if(tour.workspace.fields.locationAddress.city.length === 0){
+							cityFlag = false;
+						}
+
+						if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.state)){
+							stateFlag = false;
+						} else if(tour.workspace.fields.locationAddress.state.length === 0){
+							stateFlag = false;
+						}
+
+						if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.countryCode)){
+							countryCodeFlag = false;
+						} else if(tour.workspace.fields.locationAddress.countryCode.length === 0){
+							countryCodeFlag = false;				
+						}
+
+						if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.latitude)){
+							latitudeFlag = false;
+						} else if(tour.workspace.fields.locationAddress.latitude === 0){
+							latitudeFlag = false;				
+						}
+
+						if(util.isNullOrUndefined(tour.workspace.fields.locationAddress.longitude)){
+							longitudeFlag = false;
+						} else if(tour.workspace.fields.locationAddress.longitude === 0){
+							longitudeFlag = false;				
+						}				
+					}
+
+					if(noLocationAddress){
 						emptyLog += '	--- ' + tour.text + '\n';
 						emptyLogCount++;
 						wait4AllToursComplete();
+					} else {
+						if(latitudeFlag && longitudeFlag){
+							toursWithCoordinate.push(tour);
+							normalLog += '	--- ' + tour.text + '\n';
+							normalLogCount++;
+							wait4AllToursComplete();
+						} else if(cityFlag && countryCodeFlag){
+							toursWithCityCountryCode.push(tour);
+							noCityStateCountryButCoordinateLog += '	--- ' + tour.text + '\n';
+							noCityStateCountryButCoordinateLogCount++;
+							wait4AllToursComplete();
+						} else if(!cityFlag || !countryCodeFlag){
+							noCityStateCountryLog += '	--- ' + tour.text + '\n';
+							noCityStateCountryLogCount++;
+							wait4AllToursComplete();
+						} else {
+							emptyLog += '	--- ' + tour.text + '\n';
+							emptyLogCount++;
+							wait4AllToursComplete();
+						}
 					}
+				} else {
+					wait4AllToursComplete();
 				}
 			});
 		};
@@ -384,8 +407,11 @@ MongoClient.connect(mdbUrl, (err, db) => {
 						}
 							
 					});
-				},100); //wait for 100 ms in order to avoid error - over query limit
+				},1000); //wait for 100 ms in order to avoid error - over query limit
 			});
+		} else {
+			toursWithCoordinateCount = 1;
+			wait4toursWithCoordinateComplete();
 		}
 	};
 

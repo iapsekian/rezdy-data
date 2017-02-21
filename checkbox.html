@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form ng-submit="searchResultsCtrl.onSubmit()" role="form">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="searchResultsCtrl.query" placeholder="{{rubedo.translate('Search.Label.Search','Search')}}"/>
+                            <span class="input-group-btn"><button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span></button></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default" ng-repeat="facet in searchResultsCtrl.facets track by $index" ng-if="facet.terms || facet.ranges">
+            <div class="panel-heading">{{facet.label}}&nbsp;<span
+                    ng-if="facet.total && (facet.total - facet.other) <= searchResultsCtrl.count" class="badge pull-right">{{facet.total - facet.other}}</span></div>
+            <div class="panel-body" ng-if="facet['_type']!='date'">
+                <ul>
+                    <li class="cursor-as-pointer" ng-if="facet.terms" ng-repeat="term in facet.terms track by $index" ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.term)">
+                        <input ng-class="{'disabled':searchResultsCtrl.disabled(term.term)}" type="checkbox" ng-checked="searchResultsCtrl.checked(term.term)"/>
+                        {{term.label}}&nbsp;({{term.count}})
+                    </li>
+                    <li class="cursor-as-pointer" ng-if="facet.ranges && term.count > 0" ng-repeat="term in facet.ranges track by $index" ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.key)">
+                        <input ng-class="{'disabled':searchResultsCtrl.disabled(term.from)}" type="checkbox" ng-checked="searchResultsCtrl.checked(term.key)"/>
+                        {{term.label}}&nbsp;({{term.count}})
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body" ng-if="facet['_type']=='date'">
+                <datehistogram-facet></datehistogram-facet>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div ng-repeat="datum in searchResultsCtrl.data track by $index" class="resultData">
+            <h4><a target="{{searchResultsCtrl.target(datum)}}" ng-href="{{datum.url}}">{{datum.title}}</a></h4>
+            <div class="clearfix">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{datum.score}}"
+                         aria-valuemin="0" aria-valuemax="100" ng-style="{'width': datum.score+'%'}">
+                        {{datum.score}}%
+                    </div>
+                </div>&nbsp;
+                <span class="label label-danger">{{datum.type}}</span>
+            </div>
+            <p>{{datum.summary}}</p>
+            <div>Published by <a href ng-click="searchResultsCtrl.clickOnFacets('author', datum.author)">{{datum.authorName}}</a> on {{datum.lastUpdateTime * 1000 | date: 'fullDate'}}</div>
+            <hr/>
+        </div>
+        <paginator start="searchResultsCtrl.start" limit="searchResultsCtrl.limit"
+                   count="searchResultsCtrl.count"
+                   change-page-action="searchResultsCtrl.changePageAction()"></paginator>
+    </div>
+</div>
