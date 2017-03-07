@@ -91,7 +91,7 @@ if(productionEnv){
 	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks';
 }
 
-var rTypeId = {
+var contentTypeId = {
 	"supplier" : "5878743c6d0e81354114b288",
 	"product" : "587866b06d0e810d4114b288", //contentType = RTours
 	"tours" : "58785c576d0e815f4014b288" //contentType = Tours
@@ -108,7 +108,8 @@ var taxonomyVocabularyId = {
 	"supplierAlias" : "5878630a6d0e81fc4014b288",
 	"productType" : "587862a26d0e81ce4014b288",
 	"agentPaymentType" : "5878633e6d0e81e44014b289",
-	"productCode" : "587863aa6d0e815d4114b288"
+	"productCode" : "587863aa6d0e815d4114b288",
+	"searchSelector" : "587863e56d0e81fb4014b289"
 };
 
 
@@ -493,7 +494,7 @@ function step4GenerateMDBRecords(){
 				arrayJsonSuppliers.forEach( (item,index) => {
 
 					item.text = item.companyName;
-					item.typeId = rTypeId.supplier;
+					item.typeId = contentTypeId.supplier;
 					item.version = 1;
 					item.online = true;
 					item.lastUpdateTime = parseInt((Date.now()/1000).toFixed(0));
@@ -822,8 +823,12 @@ function step4GenerateMDBRecords(){
 
 				arrayJsonProducts.forEach( (item,index) => {
 
+					if(item.productCode === 'P785EE'){
+						console.log('### Debug break poit 1 ###');
+					}
+
 					item.text = item.name;
-					item.typeId = rTypeId.product;
+					item.typeId = contentTypeId.product;
 					item.version = 1;
 					item.online = true;
 					item.lastUpdateTime = parseInt((Date.now()/1000).toFixed(0));
@@ -975,16 +980,25 @@ function step4GenerateMDBRecords(){
 					delete item.dateCreated;
 					delete item.pickupId;
 
+					if(item.workspace.fields.productCode === 'P785EE'){
+						console.log('### Debug break poit 2 ###');
+					}
+
 
 				});
 		    	fs.writeFileSync('./datafiles/arrayJsonProducts4db.json', JSON.stringify(arrayJsonProducts));
 
 		    	//for content type - tours
 		    	arrayJsonProducts.forEach( (item,index) => {
+
+					if(item.workspace.fields.productCode === 'P785EE'){
+						console.log('### Debug break poit 3 ###');
+					}
+
 		    		var tours={};
 
 					tours.text = item.text;
-					tours.typeId = rTypeId.tours;
+					tours.typeId = contentTypeId.tours;
 					tours.version = item.version;
 					tours.online = false;
 					tours.lastUpdateTime = item.lastUpdateTime;
@@ -1005,7 +1019,8 @@ function step4GenerateMDBRecords(){
 							tours.workspace.fields.photoPath = item.workspace.fields.photoPath;
 							tours.workspace.fields.locationAddress = item.workspace.fields.locationAddress;
 						tours.workspace.status = 'draft';
-						tours.workspace.taxonomy = item.workspace.taxonomy;
+						//tours.workspace.taxonomy = item.workspace.taxonomy; //this line doesn't work because after this line tours.workspace.taxonomy will point to the same object of item.workspace.taxonomy
+						tours.workspace.taxonomy = JSON.parse(JSON.stringify(item.workspace.taxonomy));
 						tours.workspace.startPublicationDate = item.workspace.startPublicationDate;
 						tours.workspace.endPublicationDate = item.workspace.endPublicationDate;
 						tours.workspace.target = item.workspace.target;
@@ -1034,6 +1049,10 @@ function step4GenerateMDBRecords(){
 
 					tours.lastUpdateUser = crudUser;
 					tours.createUser = crudUser;
+
+					if(item.workspace.fields.productCode === 'P785EE'){
+						console.log('### Debug break poit 4 ###');
+					}
 
 					arrayJsonToursProducts.push(tours);
 
@@ -1336,7 +1355,7 @@ var getExistingDataFromMDB = () => {
 	//function definition
 	
 	var getExistingSuppliers = (collection,callback) => {
-		var queryParam = { "typeId" : rTypeId.supplier };
+		var queryParam = { "typeId" : contentTypeId.supplier };
 		var projectParam = {
 			"_id":0,
 			"online":1,
@@ -1370,7 +1389,7 @@ var getExistingDataFromMDB = () => {
 	};
 
 	var getExistingProducts = (collection, callback) => {
-		var queryParam = { "typeId" : rTypeId.product };
+		var queryParam = { "typeId" : contentTypeId.product };
 		var projectParam = {
 			"_id":0,
 			"online":1,
@@ -1404,7 +1423,7 @@ var getExistingDataFromMDB = () => {
 	};
 
 	var getExistingToursProducts = (collection, callback) => {
-		var queryParam = { "typeId" : rTypeId.tours };
+		var queryParam = { "typeId" : contentTypeId.tours };
 		var projectParam = {
 			"_id":0,
 			"online":1,
@@ -1499,7 +1518,7 @@ var stage2Save2MDB = () => {
 var saveSuppliers2MDB = () => {
 
 	console.log('saveSuppliers2MDB starts to persist tour suppliers to DB!');
-	var queryParam = { "typeId" : rTypeId.supplier };
+	var queryParam = { "typeId" : contentTypeId.supplier };
 	var updateCount = 0;
 	var insertCount = 0;
 	var sInsertRecords = [];
@@ -1514,7 +1533,7 @@ var saveSuppliers2MDB = () => {
 		var collection = db.collection('Contents');
 
 		var updateSupplier = (rzdItem, rzdIndex, existingItem) => {
-			var filter = {"typeId" : rTypeId.supplier, "workspace.fields.alias" : rzdItem.workspace.fields.alias};
+			var filter = {"typeId" : contentTypeId.supplier, "workspace.fields.alias" : rzdItem.workspace.fields.alias};
 			var options = {};
 
 			rzdItem.online = existingItem.online;
@@ -1641,7 +1660,7 @@ var saveProducts2MDB = () => {
 
 		//update RTours documents to db
 		var updateProduct = (rzdItem, rzdIndex, existingItem) => {
-			var filter = {"typeId" : rTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
+			var filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			var options = {};
 
 			rzdItem.online = existingItem.online;
@@ -1677,6 +1696,9 @@ var saveProducts2MDB = () => {
 
 		//insert RTours documents to db
 		var insertProduct = (rzdItem, rzdIndex) => {
+			if(rzdItem.workspace.fields.productCode === 'P785EE'){
+				console.log('### Debug break poit 6 ###');
+			}
 			var options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
@@ -1700,7 +1722,7 @@ var saveProducts2MDB = () => {
 
 		//put RTours documents offline for deleted tours in 'ALL' category in Rezdy
 		var putOfflineProduct = (existingItem, existingIndex) => {
-			var filter = {"typeId" : rTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
+			var filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
 			var options = {};
 			var updates = {$set:{online:false}};
 
@@ -1779,6 +1801,9 @@ var saveProducts2MDB = () => {
 		debugDev('init insertCount = ' + insertCount);
 		if(0 !== insertCount){
 			pInsertRecords.forEach( (piItem,piIndex) => {
+				if(piItem.workspace.fields.productCode === 'P785EE'){
+					console.log('### Debug break poit 5 ###');
+				}
 				insertProduct(piItem, piIndex);
 			});
 		} else {
@@ -1822,7 +1847,7 @@ var saveToursProducts2MDB = () => {
 		var collection = db.collection('Contents');
 
 		var updateProduct = (rzdItem, rzdIndex, existingItem) => {
-			var filter = {"typeId" : rTypeId.tours, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
+			var filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			var options = {};
 
 			rzdItem.online = existingItem.online;
@@ -1854,6 +1879,9 @@ var saveToursProducts2MDB = () => {
 		};
 
 		var insertProduct = (rzdItem, rzdIndex) => {
+			if(rzdItem.workspace.fields.productCode === 'P785EE'){
+				console.log('### Debug break poit 7 ###');
+			}
 			var options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
@@ -1876,7 +1904,7 @@ var saveToursProducts2MDB = () => {
 		};
 
 		var putOfflineProduct = (existingItem, existingIndex) => {
-			var filter = {"typeId" : rTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
+			var filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
 			var options = {};
 			var updates = {$set:{online:false}};
 

@@ -1,5 +1,5 @@
 {
-  "name": "rezdyapi-server-side",
+  "name": "rezdy-data",
   "version": "1.0.0",
   "description": "Get Rezdy data through API to store in bookur db",
   "main": "main.js",

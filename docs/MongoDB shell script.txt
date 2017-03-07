@@ -152,3 +152,16 @@ arr.forEach(function(attraction){
     }
 });
 print(result);
+
+
+var noImageLog = '*** Attractions without image ***\n';
+var cur = db.getCollection('Contents').find({"typeId":"57ea19736d0e81454c7b23d2"});
+while(cur.hasNext()){
+    var data = cur.next();
+    if(typeof data.workspace.fields.image === 'unfedined'){
+        noImageLog += data.text + ' - ' + data.workspace.fields.CountryName + ' - ' + data.workspace.fields.CityName + ' - ' + data._id.str + '\n';
+    } else if(0 === data.workspace.fields.image.length){
+        noImageLog += data.text + ' - ' + data.workspace.fields.CountryName + ' - ' + data.workspace.fields.CityName + ' - ' + data._id.str + '\n';
+    }
+}
+print(noImageLog);

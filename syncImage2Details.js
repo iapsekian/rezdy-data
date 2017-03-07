@@ -42,7 +42,7 @@ var dataReadyCount = 6;
 
 
 MongoClient.connect(mdbUrl, (err, db) => {
-	if(null === err) console.log("Connected successfully to server");
+	if(null === err) console.log("Connected successfully to server - " + mdbUrl);
 
 	var collection = db.collection('Contents');
 
@@ -164,12 +164,25 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		arrayCity.forEach( (master) => {
 			var found = false;
 			var text = master.text;
-			var regionCityId = master.workspace.taxonomy[taxonomyVocabularyId.regionCityId][0];
-			var image = master.workspace.fields.image;			
-			if( (typeof image !== 'undefined') && (image !== null) ){
+			var regionCityId = '';
+			var image = master.workspace.fields.image;
+
+			if(!util.isNullOrUndefined(master.workspace.taxonomy[taxonomyVocabularyId.regionCityId])){
+				if(!util.isNullOrUndefined(master.workspace.taxonomy[taxonomyVocabularyId.regionCityId][0])){
+					regionCityId = master.workspace.taxonomy[taxonomyVocabularyId.regionCityId][0];
+				}
+			}
+
+			if( !util.isNullOrUndefined(image) ){
 				if(image.replace(/(^s*)|(s*$)/g, "").length !== 0){
 					arrayCityDetails.forEach( (detail) => {
-						if(text === detail.text && regionCityId === detail.workspace.taxonomy[taxonomyVocabularyId.regionCityId][0]){
+						var detailRegionCityId =  '';
+						if(!util.isNullOrUndefined(detail.workspace.taxonomy[taxonomyVocabularyId.regionCityId])){
+							if(!util.isNullOrUndefined(detail.workspace.taxonomy[taxonomyVocabularyId.regionCityId][0])){
+								var detailRegionCityId = detail.workspace.taxonomy[taxonomyVocabularyId.regionCityId][0];
+							}
+						}
+						if(text === detail.text && regionCityId === detailRegionCityId){
 							if(util.isNullOrUndefined(detail.workspace.fields.image) || 0 === detail.workspace.fields.image.replace(/(^s*)|(s*$)/g, "").length){
 								found = true;
 								detail.workspace.fields.image = image;
@@ -201,13 +214,27 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		arrayAttraction.forEach( (master) => {
 			var found = false;
 			var text = master.text;
-			var attractionId = master.workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+			var attractionId =  '';
 			var image = master.workspace.fields.image;
-			if( (typeof image !== 'undefined') && (image !== null) ){
+
+			if(!util.isNullOrUndefined(master.workspace.taxonomy[taxonomyVocabularyId.attractionId])){
+				if(!util.isNullOrUndefined(master.workspace.taxonomy[taxonomyVocabularyId.attractionId][0])){
+					attractionId = master.workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+				}
+			}
+
+			if( !util.isNullOrUndefined(image) ){
 				if(image.replace(/(^s*)|(s*$)/g, "").length !== 0){
 					arrayAttractionDetails.forEach( (detail) => {
-						if( (text === detail.text) && (attractionId === detail.workspace.taxonomy[taxonomyVocabularyId.attractionId][0]) ){
-							if( undefined === typeof detail.workspace.fields.image || null === detail.workspace.fields.image || 0 === detail.workspace.fields.image.replace(/(^s*)|(s*$)/g, "").length){
+						var detailAttractionId = detail.workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+						if(!util.isNullOrUndefined(detail.workspace.taxonomy[taxonomyVocabularyId.attractionId])){
+							if(!util.isNullOrUndefined(detail.workspace.taxonomy[taxonomyVocabularyId.attractionId][0])){
+								var detailAttractionId = detail.workspace.taxonomy[taxonomyVocabularyId.attractionId][0];
+							}
+						}
+
+						if( (text === detail.text) && (attractionId === detailAttractionId) ){
+							if( util.isNullOrUndefined(detail.workspace.fields.image) || 0 === detail.workspace.fields.image.replace(/(^s*)|(s*$)/g, "").length){
 								found = true;
 								detail.workspace.fields.image = image;
 								detail.live.fields.image = image;
@@ -238,12 +265,26 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		arrayCountry.forEach( (master) => {
 			var found = false;
 			var text = master.text;
-			var countryCode = master.workspace.taxonomy[taxonomyVocabularyId.countryCode][0];
+			var countryCode = '';
 			var image = master.workspace.fields.image;
-			if( (typeof image !== 'undefined') && (image !== null)){
+			if(!util.isNullOrUndefined(master.workspace.taxonomy[taxonomyVocabularyId.countryCode])){
+				if(!util.isNullOrUndefined(master.workspace.taxonomy[taxonomyVocabularyId.countryCode][0])){
+					countryCode = master.workspace.taxonomy[taxonomyVocabularyId.countryCode][0];
+				}
+			}
+
+
+			if( !util.isNullOrUndefined(image) ){
 				if(image.replace(/(^s*)|(s*$)/g, "").length !== 0){
 					arrayCountryDetails.forEach( (detail) => {
-						if(text === detail.text && countryCode === detail.workspace.taxonomy[taxonomyVocabularyId.countryCode][0]){
+						var detailCountryCode = '';
+						if(!util.isNullOrUndefined(detail.workspace.taxonomy[taxonomyVocabularyId.countryCode])){
+							if(!util.isNullOrUndefined(detail.workspace.taxonomy[taxonomyVocabularyId.countryCode][0])){
+								var detailCountryCode = detail.workspace.taxonomy[taxonomyVocabularyId.countryCode][0];
+							}
+						}
+
+						if(text === detail.text && countryCode === detailCountryCode){
 							if(util.isNullOrUndefined(detail.workspace.fields.image) || 0 === detail.workspace.fields.image.replace(/(^s*)|(s*$)/g, "").length){
 								found = true;
 								detail.workspace.fields.image = image;
