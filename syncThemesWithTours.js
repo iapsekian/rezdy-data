@@ -216,16 +216,17 @@ MongoClient.connect(mdbUrl, (err, db) => {
 				attractionIdTerms = [];
 			}
 
+			/*
 			if(tour.text === 'Paris, Brussels and Amsterdam Tour'){
 				console.log('Debug Starting....');
-			}
+			}*/
 
 			if(attractionIdTerms.length !== 0){
 				attractionIdTerms.forEach((attIdTerm) => {					
 					debugDev('attIdTerm = ' + attIdTerm);
-					if(attIdTerm === '57b18d8c6d0e81e174c66e94'){
+					/*if(attIdTerm === '57b18d8c6d0e81e174c66e94'){
 						console.log('break point');
-					}
+					}*/
 					attractions.forEach((attraction) => { //asume there is the only one attraction id for each attraction
 						var tmpAttIdTerm = attraction.workspace.taxonomy[taxonomyVocabularyId.attractionId];
 						if(util.isNullOrUndefined(tmpAttIdTerm)){

@@ -1,5 +1,11 @@
 MongoDB shell script
 
+//add attraction id to Tours
+
+step 1 - db.getCollection('TaxonomyTerms').find({"vocabularyId" : "57b18d746d0e81e174c6632e","text" : "35"})
+Step 2 - db.getCollection('Contents').find({"text" : "Edge of the Earth Quad Adventure","typeId" : "58785c576d0e815f4014b288",})
+Step 3 - edit this record
+
 //Rezdy tour Product Code/ObjectId mapping
 
 var cur = db.getCollection('TaxonomyTerms').find({"vocabularyId":"586df55fa0af88a741bcb6b5"});
@@ -35,24 +41,41 @@ print(result);
 //WordsTravel Attraction and taxonomy attraction id mapping
 
 var locale = 'en';
-var cur = db.getCollection('Contents').find({"typeId":"57ea19736d0e81454c7b23d2"}); //content type = "Attraction"
-var vocabularyId = "57b18d746d0e81e174c6632e"; //attraction id taxonomy vocabularyId
+var cur = db.getCollection('Contents').find({"typeId":"57ea19736d0e81454c7b23d2"}); //content type = "City"
+var vocabularyId = "57b18d746d0e81e174c6632e"; //region city id taxonomy vocabularyId
 var result = '';
+var mapping = {};
 while(cur.hasNext()){
-	var attration = cur.next();
-	var attractionName = attration.workspace.i18n[locale].fields.text;
-	var termId = attration.workspace.taxonomy[vocabularyId];
-    if(termId === undefined){
-        result += attractionName + ' ---> ' + 'undefined' + '\n';
-    }else{
-        var cur1 = db.getCollection('TaxonomyTerms').find({"_id":ObjectId(termId)});
-        while(cur1.hasNext()){
-                var term = cur1.next();
-                result += attractionName + ' ---> ' + term.text + '\n';
-        }
+    var attraction = cur.next();
+    var attractionName = attraction.workspace.i18n[locale].fields.text;
+        print(attractionName);
+    var termId = attraction.workspace.taxonomy[vocabularyId];
+        if(termId === undefined){
+            result += attractionName + ' ---> ' + 'undefined' + '\n';
+        }else if(!termId){
+            result += attractionName + ' ---> ' + 'null or empty' + '\n';
+        }else{
+            if(Array.isArray(termId)){
+                termId.forEach(function(item,idx){
+                    var cur1 = db.getCollection('TaxonomyTerms').find({"_id":ObjectId(item)});
+                    while(cur1.hasNext()){
+                        var term = cur1.next();
+                        mapping[term.text] = attractionName;
+                    }
+                });
+            } else if (typeof termId === 'string'){
+                if(termId){
+                    var cur1 = db.getCollection('TaxonomyTerms').find({"_id":ObjectId(termId)});
+                    while(cur1.hasNext()){
+                        var term = cur1.next();
+                        mapping[term.text] = attractionName;
+                    }
+                }
+            }
     }
 }
 print(result);
+print(mapping);
 
 //WordsTravel Country and taxonomy country code mapping
 
