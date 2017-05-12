@@ -104,6 +104,8 @@ var crudUser = {
 };
 
 var taxonomyVocabularyId = {
+	"TourCategory": "5763a39b6d0e81055c8b456d",
+	"TourType": "587862a26d0e81ce4014b288",
 	"supplierId" : "587862d76d0e81dd4014b289",
 	"supplierAlias" : "5878630a6d0e81fc4014b288",
 	"productType" : "587862a26d0e81ce4014b288",
@@ -132,6 +134,7 @@ var taxonomySupplierAlias = {};
 var taxonomyProductType = {};
 var taxonomyAgentPaymentType = {};
 var taxonomyProductCode = {};
+var taxonomyTourCategory = {};
 
 //Part1-1 - using Rezdy RESTFul API to get tours' information
 
@@ -165,7 +168,7 @@ function step1GetCategories(){
 	    	if (tempJsonCategories.requestStatus.success === true) {
 		    	delete tempJsonCategories.requestStatus;
 		    	rawCategories = JSON.stringify(tempJsonCategories);
-		    	fs.writeFileSync('./datafiles/rawCategories.json', rawCategories);
+		    	fs.writeFileSync('./logs/rawCategories.json', rawCategories);
 
 		    	//Only "ALL" category
 		    	tempJsonCategories.categories.forEach( (item,index) => {
@@ -355,7 +358,7 @@ function step2GetProducts(){
 			});
 		});
     	var rawProducts = JSON.stringify(jsonProducts);
-    	fs.writeFileSync('./datafiles/rawProducts.json', rawProducts);
+    	fs.writeFileSync('./logs/rawProducts.json', rawProducts);
         arrayJsonProducts = jsonProducts.products;
 
         var supplierAliasFromProducts = [];
@@ -455,14 +458,14 @@ function step3GetSuppliersByProducts(supplierAliasFromProducts){
 	function handleSupplierResult(){		
 		//debugDev('Enter handleSupplierResult');
 		//debugDev('jsonSupplier count = ' + jsonSuppliers.companies.length);
-    	fs.writeFileSync('./datafiles/suppliers.json', JSON.stringify(jsonSuppliers));
+    	fs.writeFileSync('./logs/suppliers.json', JSON.stringify(jsonSuppliers));
 		arrayJsonSuppliers = jsonSuppliers.companies;
 
 		addSupplierCategory2ProductTourCategory();
 
-    	fs.writeFileSync('./datafiles/arrayJsonSuppliers.json', JSON.stringify(arrayJsonSuppliers));
-    	fs.writeFileSync('./datafiles/arrayJsonProducts.json', JSON.stringify(arrayJsonProducts));
-    	fs.writeFileSync('./datafiles/arrayJsonCategories.json', JSON.stringify(arrayJsonCategories));
+    	fs.writeFileSync('./logs/arrayJsonSuppliers.json', JSON.stringify(arrayJsonSuppliers));
+    	fs.writeFileSync('./logs/arrayJsonProducts.json', JSON.stringify(arrayJsonProducts));
+    	fs.writeFileSync('./logs/arrayJsonCategories.json', JSON.stringify(arrayJsonCategories));
     	
 		debugDev('Step3GetSuppliersByProducts END!');
     	step4GenerateMDBRecords();
@@ -474,6 +477,7 @@ function step4GenerateMDBRecords(){
 	console.log('step4GenerateMDBRecords starts!');
 	var supplierRecordsGenComplete = false;
 	var productRecordsGenComplete = false;
+	var mapping = require('./lib/mapping-util.js');
 
 	// functions
 	function handleSupplierRecords(){
@@ -488,8 +492,8 @@ function step4GenerateMDBRecords(){
 		var genRSupplierRecords = () => {
 			if(checkTaxonomySupplierIdComplete && checkTaxonomySupplierAliasComplete){
 
-		    	fs.writeFileSync('./datafiles/taxonomySupplierId.json', JSON.stringify(taxonomySupplierId));
-		    	fs.writeFileSync('./datafiles/taxonomySupplierAlias.json', JSON.stringify(taxonomySupplierAlias));
+		    	fs.writeFileSync('./logs/taxonomySupplierId.json', JSON.stringify(taxonomySupplierId));
+		    	fs.writeFileSync('./logs/taxonomySupplierAlias.json', JSON.stringify(taxonomySupplierAlias));
 
 				arrayJsonSuppliers.forEach( (item,index) => {
 
@@ -599,7 +603,7 @@ function step4GenerateMDBRecords(){
 					delete item.id;
 					delete item.fbPageId;
 				});
-		    	fs.writeFileSync('./datafiles/arrayJsonSuppliers4db.json', JSON.stringify(arrayJsonSuppliers));
+		    	fs.writeFileSync('./logs/arrayJsonSuppliers4db.json', JSON.stringify(arrayJsonSuppliers));
 		    	supplierRecordsGenComplete = true;
 		    	wait4MDBRecordsGenComplete();
 			}
@@ -785,17 +789,36 @@ function step4GenerateMDBRecords(){
 
 	function handleProductRecords(){
 
-		var allProductType = [];
+		var allProductType = []; //has been renamed to Tour Type
 		var allAgentPaymentType = [];
 		var allProductCode = [];
+
 		var checkTaxonomyProductTypeComplete = false;
 		var checkTaxonomyAgentPaymentTypeComplete = false;
 		var checkTaxonomyProductCodeComplete = false;
+		var getTXMap = require('./lib/getTXTermsMap.js');
+		var options = {
+			'txVocName': ['Tour Category'],
+			//'txTermsFlag': true,
+			//'reversedListing': false,
+			'targetEnv': targetEnv,
+			'dbOPSwitch': dbOPSwitch
+		};
+
+		getTXMap(options, (vocs,terms)=>{
+			taxonomyTourCategory = terms.TourCategory;
+		});
 
 		arrayJsonProducts.forEach( (item,index) => {
 
-			if( -1 === allProductType.indexOf(item.productType)){
-				allProductType.push(item.productType);
+			//modified for taxonomy tour type mapping
+			var source = item.productType;
+			var target = '';
+			if(source)	target = mapping.getTargetTourType(source);
+			if(target){
+				if( -1 === allProductType.indexOf(target)){
+					allProductType.push(target);
+				}
 			}
 
 			if( -1 === allAgentPaymentType.indexOf(item.agentPaymentType)){
@@ -817,9 +840,10 @@ function step4GenerateMDBRecords(){
 
     		if(checkTaxonomyProductTypeComplete && checkTaxonomyAgentPaymentTypeComplete && checkTaxonomyProductCodeComplete){
 
-		    	fs.writeFileSync('./datafiles/taxonomyProductType.json', JSON.stringify(taxonomyProductType));
-		    	fs.writeFileSync('./datafiles/taxonomyAgentPaymentType.json', JSON.stringify(taxonomyAgentPaymentType));
-		    	fs.writeFileSync('./datafiles/taxonomyProductCode.json', JSON.stringify(taxonomyProductCode));
+		    	fs.writeFileSync('./logs/taxonomyProductType.json', JSON.stringify(taxonomyProductType));
+		    	fs.writeFileSync('./logs/taxonomyAgentPaymentType.json', JSON.stringify(taxonomyAgentPaymentType));
+		    	fs.writeFileSync('./logs/taxonomyProductCode.json', JSON.stringify(taxonomyProductCode));
+
 
 				arrayJsonProducts.forEach( (item,index) => {
 
@@ -986,7 +1010,7 @@ function step4GenerateMDBRecords(){
 
 
 				});
-		    	fs.writeFileSync('./datafiles/arrayJsonProducts4db.json', JSON.stringify(arrayJsonProducts));
+		    	fs.writeFileSync('./logs/arrayJsonProducts4db.json', JSON.stringify(arrayJsonProducts));
 
 		    	//for content type - tours
 		    	arrayJsonProducts.forEach( (item,index) => {
@@ -1021,6 +1045,17 @@ function step4GenerateMDBRecords(){
 						tours.workspace.status = 'draft';
 						//tours.workspace.taxonomy = item.workspace.taxonomy; //this line doesn't work because after this line tours.workspace.taxonomy will point to the same object of item.workspace.taxonomy
 						tours.workspace.taxonomy = JSON.parse(JSON.stringify(item.workspace.taxonomy));
+
+						//Add Code here
+						//Tour Category --> tourCategory should be added
+						var source = item.workspace.fields.tourCategory;
+						var target = '';
+						if(source)	target = mapping.getTargetTourCategory(source);
+						if(target){
+							tours.workspace.taxonomy[taxonomyVocabularyId.TourCategory] = [];
+							tours.workspace.taxonomy[taxonomyVocabularyId.TourCategory].push(taxonomyTourCategory[target]);
+						}
+					
 						tours.workspace.startPublicationDate = item.workspace.startPublicationDate;
 						tours.workspace.endPublicationDate = item.workspace.endPublicationDate;
 						tours.workspace.target = item.workspace.target;
@@ -1057,7 +1092,7 @@ function step4GenerateMDBRecords(){
 					arrayJsonToursProducts.push(tours);
 
 		    	});
-		    	fs.writeFileSync('./datafiles/arrayJsonToursProducts4db.json', JSON.stringify(arrayJsonToursProducts));
+		    	fs.writeFileSync('./logs/arrayJsonToursProducts4db.json', JSON.stringify(arrayJsonToursProducts));
 		    	productRecordsGenComplete = true;
 		    	wait4MDBRecordsGenComplete();
 	    	}
@@ -1146,6 +1181,8 @@ function step4GenerateMDBRecords(){
     	function checkTaxonomyProductType(){
     		
     		var productTypeCount = allProductType.length;
+    		var txTourTypeCheckingLog = '';
+    		var txTermMissing = false;
 
 			//add taxonomy - Product Type
 			MongoClient.connect(mdbUrl, (err, db) => {
@@ -1163,19 +1200,24 @@ function step4GenerateMDBRecords(){
 								taxonomyProductType[d.text] = d['_id']+'';
 								wait4TxnmProductTypeComplete(db);
 							}else{
-								insertTaxonomyProductType(item, () => {
-									collection.findOne(queryParam,options, (e,d) =>{
-										if(null === e){
-											taxonomyProductType[d.text] = d['_id']+'';
-											wait4TxnmProductTypeComplete(db);
-										} else {
-											console.log('taxonomy Product Type after-inserted find error!');
-										}
-									});
-								});
+								txTermMissing = true;
+								txTourTypeCheckingLog += 'Taxonomy Product Type (Tour Type) - ' + item + ' - MISSING.\n';
+								wait4TxnmProductTypeComplete(db);
+								//Commented because taxonomy Product Type(Tour Type) should be inserted by tours-merging/updateTXTerms.js with tours-merging/mapping/type.json
+								//
+								// insertTaxonomyProductType(item, () => {
+								// 	collection.findOne(queryParam,options, (e,d) =>{
+								// 		if(null === e){
+								// 			taxonomyProductType[d.text] = d['_id']+'';
+								// 			wait4TxnmProductTypeComplete(db);
+								// 		} else {
+								// 			console.log('taxonomy Product Type after-inserted find error!');
+								// 		}
+								// 	});
+								// });
 							}
 						}else{
-							console.log('Find taxonomy Product Type error!');
+							console.log('Find taxonomy Product Type error! - ' + err);
 						}
 					});
 				});
@@ -1215,7 +1257,13 @@ function step4GenerateMDBRecords(){
 			var wait4TxnmProductTypeComplete = (db) => {
 				productTypeCount--;
 				if(0 === productTypeCount){
-					checkTaxonomyProductTypeComplete = true;
+					if(txTermMissing){
+						checkTaxonomyProductTypeComplete = false;
+						fs.writeFileSync('./logs/TXTourTypeTermsMissing-'+targetEnv+'.log', txTourTypeCheckingLog);
+						console.log('****** TX Product Type (Tour Type) terms MISSING!! Please press CTRL-C for breaking the excution then refer to the file - ./logs/TXTourTypeTermsMissing.log !! ****');
+					}else{
+						checkTaxonomyProductTypeComplete = true;
+					}
 					db.close();
 					genTourProductRecords();
 				}
@@ -1309,7 +1357,12 @@ function step4GenerateMDBRecords(){
 			taxonomy.navigation = taxonomyNavigation;
 
 			//Product Type
-			taxonomy[taxonomyVocabularyId.productType] = taxonomyProductType[productType];
+			var source = productType;
+			var target = '';
+			if(source)	target = mapping.getTargetTourType(source);
+			if(target){
+				taxonomy[taxonomyVocabularyId.productType] = taxonomyProductType[target];
+			}
 
 			//Supplier ID
 			taxonomy[taxonomyVocabularyId.supplierId] = taxonomySupplierId[supplierId];
@@ -1360,6 +1413,7 @@ var getExistingDataFromMDB = () => {
 			"_id":0,
 			"online":1,
 			"version":1,
+			// "workspace": 1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
 			"workspace.fields.id":1,

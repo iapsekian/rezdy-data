@@ -1,5 +1,25 @@
 MongoDB shell script
 
+//Add "Rezdy" to the fields - marketplace
+var clt = db.getCollection('Contents');
+var cur = clt.find({"typeId":"58785c576d0e815f4014b288"});
+while(cur.hasNext()){
+    var data = cur.next();
+    
+    data.detailsTypeId = "587866b06d0e810d4114b288";
+    data.workspace.fields.marketplace = "Rezdy";
+    data.live.fields.marketplace = "Rezdy";
+    try{
+        var result = clt.updateOne(
+        {"_id": data._id},
+        {$set: data}
+        );
+        print('Tour - ' + data.text +' UPDATED! - modifiedCount = ' + result.modifiedCount);
+    } catch(e){
+        print('Exception Happened during updating!! - ' + e);
+    }
+}
+
 //add attraction id to Tours
 
 step 1 - db.getCollection('TaxonomyTerms').find({"vocabularyId" : "57b18d746d0e81e174c6632e","text" : "35"})
@@ -188,3 +208,117 @@ while(cur.hasNext()){
     }
 }
 print(noImageLog);
+
+ // MongoDB備份資料庫
+
+mongodump -h 127.0.0.1 -d tourbooks -o /root/backup/mongodb-dump/$file
+
+// # MongoDB中為所有document增加欄位及值的方式
+db.Contents.update({"typeId": "55a7860886c74797668b4568"},{$set:{
+                                                                   "workspace.fields.icon_poi_intro_48": "565e51d66d0e81bc12c8871b",
+                                                                   "workspace.fields.icon_tel_48": "565e51d66d0e81bc12c88725",
+                                                                       "workspace.fields.icon_addr": "565e51d66d0e81bc12c88720",
+                                                                       "workspace.fields.icon_url": "565e51d76d0e81bc12c8872f",
+                                                                    "workspace.fields.icon_biz_hour": "565e51d76d0e81bc12c8872a",
+                                                                       "workspace.fields.icon_transportation": "565e51d56d0e81bc12c88711",
+                                                                       "workspace.fields.icon_expense": "565e51d66d0e81bc12c88716",
+                                                                     "live.fields.icon_poi_intro_48": "565e51d66d0e81bc12c8871b",
+                                                                       "live.fields.icon_tel_48": "565e51d66d0e81bc12c88725",
+                                                                       "live.fields.icon_addr": "565e51d66d0e81bc12c88720",
+                                                                       "live.fields.icon_url": "565e51d76d0e81bc12c8872f",
+                                                                       "live.fields.icon_biz_hour": "565e51d76d0e81bc12c8872a",
+                                                                       "live.fields.icon_transportation": "565e51d56d0e81bc12c88711",
+                                                                       "live.fields.icon_expense": "565e51d66d0e81bc12c88716"}},{multi:true})
+
+
+#查詢某個content type的某個欄位是否有值
+db.Contents.find({"typeId":"5672639c6d0e810d0a8b4574","workspace.i18n.en.fields.state": {$ne:  ""} })
+
+#查詢某個content type的某個taxonomy是否不存在
+db.Contents.find(
+                    {    "typeId":"56610ec06d0e814236cdc87d",
+                        "workspace.taxonomy.55a4d43686c7478d768b4584": {$exists: false} 
+                    }
+                )
+
+#對某個typeID不存在的taxonomy設定值
+
+db.Contents.update(    {    "typeId":"56610ec06d0e814236cdc87d",
+                        "workspace.taxonomy.55a4d43686c7478d768b4584": {$exists: false} 
+                    },
+                     {$set:    {
+                                 "workspace.taxonomy.55a4d43686c7478d768b4584": ["55a4d4b286c7478b768b457c"],
+                                 "live.taxonomy.55a4d43686c7478d768b4584": ["55a4d4b286c7478b768b457c"]
+                               }
+                       },
+                       {
+                           multi:true
+                       }
+                    )
+
+db.Contents.update(    {    "typeId":"55f2a6e686c747ed418b4568"
+                    },
+                     {$set:    {
+                                 "workspace.taxonomy.55a4d43686c7478d768b4584": ["567a305b6d0e81de368b4567","567a32a76d0e8155378b4567"],
+                                 "live.taxonomy.55a4d43686c7478d768b4584": ["567a305b6d0e81de368b4567","567a32a76d0e8155378b4567"]
+                               }
+                       },
+                       {
+                           multi:true
+                       }
+                    ) 
+
+#陣列的操作                    
+#替一個已存在的array增加一個值
+db.Contents.update(    {    "typeId":"55f2a6e686c747ed418b4568",
+                        "workspace.taxonomy.55a4d43686c7478d768b4584": {$exists: true} 
+                    },
+                     {    $push:    {
+                                 "workspace.taxonomy.55a4d43686c7478d768b4584": "567a305b6d0e81de368b4567",
+                                 "live.taxonomy.55a4d43686c7478d768b4584": "567a305b6d0e81de368b4567"
+                               }
+                       },
+                       {    multi:true
+                       }
+                    )
+
+
+db.Contents.update(    {    "typeId":"55a4ab5e86c7479f758b45a2",
+                    },
+                     {$push:    {
+                                 "workspace.taxonomy.55a4d43686c7478d768b4584": {$each:["567a305b6d0e81de368b4567","55a4d4c686c747af768b4585"]},
+                                 "live.taxonomy.55a4d43686c7478d768b4584": {$each:["567a305b6d0e81de368b4567","55a4d4c686c747af768b4585"]}
+                               }
+                       },
+                       {
+                           multi:true
+                       }
+                    ) 
+
+db.Contents.update(    {    "typeId":"55a4ab5e86c7479f758b459e",
+                    },
+                     {$push:    {
+                                 "workspace.taxonomy.55a4d43686c7478d768b4584": {$each:["567a31196d0e811b378b4567"]},
+                                 "live.taxonomy.55a4d43686c7478d768b4584": {$each:["567a31196d0e811b378b4567"]}
+                               }
+                       },
+                       {
+                           multi:true
+                       }
+                    )
+
+#為資料新增語系資料前，需要直接操作DB，預先新增語系記錄，然後使用標準import功能中的update，將新語系資料匯入（以下操作是進入工具程式以交談方式執行）
+var coll = db.getCollection("Contents");
+var cur = coll.find({"typeId":"5672639c6d0e810d0a8b4574"});
+while(cur.hasNext()){
+    var data = cur.next();
+    var id = data._id;
+    var fields = data.workspace.i18n.en.fields;
+    coll.update(
+        {_id:id},
+        {$set:{"workspace.i18n.zh-TW.fields":fields,
+               "workspace.i18n.zh-TW.locale":"zh-TW"}}
+    );
+}                    
+
+

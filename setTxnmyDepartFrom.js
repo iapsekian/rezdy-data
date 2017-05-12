@@ -63,6 +63,8 @@ if(productionEnv){
 	};
 
 	var taxonomyVocabularyId = {
+		"TourCategory": "5763a39b6d0e81055c8b456d",
+		"TourType": "587862a26d0e81ce4014b288",
 		"isoWorldRegion" : "57b18d746d0e81e174c66324",
 		"departFrom" : "589c085b6d0e819e13623adc",
 		"neighborhood" : "58a416336d0e81e1476a3063",
@@ -77,6 +79,8 @@ if(productionEnv){
 	};
 
 	var taxonomyVocabularyId = {
+		"TourCategory": "5763a39b6d0e81055c8b456d",
+		"TourType": "587862a26d0e81ce4014b288",
 		"isoWorldRegion" : "57b18d746d0e81e174c66324",
 		"departFrom" : "589c085b6d0e819e13623adc",
 		"neighborhood" : "589d6b26a0af88c9488b4580",

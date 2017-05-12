@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"themes",
+				"themesMapping\t{} "
+			],
+			[
+				"unde",
+				"undefined\t? "
+			],
+			[
+				"content",
+				"contentTypeName\tstr "
+			],
+			[
+				"isnu",
+				"util.isNullOrUndefined(arg);"
+			],
+			[
+				"par",
+				"parse\tfn "
+			],
+			[
+				"getUT",
+				"getUTCMinutes\tfn "
+			],
+			[
+				"getUTC",
+				"getUTCMinutes\tfn "
+			],
+			[
+				"days",
+				"daysHours\tstr "
+			],
+			[
 				"taxonomyPro",
 				"taxonomyProductCode"
 			],
@@ -75,47 +107,17 @@
 			"file": "main.js",
 			"settings":
 			{
-				"buffer_size": 58706,
+				"buffer_size": 67572,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Deployment Procedures.txt",
+			"file": "/Users/casper/code/tours-merging/updateRezdyToursTXThemesTourDestPrice.js",
 			"settings":
 			{
-				"buffer_size": 1512,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "db portion"
-			}
-		},
-		{
-			"contents": "WHEN evtLegalNotice DO SHOWMODAL('rtLegalNotice')\nWHEN evtOurService DO SHOWMODAL('rtOurService')\nWHEN evtAboutUs DO SHOWMODAL('rtAboutUs')",
-			"settings":
-			{
-				"buffer_size": 139,
-				"line_ending": "Unix",
-				"name": "WHEN evtLegalNotice DO SHOWMODAL('rtLegalNotice')"
-			}
-		},
-		{
-			"file": "MongoDB shell script.txt",
-			"settings":
-			{
-				"buffer_size": 2690,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "MongoDB shell script"
-			}
-		},
-		{
-			"contents": "curl -XPUT 'localhost:9200/music/song/1?refresh&pretty' -d'\n{\n    \"suggest\" : [\n        {\n            \"input\": \"Nevermind\",\n            \"weight\" : 10\n        },\n        {\n            \"input\": \"Nirvana\",\n            \"weight\" : 3\n        }\n    ]\n}'\n\ncurl -XPUT 'localhost:9200/music?pretty' -d'\n{\n    \"mappings\": {\n        \"song\" : {\n            \"properties\" : {\n                \"suggest\" : {\n                    \"type\" : \"completion\"\n                },\n                \"title\" : {\n                    \"type\": \"keyword\"\n                }\n            }\n        }\n    }\n}'\n",
-			"settings":
-			{
-				"buffer_size": 569,
-				"line_ending": "Unix",
-				"name": "curl -XPUT 'localhost:9200/music/song/1?refresh&pr"
+				"buffer_size": 14074,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -126,13 +128,29 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 187.0,
+		"height": 207.0,
 		"last_filter": "install",
 		"selected_items":
 		[
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"PackageResourceViewer",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"converto",
+				"ConvertToUTF8: Reload with Encoding"
 			],
 			[
 				"node",
@@ -163,7 +181,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 530.0
+		"width": 485.0
 	},
 	"console":
 	{
@@ -185,10 +203,79 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/casper/code/rezdyapi-server-side"
+		"/Users/casper/code/rezdy-data",
+		"/Users/casper/code/rezdy-data/datafiles",
+		"/Users/casper/code/rezdy-data/lib",
+		"/Users/casper/code/rezdy-data/logs"
 	],
 	"file_history":
 	[
+		"/Users/casper/code/rezdy-data/logs/arrayJsonToursProducts4db.json",
+		"/Users/casper/code/rezdy-data/setTxnmyDepartFrom.js",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491982348/59.125.189.209/home/casper/conf",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491982879/59.125.189.209/home/casper/progress_file",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491982034/59.125.189.209/home/casper/install-rubedo-3.3.x.sh",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491982267/59.125.189.209/home/casper/ri",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491986340/59.125.189.209/etc/apache2/sites-available/000-default.conf",
+		"/Users/casper/code/rezdy-data/package.json",
+		"/Users/casper/code/taipei.json",
+		"/Users/casper/code/rezdy-data/main.js",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/59.125.189.205",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/SFTP/SFTP.sublime-settings",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491873460/tst.tourbooks.cc/var/log/apache2/rubedo-error.log",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491873550/tst.tourbooks.cc/etc/apache2/sites-available/040-tourbookscom.conf",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491873654/tst.tourbooks.cc/etc/apache2/sites-available/010-rubedo.conf",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491873672/tst.tourbooks.cc/var/log/apache2/rubedo-access.log",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Nodejs/Nodejs.py",
+		"/Users/casper/code/rezdy-data/checkbox.html",
+		"/Users/casper/code/rezdy-data/default.html",
+		"/Users/casper/code/rezdy-data/ccMap.json",
+		"/Users/casper/code/Q5119.json",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/LiveStyle/LiveStyle.sublime-settings",
+		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/LiveStyle.sublime-settings",
+		"/Users/casper/code/rezdy-data/algolia.js",
+		"/Users/casper/code/rezdy-data/syncThemesWithTours.js",
+		"/Users/casper/pagetitle.json",
+		"/Users/casper/WebstormProjects/rubedo3.4dev/public/components/twbs/bootstrap/dist/css/bootstrap.css",
+		"/Users/casper/code/rezdy-data/algolia.css",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-vertical-WHS.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-vertical-WHS-searchpageblock.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-vertical-search-searchpageblock.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-vertical-404-searchpageblock.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-vertical-home.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-vertical-citylmk-navbar.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal-navbar.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal-WHS.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal.html",
+		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal-home.html",
+		"/Users/casper/code/rezdy-data/docs/MongoDB shell script.js",
+		"/Users/casper/code/rezdy-data/algolia-attraction.js",
+		"/Users/casper/code/rezdy-data/algolia-city.js",
+		"/Users/casper/code/rezdy-data/algolia-tours.js",
+		"/Users/casper/code/rezdy-data/docs/MongoDB shell script.txt",
+		"/Users/casper/tours.json",
+		"/Users/casper/tours.js",
+		"/Users/casper/cities.json",
+		"/Users/casper/attractions.json",
+		"/Users/casper/Downloads/players.json",
+		"/Users/casper/Downloads/teams.json",
+		"/Users/casper/Downloads/Microsoft Office For Mac 2016 v15.22 + Update + License Installer/Read Me.txt",
+		"/Users/casper/Downloads/tours.json",
+		"/Users/casper/algolia.json",
+		"/Users/casper/code/rezdy-data/syncImage2Details.js",
+		"/Users/casper/.ssh/known_hosts",
+		"/Users/casper/.ssh/config",
+		"/Users/casper/code/rezdy-data/logs/syncCityImage.log",
+		"/Users/casper/code/rezdy-data/docs/Attraction and attraction id Mapping.txt",
+		"/Users/casper/code/rezdy-data/docs/City and region city id Mapping.txt",
+		"/Users/casper/Downloads/luna-youtube-tracking.json",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1487929477/tst.tourbooks.cc/home/casper/uproxy.txt",
+		"/Users/casper/Downloads/id填入的方法.txt",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1487833445/tst.tourbooks.cc/home/casper/uproxy.txt",
+		"/Users/casper/code/rezdy-data/test.js",
+		"/Users/casper/code/rezdy-data/MongoDB shell script.txt",
+		"/Users/casper/code/rezdy-data/Deployment Procedures.txt",
 		"/home/casper/code/rezdyapi-server-side/main-new.js",
 		"/home/casper/code/rezdyapi-server-side/City and region city id Mapping.txt",
 		"/home/casper/code/rezdyapi-server-side/Attraction and attraction id Mapping.txt",
@@ -223,8 +310,6 @@
 		"/Users/casper/adsenseTpl1.html",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/tst.tourbooks.cc",
 		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1481694056/tst.tourbooks.cc/var/www/rubedo/public/.htaccess",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/SFTP/SFTP.sublime-settings",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
@@ -264,9 +349,52 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"datafiles",
+			"mpping",
+			"ObjectID",
+			"taxonomyProductType",
+			"arrayJsonToursProducts",
+			"arrayJsonProducts",
+			"stage2Save2MDB",
+			"PHP_PACKAGES_UBUNTU14",
+			"PHP_PACKAGES",
+			"PHP_PACKAGES_UBUNTU14",
+			"contentTypeId.product",
+			"Q5119",
+			"break point",
+			"col-sm-1",
+			"max-width",
+			"@media (min-width: 768px)",
+			".col-xs-1",
+			"@media (min-width: 768px)",
+			"@media",
+			"aa-search-input",
+			"processSearch",
+			"-sm-",
+			"tmp.lon",
+			"tmp.lat",
+			"teams",
+			"players",
+			"NaN",
+			"N",
+			"3694",
+			"undefined",
+			"Blank",
+			"NumberInt",
+			"tmp.lon",
+			"locationAddress",
+			"attraction",
+			"rubedoCustomTemplate",
+			"rubedo-custom-template",
+			"Varkala",
+			"THEKKADY",
+			"jsonProducts",
+			"arrayJsonProducts",
+			"###",
+			"searchSelector",
 			"-new",
 			"undefined",
 			"rezdyResizeIframe",
@@ -312,6 +440,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"country",
 			"-v2"
 		],
 		"reverse": false,
@@ -323,7 +452,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -332,85 +461,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 58706,
+						"buffer_size": 67572,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22435,
-								22435
+								11548,
+								11548
 							]
 						],
 						"settings":
 						{
-							"git_gutter_enabled": false,
+							"git_gutter_enabled": true,
+							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5985.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Deployment Procedures.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1512,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1282,
-								1282
-							]
-						],
-						"settings":
-						{
-							"auto_name": "db portion",
-							"incomplete_sync": null,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 139,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								128,
-								137
-							]
-						],
-						"settings":
-						{
-							"auto_name": "WHEN evtLegalNotice DO SHOWMODAL('rtLegalNotice')",
-							"default_dir": "/Users/casper/code/rezdyapi-server-side",
-							"incomplete_sync": null,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -420,73 +492,38 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "MongoDB shell script.txt",
+					"buffer": 1,
+					"file": "/Users/casper/code/tours-merging/updateRezdyToursTXThemesTourDestPrice.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2690,
+						"buffer_size": 14074,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								601,
-								601
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "MongoDB shell script",
-							"git_gutter_enabled": false,
+							"git_gutter_enabled": true,
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1181.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 569,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								569,
-								569
-							]
-						],
-						"settings":
-						{
-							"auto_name": "curl -XPUT 'localhost:9200/music/song/1?refresh&pr",
-							"default_dir": "/home/casper/code/rezdyapi-server-side",
-							"git_gutter_enabled": false,
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -494,7 +531,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -523,9 +560,17 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 246.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.nodejs":
+	{
+		"height": 100.0
 	},
 	"output.sftp":
 	{
@@ -553,6 +598,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/code/tcms-data/tcms-data.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -573,7 +622,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 318.0,
+	"side_bar_width": 277.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
