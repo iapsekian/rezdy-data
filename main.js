@@ -88,7 +88,7 @@ var mdbUrl = '';
 if(productionEnv){
 	mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
 } else if (testEnv){
-	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks';
+	mdbUrl = 'mongodb://tst2.tourbooks.cc:27017/tourbooks';
 }
 
 var contentTypeId = {
@@ -104,6 +104,7 @@ var crudUser = {
 };
 
 var taxonomyVocabularyId = {
+	"Promotion": "592654d76d0e81b5537b23c8", //should be updated
 	"TourCategory": "5763a39b6d0e81055c8b456d",
 	"TourType": "587862a26d0e81ce4014b288",
 	"supplierId" : "587862d76d0e81dd4014b289",
@@ -125,7 +126,6 @@ var taxonomySSTermsId = {
 
 var taxonomyNavigation = [
 	"57e227bb6d0e81ad168b4768",
-	"580726bd6d0e810b3d7b23c6",
 	"582bf94c6d0e81d65f7b293b" 
 ];
 
@@ -268,7 +268,7 @@ function step2GetProducts(){
 			optionsProductsByCategory.path = queryPath + '&offset=' + offset;
 			offset += 100;
 			//tmpXMLProductsCount -= 100;
-			debugDev('optionsProductsByCategory.path = ' + optionsProductsByCategory.path);
+			// debugDev('optionsProductsByCategory.path = ' + optionsProductsByCategory.path);
 
 			var getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
 
@@ -488,7 +488,7 @@ function step4GenerateMDBRecords(){
     	checkTaxonomySupplierId();
     	checkTaxonomySupplierAlias();
 
-		//format RSupplier records
+		//format Tour Suppliers records
 		var genRSupplierRecords = () => {
 			if(checkTaxonomySupplierIdComplete && checkTaxonomySupplierAliasComplete){
 
@@ -844,12 +844,8 @@ function step4GenerateMDBRecords(){
 		    	fs.writeFileSync('./logs/taxonomyAgentPaymentType.json', JSON.stringify(taxonomyAgentPaymentType));
 		    	fs.writeFileSync('./logs/taxonomyProductCode.json', JSON.stringify(taxonomyProductCode));
 
-
+		    	// RTours
 				arrayJsonProducts.forEach( (item,index) => {
-
-					if(item.productCode === 'P785EE'){
-						console.log('### Debug break poit 1 ###');
-					}
 
 					item.text = item.name;
 					item.typeId = contentTypeId.product;
@@ -1042,6 +1038,10 @@ function step4GenerateMDBRecords(){
 							tours.workspace.fields.productPageUrl = item.workspace.fields.productPageUrl;
 							tours.workspace.fields.photoPath = item.workspace.fields.photoPath;
 							tours.workspace.fields.locationAddress = item.workspace.fields.locationAddress;
+							tours.workspace.fields.marketplace = 'Rezdy';
+							tours.workspace.fields.promotionCode = '';
+							tours.workspace.fields.discount = '';
+							tours.workspace.fields.travelBefore = '';
 						tours.workspace.status = 'draft';
 						//tours.workspace.taxonomy = item.workspace.taxonomy; //this line doesn't work because after this line tours.workspace.taxonomy will point to the same object of item.workspace.taxonomy
 						tours.workspace.taxonomy = JSON.parse(JSON.stringify(item.workspace.taxonomy));
@@ -1055,6 +1055,7 @@ function step4GenerateMDBRecords(){
 							tours.workspace.taxonomy[taxonomyVocabularyId.TourCategory] = [];
 							tours.workspace.taxonomy[taxonomyVocabularyId.TourCategory].push(taxonomyTourCategory[target]);
 						}
+						tours.workspace.taxonomy[taxonomyVocabularyId.Promotion] = '';
 					
 						tours.workspace.startPublicationDate = item.workspace.startPublicationDate;
 						tours.workspace.endPublicationDate = item.workspace.endPublicationDate;
@@ -1442,6 +1443,7 @@ var getExistingDataFromMDB = () => {
 			});
 	};
 
+	// RTours
 	var getExistingProducts = (collection, callback) => {
 		var queryParam = { "typeId" : contentTypeId.product };
 		var projectParam = {
@@ -1459,6 +1461,7 @@ var getExistingDataFromMDB = () => {
 			.then( (d) => {
 				var p = [];
 				d.forEach( (item,index) => {
+					//if(item.)
 					var i = {};
 					i.id = item.workspace.fields.id;
 					i.productCode = item.workspace.fields.productCode;
@@ -1476,6 +1479,7 @@ var getExistingDataFromMDB = () => {
 			});
 	};
 
+	// Tours
 	var getExistingToursProducts = (collection, callback) => {
 		var queryParam = { "typeId" : contentTypeId.tours };
 		var projectParam = {
@@ -1483,6 +1487,10 @@ var getExistingDataFromMDB = () => {
 			"online":1,
 			"version":1,
 			"workspace.fields.productCode":1,
+			"workspace.fields.marketplace":1,
+			"workspace.fields.promotionCode":1,
+			"workspace.fields.discount":1,
+			"workspace.fields.travelBefore":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
 			"lastUpdateTime":1
@@ -1492,14 +1500,20 @@ var getExistingDataFromMDB = () => {
 			.then( (d) => {
 				var p = [];
 				d.forEach( (item,index) => {
-					var i = {};
-					i.productCode = item.workspace.fields.productCode;
-					i.online = item.online;
-					i.version = item.version;
-					i.status = item.workspace.status;
-					i.taxonomy = item.workspace.taxonomy;
-					i.lastUpdateTime = item.lastUpdateTime;
-					p.push(i);
+					if(item.workspace.fields.marketplace === 'Rezdy'){
+						var i = {};
+						i.productCode = item.workspace.fields.productCode;
+						i.online = item.online;
+						i.version = item.version;
+						i.status = item.workspace.status;
+						i.taxonomy = item.workspace.taxonomy;
+						i.lastUpdateTime = item.lastUpdateTime;
+						i.marketplace = item.workspace.fields.marketplace;
+						i.promotionCode = item.workspace.fields.promotionCode;
+						i.discount = item.workspace.fields.discount;
+						i.travelBefore = item.workspace.fields.travelBefore;
+						p.push(i);
+					}
 				});
 				callback(p);
 			})
@@ -1575,10 +1589,13 @@ var saveSuppliers2MDB = () => {
 	var queryParam = { "typeId" : contentTypeId.supplier };
 	var updateCount = 0;
 	var insertCount = 0;
+	var putOfflineCount = 0;
 	var sInsertRecords = [];
 	var sUpdateRecords = [];
+	var sPutOfflineRecords = [];
 	var updateComplete = false;
 	var insertComplete = false;
+	var putOfflineComplete = false;
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
@@ -1640,8 +1657,36 @@ var saveSuppliers2MDB = () => {
 		    };
 		};
 
+		//put Supplier documents offline for deleted tours in 'ALL' category in Rezdy
+		/*
+		var putOfflineSupplier = (existingItem, existingIndex) => {
+			var filter = {"typeId" : contentTypeId.supplier, "workspace.fields.id" : existingItem.id};
+			var options = {};
+			var updates = {$set:{online:false}};
+
+			collection.updateOne(filter, updates, options)
+				.then( (r) => {
+					debugDev('putOfflineSupplier r = ' + JSON.stringify(r));
+					debugDev('putOfflineSupplier count = ' + r.matchedCount);
+					wait4PutOfflineSupplierComplete();
+				})
+				.catch( (e) => {
+					console.log("Error = " + e);
+				});
+
+			var wait4PutOfflineSupplierComplete = () => {
+				putOfflineCount--;
+				debugDev('putOfflineCount = ' + putOfflineCount);
+				if(0 === putOfflineCount){
+					putOfflineComplete = true;
+					wait4IUBothComplete();
+				}
+			};
+		};
+		*/
+
 		var wait4IUBothComplete = () => {
-			if(updateComplete && insertComplete){				
+			if(updateComplete && insertComplete && putOfflineComplete){				
 				db.close();
 				debugDev('saveSuppliers2MDB End!');
 				saveProducts2MDB();
@@ -1662,8 +1707,21 @@ var saveSuppliers2MDB = () => {
 				sInsertRecords.push(rzdItem);
 		});
 
+		//find out deleted records for putting them offline
+		existingSuppliers.forEach( (existingItem, existingIndex) => {
+			var putOnline = false;
+			arrayJsonSuppliers.forEach( (rzdItem,rzdIndex) => {
+				if(rzdItem.workspace.fields.id === existingItem.id){
+					putOnline = true;
+				}				
+			});
+			if(!putOnline){
+				sPutOfflineRecords.push(existingItem);
+			}			
+		});
+
 		//update documents to db
-		updateCount = sUpdateRecords.length;
+		let updateCount = sUpdateRecords.length;
 		if(0 !== updateCount){
 			sUpdateRecords.forEach( (suItem,suIndex) => {
 				existingSuppliers.forEach( (existingItem,existingIndex) => {
@@ -1678,7 +1736,7 @@ var saveSuppliers2MDB = () => {
 		}
 
 		//insert documents to db
-		insertCount = sInsertRecords.length;
+		let insertCount = sInsertRecords.length;
 		debugDev('init insertCount = ' + insertCount);
 		if(0 !== insertCount){
 			sInsertRecords.forEach( (siItem,siIndex) => {
@@ -1689,6 +1747,21 @@ var saveSuppliers2MDB = () => {
 			wait4IUBothComplete();
 		}
 
+		//put deleted Suppliers offline
+		putOfflineComplete = true;
+		fs.writeFileSync('./logs/suppliersToBePutOffline.json', JSON.stringify(sPutOfflineRecords));
+		/*
+		let putOfflineCount = sPutOfflineRecords.length;
+		debugDev('init Supplier putOfflineCount = ' + putOfflineCount);
+		if(0 !== putOfflineCount){
+			sPutOfflineRecords.forEach( (sdItem,sdIndex) => {
+				putOfflineSupplier(sdItem, sdIndex);
+			});
+		} else {
+			putOfflineComplete = true;
+			wait4IUBothComplete();
+		}
+		*/
 	});
 };
 
@@ -1696,26 +1769,26 @@ var saveSuppliers2MDB = () => {
 var saveProducts2MDB = () => {
 
 	console.log('Enter saveProducts2MDB() to persist RTours to DB!');
-	var updateCount = 0;
-	var insertCount = 0;
-	var putOfflineCount = 0;
-	var pInsertRecords = [];
-	var pUpdateRecords = [];
-	var pPutOfflineRecords = []; //not existed item
-	var updateComplete = false;
-	var insertComplete = false;
-	var putOfflineComplete = false;
+	let updateCount = 0;
+	let insertCount = 0;
+	let putOfflineCount = 0;
+	let pInsertRecords = [];
+	let pUpdateRecords = [];
+	let pPutOfflineRecords = []; //not existed item
+	let updateComplete = false;
+	let insertComplete = false;
+	let putOfflineComplete = false;
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
 		if(null === err) console.log("		--- saveProducts2MDB Connected successfully to server");
 
-		var collection = db.collection('Contents');
+		let collection = db.collection('Contents');
 
 		//update RTours documents to db
-		var updateProduct = (rzdItem, rzdIndex, existingItem) => {
-			var filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
-			var options = {};
+		let updateProduct = (rzdItem, rzdIndex, existingItem) => {
+			let filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
+			let options = {};
 
 			rzdItem.online = existingItem.online;
 			//rzdItem.online = true;
@@ -1738,7 +1811,7 @@ var saveProducts2MDB = () => {
 					console.log("Error = " + e);
 				});
 
-			var wait4UpdateProductComplete = () => {
+			let wait4UpdateProductComplete = () => {
 				updateCount--;
 				debugDev('updateCount = ' + updateCount);
 				if(0 === updateCount){
@@ -1749,11 +1822,11 @@ var saveProducts2MDB = () => {
 		};
 
 		//insert RTours documents to db
-		var insertProduct = (rzdItem, rzdIndex) => {
+		let insertProduct = (rzdItem, rzdIndex) => {
 			if(rzdItem.workspace.fields.productCode === 'P785EE'){
 				console.log('### Debug break poit 6 ###');
 			}
-			var options = {forceServerObjectId:true};
+			let options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
 	    		.then( (r) => {
@@ -1764,7 +1837,7 @@ var saveProducts2MDB = () => {
 	    			console.log('Error = ' + e);
 	    		});
 
-		    var wait4InsertProductComplete = () =>{
+		    let wait4InsertProductComplete = () =>{
 		    	insertCount--;
 				debugDev('wait4InsertProductComplete insertCount = ' + insertCount);
 		    	if(0 === insertCount){
@@ -1775,10 +1848,10 @@ var saveProducts2MDB = () => {
 		};
 
 		//put RTours documents offline for deleted tours in 'ALL' category in Rezdy
-		var putOfflineProduct = (existingItem, existingIndex) => {
-			var filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
-			var options = {};
-			var updates = {$set:{online:false}};
+		let putOfflineProduct = (existingItem, existingIndex) => {
+			let filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
+			let options = {};
+			let updates = {$set:{online:false}};
 
 			collection.updateOne(filter, updates, options)
 				.then( (r) => {
@@ -1790,7 +1863,7 @@ var saveProducts2MDB = () => {
 					console.log("Error = " + e);
 				});
 
-			var wait4PutOfflineProductComplete = () => {
+			let wait4PutOfflineProductComplete = () => {
 				putOfflineCount--;
 				debugDev('putOfflineCount = ' + putOfflineCount);
 				if(0 === putOfflineCount){
@@ -1800,7 +1873,7 @@ var saveProducts2MDB = () => {
 			};
 		};
 
-		var wait4IUDComplete = () => {
+		let wait4IUDComplete = () => {
 			if(updateComplete && insertComplete && putOfflineComplete){				
 				db.close();
 				debugDev('End saveProducts2MDB() !');
@@ -1810,7 +1883,7 @@ var saveProducts2MDB = () => {
 
 		//seperate insert & update
 		arrayJsonProducts.forEach( (rzdItem,rzdIndex) => {
-			var existing = false;
+			let existing = false;
 			existingProducts.forEach( (existingItem,existingIndex) => {
 				if(rzdItem.workspace.fields.productCode === existingItem.productCode ){
 					existing = true;
@@ -1823,7 +1896,7 @@ var saveProducts2MDB = () => {
 
 		//find out deleted records for putting them offline
 		existingProducts.forEach( (existingItem, existingIndex) => {
-			var putOnline = false;
+			let putOnline = false;
 			arrayJsonProducts.forEach( (rzdItem,rzdIndex) => {
 				if(existingItem.productCode === rzdItem.workspace.fields.productCode){
 					putOnline = true;
@@ -1835,7 +1908,7 @@ var saveProducts2MDB = () => {
 		});
 
 		//update RTours documents to db
-		var updateCount = pUpdateRecords.length;
+		let updateCount = pUpdateRecords.length;
 		debugDev('init updateCount = ' + updateCount);
 		if(0 !== updateCount){
 			pUpdateRecords.forEach( (puItem, puIndex) => {
@@ -1851,7 +1924,7 @@ var saveProducts2MDB = () => {
 		}
 
 		//insert RTours documents to db
-		insertCount = pInsertRecords.length;
+		let insertCount = pInsertRecords.length;
 		debugDev('init insertCount = ' + insertCount);
 		if(0 !== insertCount){
 			pInsertRecords.forEach( (piItem,piIndex) => {
@@ -1866,7 +1939,8 @@ var saveProducts2MDB = () => {
 		}
 
 		//put deleted tours offline
-		putOfflineCount = pPutOfflineRecords.length;
+		let putOfflineCount = pPutOfflineRecords.length;
+		fs.writeFileSync('./logs/rToursToBePutOffline.json', JSON.stringify(pPutOfflineRecords));
 		debugDev('init putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
 			pPutOfflineRecords.forEach( (pdItem,pdIndex) => {
@@ -1881,28 +1955,28 @@ var saveProducts2MDB = () => {
 };
 
 //deal with content type Tours documents
-var saveToursProducts2MDB = () => {
+let saveToursProducts2MDB = () => {
 
 	console.log('Enter saveToursProducts2MDB to persiste Tours to DB!');
-	var updateCount = 0;
-	var insertCount = 0;
-	var putOfflineCount = 0;
-	var pInsertRecords = [];
-	var pUpdateRecords = [];
-	var pPutOfflineRecords = [];
-	var updateComplete = false;
-	var insertComplete = false;
-	var putOfflineComplete = false;
+	let updateCount = 0;
+	let insertCount = 0;
+	let putOfflineCount = 0;
+	let pInsertRecords = [];
+	let pUpdateRecords = [];
+	let pPutOfflineRecords = [];
+	let updateComplete = false;
+	let insertComplete = false;
+	let putOfflineComplete = false;
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
 		if(null === err) console.log("		--- saveProducts2MDB Connected successfully to server");
 
-		var collection = db.collection('Contents');
+		let collection = db.collection('Contents');
 
-		var updateProduct = (rzdItem, rzdIndex, existingItem) => {
-			var filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
-			var options = {};
+		let updateProduct = (rzdItem, rzdIndex, existingItem) => {
+			let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
+			let options = {};
 
 			rzdItem.online = existingItem.online;
 			rzdItem.version = existingItem.version;
@@ -1911,6 +1985,10 @@ var saveToursProducts2MDB = () => {
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
+			rzdItem.workspace.fields.marketplace = existingItem.marketplace;
+			rzdItem.workspace.fields.promotionCode = existingItem.promotionCode;
+			rzdItem.workspace.fields.discount = existingItem.discount;
+			rzdItem.workspace.fields.travelBefore = existingItem.travelBefore;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1922,7 +2000,7 @@ var saveToursProducts2MDB = () => {
 					console.log("Error = " + e);
 				});
 
-			var wait4UpdateProductComplete = () => {
+			let wait4UpdateProductComplete = () => {
 				updateCount--;
 				debugDev('updateCount = ' + updateCount);
 				if(0 === updateCount){
@@ -1932,11 +2010,11 @@ var saveToursProducts2MDB = () => {
 			};
 		};
 
-		var insertProduct = (rzdItem, rzdIndex) => {
+		let insertProduct = (rzdItem, rzdIndex) => {
 			if(rzdItem.workspace.fields.productCode === 'P785EE'){
 				console.log('### Debug break poit 7 ###');
 			}
-			var options = {forceServerObjectId:true};
+			let options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
 	    		.then( (r) => {
@@ -1947,7 +2025,7 @@ var saveToursProducts2MDB = () => {
 	    			console.log('Error = ' + e);
 	    		});
 
-		    var wait4InsertProductComplete = () =>{
+		    let wait4InsertProductComplete = () =>{
 		    	insertCount--;
 				debugDev('wait4InsertProductComplete insertCount = ' + insertCount);
 		    	if(0 === insertCount){
@@ -1957,24 +2035,24 @@ var saveToursProducts2MDB = () => {
 		    };
 		};
 
-		var putOfflineProduct = (existingItem, existingIndex) => {
-			var filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : existingItem.productCode};
-			var options = {};
-			var updates = {$set:{online:false}};
+		let putOfflineProduct = (existingItem, existingIndex) => {
+			let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : existingItem.productCode};
+			let options = {};
+			let updates = {$set:{online:false}};
 
 			collection.updateOne(filter, updates, options)
 				.then( (r) => {
-					debugDev('putOfflineProduct r = ' + JSON.stringify(r));
-					debugDev('putOfflineProduct count = ' + r.matchedCount);
+					// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
+					// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
 					wait4PutOfflineProductComplete();
 				})
 				.catch( (e) => {
 					console.log("Error = " + e);
 				});
 
-			var wait4PutOfflineProductComplete = () => {
+			let wait4PutOfflineProductComplete = () => {
 				putOfflineCount--;
-				debugDev('putOfflineCount = ' + putOfflineCount);
+				debugDev('Tours putOfflineCount = ' + putOfflineCount);
 				if(0 === putOfflineCount){
 					putOfflineComplete = true;
 					wait4IUDComplete();
@@ -1982,7 +2060,7 @@ var saveToursProducts2MDB = () => {
 			};
 		};
 
-		var wait4IUDComplete = () => {
+		let wait4IUDComplete = () => {
 			if(updateComplete && insertComplete && putOfflineComplete){				
 				db.close();
 				console.log('*** Suppliers and Products upsert completed including taxonomies ***');
@@ -1991,7 +2069,7 @@ var saveToursProducts2MDB = () => {
 
 		//seperate insert & update
 		arrayJsonToursProducts.forEach( (rzdItem,rzdIndex) => {
-			var existing = false;
+			let existing = false;
 			existingToursProducts.forEach( (existingItem,existingIndex) => {
 				if(rzdItem.workspace.fields.productCode === existingItem.productCode ){
 					existing = true;
@@ -2004,7 +2082,7 @@ var saveToursProducts2MDB = () => {
 
 		//find out put-offline records
 		existingToursProducts.forEach( (existingItem, existingIndex) => {
-			var putOnline = false;
+			let putOnline = false;
 			arrayJsonToursProducts.forEach( (rzdItem,rzdIndex) => {
 				if(existingItem.productCode === rzdItem.workspace.fields.productCode){
 					putOnline = true;
@@ -2015,7 +2093,7 @@ var saveToursProducts2MDB = () => {
 			}			
 		});
 
-		var updateCount = pUpdateRecords.length;
+		updateCount = pUpdateRecords.length;
 		debugDev('init updateCount = ' + updateCount);
 		if(0 !== updateCount){
 			pUpdateRecords.forEach( (puItem, puIndex) => {
@@ -2042,7 +2120,8 @@ var saveToursProducts2MDB = () => {
 		}
 
 		putOfflineCount = pPutOfflineRecords.length;
-		debugDev('init putOfflineCount = ' + putOfflineCount);
+		fs.writeFileSync('./logs/toursToBePutOffline.json', JSON.stringify(pPutOfflineRecords));
+		debugDev('init Tours putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
 			pPutOfflineRecords.forEach( (pdItem,pdIndex) => {
 				putOfflineProduct(pdItem, pdIndex);

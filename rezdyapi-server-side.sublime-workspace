@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"rzd",
+				"rzdItem\t{} "
+			],
+			[
 				"themes",
 				"themesMapping\t{} "
 			],
@@ -107,16 +111,8 @@
 			"file": "main.js",
 			"settings":
 			{
-				"buffer_size": 67572,
+				"buffer_size": 69922,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/casper/code/tours-merging/updateRezdyToursTXThemesTourDestPrice.js",
-			"settings":
-			{
-				"buffer_size": 14074,
 				"line_ending": "Unix"
 			}
 		}
@@ -205,11 +201,16 @@
 	[
 		"/Users/casper/code/rezdy-data",
 		"/Users/casper/code/rezdy-data/datafiles",
-		"/Users/casper/code/rezdy-data/lib",
 		"/Users/casper/code/rezdy-data/logs"
 	],
 	"file_history":
 	[
+		"/Users/casper/code/rezdy-data/logs/toursToBePutOffline.json",
+		"/Users/casper/code/rezdy-data/logs/rToursToBePutOffline.json",
+		"/Users/casper/code/rezdy-data/logs/suppliersToBePutOffline.json",
+		"/Users/casper/code/rezdy-data/logs/taxonomySupplierId.json",
+		"/Users/casper/code/rezdy-data/logs/missingRecords.json",
+		"/Users/casper/code/tours-merging/updateRezdyToursTXThemesTourDestPrice.js",
 		"/Users/casper/code/rezdy-data/logs/arrayJsonToursProducts4db.json",
 		"/Users/casper/code/rezdy-data/setTxnmyDepartFrom.js",
 		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491982348/59.125.189.209/home/casper/conf",
@@ -331,9 +332,7 @@
 		"/Users/casper/temp/test/data/Thailand1.xml",
 		"/Users/casper/temp/test/data/Taipei1.xml",
 		"/Users/casper/temp/test/data/Taipei.xml",
-		"/Users/casper/Downloads/lighttable-0.8.1-mac/light",
-		"/Users/casper/Downloads/CCD_Converter/CCD.xsl",
-		"/Users/casper/Downloads/city site page export.js"
+		"/Users/casper/Downloads/lighttable-0.8.1-mac/light"
 	],
 	"find":
 	{
@@ -352,6 +351,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".path",
+			"var",
+			"\"agentPaymentType\":\"",
+			"RSupplier",
+			"marketplace",
+			"putOffline",
 			"datafiles",
 			"mpping",
 			"ObjectID",
@@ -461,15 +466,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 67572,
+						"buffer_size": 69922,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11548,
-								11548
+								7668,
+								7668
 							]
 						],
 						"settings":
@@ -485,45 +490,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3501.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/casper/code/tours-merging/updateRezdyToursTXThemesTourDestPrice.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14074,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1181.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]

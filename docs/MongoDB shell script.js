@@ -1,5 +1,46 @@
 MongoDB shell script
 
+//Add a taxonomy term to a vocabulary (not array)
+
+var clt = db.getCollection('Contents');
+var cur = clt.find({"typeId":"58785c576d0e815f4014b288"});
+while(cur.hasNext()){
+    var data = cur.next();
+    
+    if(data.workspace.fields.marketplace === 'Viator'){
+        if(data.workspace.taxonomy['5878630a6d0e81fc4014b288']){
+            if(data.workspace.taxonomy['5878630a6d0e81fc4014b288'] !== '592d992e6d0e81027ecc3717'){ //production env.
+                try{
+                    var result = clt.updateOne(
+                    {"_id": data._id},
+                    {$set: {
+                             "workspace.taxonomy.5878630a6d0e81fc4014b288": "592d992e6d0e81027ecc3717",
+                             "live.taxonomy.5878630a6d0e81fc4014b288": "592d992e6d0e81027ecc3717"
+                           }
+                    });
+                    print('Tour - ' + data.text +' UPDATED! - modifiedCount = ' + result.modifiedCount);
+                } catch(e){
+                    print('Exception Happened during updating!! - ' + e);
+                }
+            }
+        } else {        
+            try{
+                var result = clt.updateOne(
+                {"_id": data._id},
+                {$set: {
+                         "workspace.taxonomy.5878630a6d0e81fc4014b288": "592d992e6d0e81027ecc3717",
+                         "live.taxonomy.5878630a6d0e81fc4014b288": "592d992e6d0e81027ecc3717"
+                       }
+                });
+                print('Tour - ' + data.text +' UPDATED! - modifiedCount = ' + result.modifiedCount);
+            } catch(e){
+                print('Exception Happened during updating!! - ' + e);
+            }
+        }    
+    }
+}
+
+
 //Add "Rezdy" to the fields - marketplace
 var clt = db.getCollection('Contents');
 var cur = clt.find({"typeId":"58785c576d0e815f4014b288"});
