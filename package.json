@@ -4,10 +4,12 @@
   "description": "Get Rezdy data through API to store in bookur db",
   "main": "main.js",
   "dependencies": {
-    "bson-ext": "^1.0.1",
-    "debug": "^2.4.5",
+    "bson-ext": "^1.0.5",
+    "debug": "^2.6.8",
     "googlemaps": "^1.12.0",
-    "mongodb": "^2.2.16",
+    "mongodb": "^2.2.29",
+    "request": "^2.81.0",
+    "sax": "^1.2.4",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {},

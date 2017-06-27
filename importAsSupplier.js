@@ -3,76 +3,49 @@
 var https = require('https');
 var fs = require('fs');
 var debug = require('debug');
+var debugDev = debug('dev');
 const util = require('util');
 var parseString = require('xml2js').parseString;
 var MongoClient = require('mongodb').MongoClient;
+const buUtil = require('./lib/bookurUtil.js')
+
 
 //console.log('process.argv = ' + process.argv);
 //var operateDB = process.argv.slice(2)[0] === 'OPDB' ? true : false;
 //console.log('operateDB = ' + operateDB);
 
-var productionEnv = false;
-var testEnv = false;
-var operateDB = false;
+// var productionEnv = false;
+// var testEnv = false;
+// var operateDB = false;
 
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
-
-if('PRODUCTION' === targetEnv){
-	console.log('*** CAUTION!!! NOW this program will operate the PRODUCTION ENV.!!! ***');
-	productionEnv = true;
-	if('OPDB' === dbOPSwitch){
-		console.log('*** & Database will be CHANGED!!! ***');
-		operateDB = true;
-	} else {
-		console.log('*** BUT Database will remain unchanged.  ***');
-	}
-} else if('TEST' === targetEnv){
-	console.log('*** Operate TEST ENV. ***');
-	testEnv = true;
-	if('OPDB' === dbOPSwitch){
-		console.log('*** & Database will be CHANGED!!! ***');
-		operateDB = true;
-	} else {
-		console.log('*** BUT Database will remain unchanged.  ***');
-	}
-} else if('OPDB' === targetEnv){
-	console.log('*** Operate TEST ENV. ***');
-	console.log('*** & Database will be CHANGED!!! ***');
-	targetEnv = 'TEST';
-	testEnv = true;
-	operateDB = true;
-} else {
-	console.log('*** Operate TEST ENV. ***');
-	console.log('*** BUT Database will remain unchanged.  ***');
-	targetEnv = 'TEST';
-	testEnv = true;	
-
-	console.log('Arguments Example - ');
-	console.log('	node xxx.js PRODUCTION');
-	console.log('	node xxx.js PRODUCTION OPDB');
-	console.log('	node xxx.js TEST === node xxx.js');
-	console.log('	node xxx.js TEST OPDB === node xxx.js OPDB');
-}
+let operateDB = false;
+let mdbUrl = '';
+buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
+	targetEnv = env;
+	operateDB = op;
+	mdbUrl = mUrl;
+})
 
 //base configuration
 
 var apiCallComplete = false;
 var getExistingComplete = false;
+let targetMyCategories = ['Special offer for Hawaii','Special offer for Gran Canaria','Special offer for Kathmandu'];
 
 var conf = {
     host : 'api.rezdy.com',
     port : 443,
     path : '/latest',
-    apiKey : '3c03bef5c6bf4288a7d1052e03883323',
+    apiKey : '71e6bdb078ba42bdb1c5ef23744f4b69',
     headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json'
     }
 };
 
-var debugDev = debug('dev');
-var arrayJsonCategories = {};
+var arrayJsonCategories = [];
 var arrayJsonProducts = [];
 var arrayJsonToursProducts = [];
 var arrayJsonSuppliers = [];
@@ -82,14 +55,6 @@ var existingToursProducts = [];
 
 
 //DB definition/value
-
-var mdbUrl = '';
-
-if(productionEnv){
-	mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
-} else if (testEnv){
-	mdbUrl = 'mongodb://tst2.tourbooks.cc:27017/tourbooks';
-}
 
 var contentTypeId = {
 	"supplier" : "5878743c6d0e81354114b288",
@@ -136,6 +101,8 @@ var taxonomyAgentPaymentType = {};
 var taxonomyProductCode = {};
 var taxonomyTourCategory = {};
 
+
+
 //Part1-1 - using Rezdy RESTFul API to get tours' information
 
 // get category
@@ -168,15 +135,19 @@ function step1GetCategories(){
 	    	if (tempJsonCategories.requestStatus.success === true) {
 		    	delete tempJsonCategories.requestStatus;
 		    	rawCategories = JSON.stringify(tempJsonCategories);
-		    	fs.writeFileSync('./logs/rawCategories.json', rawCategories);
+		    	fs.writeFileSync('./datafiles/rawCategories-'+targetEnv+'.json', rawCategories);
 
 		    	//Only "ALL" category
-		    	tempJsonCategories.categories.forEach( (item,index) => {
-		    		if("ALL" === item.name){
-		    			arrayJsonCategories.id = item.id;
-		    			arrayJsonCategories.name = item.name;
-		    			arrayJsonCategories.visible = item.visible;
-		    		}
+		    	targetMyCategories.forEach( myCategory =>{
+		    		tempJsonCategories.categories.forEach( (item) => {
+			    		if(myCategory === item.name){
+			    			arrayJsonCategories.push({
+			    				id: item.id,
+			    				name: item.name,
+			    				visible: item.visible
+			    			});
+			    		}
+		    		});
 		    	});
 		        debugDev('step1GetCategories Ended!');
 		        step2GetProducts();
@@ -199,137 +170,8 @@ function step2GetProducts(){
 	var jsonProducts = { "products":[] };
 	var jsonProductsFromXml = { "products":[] };
 	var tmpXMLProductsCount = -1;
-	var tmpArrayCategoriesCount4Xml = 1;
-
-	let xmlProductGetByCategoryUrl = 'https://bookur.rezdy.com/catalog/' + arrayJsonCategories.id + '/' + arrayJsonCategories.name.toLowerCase() + '?format=xml';
-	//debugDev('xmlProductGetByCategoryUrl = ' + xmlProductGetByCategoryUrl);
-
-	https.get(xmlProductGetByCategoryUrl, (res) => {
-	  const statusCode = res.statusCode;
-	  const contentType = res.headers['content-type'];
-
-	  let error;
-	  if (statusCode !== 200) {
-	    error = new Error(`XML Request Failed.\n` +
-	                      `Status Code: ${statusCode}`);
-	  } else if (!/^text\/xml/.test(contentType)) {
-	    error = new Error(`Invalid content-type.\n` +
-	                      `Expected text/xml but received ${contentType}`);
-	  }
-	  if (error) {
-	    console.log(error.message);
-	    // consume response data to free up memory
-	    res.resume();
-	    return;
-	  }
-
-	  res.setEncoding('utf8');
-	  let rawData = '';
-	  //let tmpJsonProductsFromXml;
-
-	  res.on('data', (chunk) => rawData += chunk);
-	  res.on('end', () => {
-	    try {
-			parseString(rawData, {explicitArray:false}, function (err, result) {
-			    if(Array.isArray(result.products.product)){			    	
-			    	result.products.product.forEach( (item,index) => {
-			    		jsonProductsFromXml.products.push(item);
-		    		});				    
-			    } else {
-			    	jsonProductsFromXml.products.push(result.products.product);
-			    }
-			});
-			debugDev('xml RTours Count = ' + jsonProductsFromXml.products.length);
-			wait4XmlProductsGetComplete();
-	    } catch (e) {
-	      console.log(e.message);
-	    }
-	  });
-	}).on('error', (e) => {
-	  console.log(`Got error: ${e.message}`);
-	});
-
-	var getProductsByXMLProducts = () => {
-
-		var optionsProductsByCategory = {	
-		    host : conf.host,
-		    port : conf.port,
-		    method : 'GET',
-		    headers: conf.headers
-		};
-
-		var queryParam =  '/products/marketplace';
-		var offset = 0;
-		var total = tmpXMLProductsCount;
-
-		var queryPath = conf.path + queryParam + '?apiKey=' + conf.apiKey + '&category=' + arrayJsonCategories.id;
-
-		while(offset < total){
-			optionsProductsByCategory.path = queryPath + '&offset=' + offset;
-			offset += 100;
-			//tmpXMLProductsCount -= 100;
-			// debugDev('optionsProductsByCategory.path = ' + optionsProductsByCategory.path);
-
-			var getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
-
-				var tmpRawProducts = '';
-				var tmpJsonProducts;
-
-			    res.on('data', (d) => {
-			        tmpRawProducts += d;
-			    });
-
-			    res.on('end', () => {
-			    	tmpJsonProducts = JSON.parse(tmpRawProducts);
-			    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
-
-			    	if (tmpJsonProducts.requestStatus.success === true) {	    		
-			    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
-			    		tmpJsonProducts.products.forEach( (item) => {
-					    	jsonProducts.products.push(item);
-			    		});
-			    	}
-			    	wait4ApiCallComplete();
-			    });
-
-			});
-
-			getProductsByCategory.end();
-			getProductsByCategory.on('error', (e) => {
-			    console.error(e);
-			});
-		}
-	};
-
-	function wait4XmlProductsGetComplete(){
-		//debugDev('Enter Step2 wait4XmlProductsGetComplete');
-		tmpArrayCategoriesCount4Xml--;
-		//debugDev('incompleted category/products xml count = ' + tmpArrayCategoriesCount4Xml);
-		if (tmpArrayCategoriesCount4Xml === 0) {
-			tmpXMLProductsCount = jsonProductsFromXml.products.length;
-			getProductsByXMLProducts();
-		}
-	}
-
-	function wait4ApiCallComplete(){
-		//debugDev('Enter Step2 wait4ApiCallComplete');
-		tmpXMLProductsCount -= 100;
-		//debugDev('incompleted category/products count = ' + tmpArrayCategoriesCount);
-		debugDev('tmpXMLProductsCount = ' + tmpXMLProductsCount);
-		if (tmpXMLProductsCount <= 0) {
-			debugDev('RTours Count = ' + jsonProducts.products.length);
-	    	//fs.writeFileSync('./jsonProducts.json', JSON.stringify(jsonProducts));
-			wait4BothComplete();
-		}
-	}
-
-	function wait4BothComplete(){
-		debugDev('tmpArrayCategoriesCount4Xml = ' + tmpArrayCategoriesCount4Xml);
-		debugDev('tmpXMLProductsCount = ' + tmpXMLProductsCount);
-		if(tmpArrayCategoriesCount4Xml === 0 && tmpXMLProductsCount <= 0){
-			handleProductsResult();
-		}
-	}
+	var tmpArrayCategoriesCount4Xml = arrayJsonCategories.length;
+	let myCategoriesCount = arrayJsonCategories.length;
 
 	function handleProductsResult(){
 
@@ -346,7 +188,7 @@ function step2GetProducts(){
 				missingRecords.push(item1);
 			}
 		});
-    	fs.writeFileSync('./logs/missingRecords.json', JSON.stringify(missingRecords));
+    	fs.writeFileSync('./logs/missingRecordsBTWXmlRTours-'+targetEnv+'.json', JSON.stringify(missingRecords));
 
 		jsonProducts.products.forEach( (jsonProductsItem, jsonProductsIndex) => {
 			jsonProductsFromXml.products.forEach( (jsonProductsFromXmlItem, jsonProductsFromXmlIndex) => {
@@ -358,7 +200,7 @@ function step2GetProducts(){
 			});
 		});
     	var rawProducts = JSON.stringify(jsonProducts);
-    	fs.writeFileSync('./logs/rawProducts.json', rawProducts);
+    	fs.writeFileSync('./datafiles/rawProducts-'+targetEnv+'.json', rawProducts);
         arrayJsonProducts = jsonProducts.products;
 
         var supplierAliasFromProducts = [];
@@ -379,8 +221,133 @@ function step2GetProducts(){
         debugDev('new Suppliers Count = ' + supplierAliasFromProducts.length);
         debugDev('step2GetProducts Ended!');
         step3GetSuppliersByProducts(supplierAliasFromProducts);
-
 	}
+
+	function wait4BothComplete(){
+		if(tmpArrayCategoriesCount4Xml === 0 && myCategoriesCount === 0){
+			handleProductsResult();
+		}
+	}
+
+	function wait4ApiCallComplete(){
+		myCategoriesCount--;
+		if (!myCategoriesCount) {
+			wait4BothComplete();
+		}
+	}
+
+	var getProductsByXMLProducts = () => {
+
+		var optionsProductsByCategory = {	
+		    host : conf.host,
+		    port : conf.port,
+		    method : 'GET',
+		    headers: conf.headers
+		};
+
+		///categories/{categoryId}/products
+
+		arrayJsonCategories.forEach( myCategory => {
+			// var offset = 0;
+			var queryPath = conf.path + '/categories/' + myCategory.id + '/products' + '?apiKey=' + conf.apiKey;
+
+			optionsProductsByCategory.path = queryPath/* + '&offset=' + offset*/;
+
+			var getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
+
+				var tmpRawProducts = '';
+				var tmpJsonProducts;
+
+			    res.on('data', (d) => {
+			        tmpRawProducts += d;
+			    });
+
+			    res.on('end', () => {
+			    	tmpJsonProducts = JSON.parse(tmpRawProducts);
+			    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+
+			    	if (tmpJsonProducts.requestStatus.success === true) {	    		
+			    		debugDev('getProductsByXMLProducts Products Count = ' + tmpJsonProducts.products.length);
+			    		tmpJsonProducts.products.forEach( (item) => {
+					    	jsonProducts.products.push(item);
+			    		});
+						wait4ApiCallComplete();
+			    	} else {
+			    		console.log('*** One of my categories error on getting tours ***');
+						wait4ApiCallComplete();
+			    	}
+			    });
+
+			});
+
+
+			getProductsByCategory.end();
+			getProductsByCategory.on('error', (e) => {
+			    console.error(e);
+			});
+		})
+	};
+
+	function wait4XmlProductsGetComplete(){
+		//debugDev('Enter Step2 wait4XmlProductsGetComplete');
+		tmpArrayCategoriesCount4Xml--;
+		//debugDev('incompleted category/products xml count = ' + tmpArrayCategoriesCount4Xml);
+		if (!tmpArrayCategoriesCount4Xml) {
+			debugDev('xml RTours Count = ' + jsonProductsFromXml.products.length);
+			tmpXMLProductsCount = jsonProductsFromXml.products.length;
+			getProductsByXMLProducts();
+		}
+	}
+
+	arrayJsonCategories.forEach( myCategory => {
+		
+		let xmlProductGetByCategoryUrl = 'https://bookur.rezdy.com/catalog/' + myCategory.id + '/' + myCategory.name.toLowerCase() + '?format=xml';
+		//debugDev('xmlProductGetByCategoryUrl = ' + xmlProductGetByCategoryUrl);
+
+		https.get(xmlProductGetByCategoryUrl, (res) => {
+		  const statusCode = res.statusCode;
+		  const contentType = res.headers['content-type'];
+
+		  let error;
+		  if (statusCode !== 200) {
+		    error = new Error(`XML Request Failed.\n` +
+		                      `Status Code: ${statusCode}`);
+		  } else if (!/^text\/xml/.test(contentType)) {
+		    error = new Error(`Invalid content-type.\n` +
+		                      `Expected text/xml but received ${contentType}`);
+		  }
+		  if (error) {
+		    console.log(error.message);
+		    // consume response data to free up memory
+		    res.resume();
+		    return;
+		  }
+
+		  res.setEncoding('utf8');
+		  let rawData = '';
+		  //let tmpJsonProductsFromXml;
+
+		  res.on('data', (chunk) => rawData += chunk);
+		  res.on('end', () => {
+		    try {
+				parseString(rawData, {explicitArray:false}, function (err, result) {
+				    if(Array.isArray(result.products.product)){			    	
+				    	result.products.product.forEach( item => {
+				    		jsonProductsFromXml.products.push(item);
+			    		});				    
+				    } else {
+				    	jsonProductsFromXml.products.push(result.products.product);
+				    }
+				});
+				wait4XmlProductsGetComplete();
+		    } catch (e) {
+		      console.log(e.message);
+		    }
+		  });
+		}).on('error', (e) => {
+		  console.log(`Got error during getting XML RTours from my categories: ${e.message}`);
+		});
+	})
 }
 
 function step3GetSuppliersByProducts(supplierAliasFromProducts){
@@ -399,9 +366,52 @@ function step3GetSuppliersByProducts(supplierAliasFromProducts){
 	    headers: conf.headers
 	};
 
+	function addSupplierCategory2ProductTourCategory(){
+		arrayJsonSuppliers.forEach( (supplierItem,supplierIndex) => {
+			var alias = supplierItem.alias;
+			var category = supplierItem.category;
+
+			arrayJsonProducts.forEach( (productItem,productIndex) => {
+				if( alias === productItem.supplierAlias){
+					productItem.tourCategory = category;
+				}
+			});
+		});
+	}
+
+	function handleSupplierResult(){		
+		//debugDev('Enter handleSupplierResult');
+		//debugDev('jsonSupplier count = ' + jsonSuppliers.companies.length);
+    	fs.writeFileSync('./datafiles/rawSuppliers-'+targetEnv+'.json', JSON.stringify(jsonSuppliers));
+		arrayJsonSuppliers = jsonSuppliers.companies;
+
+		addSupplierCategory2ProductTourCategory();
+
+    	fs.writeFileSync('./datafiles/arrayJsonSuppliers-'+targetEnv+'.json', JSON.stringify(arrayJsonSuppliers));
+    	fs.writeFileSync('./datafiles/arrayJsonProducts-'+targetEnv+'.json', JSON.stringify(arrayJsonProducts));
+    	fs.writeFileSync('./datafiles/arrayJsonCategories-'+targetEnv+'.json', JSON.stringify(arrayJsonCategories));
+    	
+		debugDev('Step3GetSuppliersByProducts END!');
+    	step4GenerateMDBRecords();
+	}
+
+	function wait4ApiCallComplete(){
+		//debugDev('Enter wait4ApiCallComplete');
+		supplierCount--;
+		//debugDev('incompleted supplier count = ' + supplierCount);
+		if (!supplierCount) {
+			handleSupplierResult();
+		}
+	}
+	
 	supplierAliasFromProducts.forEach( (item,index) => {
+		if(item.supplierId.match(/ˆ10792-/)){
+			return
+		}
+
 		var supplierId = item.supplierId;
 		var queryParam = '/' + item.supplierAlias;
+		// console.log('item.supplierAlias = ' + item.supplierAlias);
 		optionsSuppliersByProduct.path = conf.path + '/companies' + queryParam + '?apiKey=' + conf.apiKey;
 		var getSupplierByProduct = https.request(optionsSuppliersByProduct, function(res) {
 
@@ -429,47 +439,11 @@ function step3GetSuppliersByProducts(supplierAliasFromProducts){
 
 		getSupplierByProduct.end();
 		getSupplierByProduct.on('error', (e) => {
-		    console.error(e);
+		    console.error('getSupplierByProduct error - \n' + e);
 		});
 	});
 	//debugDev('new Supplier Getting Count = ' + jsonSuppliers.companies.length);
 
-	function addSupplierCategory2ProductTourCategory(){
-		arrayJsonSuppliers.forEach( (supplierItem,supplierIndex) => {
-			var alias = supplierItem.alias;
-			var category = supplierItem.category;
-
-			arrayJsonProducts.forEach( (productItem,productIndex) => {
-				if( alias === productItem.supplierAlias){
-					productItem.tourCategory = category;
-				}
-			});
-		});
-	}
-
-	function wait4ApiCallComplete(){
-		//debugDev('Enter wait4ApiCallComplete');
-		supplierCount--;
-		//debugDev('incompleted supplier count = ' + supplierCount);
-		if (supplierCount === 0) {
-			handleSupplierResult();
-		}
-	}
-	function handleSupplierResult(){		
-		//debugDev('Enter handleSupplierResult');
-		//debugDev('jsonSupplier count = ' + jsonSuppliers.companies.length);
-    	fs.writeFileSync('./logs/suppliers.json', JSON.stringify(jsonSuppliers));
-		arrayJsonSuppliers = jsonSuppliers.companies;
-
-		addSupplierCategory2ProductTourCategory();
-
-    	fs.writeFileSync('./logs/arrayJsonSuppliers.json', JSON.stringify(arrayJsonSuppliers));
-    	fs.writeFileSync('./logs/arrayJsonProducts.json', JSON.stringify(arrayJsonProducts));
-    	fs.writeFileSync('./logs/arrayJsonCategories.json', JSON.stringify(arrayJsonCategories));
-    	
-		debugDev('Step3GetSuppliersByProducts END!');
-    	step4GenerateMDBRecords();
-	}
 }
 
 function step4GenerateMDBRecords(){
@@ -479,24 +453,43 @@ function step4GenerateMDBRecords(){
 	var productRecordsGenComplete = false;
 	var mapping = require('./lib/mapping-util.js');
 
+	var wait4MDBRecordsGenComplete = () => {
+		if(supplierRecordsGenComplete && productRecordsGenComplete){
+			apiCallComplete = true;
+			debugDev('step4GenerateMDBRecords END!');
+			stage2Save2MDB();
+		}
+	};
+
 	// functions
 	function handleSupplierRecords(){
 
 		var checkTaxonomySupplierIdComplete = false;
 		var checkTaxonomySupplierAliasComplete = false;
 
-    	checkTaxonomySupplierId();
-    	checkTaxonomySupplierAlias();
+
+		function setSupplierTaxonomy(supplierId,supplierAlias,city){
+			var taxonomy = {};
+
+			//navigation
+			taxonomy.navigation = taxonomyNavigation;
+
+			//Supplier ID
+			taxonomy[taxonomyVocabularyId.supplierId] = taxonomySupplierId[supplierId];
+
+			//Supplier Alias
+			taxonomy[taxonomyVocabularyId.supplierAlias] = taxonomySupplierAlias[supplierAlias];
+			
+			return taxonomy;
+		}
 
 		//format Tour Suppliers records
 		var genRSupplierRecords = () => {
 			if(checkTaxonomySupplierIdComplete && checkTaxonomySupplierAliasComplete){
-
-		    	fs.writeFileSync('./logs/taxonomySupplierId.json', JSON.stringify(taxonomySupplierId));
-		    	fs.writeFileSync('./logs/taxonomySupplierAlias.json', JSON.stringify(taxonomySupplierAlias));
+		    	fs.writeFileSync('./datafiles/taxonomySupplierId-'+targetEnv+'.json', JSON.stringify(taxonomySupplierId));
+		    	fs.writeFileSync('./datafiles/taxonomySupplierAlias-'+targetEnv+'.json', JSON.stringify(taxonomySupplierAlias));
 
 				arrayJsonSuppliers.forEach( (item,index) => {
-
 					item.text = item.companyName;
 					item.typeId = contentTypeId.supplier;
 					item.version = 1;
@@ -512,7 +505,7 @@ function step4GenerateMDBRecords(){
 							item.workspace.fields.lastName = item.lastName;
 							item.workspace.fields.address = item.address;
 							item.workspace.fields.position = {};
-								item.workspace.fields.position.address = item.address.addressLine + ' ' + item.address.city + ' ' + item.address.state + ' ' + (undefined !== item.address.countryCode) ? item.address.countryCode.toUpperCase() : '' + ' ' + item.locationAddress.postCode;
+								item.workspace.fields.position.address = item.address.addressLine + ' ' + item.address.city + ' ' + item.address.state + ' ' + (undefined !== item.address.countryCode) ? item.address.countryCode.toUpperCase() : '' + ' ' + item.address.postCode;
 								item.workspace.fields.position.location = {};
 									item.workspace.fields.position.location.type = 'Point';
 									item.workspace.fields.position.location.coordinates = [];
@@ -546,6 +539,8 @@ function step4GenerateMDBRecords(){
 							item.workspace.fields.website = item.website;
 							item.workspace.fields.id = item.id;
 							item.workspace.fields.fbPageId = item.fbPageId;
+							item.workspace.fields.agentRegistrationLink = item.agentRegistrationLink;
+							item.workspace.fields.bookingSystem = item.bookingSystem;
 						item.workspace.status = "published";
 						item.workspace.taxonomy  = setSupplierTaxonomy(item.id,item.alias,item.destinationName);
 						//console.log('item.workspace.taxonomy = '+JSON.stringify(item.workspace.taxonomy));
@@ -561,7 +556,7 @@ function step4GenerateMDBRecords(){
 								item.workspace.i18n.en.fields = {};
 									item.workspace.i18n.en.fields.text = item.text;
 									item.workspace.i18n.en.fields.urlSegment = "";
-									item.workspace.i18n.en.fields.summary = item.text;
+									item.workspace.i18n.en.fields.summary = item.companyDescription;
 								item.workspace.i18n.en.locale = "en";
 						item.workspace.nativeLanguage = "en";
 						item.workspace.clickStreamEvent = "";
@@ -602,26 +597,137 @@ function step4GenerateMDBRecords(){
 					delete item.website;
 					delete item.id;
 					delete item.fbPageId;
+					delete item.agentDescription;
+					delete item.agentRegistrationLink;
+					delete item.bookingSystem;
 				});
-		    	fs.writeFileSync('./logs/arrayJsonSuppliers4db.json', JSON.stringify(arrayJsonSuppliers));
+		    	fs.writeFileSync('./datafiles/arrayJsonSuppliers4db-'+targetEnv+'.json', JSON.stringify(arrayJsonSuppliers));
 		    	supplierRecordsGenComplete = true;
 		    	wait4MDBRecordsGenComplete();
 			}
-
 		};
 
     	//function definition within handleSupplierRecords
     	//
+    	function checkTaxonomySupplierAlias(){
+
+			var supplierAliasCount = arrayJsonSuppliers.length;
+			//debugDev('supplierAliasCount = ' + supplierAliasCount);
+			var wait4TxnmSupplierAliasComplete = (db) => {
+				supplierAliasCount--;
+				if(0 === supplierAliasCount){
+					checkTaxonomySupplierAliasComplete = true;
+					db.close();
+					genRSupplierRecords();
+				}
+			};
+
+			//add taxonomy - Supplier ID
+			MongoClient.connect(mdbUrl, (err, db) => {
+
+				if(null === err) console.log("		--- checkTaxonomySupplierAlias Connected successfully to server");
+
+				var insertTaxonomySupplierAlias = (supplier,cb) => {
+					debugDev(supplier.alias + ' NOT found!! and enter insert process.');
+					var data = {};
+					data.text = supplier.alias;
+					data.version = 1;
+					data.vocabularyId = taxonomyVocabularyId.supplierAlias;
+					data.orderValue = 100;
+					data.expandable = false;
+					data.nativeLanguage = "en";
+					data.i18n = {};
+						data.i18n.en = {};
+							data.i18n.en.text = supplier.alias;
+							data.i18n.en.locale = "en";
+					data.parentId = "root";
+					data.lastUpdateUser = crudUser;
+					data.createUser = crudUser;
+					data.createTime = parseInt((Date.now()/1000).toFixed(0));
+					data.lastUpdateTime = data.createTime;
+					collection.insertOne(data, {forceServerObjectId:true})
+						.then((r) => {
+							cb();
+						})
+						.catch((e) => {
+							console.log('taxonomy insert error: '+e+'; '+JSON.stringify(data));
+						});
+				};
+
+				var collection = db.collection('TaxonomyTerms');
+
+				arrayJsonSuppliers.forEach( (item, index) => {			
+					var queryParam = { vocabularyId : taxonomyVocabularyId.supplierAlias, text: item.alias };
+					var options = {};
+					collection.findOne(queryParam, options, (e,d) => {
+						if(null === e){
+							if(null !== d){
+								taxonomySupplierAlias[d.text] = d['_id']+'';
+								wait4TxnmSupplierAliasComplete(db);
+							}else{
+								insertTaxonomySupplierAlias(item, () => {
+									collection.findOne(queryParam,options, (e,d) =>{
+										if(null === e){
+											taxonomySupplierAlias[d.text] = d['_id']+'';
+											wait4TxnmSupplierAliasComplete(db);
+										} else {
+											console.log('taxonomy supplier alias after-inserted find error!');
+										}
+									});
+								});
+							}
+						}else{
+							console.log('Find taxonomy supplier alias error!');
+						}
+					});
+				});
+			});
+    	}
+		
     	function checkTaxonomySupplierId(){
 
 			var supplierIdCount = arrayJsonSuppliers.length;
 			//debugDev('supplierIdCount = ' + supplierIdCount);
-
+			var wait4TxnmSupplierIdComplete = (db) => {
+				supplierIdCount--;
+				if(0 === supplierIdCount){
+					checkTaxonomySupplierIdComplete = true;
+					db.close();
+					genRSupplierRecords();
+				}
+			};
 
 			//add taxonomy - Supplier ID
 			MongoClient.connect(mdbUrl, (err, db) => {
 
 				if(null === err) console.log("		--- checkTaxonomySupplierId Connected successfully to server");
+
+				var insertTaxonomySupplierId = (supplier,cb) => {
+					debugDev(supplier.id + ' NOT found!! and enter insert process.');
+					var data = {};
+					data.text = supplier.id;
+					data.version = 1;
+					data.vocabularyId = taxonomyVocabularyId.supplierId;
+					data.orderValue = 100;
+					data.expandable = false;
+					data.nativeLanguage = "en";
+					data.i18n = {};
+						data.i18n.en = {};
+							data.i18n.en.text = supplier.id;
+							data.i18n.en.locale = "en";
+					data.parentId = "root";
+					data.lastUpdateUser = crudUser;
+					data.createUser = crudUser;
+					data.createTime = parseInt((Date.now()/1000).toFixed(0));
+					data.lastUpdateTime = data.createTime;
+					collection.insertOne(data, {forceServerObjectId:true})
+						.then((r) => {
+							cb();
+						})
+						.catch((e) => {
+							console.log('taxonomy insert error: '+e+'; '+JSON.stringify(data));
+						});
+				};
 
 				var collection = db.collection('TaxonomyTerms');
 
@@ -652,139 +758,12 @@ function step4GenerateMDBRecords(){
 						}
 					});
 				});
-
-				var insertTaxonomySupplierId = (supplier,cb) => {
-					debugDev(supplier.id + ' NOT found!! and enter insert process.');
-					var data = {};
-					data.text = supplier.id;
-					data.version = 1;
-					data.vocabularyId = taxonomyVocabularyId.supplierId;
-					data.orderValue = 100;
-					data.expandable = false;
-					data.nativeLanguage = "en";
-					data.i18n = {};
-						data.i18n.en = {};
-							data.i18n.en.text = supplier.id;
-							data.i18n.en.locale = "en";
-					data.parentId = "root";
-					data.lastUpdateUser = crudUser;
-					data.createUser = crudUser;
-					data.createTime = parseInt((Date.now()/1000).toFixed(0));
-					data.lastUpdateTime = data.createTime;
-					collection.insertOne(data, {forceServerObjectId:true})
-						.then((r) => {
-							cb();
-						})
-						.catch((e) => {
-							console.log('taxonomy insert error: '+e+'; '+JSON.stringify(data));
-						});
-
-				};
-
 			});
-
-			var wait4TxnmSupplierIdComplete = (db) => {
-				supplierIdCount--;
-				if(0 === supplierIdCount){
-					checkTaxonomySupplierIdComplete = true;
-					db.close();
-					genRSupplierRecords();
-				}
-			};
     	}
 
-    	function checkTaxonomySupplierAlias(){
-
-			var supplierAliasCount = arrayJsonSuppliers.length;
-			//debugDev('supplierAliasCount = ' + supplierAliasCount);
-
-
-			//add taxonomy - Supplier ID
-			MongoClient.connect(mdbUrl, (err, db) => {
-
-				if(null === err) console.log("		---checkTaxonomySupplierAlias Connected successfully to server");
-
-				var collection = db.collection('TaxonomyTerms');
-
-				arrayJsonSuppliers.forEach( (item, index) => {			
-					var queryParam = { vocabularyId : taxonomyVocabularyId.supplierAlias, text: item.alias };
-					var options = {};
-					collection.findOne(queryParam, options, (e,d) => {
-						if(null === e){
-							if(null !== d){
-								taxonomySupplierAlias[d.text] = d['_id']+'';
-								wait4TxnmSupplierAliasComplete(db);
-							}else{
-								insertTaxonomySupplierAlias(item, () => {
-									collection.findOne(queryParam,options, (e,d) =>{
-										if(null === e){
-											taxonomySupplierAlias[d.text] = d['_id']+'';
-											wait4TxnmSupplierAliasComplete(db);
-										} else {
-											console.log('taxonomy supplier alias after-inserted find error!');
-										}
-									});
-								});
-							}
-						}else{
-							console.log('Find taxonomy supplier alias error!');
-						}
-					});
-				});
-
-				var insertTaxonomySupplierAlias = (supplier,cb) => {
-					debugDev(supplier.alias + ' NOT found!! and enter insert process.');
-					var data = {};
-					data.text = supplier.alias;
-					data.version = 1;
-					data.vocabularyId = taxonomyVocabularyId.supplierAlias;
-					data.orderValue = 100;
-					data.expandable = false;
-					data.nativeLanguage = "en";
-					data.i18n = {};
-						data.i18n.en = {};
-							data.i18n.en.text = supplier.alias;
-							data.i18n.en.locale = "en";
-					data.parentId = "root";
-					data.lastUpdateUser = crudUser;
-					data.createUser = crudUser;
-					data.createTime = parseInt((Date.now()/1000).toFixed(0));
-					data.lastUpdateTime = data.createTime;
-					collection.insertOne(data, {forceServerObjectId:true})
-						.then((r) => {
-							cb();
-						})
-						.catch((e) => {
-							console.log('taxonomy insert error: '+e+'; '+JSON.stringify(data));
-						});
-
-				};
-			});
-
-			var wait4TxnmSupplierAliasComplete = (db) => {
-				supplierAliasCount--;
-				if(0 === supplierAliasCount){
-					checkTaxonomySupplierAliasComplete = true;
-					db.close();
-					genRSupplierRecords();
-				}
-			};
-    	}
-		
-		function setSupplierTaxonomy(supplierId,supplierAlias,city){
-			var taxonomy = {};
-
-			//navigation
-			taxonomy.navigation = taxonomyNavigation;
-
-			//Supplier ID
-			taxonomy[taxonomyVocabularyId.supplierId] = taxonomySupplierId[supplierId];
-
-			//Supplier Alias
-			taxonomy[taxonomyVocabularyId.supplierAlias] = taxonomySupplierAlias[supplierAlias];
-			
-			return taxonomy;
-		}
+		//starting point
+    	checkTaxonomySupplierId();
+    	checkTaxonomySupplierAlias();
 	}
 
 	function handleProductRecords(){
@@ -840,9 +819,9 @@ function step4GenerateMDBRecords(){
 
     		if(checkTaxonomyProductTypeComplete && checkTaxonomyAgentPaymentTypeComplete && checkTaxonomyProductCodeComplete){
 
-		    	fs.writeFileSync('./logs/taxonomyProductType.json', JSON.stringify(taxonomyProductType));
-		    	fs.writeFileSync('./logs/taxonomyAgentPaymentType.json', JSON.stringify(taxonomyAgentPaymentType));
-		    	fs.writeFileSync('./logs/taxonomyProductCode.json', JSON.stringify(taxonomyProductCode));
+		    	fs.writeFileSync('./datafiles/taxonomyProductType-'+targetEnv+'.json', JSON.stringify(taxonomyProductType));
+		    	fs.writeFileSync('./datafiles/taxonomyAgentPaymentType-'+targetEnv+'.json', JSON.stringify(taxonomyAgentPaymentType));
+		    	fs.writeFileSync('./datafiles/taxonomyProductCode-'+targetEnv+'.json', JSON.stringify(taxonomyProductCode));
 
 		    	// RTours
 				arrayJsonProducts.forEach( (item,index) => {
@@ -918,6 +897,7 @@ function step4GenerateMDBRecords(){
 						item.workspace.fields.calendarWidgetUrl = item.calendarWidgetUrl;
 						item.workspace.fields.productPageUrl = item.productPageUrl;
 						item.workspace.fields.tourCategory = item.tourCategory;
+						item.workspace.fields.badgeImage = '';
 						if(util.isNullOrUndefined(item.images)){
 							item.workspace.fields.photoPath = "https://static.rezdy.com/1487224471/themes/rezdyv2/images/no-image.jpg";
 						} else if(util.isNullOrUndefined(item.images[0])){
@@ -925,6 +905,7 @@ function step4GenerateMDBRecords(){
 						} else {
 							item.workspace.fields.photoPath = item.images[0].itemUrl;
 						}
+						item.workspace.fields.source = 'Self-Created';
 						
 
 						item.workspace.status = "published";
@@ -1006,7 +987,7 @@ function step4GenerateMDBRecords(){
 
 
 				});
-		    	fs.writeFileSync('./logs/arrayJsonProducts4db.json', JSON.stringify(arrayJsonProducts));
+		    	fs.writeFileSync('./datafiles/arrayJsonProducts4db-'+targetEnv+'.json', JSON.stringify(arrayJsonProducts));
 
 		    	//for content type - tours
 		    	arrayJsonProducts.forEach( (item,index) => {
@@ -1038,10 +1019,11 @@ function step4GenerateMDBRecords(){
 							tours.workspace.fields.productPageUrl = item.workspace.fields.productPageUrl;
 							tours.workspace.fields.photoPath = item.workspace.fields.photoPath;
 							tours.workspace.fields.locationAddress = item.workspace.fields.locationAddress;
-							tours.workspace.fields.marketplace = 'Rezdy';
+							tours.workspace.fields.marketplace = 'Rezdy Self-Created';
 							tours.workspace.fields.promotionCode = '';
 							tours.workspace.fields.discount = '';
 							tours.workspace.fields.travelBefore = '';
+							tours.workspace.fields.badgeImage = '';
 						tours.workspace.status = 'draft';
 						//tours.workspace.taxonomy = item.workspace.taxonomy; //this line doesn't work because after this line tours.workspace.taxonomy will point to the same object of item.workspace.taxonomy
 						tours.workspace.taxonomy = JSON.parse(JSON.stringify(item.workspace.taxonomy));
@@ -1086,14 +1068,10 @@ function step4GenerateMDBRecords(){
 					tours.lastUpdateUser = crudUser;
 					tours.createUser = crudUser;
 
-					if(item.workspace.fields.productCode === 'P785EE'){
-						console.log('### Debug break poit 4 ###');
-					}
-
 					arrayJsonToursProducts.push(tours);
 
 		    	});
-		    	fs.writeFileSync('./logs/arrayJsonToursProducts4db.json', JSON.stringify(arrayJsonToursProducts));
+		    	fs.writeFileSync('./datafiles/arrayJsonToursProducts4db-'+targetEnv+'.json', JSON.stringify(arrayJsonToursProducts));
 		    	productRecordsGenComplete = true;
 		    	wait4MDBRecordsGenComplete();
 	    	}
@@ -1384,18 +1362,10 @@ function step4GenerateMDBRecords(){
 
 
 
-	// processes
-
+	// starting point
 	handleSupplierRecords();
 	handleProductRecords();
 
-	var wait4MDBRecordsGenComplete = () => {
-		if(supplierRecordsGenComplete && productRecordsGenComplete){
-			apiCallComplete = true;
-			debugDev('step4GenerateMDBRecords END!');
-			stage2Save2MDB();
-		}
-	};
 }
 
 //Part 1-2 - gettting MDB's current record sets
@@ -1448,12 +1418,17 @@ var getExistingDataFromMDB = () => {
 		var queryParam = { "typeId" : contentTypeId.product };
 		var projectParam = {
 			"_id":0,
+			"text":1,
 			"online":1,
 			"version":1,
 			"workspace.fields.productCode":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
 			"workspace.fields.id":1,
+			"workspace.fields.calendarWidgetUrl":1,
+			"workspace.fields.productPageUrl":1,
+			"workspace.fields.badgeImage":1,
+			"workspace.fields.source":1,
 			"lastUpdateTime":1
 		};
 
@@ -1461,10 +1436,18 @@ var getExistingDataFromMDB = () => {
 			.then( (d) => {
 				var p = [];
 				d.forEach( (item,index) => {
-					//if(item.)
+					if(item.workspace.fields.source !== 'Self-Created'){
+						return
+					}
+
 					var i = {};
+					i.text = item.text;
 					i.id = item.workspace.fields.id;
 					i.productCode = item.workspace.fields.productCode;
+					i.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
+					i.productPageUrl = item.workspace.fields.productPageUrl;
+					i.badgeImage = item.workspace.fields.badgeImage;
+					i.source = item.workspace.fields.source;
 					i.online = item.online;
 					i.version = item.version;
 					i.status = item.workspace.status;
@@ -1484,13 +1467,18 @@ var getExistingDataFromMDB = () => {
 		var queryParam = { "typeId" : contentTypeId.tours };
 		var projectParam = {
 			"_id":0,
+			"text":1,
 			"online":1,
 			"version":1,
 			"workspace.fields.productCode":1,
+			"workspace.fields.calendarWidgetUrl":1,
+			"workspace.fields.productPageUrl":1,
 			"workspace.fields.marketplace":1,
+			"workspace.fields.photoPath":1,
 			"workspace.fields.promotionCode":1,
 			"workspace.fields.discount":1,
 			"workspace.fields.travelBefore":1,
+			"workspace.fields.badgeImage":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
 			"lastUpdateTime":1
@@ -1500,18 +1488,23 @@ var getExistingDataFromMDB = () => {
 			.then( (d) => {
 				var p = [];
 				d.forEach( (item,index) => {
-					if(item.workspace.fields.marketplace === 'Rezdy'){
+					//added testing TourCMS tour
+					if(item.workspace.fields.marketplace === 'Rezdy Self-Created'){
 						var i = {};
+						i.text = item.text;
 						i.productCode = item.workspace.fields.productCode;
 						i.online = item.online;
 						i.version = item.version;
 						i.status = item.workspace.status;
 						i.taxonomy = item.workspace.taxonomy;
 						i.lastUpdateTime = item.lastUpdateTime;
+						i.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
+						i.productPageUrl = item.workspace.fields.productPageUrl;
 						i.marketplace = item.workspace.fields.marketplace;
 						i.promotionCode = item.workspace.fields.promotionCode;
 						i.discount = item.workspace.fields.discount;
 						i.travelBefore = item.workspace.fields.travelBefore;
+						i.badgeImage = item.workspace.fields.badgeImage;
 						p.push(i);
 					}
 				});
@@ -1578,6 +1571,8 @@ var stage2Save2MDB = () => {
 		if(operateDB){
 			console.log('*** Starting to operate DB! ***');
 			saveSuppliers2MDB();
+		} else {
+			console.log('*** Completed! DB remains unchanged!!');
 		}
 	}
 };
@@ -1595,7 +1590,7 @@ var saveSuppliers2MDB = () => {
 	var sPutOfflineRecords = [];
 	var updateComplete = false;
 	var insertComplete = false;
-	var putOfflineComplete = false;
+	var putOfflineComplete = true; //temporarily suspended
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
@@ -1603,9 +1598,26 @@ var saveSuppliers2MDB = () => {
 
 		var collection = db.collection('Contents');
 
+		var wait4IUBothComplete = () => {
+			if(updateComplete && insertComplete && putOfflineComplete){				
+				db.close();
+				debugDev('saveSuppliers2MDB End!');
+				saveProducts2MDB();
+			}
+		};
+
 		var updateSupplier = (rzdItem, rzdIndex, existingItem) => {
 			var filter = {"typeId" : contentTypeId.supplier, "workspace.fields.alias" : rzdItem.workspace.fields.alias};
 			var options = {};
+
+			var wait4UpdateSupplierComplete = () => {
+				updateCount--;
+				debugDev('updateCount = ' + updateCount);
+				if(0 === updateCount){
+					updateComplete = true;
+					wait4IUBothComplete();
+				}
+			};
 
 			rzdItem.online = existingItem.online;
 			rzdItem.version = existingItem.version;
@@ -1624,28 +1636,10 @@ var saveSuppliers2MDB = () => {
 				.catch( (e) => {
 					console.log("Error = " + e);
 				});
-
-			var wait4UpdateSupplierComplete = () => {
-				updateCount--;
-				debugDev('updateCount = ' + updateCount);
-				if(0 === updateCount){
-					updateComplete = true;
-					wait4IUBothComplete();
-				}
-			};
 		};
 
 		var insertSupplier = (rzdItem, rzdIndex) => {
 			var options = {forceServerObjectId:true};
-		    
-	    	collection.insertOne(rzdItem,options)
-	    		.then( (r) => {
-	    			debugDev('index = ' + rzdIndex + '; insertOne r = ' + JSON.stringify(r));
-	    			wait4InsertSuppliersComplete();
-	    		})
-	    		.catch( (e) => {
-	    			console.log('Error = ' + e);
-	    		});
 
 		    var wait4InsertSuppliersComplete = () =>{
 		    	insertCount--;
@@ -1655,6 +1649,15 @@ var saveSuppliers2MDB = () => {
 		    		wait4IUBothComplete();
 		    	}
 		    };
+
+	    	collection.insertOne(rzdItem,options)
+	    		.then( (r) => {
+	    			debugDev('index = ' + rzdIndex + '; insertOne r = ' + JSON.stringify(r));
+	    			wait4InsertSuppliersComplete();
+	    		})
+	    		.catch( (e) => {
+	    			console.log('Error = ' + e);
+	    		});
 		};
 
 		//put Supplier documents offline for deleted tours in 'ALL' category in Rezdy
@@ -1685,14 +1688,6 @@ var saveSuppliers2MDB = () => {
 		};
 		*/
 
-		var wait4IUBothComplete = () => {
-			if(updateComplete && insertComplete && putOfflineComplete){				
-				db.close();
-				debugDev('saveSuppliers2MDB End!');
-				saveProducts2MDB();
-			}
-		};
-
 		//seperate new and update documents
 		arrayJsonSuppliers.forEach( (rzdItem,rzdIndex) => {
 			var existing = false;
@@ -1708,17 +1703,19 @@ var saveSuppliers2MDB = () => {
 		});
 
 		//find out deleted records for putting them offline
-		existingSuppliers.forEach( (existingItem, existingIndex) => {
-			var putOnline = false;
-			arrayJsonSuppliers.forEach( (rzdItem,rzdIndex) => {
-				if(rzdItem.workspace.fields.id === existingItem.id){
-					putOnline = true;
-				}				
-			});
-			if(!putOnline){
-				sPutOfflineRecords.push(existingItem);
-			}			
-		});
+		// existingSuppliers.forEach( (existingItem, existingIndex) => {
+		// 	var putOnline = false;
+		// 	arrayJsonSuppliers.forEach( (rzdItem,rzdIndex) => {
+		// 		if(rzdItem.workspace.fields.id === existingItem.id){
+		// 			putOnline = true;
+		// 		}				
+		// 	});
+		// 	if(!putOnline){
+		// 		sPutOfflineRecords.push(existingItem);
+		// 	}			
+		// });
+
+		// fs.writeFileSync('./logs/suppliersToBePutOffline-'+targetEnv+'.json', JSON.stringify(sPutOfflineRecords));
 
 		//update documents to db
 		let updateCount = sUpdateRecords.length;
@@ -1748,8 +1745,6 @@ var saveSuppliers2MDB = () => {
 		}
 
 		//put deleted Suppliers offline
-		putOfflineComplete = true;
-		fs.writeFileSync('./logs/suppliersToBePutOffline.json', JSON.stringify(sPutOfflineRecords));
 		/*
 		let putOfflineCount = sPutOfflineRecords.length;
 		debugDev('init Supplier putOfflineCount = ' + putOfflineCount);
@@ -1765,7 +1760,7 @@ var saveSuppliers2MDB = () => {
 	});
 };
 
-//Part 2-2 - deal with content type Tous & RTours
+//Part 2-2 - deal with content type RTours
 var saveProducts2MDB = () => {
 
 	console.log('Enter saveProducts2MDB() to persist RTours to DB!');
@@ -1778,6 +1773,7 @@ var saveProducts2MDB = () => {
 	let updateComplete = false;
 	let insertComplete = false;
 	let putOfflineComplete = false;
+	let payAttentionRToursLog = '*** Pay More Attentions on Following RTours ***' + '\n';
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
@@ -1791,7 +1787,7 @@ var saveProducts2MDB = () => {
 			let options = {};
 
 			rzdItem.online = existingItem.online;
-			//rzdItem.online = true;
+			// rzdItem.online = true;
 			rzdItem.version = existingItem.version;
 			rzdItem.workspace.taxonomy = existingItem.taxonomy;
 			rzdItem.live.taxonomy = existingItem.taxonomy;
@@ -1800,6 +1796,13 @@ var saveProducts2MDB = () => {
 			//rzdItem.workspace.status = "published";
 			//rzdItem.live.status = 'published';
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
+
+			rzdItem.workspace.fields.calendarWidgetUrl = existingItem.calendarWidgetUrl;
+			rzdItem.live.fields.calendarWidgetUrl = existingItem.calendarWidgetUrl;
+			rzdItem.workspace.fields.productPageUrl = existingItem.productPageUrl;
+			rzdItem.live.fields.productPageUrl = existingItem.productPageUrl;
+			rzdItem.workspace.fields.badgeImage = existingItem.badgeImage;
+			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1823,9 +1826,9 @@ var saveProducts2MDB = () => {
 
 		//insert RTours documents to db
 		let insertProduct = (rzdItem, rzdIndex) => {
-			if(rzdItem.workspace.fields.productCode === 'P785EE'){
-				console.log('### Debug break poit 6 ###');
-			}
+			// if(rzdItem.workspace.fields.productCode === 'P785EE'){
+			// 	console.log('### Debug break poit 6 ###');
+			// }
 			let options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
@@ -1874,8 +1877,9 @@ var saveProducts2MDB = () => {
 		};
 
 		let wait4IUDComplete = () => {
-			if(updateComplete && insertComplete && putOfflineComplete){				
+			if(updateComplete && insertComplete /*&& putOfflineComplete*/){				
 				db.close();
+				fs.writeFileSync('./logs/payAttentionsOnRTours-'+targetEnv+'.log', payAttentionRToursLog);
 				debugDev('End saveProducts2MDB() !');
 				saveToursProducts2MDB();
 			}
@@ -1896,6 +1900,9 @@ var saveProducts2MDB = () => {
 
 		//find out deleted records for putting them offline
 		existingProducts.forEach( (existingItem, existingIndex) => {
+			if(existingItem.source !== 'Self-Created'){
+				return
+			}
 			let putOnline = false;
 			arrayJsonProducts.forEach( (rzdItem,rzdIndex) => {
 				if(existingItem.productCode === rzdItem.workspace.fields.productCode){
@@ -1903,7 +1910,16 @@ var saveProducts2MDB = () => {
 				}				
 			});
 			if(!putOnline){
-				pPutOfflineRecords.push(existingItem);
+				let ppu = existingItem.productPageUrl.split('.');
+				if(ppu[1] === 'rezdy'){ //add this if statement because if this Rezdy tour is selling on TourCMS, then we don't need to put it off-line
+					if(ppu[0] !== 'https://bookur'){ //added this because of full payment to supplier tour. Record it down.
+						payAttentionRToursLog += 'Not to Put Off-line because productPageUrl does not equal to "bookur.rezdy.com", RTour - ' + existingItem.text + ' - Product Code = ' + existingItem.productCode + '\n';
+					} else {
+						pPutOfflineRecords.push(existingItem);						
+					}
+				} else {
+					payAttentionRToursLog += 'This RTour is not going to be put off-line because its booking engine has been changed, RTour - ' + existingItem.text + ' - Product Code = ' + existingItem.productCode + '\n';
+				}
 			}			
 		});
 
@@ -1940,7 +1956,7 @@ var saveProducts2MDB = () => {
 
 		//put deleted tours offline
 		let putOfflineCount = pPutOfflineRecords.length;
-		fs.writeFileSync('./logs/rToursToBePutOffline.json', JSON.stringify(pPutOfflineRecords));
+		fs.writeFileSync('./logs/rToursToBePutOffline-'+targetEnv+'.json', JSON.stringify(pPutOfflineRecords));
 		debugDev('init putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
 			pPutOfflineRecords.forEach( (pdItem,pdIndex) => {
@@ -1967,10 +1983,11 @@ let saveToursProducts2MDB = () => {
 	let updateComplete = false;
 	let insertComplete = false;
 	let putOfflineComplete = false;
+	let payAttentionToursLog = '*** Pay More Attentions on Following Tours ***' + '\n';
 
 	MongoClient.connect(mdbUrl, (err, db) => {
 
-		if(null === err) console.log("		--- saveProducts2MDB Connected successfully to server");
+		if(null === err) console.log("		--- saveToursProducts2MDB Connected successfully to server");
 
 		let collection = db.collection('Contents');
 
@@ -1979,6 +1996,7 @@ let saveToursProducts2MDB = () => {
 			let options = {};
 
 			rzdItem.online = existingItem.online;
+			// rzdItem.online = true;
 			rzdItem.version = existingItem.version;
 			rzdItem.workspace.taxonomy = existingItem.taxonomy;
 			rzdItem.live.taxonomy = existingItem.taxonomy;
@@ -1986,9 +2004,19 @@ let saveToursProducts2MDB = () => {
 			rzdItem.live.status = existingItem.status;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 			rzdItem.workspace.fields.marketplace = existingItem.marketplace;
+			rzdItem.live.fields.marketplace = existingItem.marketplace;
 			rzdItem.workspace.fields.promotionCode = existingItem.promotionCode;
+			rzdItem.live.fields.promotionCode = existingItem.promotionCode;
 			rzdItem.workspace.fields.discount = existingItem.discount;
+			rzdItem.live.fields.discount = existingItem.discount;
 			rzdItem.workspace.fields.travelBefore = existingItem.travelBefore;
+			rzdItem.live.fields.travelBefore = existingItem.travelBefore;
+			rzdItem.workspace.fields.calendarWidgetUrl = existingItem.calendarWidgetUrl;
+			rzdItem.live.fields.calendarWidgetUrl = existingItem.calendarWidgetUrl;
+			rzdItem.workspace.fields.productPageUrl = existingItem.productPageUrl;
+			rzdItem.live.fields.productPageUrl = existingItem.productPageUrl;
+			rzdItem.workspace.fields.badgeImage = existingItem.badgeImage;
+			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -2061,8 +2089,9 @@ let saveToursProducts2MDB = () => {
 		};
 
 		let wait4IUDComplete = () => {
-			if(updateComplete && insertComplete && putOfflineComplete){				
+			if(updateComplete && insertComplete /*&& putOfflineComplete*/){				
 				db.close();
+				fs.writeFileSync('./logs/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
 				console.log('*** Suppliers and Products upsert completed including taxonomies ***');
 			}
 		};
@@ -2082,6 +2111,10 @@ let saveToursProducts2MDB = () => {
 
 		//find out put-offline records
 		existingToursProducts.forEach( (existingItem, existingIndex) => {
+			if(existingItem.marketplace !== 'Rezdy Self-Created'){
+				return
+			}
+
 			let putOnline = false;
 			arrayJsonToursProducts.forEach( (rzdItem,rzdIndex) => {
 				if(existingItem.productCode === rzdItem.workspace.fields.productCode){
@@ -2089,7 +2122,15 @@ let saveToursProducts2MDB = () => {
 				}				
 			});
 			if(!putOnline){
-				pPutOfflineRecords.push(existingItem);
+				if(existingItem.marketplace === 'Rezdy Self-Created'){
+					if(existingItem.productPageUrl.split('.')[0] !== 'https://bookur'){ //added because full payment to supplier tour has been dropped. they need to be recorded down.
+						payAttentionToursLog += 'Not to Put Off-line because productPageUrl does not equal to "bookur.rezdy.com", Tour - ' + existingItem.text + ' - Marketplace = ' + existingItem.marketplace + ' - Product Code = ' + existingItem.productCode + '\n';
+					} else {
+						pPutOfflineRecords.push(existingItem);
+					}
+				} else /*if(existingItem.marketplace === 'TourCMS')*/{ //added for Rezdy tours selling on TourCMS. Don't put them off-line. They need to be handled manually.
+					payAttentionToursLog += 'This tour is not going to be put off-line because its booking engine has been changed, Tour - ' + existingItem.text + ' - Marketplace = ' + existingItem.marketplace + ' - Product Code = ' + existingItem.productCode + '\n';
+				}
 			}			
 		});
 
@@ -2120,7 +2161,7 @@ let saveToursProducts2MDB = () => {
 		}
 
 		putOfflineCount = pPutOfflineRecords.length;
-		fs.writeFileSync('./logs/toursToBePutOffline.json', JSON.stringify(pPutOfflineRecords));
+		fs.writeFileSync('./logs/toursToBePutOffline-'+targetEnv+'.json', JSON.stringify(pPutOfflineRecords));
 		debugDev('init Tours putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
 			pPutOfflineRecords.forEach( (pdItem,pdIndex) => {

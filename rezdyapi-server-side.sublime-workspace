@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"update",
+				"updateFlag\tbool "
+			],
+			[
 				"rzd",
 				"rzdItem\t{} "
 			],
@@ -108,11 +112,22 @@
 	"buffers":
 	[
 		{
-			"file": "main.js",
+			"file": "importAsSupplier.js",
 			"settings":
 			{
-				"buffer_size": 69922,
+				"buffer_size": 73546,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n\t\"categories\": [{\n\t\t\"id\": 151334,\n\t\t\"name\": \"Special offer for Gran Canaria\",\n\t\t\"visible\": true\n\t}, {\n\t\t\"id\": 151206,\n\t\t\"name\": \"Special offer for Kathmandu\",\n\t\t\"visible\": true\n\t}, {\n\t\t\"id\": 135854,\n\t\t\"name\": \"FEB2017 Member Promo\",\n\t\t\"visible\": false\n\t}, {\n\t\t\"id\": 132311,\n\t\t\"name\": \"National Park\",\n\t\t\"visible\": false\n\t}, {\n\t\t\"id\": 129104,\n\t\t\"name\": \"ALL\",\n\t\t\"visible\": false\n\t}, {\n\t\t\"id\": 152098,\n\t\t\"name\": \"New All Tours\",\n\t\t\"visible\": false\n\t}]\n}",
+			"file": "logs/rawCategories.json",
+			"file_size": 360,
+			"file_write_time": 131425827620000000,
+			"settings":
+			{
+				"buffer_size": 453,
 				"line_ending": "Unix"
 			}
 		}
@@ -200,11 +215,23 @@
 	"expanded_folders":
 	[
 		"/Users/casper/code/rezdy-data",
-		"/Users/casper/code/rezdy-data/datafiles",
+		"/Users/casper/code/rezdy-data/lib",
 		"/Users/casper/code/rezdy-data/logs"
 	],
 	"file_history":
 	[
+		"/Users/casper/code/rezdy-data/importAsAgent.js",
+		"/Users/casper/code/rezdy-data/lib/bookurUtil.js",
+		"/Users/casper/code/rezdy-data/main.js",
+		"/Users/casper/code/rezdy-data/docs/MongoDB shell script.js",
+		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1496904827/tst.tourbooks.cc/var/www/rubedo/module/Rubedo/src/Rubedo/Frontoffice/views/scripts/index/index.phtml",
+		"/Users/casper/index.phtml",
+		"/Users/casper/WebstormProjects/rubedo3.4dev/config/autoload/local.php",
+		"/Users/casper/Downloads/kath.csv",
+		"/Users/casper/code/rezdy-data/docs/ISO3166-1-alpha-2.json",
+		"/Users/casper/Downloads/modifyAirpotTX.js",
+		"/Users/casper/Downloads/Tour Category.txt",
+		"/Users/casper/Downloads/Tour Type.txt",
 		"/Users/casper/code/rezdy-data/logs/toursToBePutOffline.json",
 		"/Users/casper/code/rezdy-data/logs/rToursToBePutOffline.json",
 		"/Users/casper/code/rezdy-data/logs/suppliersToBePutOffline.json",
@@ -220,7 +247,6 @@
 		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1491986340/59.125.189.209/etc/apache2/sites-available/000-default.conf",
 		"/Users/casper/code/rezdy-data/package.json",
 		"/Users/casper/code/taipei.json",
-		"/Users/casper/code/rezdy-data/main.js",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/59.125.189.205",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/SFTP/SFTP.sublime-settings",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
@@ -250,7 +276,6 @@
 		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal-WHS.html",
 		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal.html",
 		"/Users/casper/code/rezdy-data/algolia-autocomplete-horizontal-home.html",
-		"/Users/casper/code/rezdy-data/docs/MongoDB shell script.js",
 		"/Users/casper/code/rezdy-data/algolia-attraction.js",
 		"/Users/casper/code/rezdy-data/algolia-city.js",
 		"/Users/casper/code/rezdy-data/algolia-tours.js",
@@ -322,17 +347,7 @@
 		"/Users/casper/Downloads/mongo4idea-0.7.6/README.md",
 		"/Users/casper/Downloads/genericTranslations_ja.json",
 		"/Users/casper/temp/test/t.js",
-		"/Users/casper/temp/test/trc.js",
-		"/Users/casper/temp/test/csvoutput/country-new3.csv",
-		"/Users/casper/temp/test/xmloutput/Angola.xml",
-		"/Users/casper/temp/test/xmloutput/Taipei.xml",
-		"/Users/casper/temp/test/xmloutput/Thailand.xml",
-		"/Users/casper/temp/test/output/Thailand1.xml",
-		"/Users/casper/temp/test/data/Thailand.xml",
-		"/Users/casper/temp/test/data/Thailand1.xml",
-		"/Users/casper/temp/test/data/Taipei1.xml",
-		"/Users/casper/temp/test/data/Taipei.xml",
-		"/Users/casper/Downloads/lighttable-0.8.1-mac/light"
+		"/Users/casper/temp/test/trc.js"
 	],
 	"find":
 	{
@@ -351,6 +366,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"$this->",
+			"supplierId",
+			"getExistingToursProducts",
+			"existingToursProducts",
 			".path",
 			"var",
 			"\"agentPaymentType\":\"",
@@ -462,38 +481,70 @@
 			[
 				{
 					"buffer": 0,
-					"file": "main.js",
+					"file": "importAsSupplier.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 69922,
+						"buffer_size": 73546,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7668,
-								7668
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"git_gutter_enabled": true,
 							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
+							"open_with_edit": true,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3501.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "logs/rawCategories.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

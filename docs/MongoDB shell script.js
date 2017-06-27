@@ -1,5 +1,96 @@
 MongoDB shell script
 
+//remap Airport's taxonomy region_city_id and country code to taxonomy City and Country
+
+var clt = db.getCollection('Contents');
+var clt2 = db.getCollection('TaxonomyTerms');
+var locale = 'en';
+var cur1 = clt.find({"typeId":"57e9e2556d0e819c44dc0fc0"}); //content type = "Country"
+var countryVocId = "57b18d746d0e81e174c66322"; //country code taxonomy vocabularyId
+var ccMaps = {};
+while(cur1.hasNext()){
+    var country = cur1.next();
+    var countryName = country.workspace.i18n[locale].fields.text;
+    var termId = country.workspace.taxonomy[countryVocId][0];
+    if(termId) ccMaps[termId] = countryName;
+}
+print(ccMaps);
+
+var cur = clt.find({"typeId":"57ed26a06d0e810b357b23c7"}); //content type = "City"
+var rcVocId = "57b18d746d0e81e174c66328"; //region city id taxonomy vocabularyId
+var rcMaps = {};
+while(cur.hasNext()){
+    var city = cur.next();
+    var cityName = city.workspace.i18n[locale].fields.text;
+    var termId = city.workspace.taxonomy[rcVocId][0];
+    if(termId) rcMaps[termId] = cityName;
+}
+print(rcMaps);
+
+var cur3 = clt2.find({"vocabularyId" : "58a416076d0e81a9466a306b"});//vocabularyId = 'Country'
+var countryTermsMaps = {};
+while(cur3.hasNext()){
+    var data = cur3.next();
+    countryTermsMaps[data.text] = data._id.str;
+}
+print(countryTermsMaps);
+
+var cur4 = clt2.find({"vocabularyId" : "589c085b6d0e819e13623adc"});//vocabularyId = 'City'
+var cityTermsMaps = {};
+while(cur4.hasNext()){
+    var data = cur4.next();
+    cityTermsMaps[data.text] = data._id.str;
+}
+print(cityTermsMaps);
+
+ctrVocId = '58a416076d0e81a9466a306b';
+cityVocId = '589c085b6d0e819e13623adc';
+var cur2 = clt.find({"typeId" : "57ea02ef6d0e81c0487b23c9"}); //content type = 'Airport'
+while(cur2.hasNext()){
+    var airport = cur2.next();
+    var updateFlag = false;
+
+    if(airport.workspace.taxonomy[rcVocId]){
+        airport.workspace.taxonomy[cityVocId] = [];
+        if(rcMaps[airport.workspace.taxonomy[rcVocId][0]]){
+            airport.workspace.taxonomy[cityVocId].push(cityTermsMaps[rcMaps[airport.workspace.taxonomy[rcVocId][0]]]);
+            airport.live.taxonomy[cityVocId] = airport.workspace.taxonomy[cityVocId].slice();
+            updateFlag = true;
+        } else {
+            airport.live.taxonomy[cityVocId] = [];          
+        }
+    } else {
+        airport.workspace.taxonomy[cityVocId] = [];
+        airport.live.taxonomy[cityVocId] = [];
+    }
+
+    if(airport.workspace.taxonomy[countryVocId]){
+        airport.workspace.taxonomy[ctrVocId] = [];
+        if(ccMaps[airport.workspace.taxonomy[countryVocId][0]]){
+            airport.workspace.taxonomy[ctrVocId].push(countryTermsMaps[ccMaps[airport.workspace.taxonomy[countryVocId][0]]]);
+            airport.live.taxonomy[ctrVocId] = airport.workspace.taxonomy[ctrVocId].slice();
+            updateFlag = true;
+        } else {
+            airport.live.taxonomy[ctrVocId] = [];
+        }
+    } else {
+        airport.workspace.taxonomy[ctrVocId] = [];
+        airport.live.taxonomy[ctrVocId] = [];
+    }
+
+    if(updateFlag){
+        try{
+            var result = clt.update(
+                {"_id": airport._id},
+                airport
+            );
+            print('Airport - ' + airport.text +' UPDATED! - modifiedCount = ' + result.nModified);
+        } catch(e){
+            print('Exception Happened during updating!! - ' + e);
+        }       
+    }
+}
+
 //Add a taxonomy term to a vocabulary (not array)
 
 var clt = db.getCollection('Contents');
