@@ -8,4 +8,4 @@ countryContinentMap.forEach((item) => {
 	value.continentName = item.continentName;
 	ccMap[item.countryCode] = value;
 });
-fs.writeFileSync('./ccMap.json', JSON.stringify(ccMap));
+fs.writeFileSync('./mapping/ccMap.json', JSON.stringify(ccMap));

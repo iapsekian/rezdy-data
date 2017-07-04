@@ -1,3 +1,4 @@
+#!/usr/bin/env node --max_old_space_size=4096
 /*jshint esversion: 6 */
 
 var https = require('https');
@@ -17,6 +18,8 @@ const buUtil = require('./lib/bookurUtil.js')
 // var productionEnv = false;
 // var testEnv = false;
 // var operateDB = false;
+
+let execArgv = process.execArgv;
 
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
@@ -167,16 +170,15 @@ function step2GetProducts(){
 
 	console.log('Step2GetProducts starts!');
 
-	var jsonProducts = { "products":[] };
-	var jsonProductsFromXml = { "products":[] };
-	var tmpXMLProductsCount = -1;
-	var tmpArrayCategoriesCount4Xml = arrayJsonCategories.length;
-	let myCategoriesCount = arrayJsonCategories.length;
+	let jsonProducts = { "products":[] };
+	let jsonProductsFromXml = { "products":[] };
+	let tmpXMLProductsCount = -1;
+	let tmpArrayCategoriesCount4Xml = arrayJsonCategories.length;
 
 	function handleProductsResult(){
 
-		var missingFlag = true;
-		var missingRecords = [];
+		let missingFlag = true;
+		let missingRecords = [];
 		jsonProductsFromXml.products.forEach( (item1) => {
 			missingFlag = true;
 			jsonProducts.products.forEach( (item2) => {
@@ -199,46 +201,33 @@ function step2GetProducts(){
 				}
 			});
 		});
-    	var rawProducts = JSON.stringify(jsonProducts);
+    	let rawProducts = JSON.stringify(jsonProducts);
     	fs.writeFileSync('./datafiles/rawProducts-'+targetEnv+'.json', rawProducts);
         arrayJsonProducts = jsonProducts.products;
 
-        var supplierAliasFromProducts = [];
+        let supplierAliasFromProducts = [];
         arrayJsonProducts.forEach( (item1,index1) => {
-        	var newFlag = true;
+        	let newFlag = true;
         	supplierAliasFromProducts.forEach( (item2,index2) => {    		
         		if(item1.supplierAlias === item2.supplierAlias){
         			newFlag = false;
         		}
         	});
         	if (newFlag) {
-        		var supplierInfo = {};
+        		let supplierInfo = {};
         		supplierInfo.supplierId = item1.supplierId.toString();
         		supplierInfo.supplierAlias = item1.supplierAlias;
 	        	supplierAliasFromProducts.push(supplierInfo);
         	}
         });
-        debugDev('new Suppliers Count = ' + supplierAliasFromProducts.length);
+        debugDev('total Suppliers Count = ' + supplierAliasFromProducts.length);
         debugDev('step2GetProducts Ended!');
         step3GetSuppliersByProducts(supplierAliasFromProducts);
 	}
 
-	function wait4BothComplete(){
-		if(tmpArrayCategoriesCount4Xml === 0 && myCategoriesCount === 0){
-			handleProductsResult();
-		}
-	}
+	let getProductsByXMLProducts = () => {
 
-	function wait4ApiCallComplete(){
-		myCategoriesCount--;
-		if (!myCategoriesCount) {
-			wait4BothComplete();
-		}
-	}
-
-	var getProductsByXMLProducts = () => {
-
-		var optionsProductsByCategory = {	
+		let optionsProductsByCategory = {	
 		    host : conf.host,
 		    port : conf.port,
 		    method : 'GET',
@@ -247,44 +236,70 @@ function step2GetProducts(){
 
 		///categories/{categoryId}/products
 
+		let total = tmpXMLProductsCount;
+
+		let myCategoriesCount = arrayJsonCategories.length;
+		let wait4MyCatEnd = () => {
+			myCategoriesCount--
+			if(!myCategoriesCount){
+				handleProductsResult()
+			}
+		}
+
 		arrayJsonCategories.forEach( myCategory => {
-			// var offset = 0;
-			var queryPath = conf.path + '/categories/' + myCategory.id + '/products' + '?apiKey=' + conf.apiKey;
+			let count = Math.ceil(myCategory.count/100);
+			let wait4GetEnd = () => {
+				count--
+				if(!count){
+					wait4MyCatEnd()
+				}
+			}
 
-			optionsProductsByCategory.path = queryPath/* + '&offset=' + offset*/;
+			let continueFlag = true
+			let offset = 0;
+			let queryPath = conf.path + '/categories/' + myCategory.id + '/products' + '?apiKey=' + conf.apiKey;
 
-			var getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
+			for (let i = count; i > 0; i--) {
+			// while(continueFlag){
+				optionsProductsByCategory.path = queryPath + '&offset=' + offset;
+				offset += 100;
+				if(myCategory.count-offset <= 0){
+					continueFlag = false;
+				}
 
-				var tmpRawProducts = '';
-				var tmpJsonProducts;
+				let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
 
-			    res.on('data', (d) => {
-			        tmpRawProducts += d;
-			    });
+					let tmpRawProducts = '';
+					let tmpJsonProducts;
 
-			    res.on('end', () => {
-			    	tmpJsonProducts = JSON.parse(tmpRawProducts);
-			    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+				    res.on('data', (d) => {
+				        tmpRawProducts += d;
+				    });
 
-			    	if (tmpJsonProducts.requestStatus.success === true) {	    		
-			    		debugDev('getProductsByXMLProducts Products Count = ' + tmpJsonProducts.products.length);
-			    		tmpJsonProducts.products.forEach( (item) => {
-					    	jsonProducts.products.push(item);
-			    		});
-						wait4ApiCallComplete();
-			    	} else {
-			    		console.log('*** One of my categories error on getting tours ***');
-						wait4ApiCallComplete();
-			    	}
-			    });
+				    res.on('end', () => {
+				    	if(tmpRawProducts){
+					    	tmpJsonProducts = JSON.parse(tmpRawProducts);
+					    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
 
-			});
+					    	if (tmpJsonProducts.requestStatus.success === true) {	    		
+					    		debugDev('getProductsByXMLProducts Products Count = ' + tmpJsonProducts.products.length);
+					    		tmpJsonProducts.products.forEach( (item) => {
+							    	jsonProducts.products.push(item);
+					    		});
+					    	} else {
+					    		console.log('*** One of my categories error on getting tours ***');
+					    	}
+				    	}
+				    	wait4GetEnd()
+				    });
 
+				});
 
-			getProductsByCategory.end();
-			getProductsByCategory.on('error', (e) => {
-			    console.error(e);
-			});
+				getProductsByCategory.end();
+				getProductsByCategory.on('error', (e) => {
+				    console.error(e);
+				});
+			}
 		})
 	};
 
@@ -331,6 +346,8 @@ function step2GetProducts(){
 		  res.on('end', () => {
 		    try {
 				parseString(rawData, {explicitArray:false}, function (err, result) {
+					console.log('Cat - %s : Count = %s',myCategory.name,result.products.product.length);
+					myCategory.count = result.products.product.length;
 				    if(Array.isArray(result.products.product)){			    	
 				    	result.products.product.forEach( item => {
 				    		jsonProductsFromXml.products.push(item);
@@ -355,7 +372,7 @@ function step3GetSuppliersByProducts(supplierAliasFromProducts){
 	console.log('Step3GetSuppliersByProducts starts!');
 	//debugDev('supplierAliasFromProducts = ' + JSON.stringify(supplierAliasFromProducts));
 
-	var jsonSuppliers = { "companies":[] };
+	let jsonSuppliers = { "companies":[] };
 	var supplierCount = supplierAliasFromProducts.length;
 	//debugDev('Supplier Count = ' + supplierCount);
 
@@ -906,6 +923,7 @@ function step4GenerateMDBRecords(){
 							item.workspace.fields.photoPath = item.images[0].itemUrl;
 						}
 						item.workspace.fields.source = 'Self-Created';
+						item.workspace.fields.badgeTargetUrl = '';
 						
 
 						item.workspace.status = "published";
@@ -1024,6 +1042,7 @@ function step4GenerateMDBRecords(){
 							tours.workspace.fields.discount = '';
 							tours.workspace.fields.travelBefore = '';
 							tours.workspace.fields.badgeImage = '';
+							tours.workspace.fields.badgeTargetUrl = '';
 						tours.workspace.status = 'draft';
 						//tours.workspace.taxonomy = item.workspace.taxonomy; //this line doesn't work because after this line tours.workspace.taxonomy will point to the same object of item.workspace.taxonomy
 						tours.workspace.taxonomy = JSON.parse(JSON.stringify(item.workspace.taxonomy));
@@ -1388,6 +1407,7 @@ var getExistingDataFromMDB = () => {
 			"workspace.status":1,
 			"workspace.taxonomy":1,
 			"workspace.fields.id":1,
+			"createTime":1,
 			"lastUpdateTime":1
 		};
 
@@ -1402,6 +1422,7 @@ var getExistingDataFromMDB = () => {
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
+					i.createTime = item.createTime;
 					i.lastUpdateTime = item.lastUpdateTime;
 					s.push(i);
 				});
@@ -1429,6 +1450,8 @@ var getExistingDataFromMDB = () => {
 			"workspace.fields.productPageUrl":1,
 			"workspace.fields.badgeImage":1,
 			"workspace.fields.source":1,
+			"workspace.fields.badgeTargetUrl":1,
+			"createTime":1,
 			"lastUpdateTime":1
 		};
 
@@ -1448,10 +1471,12 @@ var getExistingDataFromMDB = () => {
 					i.productPageUrl = item.workspace.fields.productPageUrl;
 					i.badgeImage = item.workspace.fields.badgeImage;
 					i.source = item.workspace.fields.source;
+					i.badgeTargetUrl = item.workspace.fields.badgeTargetUrl;
 					i.online = item.online;
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
+					i.createTime = item.createTime;
 					i.lastUpdateTime = item.lastUpdateTime;
 					p.push(i);
 				});
@@ -1479,8 +1504,10 @@ var getExistingDataFromMDB = () => {
 			"workspace.fields.discount":1,
 			"workspace.fields.travelBefore":1,
 			"workspace.fields.badgeImage":1,
+			"workspace.fields.badgeTargetUrl":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
+			"createTime":1,
 			"lastUpdateTime":1
 		};
 
@@ -1497,6 +1524,7 @@ var getExistingDataFromMDB = () => {
 						i.version = item.version;
 						i.status = item.workspace.status;
 						i.taxonomy = item.workspace.taxonomy;
+						i.createTime = item.createTime;
 						i.lastUpdateTime = item.lastUpdateTime;
 						i.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
 						i.productPageUrl = item.workspace.fields.productPageUrl;
@@ -1505,6 +1533,7 @@ var getExistingDataFromMDB = () => {
 						i.discount = item.workspace.fields.discount;
 						i.travelBefore = item.workspace.fields.travelBefore;
 						i.badgeImage = item.workspace.fields.badgeImage;
+						i.badgeTargetUrl = item.workspace.fields.badgeTargetUrl;
 						p.push(i);
 					}
 				});
@@ -1625,6 +1654,7 @@ var saveSuppliers2MDB = () => {
 			rzdItem.live.taxonomy = existingItem.taxonomy;
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
+			rzdItem.createTime = existingItem.createTime;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			collection.updateOne(filter, rzdItem, options)
@@ -1795,6 +1825,7 @@ var saveProducts2MDB = () => {
 			rzdItem.live.status = existingItem.status;
 			//rzdItem.workspace.status = "published";
 			//rzdItem.live.status = 'published';
+			rzdItem.createTime = existingItem.createTime;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			rzdItem.workspace.fields.calendarWidgetUrl = existingItem.calendarWidgetUrl;
@@ -1803,6 +1834,8 @@ var saveProducts2MDB = () => {
 			rzdItem.live.fields.productPageUrl = existingItem.productPageUrl;
 			rzdItem.workspace.fields.badgeImage = existingItem.badgeImage;
 			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
+			rzdItem.workspace.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
+			rzdItem.live.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1998,11 +2031,12 @@ let saveToursProducts2MDB = () => {
 			rzdItem.online = existingItem.online;
 			// rzdItem.online = true;
 			rzdItem.version = existingItem.version;
+			rzdItem.createTime = existingItem.createTime;
+			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 			rzdItem.workspace.taxonomy = existingItem.taxonomy;
 			rzdItem.live.taxonomy = existingItem.taxonomy;
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
-			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 			rzdItem.workspace.fields.marketplace = existingItem.marketplace;
 			rzdItem.live.fields.marketplace = existingItem.marketplace;
 			rzdItem.workspace.fields.promotionCode = existingItem.promotionCode;
@@ -2017,6 +2051,8 @@ let saveToursProducts2MDB = () => {
 			rzdItem.live.fields.productPageUrl = existingItem.productPageUrl;
 			rzdItem.workspace.fields.badgeImage = existingItem.badgeImage;
 			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
+			rzdItem.workspace.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
+			rzdItem.live.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -2089,10 +2125,13 @@ let saveToursProducts2MDB = () => {
 		};
 
 		let wait4IUDComplete = () => {
-			if(updateComplete && insertComplete /*&& putOfflineComplete*/){				
+			if(updateComplete && insertComplete && putOfflineComplete){				
 				db.close();
 				fs.writeFileSync('./logs/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
 				console.log('*** Suppliers and Products upsert completed including taxonomies ***');
+
+				runExternalScripts()
+
 			}
 		};
 
@@ -2174,6 +2213,33 @@ let saveToursProducts2MDB = () => {
 
 	});
 };
+
+//Part 4 - execute getGeoInfoFromGMap.js and updateTourTXByGeoInfo.js
+
+let runExternalScripts = () => {
+	console.log('runExternalScripts Starting.....')
+	let args = []
+	let options = {}
+
+	args.push(targetEnv)
+	args.push(dbOPSwitch)
+	options.execArgv = execArgv.slice()
+
+	buUtil.runScript('./getGeoInfoFromGMap.js', args, options, err => {
+		if(err)	
+			throw err
+		else {
+			console.log('--- Run getGeoInfoFromGMap.js Completed!')
+			buUtil.runScript('./updateTourTXByGeoInfo.js', args, options, err => {
+				if(err)
+					throw err
+				else {
+					console.log('--- Run updateTourTXByGeoInfo.js Completed!')
+				}
+			})
+		}
+	})
+}
 
 //Start
 

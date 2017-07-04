@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"db",
+				"dbOPSwitch\t? "
+			],
+			[
+				"wait",
+				"wait4MyCatEnd\tfn "
+			],
+			[
+				"st",
+				"stringify\tfn "
+			],
+			[
+				"put",
+				"putOffLog\tstr "
+			],
+			[
+				"continue",
+				"continueFlag\tbool "
+			],
+			[
+				"txTermId",
+				"txTermIdUSA\tstr "
+			],
+			[
+				"tx",
+				"txVocName\t? "
+			],
+			[
+				"type",
+				"typeof\t? "
+			],
+			[
 				"update",
 				"updateFlag\tbool "
 			],
@@ -112,22 +144,29 @@
 	"buffers":
 	[
 		{
-			"file": "importAsSupplier.js",
+			"file": "importAsAgent.js",
 			"settings":
 			{
-				"buffer_size": 73546,
+				"buffer_size": 83868,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "{\n\t\"categories\": [{\n\t\t\"id\": 151334,\n\t\t\"name\": \"Special offer for Gran Canaria\",\n\t\t\"visible\": true\n\t}, {\n\t\t\"id\": 151206,\n\t\t\"name\": \"Special offer for Kathmandu\",\n\t\t\"visible\": true\n\t}, {\n\t\t\"id\": 135854,\n\t\t\"name\": \"FEB2017 Member Promo\",\n\t\t\"visible\": false\n\t}, {\n\t\t\"id\": 132311,\n\t\t\"name\": \"National Park\",\n\t\t\"visible\": false\n\t}, {\n\t\t\"id\": 129104,\n\t\t\"name\": \"ALL\",\n\t\t\"visible\": false\n\t}, {\n\t\t\"id\": 152098,\n\t\t\"name\": \"New All Tours\",\n\t\t\"visible\": false\n\t}]\n}",
-			"file": "logs/rawCategories.json",
-			"file_size": 360,
-			"file_write_time": 131425827620000000,
+			"file": "importAsSupplier.js",
 			"settings":
 			{
-				"buffer_size": 453,
+				"buffer_size": 75577,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/bookurUtil.js",
+			"settings":
+			{
+				"buffer_size": 17512,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -214,13 +253,49 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/casper/code/rezdy-data",
-		"/Users/casper/code/rezdy-data/lib",
-		"/Users/casper/code/rezdy-data/logs"
+		"/Users/casper/code/rezdy-data"
 	],
 	"file_history":
 	[
+		"/Users/casper/code/rezdy-data/getGeoInfoFromGMap.js",
+		"/Users/casper/code/rezdy-data/updateTourTXByGeoInfo.js",
+		"/Users/casper/code/rezdy-data/Updating-importAsAgent.js",
 		"/Users/casper/code/rezdy-data/importAsAgent.js",
+		"/Users/casper/code/rezdy-data/changeTXValueFromOneToTheOther.js",
+		"/Users/casper/code/rezdy-data/mapping/toursWithCityCountryCode-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/mapping/toursWithCoordinate-TEST.json",
+		"/Users/casper/code/rezdy-data/mapping/ccMap.json",
+		"/Users/casper/code/rezdy-data/logs/UpdateTourTXByGeoInfo - updateLog - TEST.log",
+		"/Users/casper/code/rezdy-data/lib/mapping-util.js",
+		"/Users/casper/code/rezdy-data/mapping/toursWithCityCountryCode-TEST.json",
+		"/Users/casper/code/rezdy-data/logs/setTxnmyDepartFrom - newTerms4CountryDBRecordsTEST.json",
+		"/Users/casper/code/rezdy-data/docs/countryContinentMapping.json",
+		"/Users/casper/code/rezdy-data/mapping/toursWithCoordinate-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/ccMap.json",
+		"/Users/casper/code/rezdy-data/genCCMap.js",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonToursProducts4db-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonSuppliers-TEST.json",
+		"/Users/casper/code/rezdy-data/logs/suppliersToBePutOffline-TEST.json",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonSuppliers4db-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonSuppliers-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/taxonomySupplierId-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/rawSuppliers-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonCategories-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonProducts-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/logs/missingRecordsBTWXmlRTours-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/arrayJsonProducts4db-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/rawProducts-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/datafiles/rawCategories-PRODUCTION.json",
+		"/Users/casper/code/rezdy-data/logs/payAttentionOnTours-TEST.log",
+		"/Users/casper/Downloads/payAttentionOnTours.log",
+		"/Users/casper/Downloads/payAttentionsOnRTours.log",
+		"/Users/casper/code/rezdy-data/logs/toursToBePutOffline-TEST.json",
+		"/Users/casper/code/rezdy-data/logs/rToursToBePutOffline-TEST.json",
+		"/Users/casper/code/rezdy-data/logs/missingRecords-TEST.json",
+		"/Users/casper/code/rezdy-data/lib/getTXTermsMap.js",
+		"/Users/casper/code/rezdy-data/logs/rawCategories.json",
+		"/Users/casper/code/rezdy-data/importAsSupplier.js",
+		"/Users/casper/code/rezdy-data/logs/payAttentionOnTours.log",
 		"/Users/casper/code/rezdy-data/lib/bookurUtil.js",
 		"/Users/casper/code/rezdy-data/main.js",
 		"/Users/casper/code/rezdy-data/docs/MongoDB shell script.js",
@@ -257,7 +332,6 @@
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Nodejs/Nodejs.py",
 		"/Users/casper/code/rezdy-data/checkbox.html",
 		"/Users/casper/code/rezdy-data/default.html",
-		"/Users/casper/code/rezdy-data/ccMap.json",
 		"/Users/casper/code/Q5119.json",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/LiveStyle/LiveStyle.sublime-settings",
 		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/LiveStyle.sublime-settings",
@@ -310,44 +384,7 @@
 		"/home/casper/code/rezdyapi-server-side/datafiles/taxonomyAgentPaymentType.json",
 		"/home/casper/code/rezdyapi-server-side/datafiles/arrayJsonProducts4db.json",
 		"/home/casper/code/rezdyapi-server-side/datafiles/taxonomyProductCode.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/arrayJsonProducts.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/taxonomyProductType.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/taxonomySupplierAlias.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/taxonomySupplierId.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/arrayJsonToursProducts4db.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/arrayJsonSuppliers.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/CheckList-supplierId.json",
-		"/home/casper/code/rezdyapi-server-side/datafiles/arrayJsonCategories.json",
-		"/home/casper/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
-		"/home/casper/.config/sublime-text-3/Packages/JsFormat/Default (Linux).sublime-keymap",
-		"/home/casper/code/rezdyapi-server-side/datafiles/suppliers.json",
-		"/home/casper/code/rezdyapi-server-side/call.js",
-		"/Users/casper/code/rezdyapi-server-side/call.sublime-workspace",
-		"/Users/casper/code/rezdyapi-server-side/call.js",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Nodejs/Nodejs.sublime-settings",
-		"/Users/casper/code/rezdyapi-server-side/test1.js",
-		"/Users/casper/code/rezdyapi/rezdyapicallthrougcors-anywhere1.js",
-		"/Users/casper/code/rezdyapi/rezdyapicallthrougcors-anywhere.js",
-		"/Users/casper/code/rezdyapi/rezdyapicall-factory-1.js",
-		"/Users/casper/code/rezdyapi/rezdyapicall-factory.js",
-		"/Users/casper/code/angularjs/write the http service as a factory method.js",
-		"/Users/casper/code/tourcms/tourcmsWidget.js",
-		"/Users/casper/code/tourcms/callUrlFromBrowser.js",
-		"/Users/casper/adsenseTpl1.html",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/tst.tourbooks.cc",
-		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1481694056/tst.tourbooks.cc/var/www/rubedo/public/.htaccess",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
-		"/Users/casper/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
-		"/Users/casper/Downloads/pdump/var/www/rubedo/public/components/webtales/rubedo-localization/ja/Generic/genericTranslations.json",
-		"/Users/casper/temp/a/var/www/rubedo/public/components/webtales/rubedo-localization/zh-TW/FrontOffice/Blocks/Search/search.json",
-		"/Users/casper/temp/a/var/www/rubedo/public/components/webtales/rubedo-localization/zh-TW/FrontOffice/Fields/ProductBox/product.json",
-		"/Users/casper/temp/test/listdir.js",
-		"/Users/casper/temp/test/transform.js",
-		"/Users/casper/Downloads/mongo4idea-0.7.6/README.md",
-		"/Users/casper/Downloads/genericTranslations_ja.json",
-		"/Users/casper/temp/test/t.js",
-		"/Users/casper/temp/test/trc.js"
+		"/home/casper/code/rezdyapi-server-side/datafiles/arrayJsonProducts.json"
 	],
 	"find":
 	{
@@ -366,6 +403,77 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"var",
+			"/logs",
+			"putToursOfflineBasedOnCat",
+			"Off-line temporarily",
+			"Cat - Off-line temporarily",
+			"writeFileSync",
+			"Tours putOfflineCount",
+			"split",
+			"tmpArrayCategoriesCount4Xml",
+			"var",
+			"toursInPutOfflineCatCURR",
+			"var",
+			".online",
+			"Finding contents error!",
+			"step2",
+			"var",
+			"United States",
+			"},{",
+			"}",
+			"loc",
+			"countryCode",
+			"ccMap",
+			"United States",
+			"US",
+			"ccMap",
+			"getCountryName",
+			"country",
+			"loc.country",
+			"State",
+			"state",
+			".State",
+			"mapping",
+			"setTxnmyDepartFrom",
+			"taxonomyVocabularyId.isoWorldRegion",
+			"taxonomyVocabularyId.country",
+			"taxonomyVocabularyId.neighborhood",
+			"taxonomyVocabularyId.departFrom",
+			"taxonomyVocabularyId.state",
+			"taxonomyVocabularyId.isoWorldRegion",
+			"taxonomyVocabularyId.country",
+			"taxonomyVocabularyId.neighborhood",
+			"taxonomyVocabularyId.departFrom",
+			"contentTypeId",
+			"contentTypeId.tours",
+			"toursWithCityCountryCode",
+			"toursWithCoordinate",
+			"datafiles",
+			".tours",
+			"tours",
+			"contentTypeId",
+			"existingToursProducts",
+			"//temporarily m",
+			"productCode",
+			"addr",
+			"item.address = ",
+			"item.address",
+			"addressLine",
+			"agentDescription",
+			"arrayJsonCategories",
+			"payAttentionToursLog",
+			"payAttentionRToursLog",
+			"payAttentionToursLog",
+			"payAttentionRToursLog",
+			"payA",
+			"/*\\.log/",
+			"/*.log/",
+			"pay*.log",
+			".log",
+			"logs",
+			".json",
+			"payAttentionToursLog",
 			"$this->",
 			"supplierId",
 			"getExistingToursProducts",
@@ -422,41 +530,7 @@
 			"-new",
 			"undefined",
 			"rezdyResizeIframe",
-			"findRezdyIframes",
-			"href",
-			"console.log",
-			"wait4MDBRecordsGenComplete",
-			"genTourProductRecords",
-			"wait4MDBRecordsGenComplete",
-			"stage2Save2MDB",
-			"productRecordsGenComplete",
-			"supplierRecordsGenComplete",
-			"supplierAliasFromProducts",
-			"586df55fa0af88a741bcb6b5",
-			"allSupplierId",
-			"txt",
-			"taxonomyProductCode",
-			"setProductTaxonomy",
-			"supplierAliasFromProducts",
-			"jsonSuppliers",
-			"arrayJsonSuppliers",
-			"existingToursProducts",
-			"existingProducts",
-			"arrayJsonToursProducts",
-			"CheckList",
-			"crudUser",
-			"version",
-			"insert",
-			"check",
-			"wait4PutOfflineProductComplete",
-			"wait4PutOfflneProductComplete",
-			"wait4IUBothComplete",
-			"operateDB",
-			"auto_complete_selector",
-			"<",
-			"[",
-			"<p ",
-			"home"
+			"findRezdyIframes"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -476,16 +550,49 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "importAsAgent.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 83868,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "importAsSupplier.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 73546,
+						"buffer_size": 75577,
 						"regions":
 						{
 						},
@@ -493,14 +600,16 @@
 						[
 							[
 								0,
-								0
+								46
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"open_with_edit": true,
+							"origin_encoding": "UTF-8",
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
@@ -514,37 +623,38 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "logs/rawCategories.json",
+					"buffer": 2,
+					"file": "lib/bookurUtil.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 453,
+						"buffer_size": 17512,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								16862,
+								16862
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage",
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 203.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -621,7 +731,7 @@
 		[
 			[
 				"",
-				"~/code/tcms-data/tcms-data.sublime-project"
+				"~/code/wvinfo-import/wvinfo-import.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -643,7 +753,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 277.0,
+	"side_bar_width": 384.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

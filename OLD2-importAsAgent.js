@@ -1,4 +1,3 @@
-#!/usr/bin/env node --max_old_space_size=4096
 /*jshint esversion: 6 */
 
 var https = require('https');
@@ -19,7 +18,6 @@ const buUtil = require('./lib/bookurUtil.js')
 // var testEnv = false;
 // var operateDB = false;
 
-let execArgv = process.execArgv;
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
 let operateDB = false;
@@ -54,7 +52,6 @@ var arrayJsonSuppliers = [];
 var existingSuppliers = [];
 var existingProducts = [];
 var existingToursProducts = [];
-let catOfflineTemp = {};
 
 
 //DB definition/value
@@ -140,7 +137,7 @@ function step1GetCategories(){
 		    	rawCategories = JSON.stringify(tempJsonCategories);
 		    	fs.writeFileSync('./datafiles/rawCategories-'+targetEnv+'.json', rawCategories);
 
-		    	//
+		    	//Only "ALL" category
 		    	targetMyCategories.forEach( myCategory =>{
 		    		tempJsonCategories.categories.forEach( (item) => {
 			    		if(myCategory === item.name){
@@ -152,15 +149,6 @@ function step1GetCategories(){
 			    		}
 		    		});
 		    	});
-
-		    	tempJsonCategories.categories.forEach( (item) => {
-		    		if(item.name === 'Off-line temporarily'){
-		    			catOfflineTemp.id = item.id;
-		    			catOfflineTemp.name = item.name;
-		    			catOfflineTemp.visible = item.visible;
-		    		}
-		    	})
-
 		        debugDev('step1GetCategories Ended!');
 		        step2GetProducts();
 	    	}
@@ -229,105 +217,80 @@ function step2GetProducts(){
 	        	supplierAliasFromProducts.push(supplierInfo);
         	}
         });
-        debugDev('Total Suppliers Count = ' + supplierAliasFromProducts.length);
+        debugDev('new Suppliers Count = ' + supplierAliasFromProducts.length);
         debugDev('step2GetProducts Ended!');
         step3GetSuppliersByProducts(supplierAliasFromProducts);
 	}
 
-	// function wait4BothComplete(){
-	// 	// debugDev('tmpArrayCategoriesCount4Xml = ' + tmpArrayCategoriesCount4Xml);
-	// 	// debugDev('tmpXMLProductsCount = ' + tmpXMLProductsCount);
-	// 	if(tmpArrayCategoriesCount4Xml === 0 && tmpXMLProductsCount <= 0){
-	// 		handleProductsResult();
-	// 	}
-	// }
+	function wait4BothComplete(){
+		// debugDev('tmpArrayCategoriesCount4Xml = ' + tmpArrayCategoriesCount4Xml);
+		// debugDev('tmpXMLProductsCount = ' + tmpXMLProductsCount);
+		if(tmpArrayCategoriesCount4Xml === 0 && tmpXMLProductsCount <= 0){
+			handleProductsResult();
+		}
+	}
 
-	// function wait4ApiCallComplete(){
-	// 	//debugDev('Enter Step2 wait4ApiCallComplete');
-	// 	tmpXMLProductsCount -= 100;
-	// 	//debugDev('incompleted category/products count = ' + tmpArrayCategoriesCount);
-	// 	// debugDev('tmpXMLProductsCount = ' + tmpXMLProductsCount);
-	// 	if (tmpXMLProductsCount <= 0) {
-	// 		// debugDev('RTours Count = ' + jsonProducts.products.length);
-	//     	//fs.writeFileSync('./jsonProducts.json', JSON.stringify(jsonProducts));
-	// 		wait4BothComplete();
-	// 	}
-	// }
+	function wait4ApiCallComplete(){
+		//debugDev('Enter Step2 wait4ApiCallComplete');
+		tmpXMLProductsCount -= 100;
+		//debugDev('incompleted category/products count = ' + tmpArrayCategoriesCount);
+		// debugDev('tmpXMLProductsCount = ' + tmpXMLProductsCount);
+		if (tmpXMLProductsCount <= 0) {
+			// debugDev('RTours Count = ' + jsonProducts.products.length);
+	    	//fs.writeFileSync('./jsonProducts.json', JSON.stringify(jsonProducts));
+			wait4BothComplete();
+		}
+	}
 
-	let getProductsByXMLProducts = () => {
+	var getProductsByXMLProducts = () => {
 
-		let optionsProductsByCategory = {	
+		var optionsProductsByCategory = {	
 		    host : conf.host,
 		    port : conf.port,
 		    method : 'GET',
 		    headers: conf.headers
 		};
 
-		let queryParam =  '/products/marketplace';
-		let total = tmpXMLProductsCount;
-
-		let arrayJsonCategoriesCount = arrayJsonCategories.length
-		let wait4MyCatEnd = () => {
-			arrayJsonCategoriesCount--
-			if(!arrayJsonCategoriesCount){
-				handleProductsResult()
-			}
-		}
+		var queryParam =  '/products/marketplace';
+		var total = tmpXMLProductsCount;
 
 		arrayJsonCategories.forEach( myCategory => {
-			let count = Math.ceil(myCategory.count/100);
-			let wait4GetEnd = () => {
-				count--
-				if(!count){
-					wait4MyCatEnd()
-				}
-			}
+			var offset = 0;
+			var queryPath = conf.path + queryParam + '?apiKey=' + conf.apiKey + '&category=' + myCategory.id;
 
-			let continueFlag = true
-			let offset = 0;
-			let queryPath = conf.path + queryParam + '?apiKey=' + conf.apiKey + '&category=' + myCategory.id;
-
-			while(continueFlag){
+			while(offset < total){
 				optionsProductsByCategory.path = queryPath + '&offset=' + offset;
 				offset += 100;
-				if(myCategory.count-offset <= 0){
-					continueFlag = false;
-				}
 				//tmpXMLProductsCount -= 100;
 				// debugDev('optionsProductsByCategory.path = ' + optionsProductsByCategory.path);
 
-				let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
+				var getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
 
-					let tmpRawProducts = '';
-					let tmpJsonProducts;
+					var tmpRawProducts = '';
+					var tmpJsonProducts;
 
 				    res.on('data', (d) => {
 				        tmpRawProducts += d;
 				    });
 
 				    res.on('end', () => {
-				    	if(tmpRawProducts){
-					    	tmpJsonProducts = JSON.parse(tmpRawProducts);
-					    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+				    	tmpJsonProducts = JSON.parse(tmpRawProducts);
+				    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
 
-					    	if (tmpJsonProducts.requestStatus.success === true) {	    		
-					    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
-					    		// if(tmpJsonProducts.products.length < 100)	continueFlag = false
-					    		tmpJsonProducts.products.forEach( (item) => {
-							    	jsonProducts.products.push(item);
-					    		});
-					    	}
-				    	// }else{
-				    	// 	continueFlag = false
+				    	if (tmpJsonProducts.requestStatus.success === true) {	    		
+				    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
+				    		tmpJsonProducts.products.forEach( (item) => {
+						    	jsonProducts.products.push(item);
+				    		});
 				    	}
-				    	wait4GetEnd()
+				    	wait4ApiCallComplete();
 				    });
 
 				});
 
 				getProductsByCategory.end();
 				getProductsByCategory.on('error', (e) => {
-				    console.error('getProductsByXMLProducts get product error - '+e);
+				    console.error(e);
 				});
 			}
 		})
@@ -376,8 +339,6 @@ function step2GetProducts(){
 		  res.on('end', () => {
 		    try {
 				parseString(rawData, {explicitArray:false}, function (err, result) {
-					console.log('Cat - %s : Count = %s',myCategory.name,result.products.product.length);
-					myCategory.count = result.products.product.length;
 				    if(Array.isArray(result.products.product)){			    	
 				    	result.products.product.forEach( item => {
 				    		jsonProductsFromXml.products.push(item);
@@ -948,7 +909,6 @@ function step4GenerateMDBRecords(){
 							item.workspace.fields.photoPath = item.images[0].itemUrl;
 						}
 						item.workspace.fields.source = 'Marketplace';
-						item.workspace.fields.badgeTargetUrl = '';
 						
 
 						item.workspace.status = "published";
@@ -1067,7 +1027,6 @@ function step4GenerateMDBRecords(){
 							tours.workspace.fields.discount = '';
 							tours.workspace.fields.travelBefore = '';
 							tours.workspace.fields.badgeImage = '';
-							tours.workspace.fields.badgeTargetUrl = '';
 						tours.workspace.status = 'draft';
 						//tours.workspace.taxonomy = item.workspace.taxonomy; //this line doesn't work because after this line tours.workspace.taxonomy will point to the same object of item.workspace.taxonomy
 						tours.workspace.taxonomy = JSON.parse(JSON.stringify(item.workspace.taxonomy));
@@ -1418,7 +1377,7 @@ function step4GenerateMDBRecords(){
 
 //Part 1-2 - gettting MDB's current record sets
 
-let getExistingDataFromMDB = () => {
+var getExistingDataFromMDB = () => {
 
 	console.log('		--- getExistingDataFromMDB starts to get existing data from DB!');
 	//function-wide variables
@@ -1436,7 +1395,6 @@ let getExistingDataFromMDB = () => {
 			"workspace.status":1,
 			"workspace.taxonomy":1,
 			"workspace.fields.id":1,
-			"createTime":1,
 			"lastUpdateTime":1
 		};
 
@@ -1451,7 +1409,6 @@ let getExistingDataFromMDB = () => {
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
-					i.createTime = item.createTime;
 					i.lastUpdateTime = item.lastUpdateTime;
 					s.push(i);
 				});
@@ -1479,8 +1436,6 @@ let getExistingDataFromMDB = () => {
 			"workspace.fields.productPageUrl":1,
 			"workspace.fields.badgeImage":1,
 			"workspace.fields.source":1,
-			"workspace.fields.badgeTargetUrl":1,
-			"createTime":1,
 			"lastUpdateTime":1
 		};
 
@@ -1500,12 +1455,10 @@ let getExistingDataFromMDB = () => {
 					i.productPageUrl = item.workspace.fields.productPageUrl;
 					i.badgeImage = item.workspace.fields.badgeImage;
 					i.source = item.workspace.fields.source;
-					i.badgeTargetUrl = item.workspace.fields.badgeTargetUrl;
 					i.online = item.online;
 					i.version = item.version;
 					i.status = item.workspace.status;
 					i.taxonomy = item.workspace.taxonomy;
-					i.createTime = item.createTime;
 					i.lastUpdateTime = item.lastUpdateTime;
 					p.push(i);
 				});
@@ -1533,10 +1486,8 @@ let getExistingDataFromMDB = () => {
 			"workspace.fields.discount":1,
 			"workspace.fields.travelBefore":1,
 			"workspace.fields.badgeImage":1,
-			"workspace.fields.badgeTargetUrl":1,
 			"workspace.status":1,
 			"workspace.taxonomy":1,
-			"createTime":1,
 			"lastUpdateTime":1
 		};
 
@@ -1553,7 +1504,6 @@ let getExistingDataFromMDB = () => {
 						i.version = item.version;
 						i.status = item.workspace.status;
 						i.taxonomy = item.workspace.taxonomy;
-						i.createTime = item.createTime;
 						i.lastUpdateTime = item.lastUpdateTime;
 						i.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
 						i.productPageUrl = item.workspace.fields.productPageUrl;
@@ -1562,7 +1512,6 @@ let getExistingDataFromMDB = () => {
 						i.discount = item.workspace.fields.discount;
 						i.travelBefore = item.workspace.fields.travelBefore;
 						i.badgeImage = item.workspace.fields.badgeImage;
-						i.badgeTargetUrl = item.workspace.fields.badgeTargetUrl;
 						p.push(i);
 					}
 				});
@@ -1623,7 +1572,7 @@ let getExistingDataFromMDB = () => {
 
 //Part 2 - using data generated from Part 1 to deal with MDB stuff
 
-let stage2Save2MDB = () => {
+var stage2Save2MDB = () => {
 	console.log('Enter stage2Save2MDB process!');
 	if(getExistingComplete && apiCallComplete){
 		if(operateDB){
@@ -1636,7 +1585,7 @@ let stage2Save2MDB = () => {
 };
 
 //Part 2-1 - deal with tour suppliers
-let saveSuppliers2MDB = () => {
+var saveSuppliers2MDB = () => {
 
 	console.log('saveSuppliers2MDB starts to persist tour suppliers to DB!');
 	var queryParam = { "typeId" : contentTypeId.supplier };
@@ -1683,7 +1632,6 @@ let saveSuppliers2MDB = () => {
 			rzdItem.live.taxonomy = existingItem.taxonomy;
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
-			rzdItem.createTime = existingItem.createTime;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			collection.updateOne(filter, rzdItem, options)
@@ -1820,7 +1768,7 @@ let saveSuppliers2MDB = () => {
 };
 
 //Part 2-2 - deal with content type RTours
-let saveProducts2MDB = () => {
+var saveProducts2MDB = () => {
 
 	console.log('Enter saveProducts2MDB() to persist RTours to DB!');
 	let updateCount = 0;
@@ -1854,7 +1802,6 @@ let saveProducts2MDB = () => {
 			rzdItem.live.status = existingItem.status;
 			//rzdItem.workspace.status = "published";
 			//rzdItem.live.status = 'published';
-			rzdItem.createTime = existingItem.createTime;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 
 			rzdItem.workspace.fields.calendarWidgetUrl = existingItem.calendarWidgetUrl;
@@ -1863,8 +1810,6 @@ let saveProducts2MDB = () => {
 			rzdItem.live.fields.productPageUrl = existingItem.productPageUrl;
 			rzdItem.workspace.fields.badgeImage = existingItem.badgeImage;
 			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
-			rzdItem.workspace.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
-			rzdItem.live.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -1939,7 +1884,7 @@ let saveProducts2MDB = () => {
 		};
 
 		let wait4IUDComplete = () => {
-			if(updateComplete && insertComplete && putOfflineComplete){				
+			if(updateComplete && insertComplete /*&& putOfflineComplete*/){				
 				db.close();
 				fs.writeFileSync('./logs/payAttentionsOnRTours-'+targetEnv+'.log', payAttentionRToursLog);
 				debugDev('End saveProducts2MDB() !');
@@ -1972,19 +1917,15 @@ let saveProducts2MDB = () => {
 				}				
 			});
 			if(!putOnline){
-				if(existingItem.productPageUrl){
-					let ppu = existingItem.productPageUrl.split('.');
-					if(ppu[1] === 'rezdy'){ //add this if statement because if this Rezdy tour is selling on TourCMS, then we don't need to put it off-line
-						if(ppu[0] !== 'https://bookur'){ //added this because of full payment to supplier tour. Record it down.
-							payAttentionRToursLog += 'Not to Put Off-line because productPageUrl does not equal to "bookur.rezdy.com", RTour - ' + existingItem.text + ' - Product Code = ' + existingItem.productCode + '\n';
-						} else {
-							pPutOfflineRecords.push(existingItem);						
-						}
+				let ppu = existingItem.productPageUrl.split('.');
+				if(ppu[1] === 'rezdy'){ //add this if statement because if this Rezdy tour is selling on TourCMS, then we don't need to put it off-line
+					if(ppu[0] !== 'https://bookur'){ //added this because of full payment to supplier tour. Record it down.
+						payAttentionRToursLog += 'Not to Put Off-line because productPageUrl does not equal to "bookur.rezdy.com", RTour - ' + existingItem.text + ' - Product Code = ' + existingItem.productCode + '\n';
 					} else {
-						payAttentionRToursLog += 'This RTour is not going to be put off-line because its booking engine has been changed, RTour - ' + existingItem.text + ' - Product Code = ' + existingItem.productCode + '\n';
+						pPutOfflineRecords.push(existingItem);						
 					}
 				} else {
-						pPutOfflineRecords.push(existingItem);						
+					payAttentionRToursLog += 'This RTour is not going to be put off-line because its booking engine has been changed, RTour - ' + existingItem.text + ' - Product Code = ' + existingItem.productCode + '\n';
 				}
 			}			
 		});
@@ -2064,12 +2005,11 @@ let saveToursProducts2MDB = () => {
 			rzdItem.online = existingItem.online;
 			// rzdItem.online = true;
 			rzdItem.version = existingItem.version;
-			rzdItem.createTime = existingItem.createTime;
-			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 			rzdItem.workspace.taxonomy = existingItem.taxonomy;
 			rzdItem.live.taxonomy = existingItem.taxonomy;
 			rzdItem.workspace.status = existingItem.status;
 			rzdItem.live.status = existingItem.status;
+			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
 			rzdItem.workspace.fields.marketplace = existingItem.marketplace;
 			rzdItem.live.fields.marketplace = existingItem.marketplace;
 			rzdItem.workspace.fields.promotionCode = existingItem.promotionCode;
@@ -2084,8 +2024,6 @@ let saveToursProducts2MDB = () => {
 			rzdItem.live.fields.productPageUrl = existingItem.productPageUrl;
 			rzdItem.workspace.fields.badgeImage = existingItem.badgeImage;
 			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
-			rzdItem.workspace.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
-			rzdItem.live.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
@@ -2158,11 +2096,10 @@ let saveToursProducts2MDB = () => {
 		};
 
 		let wait4IUDComplete = () => {
-			if(updateComplete && insertComplete && putOfflineComplete){				
+			if(updateComplete && insertComplete /*&& putOfflineComplete*/){				
 				db.close();
 				fs.writeFileSync('./logs/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
-				putToursOfflineBasedOnCat(pPutOfflineRecords)
-				// console.log('*** Suppliers and Products upsert completed including taxonomies ***');
+				console.log('*** Suppliers and Products upsert completed including taxonomies ***');
 
 				// let getGeoInfoFromGMap = require('./getGeoInfoFromGMap.js');
 				// getGeoInfoFromGMap.run(targetEnv, dbOPSwitch);
@@ -2196,12 +2133,8 @@ let saveToursProducts2MDB = () => {
 			});
 			if(!putOnline){
 				if(existingItem.marketplace === 'Rezdy'){
-					if(existingItem.productPageUrl){
-						if(existingItem.productPageUrl.split('.')[0] !== 'https://bookur'){ //added because full payment to supplier tour has been dropped. they need to be recorded down.
-							payAttentionToursLog += 'Not to Put Off-line because productPageUrl does not equal to "bookur.rezdy.com", Tour - ' + existingItem.text + ' - Marketplace = ' + existingItem.marketplace + ' - Product Code = ' + existingItem.productCode + '\n';
-						} else {
-							pPutOfflineRecords.push(existingItem);
-						}
+					if(existingItem.productPageUrl.split('.')[0] !== 'https://bookur'){ //added because full payment to supplier tour has been dropped. they need to be recorded down.
+						payAttentionToursLog += 'Not to Put Off-line because productPageUrl does not equal to "bookur.rezdy.com", Tour - ' + existingItem.text + ' - Marketplace = ' + existingItem.marketplace + ' - Product Code = ' + existingItem.productCode + '\n';
 					} else {
 						pPutOfflineRecords.push(existingItem);
 					}
@@ -2251,252 +2184,6 @@ let saveToursProducts2MDB = () => {
 
 	});
 };
-
-//Part 3 - to deal with those which has been put into the Category "Off-line temporarily"
-
-let putToursOfflineBasedOnCat = (alreadyPutOff) => {
-	let total = 0;
-	let toursInPutOfflineCatPAST = []
-	let toursInPutOfflineCatCURR = []
-	let putOffLog = '*** Put Off-line Tours ***\n'
-	let putOnLog = '*** Put On-line Tours ***\n'
-
-	if(fs.existsSync('./mapping/toursInPutOfflineCatPAST-'+ targetEnv +'.json')){
-		toursInPutOfflineCatPAST = require('./mapping/toursInPutOfflineCatPAST-'+ targetEnv +'.json')
-	}
-
-	let step1 = () => {
-		let xmlProductGetByCategoryUrl = 'https://bookur.rezdy.com/catalog/' + catOfflineTemp.id + '/' + catOfflineTemp.name.toLowerCase() + '?format=xml';
-		//debugDev('xmlProductGetByCategoryUrl = ' + xmlProductGetByCategoryUrl);
-
-		https.get(xmlProductGetByCategoryUrl, (res) => {
-		  const statusCode = res.statusCode;
-		  const contentType = res.headers['content-type'];
-
-		  let error;
-		  if (statusCode !== 200) {
-		    error = new Error(`XML Request Failed.\n` +
-		                      `Status Code: ${statusCode}`);
-		  } else if (!/^text\/xml/.test(contentType)) {
-		    error = new Error(`Invalid content-type.\n` +
-		                      `Expected text/xml but received ${contentType}`);
-		  }
-		  if (error) {
-		    console.log(error.message);
-		    // consume response data to free up memory
-		    res.resume();
-		    return;
-		  }
-
-		  res.setEncoding('utf8');
-		  let rawData = '';
-		  //let tmpJsonProductsFromXml;
-
-		  res.on('data', (chunk) => rawData += chunk);
-		  res.on('end', () => {
-		    try {
-				parseString(rawData, {explicitArray:false}, function (err, result) {
-					console.log('Cat - %s : Count = %s', catOfflineTemp.name, result.products.product.length);
-					total = result.products.product.length;
-				});
-				step2();
-		    } catch (e) {
-		      console.log(e.message);
-		    }
-		  });
-		}).on('error', (e) => {
-		  console.log(`Got error during getting XML RTours from my categories: ${e.message}`);
-		});		
-	}
-
-	let step2 = () => {
-		let count = Math.ceil(total/100);
-		let wait4GetEnd = () => {
-			count--
-			if(!count){
-				step3()
-			}
-		}
-
-		let optionsProductsByCategory = {	
-		    host : conf.host,
-		    port : conf.port,
-		    method : 'GET',
-		    headers: conf.headers
-		}
-
-		let continueFlag = true
-		let offset = 0
-		let queryPath = conf.path + '/products/marketplace?apiKey=' + conf.apiKey + '&category=' + catOfflineTemp.id
-
-		while(continueFlag){
-			optionsProductsByCategory.path = queryPath + '&offset=' + offset;
-			offset += 100;
-			if(total-offset <= 0){
-				continueFlag = false;
-			}
-
-			let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
-
-				let tmpRawProducts = ''
-				let tmpJsonProducts = {}
-
-			    res.on('data', (d) => {
-			        tmpRawProducts += d
-			    });
-
-			    res.on('end', () => {
-			    	if(tmpRawProducts){
-				    	tmpJsonProducts = JSON.parse(tmpRawProducts);
-				    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
-
-				    	if (tmpJsonProducts.requestStatus.success === true) {	    		
-				    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
-				    		tmpJsonProducts.products.forEach( (item) => {
-						    	toursInPutOfflineCatCURR.push({text:item.name, productCode:item.productCode});
-				    		});
-				    	}
-			    	}
-			    	wait4GetEnd()
-			    });
-
-			});
-
-			getProductsByCategory.end();
-			getProductsByCategory.on('error', (e) => {
-			    console.error('putToursOfflineBasedOnCat Get Tours Error - '+e);
-			});
-		}
-	}
-
-	let step3 = () => {
-		MongoClient.connect(mdbUrl, (err, db) => {
-			if(null === err){
-				console.log("Part 3: putToursOfflineBasedOnCat Connected successfully to server")
-			}else{
-				console.log('Connect to db error - ' + err)
-				return
-			}
-
-			let collection = db.collection('Contents')
-			let toursInPutOfflineCatPASTCount = toursInPutOfflineCatPAST.length
-			let toursInPutOfflineCatCURRCount = toursInPutOfflineCatCURR.length
-
-			let wait4AllPutEnd = () => {
-				if(!toursInPutOfflineCatCURRCount && !toursInPutOfflineCatPASTCount){
-					db.close()
-					fs.writeFileSync('./logs/putToursOfflineBasedOnCat-Put Off'+targetEnv+'.log', putOffLog)
-					fs.writeFileSync('./logs/putToursOfflineBasedOnCat-Put On'+targetEnv+'.log', putOnLog)
-					fs.writeFileSync('./mapping/toursInPutOfflineCatPAST-'+ targetEnv +'.json', JSON.stringify(toursInPutOfflineCatCURR))
-					console.log('*** Suppliers and Products upsert completed including taxonomies ***')
-
-					runExternalScripts()
-				}
-			}
-
-			let wait4PutOff = () => {
-				toursInPutOfflineCatCURRCount--
-				if(!toursInPutOfflineCatCURRCount){
-					wait4AllPutEnd()
-				}
-			}
-
-			let wait4PutOn = () => {
-				toursInPutOfflineCatPASTCount--
-				if(!toursInPutOfflineCatPASTCount){
-					wait4AllPutEnd()
-				}
-			}
-
-			toursInPutOfflineCatCURR.forEach( curr => {
-				let putOff = true;
-				toursInPutOfflineCatPAST.forEach( past => {
-					if(curr.productCode === past.productCode)	putOff = false
-				})
-
-				if(putOff){
-					let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : curr.productCode};
-					let options = {};
-					let updates = {$set:{online:false}};
-
-					collection.updateOne(filter, updates, options)
-						.then( (r) => {
-							putOffLog += 'Tours - ' + curr.text + ', Product Code - ' + curr.productCode + ', has been put off-line.\n'
-							wait4PutOff()
-							// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
-							// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
-						})
-						.catch( (e) => {
-							console.log("putToursOfflineBasedOnCat put off-line action Error = " + e);
-						});
-				}else{
-					wait4PutOff()
-				}
-			})
-
-			toursInPutOfflineCatPAST.forEach( past => {
-				let putOn = true;
-				toursInPutOfflineCatCURR.forEach( curr => {
-					if(past.productCode === curr.productCode)	putOn = false
-				})
-
-				if(putOn){
-					alreadyPutOff.forEach( aPutOff => {
-						if(past.productCode === aPutOff.productCode) putOn = false
-					})
-				}
-
-				if(putOn){
-					let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : past.productCode};
-					let options = {};
-					let updates = {$set:{online:true}};
-
-					collection.updateOne(filter, updates, options)
-						.then( (r) => {
-							putOnLog += 'Tours - ' + past.text + ', Product Code - ' + past.productCode + ', has been put off-line.\n'
-							wait4PutOn()
-							// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
-							// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
-						})
-						.catch( (e) => {
-							console.log("putToursOfflineBasedOnCat put off-line action Error = " + e);
-						});
-				}else{
-					wait4PutOn()
-				}
-			})
-		})
-	}
-
-	step1()
-}
-
-//Part 4 - execute getGeoInfoFromGMap.js and updateTourTXByGeoInfo.js
-
-let runExternalScripts = () => {
-	console.log('runExternalScripts Starting.....')
-	let args = []
-	let options = {}
-
-	args.push(targetEnv)
-	args.push(dbOPSwitch)
-	options.execArgv = execArgv.slice()
-
-	buUtil.runScript('./getGeoInfoFromGMap.js', args, options, err => {
-		if(err)	
-			throw err
-		else {
-			console.log('--- Run getGeoInfoFromGMap.js Completed!')
-			buUtil.runScript('./updateTourTXByGeoInfo.js', args, options, err => {
-				if(err)
-					throw err
-				else {
-					console.log('--- Run updateTourTXByGeoInfo.js Completed!')
-				}
-			})
-		}
-	})
-}
 
 //Start
 
