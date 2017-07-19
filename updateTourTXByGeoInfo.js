@@ -12,8 +12,10 @@ var ObjectID = require('mongodb').ObjectID;
 let buUtil = require('./lib/bookurUtil.js')
 
 //for standalone execution
+let execArgv = process.execArgv;
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
+
 console.log('getGeoInfoFromGMap - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s', process.execArgv, targetEnv, dbOPSwitch);
 
 
@@ -32,6 +34,7 @@ let ctnProjection = {'_id':1, 'text': 1, 'workspace':1};
 let txVocId = {}, txTermsId = {}, ctnTypeId = {}, contents = {};
 
 //base configuration
+let toursGeoCoded = [];
 let toursWithCoordinate = [];
 let toursWithCityCountryCode = [];
 var toursWithCoordinateCount = 0, 
@@ -70,10 +73,10 @@ let main = () => {
 				txVocId = vocs;
 				txTermsId = terms;
 				if(!txnmyInserted){
-					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-txTermsId-'+ targetEnv +'.json', JSON.stringify(txTermsId));
+					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-txTermsId-' + targetEnv +'.json', JSON.stringify(txTermsId));
 					processingTaxonomy();					
 				} else {
-					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-txTermsId-'+ targetEnv +'-afterInserting.json', JSON.stringify(txTermsId));
+					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-txTermsId-' + targetEnv +'-afterInserting.json', JSON.stringify(txTermsId));
 					processingTours();
 				}
 			});
@@ -173,11 +176,11 @@ let main = () => {
 				insertionReadyCount--;
 				if(0 === insertionReadyCount){
 					if(!operateDB){
-						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4DepartFromDBRecords'+ targetEnv +'.json', JSON.stringify(newTerms4DepartFromDBRecords));
-						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4NeighborhoodDBRecords'+ targetEnv +'.json', JSON.stringify(newTerms4NeighborhoodDBRecords));
-						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4IsoWorldRegionDBRecords'+ targetEnv +'.json', JSON.stringify(newTerms4IsoWorldRegionDBRecords));
-						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4StateDBRecords'+ targetEnv +'.json', JSON.stringify(newTerms4StateDBRecords));
-						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4CountryDBRecords'+ targetEnv +'.json', JSON.stringify(newTerms4CountryDBRecords));
+						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4DepartFromDBRecords' + targetEnv +'.json', JSON.stringify(newTerms4DepartFromDBRecords));
+						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4NeighborhoodDBRecords' + targetEnv +'.json', JSON.stringify(newTerms4NeighborhoodDBRecords));
+						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4IsoWorldRegionDBRecords' + targetEnv +'.json', JSON.stringify(newTerms4IsoWorldRegionDBRecords));
+						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4StateDBRecords' + targetEnv +'.json', JSON.stringify(newTerms4StateDBRecords));
+						fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - newTerms4CountryDBRecords' + targetEnv +'.json', JSON.stringify(newTerms4CountryDBRecords));
 					}
 					if(operateDB){
 						if(txnmyInserted){
@@ -438,14 +441,14 @@ let main = () => {
 			var wait4toursWithCoordinateComplete = () => {
 				toursWithCoordinateCount--;
 				if(toursWithCoordinateCount === 0){
-					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCoordinate-'+ targetEnv +'.json', JSON.stringify(toursWithCoordinate));
+					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCoordinate-' + targetEnv +'.json', JSON.stringify(toursWithCoordinate));
 					wait4AllToursComplete();
 				}
 			};
 			var wait4toursWithCityCountryCodeComplete = () => {
 				toursWithCityCountryCodeCount--;
 				if(toursWithCityCountryCodeCount === 0){
-					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCityCountryCode-'+ targetEnv +'.json', JSON.stringify(toursWithCityCountryCode));
+					fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCityCountryCode-' + targetEnv +'.json', JSON.stringify(toursWithCityCountryCode));
 					wait4AllToursComplete();
 				}
 			};
@@ -714,11 +717,16 @@ let main = () => {
 				if(0 === allToursReadyCount){
 					db.close();
 					toursUpdateLog += 'Total Updating Count = ' + toursUpdateLogCount;
-					fs.writeFileSync('./logs/UpdateTourTXByGeoInfo - updateLog - '+ targetEnv + '.log', toursUpdateLog);
+					fs.writeFileSync('./logs/UpdateTourTXByGeoInfo-updateLog-' + targetEnv + '.log', toursUpdateLog);
 					if(!operateDB){
-						fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCoordinateDBRecords - '+ targetEnv + '.json', JSON.stringify(toursWithCoordinateDBRecords));
-						fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCityCountryCodeDBRecords - '+ targetEnv + '.json', JSON.stringify(toursWithCityCountryCodeDBRecords));
+						fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCoordinateDBRecords-' + targetEnv + '.json', JSON.stringify(toursWithCoordinateDBRecords));
+						fs.writeFileSync('./datafiles/UpdateTourTXByGeoInfo-toursWithCityCountryCodeDBRecords-' + targetEnv + '.json', JSON.stringify(toursWithCityCountryCodeDBRecords));
 					}
+
+					if(operateDB){
+						fs.writeFileSync('./mapping/toursGeoCoded-' + targetEnv + '.json', JSON.stringify(toursGeoCoded));
+					}
+
 					console.log(' *************************************************************************************************');
 					console.log(' *** Taxonomies iso world region, State / Province, Country, City have been set to Tours ***');
 					console.log(' *************************************************************************************************');
@@ -755,6 +763,7 @@ let main = () => {
 									debugDev('Modified Count = ' + r.modifiedCount+', Total Modified Count = ' + r.result.nModified);
 									toursUpdateLog += 'Tour - ' + tour.text + ' - Updated!\n';
 									toursUpdateLogCount++;
+									toursGeoCoded.push(tour._id);
 									wait4toursWithCoordinateComplete();
 								})
 								.catch((e) => {
@@ -790,6 +799,7 @@ let main = () => {
 									debugDev('Modified Count = ' + r.modifiedCount+', Total Modified Count = ' + r.result.nModified);
 									toursUpdateLog += 'Tour - ' + tour.text + ' - Updated!\n';
 									toursUpdateLogCount++;
+									toursGeoCoded.push(tour._id);
 									wait4toursWithCityCountryCodeComplete();
 								})
 								.catch((e) => {
@@ -815,23 +825,29 @@ let main = () => {
 	})
 }
 
-//DB definition/value
-//
-// exports.run = (tEnv, dbOPS) => {
-// 	dbOPSwitch = dbOPS;
 buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
-// buUtil.getMongoDBUrl(tEnv, dbOPS, (env, op, mUrl) => {
 	targetEnv = env;
 	operateDB = op;
 	mdbUrl = mUrl;
 
-	if(fs.existsSync('./mapping/toursWithCoordinate-'+ targetEnv +'.json')){
-		toursWithCoordinate = require('./mapping/toursWithCoordinate-'+ targetEnv +'.json');	
+	if(fs.existsSync('./datafiles/toursWithCoordinate-' + targetEnv +'.json')){
+		toursWithCoordinate = require('./datafiles/toursWithCoordinate-' + targetEnv +'.json');	
 	}
 
-	if(fs.existsSync('./mapping/toursWithCityCountryCode-'+ targetEnv +'.json')){
-		toursWithCityCountryCode = require('./mapping/toursWithCityCountryCode-'+ targetEnv +'.json');	
+	if(fs.existsSync('./datafiles/toursWithCityCountryCode-' + targetEnv +'.json')){
+		toursWithCityCountryCode = require('./datafiles/toursWithCityCountryCode-' + targetEnv +'.json');	
 	}
+	if(fs.existsSync('./mapping/toursGeoCoded-' + targetEnv +'.json')){
+		toursGeoCoded = require('./mapping/toursGeoCoded-' + targetEnv +'.json');
+	}
+
+	//for the first time execution
+	// toursWithCoordinate.forEach(tour => {
+	// 	toursGeoCoded.push(tour._id)
+	// })
+	// toursWithCityCountryCode.forEach(tour => {
+	// 	toursGeoCoded.push(tour._id)
+	// })
 
 	main()
 })

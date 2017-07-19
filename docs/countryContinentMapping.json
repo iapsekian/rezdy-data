@@ -950,6 +950,11 @@
                 "continentName": "Europe"
             },
             {
+                "countryCode": "XS",
+                "countryName": "Serbia",
+                "continentName": "Europe"
+            },
+            {
                 "countryCode": "RU",
                 "countryName": "Russia",
                 "continentName": "Europe"

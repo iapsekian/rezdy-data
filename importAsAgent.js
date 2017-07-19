@@ -2057,6 +2057,45 @@ let saveToursProducts2MDB = () => {
 
 		let collection = db.collection('Contents');
 
+		let wait4IUDComplete = () => {
+			if(updateComplete && insertComplete && putOfflineComplete){				
+				db.close();
+				fs.writeFileSync('./logs/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
+				putToursOfflineBasedOnCat(pPutOfflineRecords)
+				// console.log('*** Suppliers and Products upsert completed including taxonomies ***');
+
+				// let getGeoInfoFromGMap = require('./getGeoInfoFromGMap.js');
+				// getGeoInfoFromGMap.run(targetEnv, dbOPSwitch);
+			}
+		};
+
+		let wait4UpdateProductComplete = () => {
+			updateCount--;
+			debugDev('updateCount = ' + updateCount);
+			if(0 === updateCount){
+				updateComplete = true;
+				wait4IUDComplete();
+			}
+		};
+
+	    let wait4InsertProductComplete = () =>{
+	    	insertCount--;
+			debugDev('wait4InsertProductComplete insertCount = ' + insertCount);
+	    	if(0 === insertCount){
+	    		insertComplete = true;
+	    		wait4IUDComplete();
+	    	}
+	    };
+
+		let wait4PutOfflineProductComplete = () => {
+			putOfflineCount--;
+			debugDev('Tours putOfflineCount = ' + putOfflineCount);
+			if(0 === putOfflineCount){
+				putOfflineComplete = true;
+				wait4IUDComplete();
+			}
+		};
+			
 		let updateProduct = (rzdItem, rzdIndex, existingItem) => {
 			let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			let options = {};
@@ -2096,15 +2135,6 @@ let saveToursProducts2MDB = () => {
 				.catch( (e) => {
 					console.log("Error = " + e);
 				});
-
-			let wait4UpdateProductComplete = () => {
-				updateCount--;
-				debugDev('updateCount = ' + updateCount);
-				if(0 === updateCount){
-					updateComplete = true;
-					wait4IUDComplete();
-				}
-			};
 		};
 
 		let insertProduct = (rzdItem, rzdIndex) => {
@@ -2121,15 +2151,6 @@ let saveToursProducts2MDB = () => {
 	    		.catch( (e) => {
 	    			console.log('Error = ' + e);
 	    		});
-
-		    let wait4InsertProductComplete = () =>{
-		    	insertCount--;
-				debugDev('wait4InsertProductComplete insertCount = ' + insertCount);
-		    	if(0 === insertCount){
-		    		insertComplete = true;
-		    		wait4IUDComplete();
-		    	}
-		    };
 		};
 
 		let putOfflineProduct = (existingItem, existingIndex) => {
@@ -2146,27 +2167,6 @@ let saveToursProducts2MDB = () => {
 				.catch( (e) => {
 					console.log("Error = " + e);
 				});
-
-			let wait4PutOfflineProductComplete = () => {
-				putOfflineCount--;
-				debugDev('Tours putOfflineCount = ' + putOfflineCount);
-				if(0 === putOfflineCount){
-					putOfflineComplete = true;
-					wait4IUDComplete();
-				}
-			};
-		};
-
-		let wait4IUDComplete = () => {
-			if(updateComplete && insertComplete && putOfflineComplete){				
-				db.close();
-				fs.writeFileSync('./logs/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
-				putToursOfflineBasedOnCat(pPutOfflineRecords)
-				// console.log('*** Suppliers and Products upsert completed including taxonomies ***');
-
-				// let getGeoInfoFromGMap = require('./getGeoInfoFromGMap.js');
-				// getGeoInfoFromGMap.run(targetEnv, dbOPSwitch);
-			}
 		};
 
 		//seperate insert & update
@@ -2478,22 +2478,15 @@ let runExternalScripts = () => {
 	let args = []
 	let options = {}
 
+	options.execArgv = execArgv.slice()
 	args.push(targetEnv)
 	args.push(dbOPSwitch)
-	options.execArgv = execArgv.slice()
 
 	buUtil.runScript('./getGeoInfoFromGMap.js', args, options, err => {
 		if(err)	
 			throw err
 		else {
-			console.log('--- Run getGeoInfoFromGMap.js Completed!')
-			buUtil.runScript('./updateTourTXByGeoInfo.js', args, options, err => {
-				if(err)
-					throw err
-				else {
-					console.log('--- Run updateTourTXByGeoInfo.js Completed!')
-				}
-			})
+			console.log('******** All External Scripts have been executed! *******')
 		}
 	})
 }

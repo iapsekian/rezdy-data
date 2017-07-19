@@ -1,0 +1,66 @@
+{
+	"City": [
+		{
+			"title": "Paris....",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "",
+			"country": "France",
+			"image": "https://bookur.com/dam....."
+		},
+		{
+			"title": "Paris....",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "",
+			"country": "France",
+			"image": "https://bookur.com/dam....."
+		},
+	],
+	"Attraction": [
+		{
+			"title": "Eifort Tower",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "Paris",
+			"country": "France",
+			"image": "https://bookur.com/dam....."
+		},
+		{
+			"title": "Eifort Tower",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "Paris",
+			"country": "France",
+			"image": "https://bookur.com/dam....."
+		},
+	],
+	"Article": [
+		{
+			"title": "iTaiwan Wifi....",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "",
+			"country": "",
+			"image": "https://bookur.com/dam....."
+		},
+		{
+			"title": "iTaiwan Wifi....",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "",
+			"country": "",
+			"image": "https://bookur.com/dam....."
+		},
+	],
+	"Tour": [
+		{
+			"title": "5 days diving ......",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "Gran Canaria",
+			"country": "Spain",
+			"image": "http://rezdy.com/image......"
+		},
+		{
+			"title": "5 days diving ......",
+			"url": "https://bookur.com/en/region-cities/....",
+			"city": "Gran Canaria",
+			"country": "Spain",
+			"image": "http://rezdy.com/image......"
+		},
+	]
+}
