@@ -4,6 +4,7 @@
 //if you want to update taxonomy Tour Type and Tour Category, you should use another one - updateToursTXTourTypeCategory.js
 //
 //csvtojson --delimiter=';' mapping/20170704RTours.csv > mapping/rezdytours.json
+//put the csv file into ./mapping directory then this program will convert it automatically
 
 const fs = require('fs');
 const debug = require('debug');
@@ -71,7 +72,7 @@ var dataPreparation = () => {
 		'dbOPSwitch': dbOPSwitch
 	};
 
-	buUtil.getTXMap(options, (vocs,terms)=>{
+	buUtil.getTxTermsMap(options, (vocs,terms)=>{
 		txVocId = vocs;
 		txTermsId = terms;
 		wait4DataReady();
