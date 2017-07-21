@@ -34,7 +34,7 @@ buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
 
 var apiCallComplete = false;
 var getExistingComplete = false;
-let targetMyCategories = ['ALL','New All Tours'];
+let targetMyCategories = ['ALL','New All Tours','2-New All Tours'];
 
 var conf = {
     host : 'api.rezdy.com',
@@ -374,22 +374,24 @@ function step2GetProducts(){
 
 		  res.on('data', (chunk) => rawData += chunk);
 		  res.on('end', () => {
-		    try {
-				parseString(rawData, {explicitArray:false}, function (err, result) {
-					console.log('Cat - %s : Count = %s',myCategory.name,result.products.product.length);
-					myCategory.count = result.products.product.length;
-				    if(Array.isArray(result.products.product)){			    	
-				    	result.products.product.forEach( item => {
-				    		jsonProductsFromXml.products.push(item);
-			    		});				    
-				    } else {
-				    	jsonProductsFromXml.products.push(result.products.product);
-				    }
-				});
-				wait4XmlProductsGetComplete();
-		    } catch (e) {
-		      console.log(e.message);
-		    }
+		  	if(!rawData.length){
+			    try {
+					parseString(rawData, {explicitArray:false}, function (err, result) {
+						console.log('Cat - %s : Count = %s',myCategory.name,result.products.product.length);
+						myCategory.count = result.products.product.length;
+					    if(Array.isArray(result.products.product)){			    	
+					    	result.products.product.forEach( item => {
+					    		jsonProductsFromXml.products.push(item);
+				    		});				    
+					    } else {
+					    	jsonProductsFromXml.products.push(result.products.product);
+					    }
+					});
+					wait4XmlProductsGetComplete();
+			    } catch (e) {
+			      console.log(e.message);
+			    }
+			}
 		  });
 		}).on('error', (e) => {
 		  console.log(`Got error during getting XML RTours from my categories: ${e.message}`);
