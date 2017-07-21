@@ -350,7 +350,7 @@ function step2GetProducts(){
 
 		  res.on('data', (chunk) => rawData += chunk);
 		  res.on('end', () => {
-		  	if(!rawData.length){
+		  	// if(!rawData.length){
 			    try {
 					parseString(rawData, {explicitArray:false}, function (err, result) {
 						console.log('Cat - %s : Count = %s',myCategory.name,result.products.product.length);
@@ -367,7 +367,7 @@ function step2GetProducts(){
 			    } catch (e) {
 			      console.log(e.message);
 			    }
-			}
+			// }
 		  });
 		}).on('error', (e) => {
 		  console.log(`Got error during getting XML RTours from my categories: ${e.message}`);

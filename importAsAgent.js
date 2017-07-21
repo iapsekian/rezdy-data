@@ -34,7 +34,7 @@ buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
 
 var apiCallComplete = false;
 var getExistingComplete = false;
-let targetMyCategories = ['ALL','New All Tours','2-New All Tours'];
+let targetMyCategories = ['ALL','New All Tours'/*,'2-New All Tours'*/];
 
 var conf = {
     host : 'api.rezdy.com',
@@ -374,7 +374,7 @@ function step2GetProducts(){
 
 		  res.on('data', (chunk) => rawData += chunk);
 		  res.on('end', () => {
-		  	if(!rawData.length){
+		  	// if(!rawData.length){
 			    try {
 					parseString(rawData, {explicitArray:false}, function (err, result) {
 						console.log('Cat - %s : Count = %s',myCategory.name,result.products.product.length);
@@ -391,7 +391,7 @@ function step2GetProducts(){
 			    } catch (e) {
 			      console.log(e.message);
 			    }
-			}
+			// }
 		  });
 		}).on('error', (e) => {
 		  console.log(`Got error during getting XML RTours from my categories: ${e.message}`);
