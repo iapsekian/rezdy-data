@@ -196,7 +196,7 @@ function step2GetProducts(){
 				missingRecords.push(item1);
 			}
 		});
-    	fs.writeFileSync('./logs/missingRecordsBTWXmlRTours-'+targetEnv+'.json', JSON.stringify(missingRecords));
+    	fs.writeFileSync('./log/missingRecordsBTWXmlRTours-'+targetEnv+'.json', JSON.stringify(missingRecords));
 
 		jsonProducts.products.forEach( (jsonProductsItem, jsonProductsIndex) => {
 			jsonProductsFromXml.products.forEach( (jsonProductsFromXmlItem, jsonProductsFromXmlIndex) => {
@@ -1265,8 +1265,8 @@ function step4GenerateMDBRecords(){
 				if(0 === productTypeCount){
 					if(txTermMissing){
 						checkTaxonomyProductTypeComplete = false;
-						fs.writeFileSync('./logs/TXTourTypeTermsMissing-'+targetEnv+'.log', txTourTypeCheckingLog);
-						console.log('****** TX Product Type (Tour Type) terms MISSING!! Please press CTRL-C for breaking the excution then refer to the file - ./logs/TXTourTypeTermsMissing.log !! ****');
+						fs.writeFileSync('./log/TXTourTypeTermsMissing-'+targetEnv+'.log', txTourTypeCheckingLog);
+						console.log('****** TX Product Type (Tour Type) terms MISSING!! Please press CTRL-C for breaking the excution then refer to the file - ./log/TXTourTypeTermsMissing.log !! ****');
 					}else{
 						checkTaxonomyProductTypeComplete = true;
 					}
@@ -1753,7 +1753,7 @@ var saveSuppliers2MDB = () => {
 		// 	}			
 		// });
 
-		// fs.writeFileSync('./logs/suppliersToBePutOffline-'+targetEnv+'.json', JSON.stringify(sPutOfflineRecords));
+		// fs.writeFileSync('./log/suppliersToBePutOffline-'+targetEnv+'.json', JSON.stringify(sPutOfflineRecords));
 
 		//update documents to db
 		let updateCount = sUpdateRecords.length;
@@ -1822,7 +1822,7 @@ var saveProducts2MDB = () => {
 		let wait4IUDComplete = () => {
 			if(updateComplete && insertComplete && putOfflineComplete){				
 				db.close();
-				fs.writeFileSync('./logs/payAttentionsOnRTours-'+targetEnv+'.log', payAttentionRToursLog);
+				fs.writeFileSync('./log/payAttentionsOnRTours-'+targetEnv+'.log', payAttentionRToursLog);
 				debugDev('End saveProducts2MDB() !');
 				saveToursProducts2MDB();
 			}
@@ -1997,7 +1997,7 @@ var saveProducts2MDB = () => {
 
 		//put deleted tours offline
 		let putOfflineCount = pPutOfflineRecords.length;
-		fs.writeFileSync('./logs/rToursToBePutOffline-'+targetEnv+'.json', JSON.stringify(pPutOfflineRecords));
+		fs.writeFileSync('./log/rToursToBePutOffline-'+targetEnv+'.json', JSON.stringify(pPutOfflineRecords));
 		debugDev('init putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
 			pPutOfflineRecords.forEach( (pdItem,pdIndex) => {
@@ -2035,7 +2035,7 @@ let saveToursProducts2MDB = () => {
 		let wait4IUDComplete = () => {
 			if(updateComplete && insertComplete && putOfflineComplete){				
 				db.close();
-				fs.writeFileSync('./logs/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
+				fs.writeFileSync('./log/payAttentionOnTours-'+targetEnv+'.log', payAttentionToursLog);
 				console.log('*** Suppliers and Products upsert completed including taxonomies ***');
 
 				runExternalScripts()
@@ -2207,7 +2207,7 @@ let saveToursProducts2MDB = () => {
 		}
 
 		putOfflineCount = pPutOfflineRecords.length;
-		fs.writeFileSync('./logs/toursToBePutOffline-'+targetEnv+'.json', JSON.stringify(pPutOfflineRecords));
+		fs.writeFileSync('./log/toursToBePutOffline-'+targetEnv+'.json', JSON.stringify(pPutOfflineRecords));
 		debugDev('init Tours putOfflineCount = ' + putOfflineCount);
 		if(0 !== putOfflineCount){
 			pPutOfflineRecords.forEach( (pdItem,pdIndex) => {
