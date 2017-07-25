@@ -1,33 +1,747 @@
 Tour Code,Themes,Tour Destination,Price
-PD1NU1,"Museum,Museum,","Bob Marley Museum,Devon House,Spanish Town,Boli,Jamaica,Kingston,Mountains,Ocho Rios,Spanish Town,Caribbean,Jamaica,Ocho Rios,Georgia,",$$$
-PNRR45,"Museum,Museum,","Bob Marley Museum,Devon House,Boli,Jamaica,Kingston,Mountains,Jamaica,Georgia,",$$$
-PZARFK,"World Heritage Site,","Chile,",$$$
-PDQTC7,"Museum,","Bob Marley Museum,Devon House,Port Royal,Jamaica,Kingston,New Kingston,Jamaica,",$$$$
-P9GNMT,,"Jamaica,Plantation,Jamaica,",$$$
-PU30B3,"Museum,Sky Activities,","Jamaica,Ocho Rios,Jamaica,Ocho Rios,",$$
-PFZ8RU,"Food Tour,","Chile,",$
-PNNK6V,"National Park,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Ait Benhaddou,Chefchaouen,Koutoubia Mosque,Saadian Tombs,Casablanca,Hamm,Hassan,Marrakech,Mountains,Taourirt,Casablanca,",$$$$
-P7UPJ0,,"Montego Bay,Montego Bay,",$$
-PLEHUP,,"Jamaica,Newton,Ocho Rios,Jamaica,Ocho Rios,",$$$
-PYBMEX,,"Ocho Rios,Ocho Rios,",$$
-PG0F6D,,"Chile, Isla De Maipo, Maipo Valley",$$$
-P6GDJ7,"Outdoor Activities,","Mt Kilimanjaro National Park,Nairobi,Nakuru,",$$$$
-PZZCTG,,"Jamaica,Newton,Ocho Rios,Jamaica,Ocho Rios,",$$
-PUQFDZ,"Museum,Museum,","Bob Marley Museum,Devon House,Spanish Town,Boli,Jamaica,Kingston,Mountains,Spanish Town,Caribbean,Jamaica,Georgia,",$$$
-PSAFRK,"Outdoor Activities,","Bryggen,Sognefjord,Bergen,Oslo,Tromso,Trondheim,Bryggen,",$$$$
-PZWH0F,"Museum,","Bob Marley Museum,Devon House,Port Royal,Jamaica,Kingston,New Kingston,Jamaica,",$$$$
-PVGJ1H,,"Jamaica,Newton,Ocho Rios,Jamaica,Ocho Rios,",$$
-PV7MFX,,"Montego Bay,Montego Bay,",$$
-PWDXBL,"Museum,Museum,","Bob Marley Museum,Devon House,Falmouth,Spanish Town,Boli,Jamaica,Kingston,Mountains,Spanish Town,Caribbean,Jamaica,Georgia,",$$$
-PX6DZ3,"Food Tour,Museum,","Beaches,Beaches,Beaches,Beaches,Valparaiso,Santiago,Valparai,Valparaiso,Chile,",$$$
-PRBRHY,,"Monkey Park,Kushiro,Naga,Nagano,Tokyo,Tokyo,",$$$$
-PNWJG2,,"Montego Bay,Montego Bay,",$$
-PKGZEW,,"Jamaica,Newton,Ocho Rios,Jamaica,Ocho Rios,",$$
-P4ZDAP,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Johannesburg,Africa,South Africa,",$$
-P2EQBS,"Water Sports,Water Sports,Water Sports,World Heritage Site,","Lisbon,St John,",$$
-PBZKQW,"Water Sports,Water Sports,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Porto,Santa Maria,Bata,Lisbon,Martin,Most,Porto,Santa Maria,Portugal,",$$
-PWVYBU,,"Flores,Anda,Cadiz,City Center,Flores,Jerez de la Frontera,Reconquista,San Miguel,Santiago,Sevilla,Seville,Spain,Cadiz,",$$$
-P8CDCF,"Outdoor Activities,Outdoor Activities,Outdoor Activities,Outdoor Activities,Water Sports,","Machu Picchu,Pisa,The Sacred Valley (Urubamba River Valley),Cusco,Iquitos,Mountains,Paradise,Pisa,San Pedro,Temple,The Amazon,The Andes,Tibet,Peru,",$$$$
-PSKGRM,"Outdoor Activities,Outdoor Activities,Outdoor Activities,Outdoor Activities,Outdoor Activities,Water Sports,","Machu Picchu,Pisa,The Sacred Valley (Urubamba River Valley),Cusco,Iquitos,Most,Mountains,Paradise,Pisa,San Pedro,Temple,The Amazon,The Andes,Tibet,Peru,",$$$$
-PZHRCC,,"Budapest,Rath,Vienna,",$$$
-PKVMBE,,"Budapest,Rath,Vienna,",$$$
+POGCWN,"Outdoor Activities,","Bali,",$$
+P93TF0,,"Massa,",$$
+P16HMV,,,$$
+PSF41C,"Museum,","Port Royal,Disa,Kingston,Pali,Caribbean,",$$$
+PLFBSE,"Water Sports,","Caribbean,",$$$
+PVHCWN,,"Jamaica,Kingston,Caribbean,Jamaica,",$$$
+P29EQ0,"Sky Activities,","Jamaica,Jamaica,",$$$
+PZFW6C,,"Thailand,Langkawi,Islands,Asia,Thailand,",$$
+PPMD0H,,"Galle,Jamaica,Ocho Rios,Caribbean,Jamaica,Ocho Rios,",$$
+PPG0HR,"Water Sports,Water Sports,","Jamaica,Jamaica,",$$
+PWDH0M,,"Jamaica,Plantation,Jamaica,",$$$
+PW6U4D,,"Gardens,Jamaica,Europe,South America,Jamaica,England,Scotland,",$$
+PVZ62B,,"Rose Hall,Jamaica,Montego Bay,Jamaica,Montego Bay,",$$
+P2LTUN,,"Jamaica,Ocho Rios,Jamaica,Ocho Rios,",$$
+PN0P4C,,"Jamaica,Montego Bay,Jamaica,Montego Bay,",$$$
+P85JGT,,,$$
+PXJWFR,,,$$$$
+PYHFDP,,"Jamaica,Jamaica,",$$
+PLRVHB,,"Port Royal,Kingston,Pali,",$$
+PDNATJ,,"Plantations,Jamaica,Kingston,New Kingston,Ocho Rios,Plantation,Seville,Jamaica,Ocho Rios,",$$$$
+PMFKK9,"Outdoor Activities,","Jamaica,Ocho Rios,Caribbean,Jamaica,Ocho Rios,",$$$
+PCHGS4,"Museum,","Port Royal,Disa,Kingston,Pali,Caribbean,",$$$
+P7VKR9,,,$$$
+PJYHY5,,,$$$$
+PN1JCW,,"Blue Mountains,Mountains,",$$$
+PQADJE,,"Poros,Malaysia,",$$
+PQ4JGV,,"Barcelona,City Center,Barcelona,",$$$
+PSL1NF,"Museum,","Jamaica,Kingston,Jamaica,",$$
+P0AQQ1,"Water Sports,",St. Ann,$$
+PUZHYC,,"Falmouth,",$$
+PKNXVX,,"Falmouth,Rose Hall,Jamaica,Montego Bay,Plantation,Europe,Haiti,Jamaica,Montego Bay,",$$
+PBFX1K,,"Falmouth,Montego Bay,Ocho Rios,Montego Bay,Ocho Rios,",$
+P7GRVW,,"Jamaica,Montego Bay,Jamaica,Montego Bay,",$$
+PXE1DN,,"Seven Mile Beach,Seven Mile Beach,Jamaica,Negril,Jamaica,",$$
+PAQJWB,,"Falmouth,Montego Bay,Ocho Rios,Montego Bay,Ocho Rios,",$$
+PEAKFR,,,$$
+P10MFM,,"Plantations,Reach Falls,Jamaica,Mountains,Plantation,Portland,St Thomas,Jamaica,Portland,St Thomas,",$$$$
+PHH0RA,"Outdoor Activities,","YS Falls,Jamaica,Jamaica,",$$
+PX11U1,"Museum,","Port Royal,Disa,Kingston,Pali,Caribbean,",$$$
+PKTDWX,"Water Sports,","Caribbean,",$$$
+PL7C7C,,"Blue Mountains,Port Royal,Disa,Jamaica,Kingston,Mountains,Pali,Caribbean,Jamaica,",$$$$
+PEGAF1,,,$$
+PHHKEW,,"Langkawi,Anda,",$$$
+PC4V1H,,"Jamaica,Jamaica,",$$
+PMASZU,,"Jamaica,Montego Bay,Negril,Jamaica,Montego Bay,",$$$
+PCQWUG,"Water Sports,","Port Royal,Jamaica,Ocho Rios,Caribbean,Jamaica,Ocho Rios,",$$$
+PAMGC5,,"Botanical Gardens,Botanical Gardens,The Rocks,Ocho Rios,Ocho Rios,Botanical Garden (Orto Botanico), Padua,",$$
+P014SH,,"Jamaica,Jamaica,",$$$
+P0JFGA,,"Jamaica,Ocho Rios,Jamaica,Ocho Rios,",$
+PDY0CQ,,"Massa,Ocho Rios,Caribbean,Ocho Rios,",$$
+PNDFP2,,"Botanical Gardens,Botanical Gardens,The Rocks,Ocho Rios,Ocho Rios,Botanical Garden (Orto Botanico), Padua,",$$
+P9RMUX,,"Jamaica,Ocho Rios,Jamaica,Ocho Rios,",$$$
+PSZV3M,,,$$
+P11KP1,,"Massa,Ocho Rios,Ocho Rios,",$$
+P13LSF,,"Massa,",$$$
+PGP9XF,,"Falmouth,",$$
+P4J0LA,,"Jamaica,Jamaica,",$$
+P4D11D,"Water Sports,","Caribbean,",$$$
+PANCTE,,"Blue Mountains,Port Royal,Disa,Jamaica,Kingston,Mountains,Pali,Caribbean,Jamaica,",$$$$
+PN1411,"Museum,","National Gallery,National Gallery,Spanish Town,Galle,Jamaica,Kingston,Spanish Town,Caribbean,Jamaica,",$$$
+P0QTRY,"Museum,","Gardens,Museo de la Nacion (National Museum),National Museum,National Museum,National Museum,National Museum (Muzium Negara),Independence,Kuala Lumpur,Surprise,Malaysia,",$
+P5MASZ,"National Park,",,$$
+PNV0QV,"Outdoor Activities,","Bikaner,Dhar,Toyota,India,",$$$$
+P0TY6B,"Museum,","Jamaica,Kingston,Jamaica,",$$
+PVDMRF,,"Gardens,Jamaica,Europe,South America,Jamaica,England,Scotland,",$$
+PFGCAG,,"Jamaica,Jamaica,",$$
+PAFDU0,,"Montego Bay,Montego Bay,",$$$
+PPN6GY,,"Falmouth,",$$
+P4DKEA,,,$$
+P85C3U,,"Port Royal,Caribbean,",$$
+PLMEJN,,"Botanical Gardens,Botanical Gardens,Gardens,Bath,Boli,Jamaica,Kingston,Jamaica,Botanical Garden (Orto Botanico), Padua,",$$$
+PBCUHC,"Museum,","Bob Marley Museum,Jamaica,Jamaica,",$$
+PJFHST,,"Jamaica,Montego Bay,Ocho Rios,Jamaica,Montego Bay,Ocho Rios,",$$$
+PBWVCM,,,$$$
+P01GBE,,,$$$
+PVZAX4,"Museum,Museum,","Bob Marley Museum,Devon House,Jamaica,Kingston,Jamaica,",$$$
+P0NNHD,,"Leme,Martin,Rio de Janeiro,Windsor,Brazil,Martinique,Rio de Janeiro,",$$$$
+P1B9S1,"Outdoor Activities,","Blue Lagoon,Blue Lagoon,Jamaica,Portland,Caribbean,Jamaica,Portland,",$$$
+PKQTXR,"Outdoor Activities,","Blue Lagoon,Blue Lagoon,Jamaica,Portland,Caribbean,Jamaica,Portland,",$$$
+P4011X,,"The Old Town,Tombstone,Banda,Kuala Lumpur,Malacca,Santiago,Malaysia,",$$
+PF1URZ,,"Saga,Toyota,Udaipur,India,",$$$
+PS81VF,,"Blue Mountains,Mountains,",$$
+PAMLSS,"Outdoor Activities,","YS Falls,Jamaica,Jamaica,",$$
+PBGMP5,"Water Sports,Water Sports,","Jamaica,Jamaica,",$$
+PY009T,,"Jamaica,Ocho Rios,Caribbean,Jamaica,Ocho Rios,",$$$
+PVPQGS,,"Jamaica,Montego Bay,Ocho Rios,Jamaica,Montego Bay,Ocho Rios,",$$
+PBCY4P,,"Jamaica,Montego Bay,Jamaica,Montego Bay,",$$
+PD5RTN,,"Jamaica,Jamaica,",$$
+PD71AN,,"Ocho Rios,Ocho Rios,",$$$
+P6CUB6,,"Falmouth,Montego Bay,Ocho Rios,Montego Bay,Ocho Rios,",$$
+P5TLNF,"Museum,","Jamaica,Jamaica,",$$$
+PRDPUC,"Museum,","Bob Marley Museum,Devon House,Jamaica,Kingston,New Kingston,Jamaica,",$$$$
+PUUT0B,,,$$$
+PG0HUA,,,$$$$
+PEKZXG,,,$$
+PRTHTR,,,$$$$
+PHT3NW,,"Jamaica,Plantation,Jamaica,",$$$
+PNVHDS,,"Surprise,Tokyo,Tokyo,",$
+PWRFPF,,"Osaka,Osaka,",$$
+PYG2ZQ,,"Kyoto,",$$$
+PV01YM,,"Kyoto,",$$
+P0BS0W,,"Kyoto,",$
+PBFZLD,,"Tokyo,Tokyo,",$
+P1N130,,"Japan,",$
+PBG1Y0,,,$$
+PZWVEW,,,$$
+PWQSDZ,,"Osaka,Osaka,",$$
+PU5YW0,,"Sapporo,",$$
+PMQFEA,,"Tokyo,Tokyo,",$$
+PSFF59,,,$$
+PXKJFR,,"Kyoto,Saga,",$$$
+P90L02,,,$$
+P8UNK1,,"Kyoto,",$$$
+PXPGG8,,"Kyoto,",$
+PWS3KX,,,$$
+P63N5X,,"Kamina,Tokyo,Tokyo,",$$
+P6PJBP,,"Tokyo,Japan,Tokyo,",$$$$
+PZQUJW,,"Osaka,Osaka,",$$
+PDE1WQ,,,$
+PQKNY1,,,$
+P3TCRS,,,$
+PSP8EZ,,"Japan,",$
+PNPYNC,,,$$
+PQXTVH,,,$
+PANAMZ,,"Temple,",$$
+PZ8MR7,,"Islands,Zhoushan,",$$$
+PWG7JX,,"Sapporo,",$$$$
+PR7LTV,,"Metro,Tokyo,Tokyo,",$
+PRU6FQ,,"Kyoto,Shimoga,",$$
+PBTBT5,,,$$
+PSE80K,,"Shanghai,Suzhou,China,Italy,",$$$
+PE49CQ,,"Shanghai Hongqiao Airport,Fuji,Guiyang,Shanghai,Xiamen,",$$$$
+PEM34B,,,$$
+PBP1WX,,"Philippines,",$$
+PMSL0V,"Sky Activities,","Wilderness,Mountains,",$$$
+P2BGT6,,,$$
+PXP7BE,,,$$
+PEK1RB,,"Tokyo,Tokyo,",$$
+PY4GTK,,"Kyoto,",$$
+PU01W5,,"Toki,",$$
+PP0X0N,,,$$$
+PFEM5R,,,$$$
+PRJDJH,,,$$
+PH8NVL,,,$$$
+PK0HMQ,,,$$
+PG1EBA,,"Tokyo,Tokyo,",$
+PXQBMU,,"Tokyo,Tokyo,",$
+P4BH33,,,$$
+PJZUAQ,,"Metro,Tokyo,Tsukuba,Tokyo,",$
+PUAZC0,"World Heritage Site,World Heritage Site,",,$$
+PQ1N3N,,,$
+P9HBBE,,"Orange,Los Angeles,Oran,Orange,",$$$
+PR2F4M,,"Temple,",$$$
+PL7VZE,,"Shenyang,Asia,China,",$$$
+PWK8AF,,,$
+PW2BEV,,,$$$$
+P11EJZ,"Museum,Outdoor Activities,","Grand Canal,Grand Canyon,Grand Mosque,Aksu,Kashgar,Mountains,Turpan,Xinji,Asia,China,Pakistan,Grand Canyon National Park,The Great Wall,",$$$$
+PUVV00,"Food Tour,","Grand Place (Central Square),Forbidden City,Great Mosque,Old Quarter,Qin Terracotta Army Museum,Beijing,Guilin,Kunming,Warri,Yangshuo,China,",$$$$
+PUVCDH,,"Shanghai,",$$$$
+P8UR1V,,"Guilin,Yangshuo,",$$$$
+P5FEJB,,,$$$$
+PUZJDV,,"Langkawi,",$$$$
+PBWQ9T,,"Kuala Lumpur,",$$$$
+PRTSL0,,"Langkawi,Plantations,Anda,Plantation,",$
+PU01HQ,,"China,",$$$$
+PU4VES,,"Malaysia,",$$
+PFQPLY,,"Yarra River,Luxu,Australia,",$$$$
+PH1VHQ,,"Rose Hall,Jamaica,Montego Bay,Jamaica,Montego Bay,",$$
+PJBPCP,"World Heritage Site,","Baoshan,China,",$$$$
+P1FQCN,,"Ordos,China,",$$$$
+PE0GN1,,"Guilin,Mountains,Shanghai,",$$$$
+PV0V5K,,"Sanya,China,",$$$$
+P0S9Q5,"Outdoor Activities,",,$
+PGRWBX,,"Banda,Colombo,Sri Lanka,",$
+PQQQPQ,"Museum,","Great Mosque,Shanghai Museum,Tiananmen Square,Beijing,Datong,Kunming,Riverside,Shanghai,Temple,Mount Wutai,",$$$$
+PNRWF5,,,$$
+PVMVCT,,"Temple,",$$$$
+PHX8BN,"Outdoor Activities,Outdoor Activities,","Iquitos,Tibet,Peru,",$$$$
+PUFZCE,,"Da Nang,Mountains,",$$
+PRJUS6,"Food Tour,Food Tour,National Park,","The Beaches,The Islands,Tasmania,",$$
+P60336,,,$$
+P1ZGBU,"Food Tour,","Merced,Napa,",$$
+PN2LDT,"Museum,","Batu Caves,Little India,Museo de la Nacion (National Museum),National Museum,National Museum,National Museum,National Museum (Muzium Negara),The National Museum,Batu,Independence,Kuala Lumpur,India,Malaysia,",$$
+PEYFYJ,,"Alamo Square,Castro,Golden Gate Park,",$$
+PCDCMP,,"Kunming,",$$$$
+P6GRJC,,"Osaka,Osaka,",$$$
+PN1JSW,,"Kyoto,",$$$$
+PJNX5S,"Sky Activities,","San Diego International Airport,Downtown San Diego,Sea World,Pacific Coast,San Diego,San Diego,California,",$$$
+PEZCV1,,"Gold Coast,Newport,Newport Beach,West Coast,",$
+P5H10J,,"Langkawi,Plantations,Plantation,",$
+PYHXG1,,"Kyoto,",$
+PLBRNU,,,$
+PVXGQT,,"Nanjing,",$$$$
+PB8Y19,,"Kyoto,",$
+PSY0ES,,"Tokyo,Tokyo,",$
+PEJCTL,"Water Sports,Water Sports,Water Sports,","Anda,West Coast,Malaysia,",$$
+PFMDCY,,,$$$$
+PH1DCL,"Museum,","Shaanxi Provincial History Museum,Beijing,Dunhua,Jinjiang,Kashgar,Kunming,Mountains,Turpan,China,",$$$$
+P3UQJB,"Outdoor Activities,World Heritage Site,","Kota,Gaya,Kota,Kota Kinabalu,Mountains,Shangri-La,China,",$$$$
+PLYZWU,"Museum,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Penang International,Funicular,Colon,David,George Town,Suffolk,Peru,Colon,George Town,",$$$$
+PQT6TV,"Food Tour,Food Tour,Museum,","Downtown San Diego,Baja California,San Diego,San Diego,California,",$$$$
+PJV1QL,,"Le Mans,",$$$
+PY8041,,"Tokyo,Tokyo,",$$
+PKZ0VR,,,$$
+PRYE0W,,"Beijing,Chongqing,Shanghai,Yichang,China,",$$$$
+P4ZHFY,,"Kuala Lumpur,Malacca,Malaysia,",$$$$
+PA1C1D,,"Kyoto,",$$$
+P8EPL8,,,$$$
+PLDU0F,,,$
+P4QW01,,"Kamina,Tokyo,Tokyo,",$$$
+PVMAU0,,"Tokyo,Japan,Tokyo,",$$$
+PCCRZQ,,,$$
+PCKCF3,,"Malaysia,",$$
+PHRBN3,,"Tokyo,Tokyo,",$$
+PZY10R,,"Tokyo,Tokyo,",$$
+P9RMQY,"Museum,","Botanical Gardens,Botanical Gardens,Gardens,Colon,Colon,Botanical Garden (Orto Botanico), Padua,",$
+PB9UE1,,"Kyoto,Saga,",$$$
+PFVV0P,"National Park,","Alcatraz,Cable Cars,Chinatown,Golden Gate Bridge,Yosemite National Park,Yosemite National Park,San Francisco,China,San Francisco,Yosemite National Park,",$$$$
+PEWQW6,,"Rose Hall,Jamaica,Montego Bay,Jamaica,Montego Bay,",$$
+PMSK1U,,"Beijing,China,",$$$$
+P50ZBQ,,"Sanya,",$$$$
+PAZ39N,,"Gion,Kyoto,Toki,",$$
+P1WBQV,,"Kyoto,",$
+PDR0ET,,"Great Wall of China,Beijing,Jinsha,Yangshuo,China,The Great Wall,",$$$$
+P48U38,,"Osaka,Osaka,",$$
+PNAAKM,,"Bais,",$$
+PW9XMY,,"Kyoto,Shimoga,Japan,",$$
+P6DQ97,,,$$
+PHVPT4,,,$$
+PAP1JW,,,$$
+PNGFMS,,,$$
+PQGLK2,,"Osaka,Japan,Osaka,",$
+PV8ZKQ,"Sky Activities,","China,",$$$
+PKNPZP,"Museum,","Qingyang,",$$
+PQK0YR,,"Yangshuo,",$$$$
+PBWWGT,,"Tokyo,Tokyo,",$$
+PNK60E,"Sky Activities,","Wilderness,Mountains,Zhangjiajie,China,",$$$
+PGX1D4,,"Osaka,Osaka,",$$
+PYLSET,,"Chengdu,Temple,",$$
+PT9MRF,,"Colombo,Negombo,",$
+PFT04X,,"Bais,Tibet,",$$$
+PR82GE,"Museum,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Penang International,Funicular,Colon,David,George Town,Suffolk,Peru,Colon,George Town,",$$$$
+PHPJM0,"Museum,","Cameron Highlands,Central Market,Central Market,Central Market,Central Market (Psah Thmay),Chinatown,Chinatown,Kota,Ubud,East Coast,Georgetown,Ipoh,Kota,Kuala Lumpur,Kuala Terengganu,Kuantan,Oran,Plantation,The East Coast,Asia,China,Malaysia,",$$$$
+PML64F,,"Little India,The Old Town,George Town,India,George Town,",$
+PUPYTQ,,"White House,Malaysia,",$$
+PNKUH6,,"Lijiang,Luxu,China,",$$$$
+P5A1MH,,"Minato,Tokyo,Tokyo,",$
+PUNBKC,,,$
+PQ23ZH,,"Chengdu,City Center,Shangri-La,",$$$$
+PPZE1X,,"Sapporo,",$$$$
+PCLLTD,,"Minato,Tokyo,Tokyo,",$$
+PQDZCC,,"Fili,",$$
+P3RTQQ,,"Kamigyo-ku,Kyoto,Japan,",$$$$
+PTD1C3,,"Temple,",$$
+PFMWCH,,,$
+PVS1NH,,"Las Vegas,Mesa,",$$$$
+PWQ1HC,,"Tokyo,Tokyo,",$$
+PFM1PY,,"Orange,Los Angeles,Oran,Orange,",$$
+PKWZ1J,,"Mountains,",$$$
+P3W01G,,"Iquitos,San Pedro,The Amazon,Venice,Peru,Venice,",$$$$
+PAZU0E,"Museum,","Hue Airport,Citadel,Old Quarter,The Perfume River,Da Nang,Hoi An,Mountains,Europe,Italy,Japan,Heavenly,Heavenly,",$$$$
+PAGSN9,,"Temple,",$$$
+PMC0AW,,"Reed Flute Cave,Guilin,",$$$$
+PBZ59F,"Food Tour,Food Tour,Water Sports,","Talat Sao (Morning Market),",$$
+PTJMZV,,"Ocho Rios,Ocho Rios,",$$
+PTWGKD,,"Beijing,Nanjing,Shanghai,China,",$$
+PDAHTX,"Outdoor Activities,Sky Activities,","China,",$$$$
+P01RL1,,"Longmen Grottoes,",$$$
+PAWQ00,,"Wilderness,Mongolia,",$$$$
+P2U1RF,,"City Center,",$$$
+P26HUV,,,$
+PE7CSQ,"Sky Activities,","Aberdeen,Avenue of Stars,Victoria,Victoria Peak,Aberdeen,Hong Kong,Kowloon,Victoria,Hong Kong,Victoria,Victoria,",$$$$
+PJ33ZP,"Museum,Museum,Museum,Museum,","Vatican City and the Sistine Chapel,Vatican City and the Sistine Chapel,Vatican City and the Sistine Chapel,Rome,Rome,",$
+PZNGWF,,"Kunming,",$$$$
+PESBKS,,,$$
+P522C9,,"Changsha,Shanghai,Zhangjiajie,Mali,",$$$$
+P55165,,"Adelaide,Darwin,",$$
+PGOTTB,,"Cambe,",$$
+P1435L,,"Lingyin Temple,Temple,",$$$$
+PP9KTX,,"The Bund,The Old Town,Shanghai,Suzhou,",$$$$
+PX16Z9,"Sky Activities,","Guilin,Mountains,Yangshuo,China,",$$$
+PUAG1N,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Forbidden City,Sydney Opera House,Tiananmen Square,",$$$
+PDVKQY,,,$
+PXGDUW,,,$$$$
+PC1Z0X,,,$$$$
+PBYY3A,,"Beijing,Temple,Tibet,China,",$$
+PUWK7E,"Museum,","Alcatraz,Ghirardelli Square,Golden Gate Bridge,Museu de Marinha (Maritime Museum),National Maritime Museum,North Beach,San Francisco,Italy,San Francisco,",$$
+PVLH0S,"Museum,World Heritage Site,","Forbidden City,Shanghai Museum,Beijing,Kunming,Lijiang,Napa,Shanghai,Shangri-La,Tibet,",$$$$
+PG40YD,,"Anaheim,Anaheim,David,",$$
+PBSDLM,,"Victoria,Beijing,Chengdu,Kunming,Leshan,Shanghai,Temple,Victoria,Yichang,China,Victoria,Victoria,The Great Wall,",$$$$
+PTRMBK,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Forbidden City,Tiananmen Square,Asia,",$$$$
+P17NDN,,,$$$$
+P956LK,"Museum,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Great Mosque,Shanghai Museum,Beijing,Colon,Kunming,Shanghai,China,Colon,",$$$$
+P9XYBG,"Museum,","Alamo Square,Gardens,Golden Gate Bridge,Golden Gate Park,Haight Ashbury,Lincoln Park,Lombard Street,Lincoln,San Francisco,China,Japan,Russia,San Francisco,",$$
+P79A0F,,"Chinatown,Little India,George Town,China,India,Malaysia,George Town,",$
+P1LNVA,,"Langkawi,Anda,",$$
+PX05FL,"Food Tour,","Chinatown,Kuala Lumpur,China,Malaysia,",$$
+PNPUDR,,"Jokhang Temple,Lhasa,Potala Palace,Lhasa,Temple,",$$$$
+P06VML,"Museum,","Most,",$$$$
+PJKERG,,"Kyoto,",$
+P60E0I,,,$$
+PBJFJS,,"Batu Caves,Little India,Batu,India,Malaysia,",$
+PXJAJL,,"Darwin,",$$$
+PCHA2F,,,$$
+PSZ1KE,,"Alcatraz,Cable Cars,Coit Tower,Golden Gate Bridge,Lombard Street,North Beach,San Francisco Maritime National Historical Park,San Francisco,Europe,Italy,Russia,San Francisco,Washington,",$$
+PZ6PHK,,,$$$$
+PMENNV,"Outdoor Activities,","Kota,Gaya,Kota,Kota Kinabalu,Shangri-La,",$$$$
+PQUTK3,,,$
+PPQSS7,"Outdoor Activities,Outdoor Activities,","Penang International,Botanical Gardens,Botanical Gardens,Funicular,Gardens,Hill Top,Bellevue,George Town,George Town,Botanical Garden (Orto Botanico), Padua,",$$$
+PXLWRA,,,$$$$
+PT717N,,"Batu Caves,Little India,Batu,India,Malaysia,",$
+PMP0PP,"Outdoor Activities,","Langkawi,Anda,",$$
+P4Q0PJ,"National Park,",,$$
+PAJLG0,"National Park,National Park,National Park,","Beaches,Beaches,Beaches,Beaches,Harbour Bridge,National Parks,Sydney Opera House,Metro,Sydney,Palm Beach,",$$$$
+PBUV1W,,"Tibet,",$$$$
+PDGV91,"Outdoor Activities,Outdoor Activities,","Kota,Kota,Kota Kinabalu,Shangri-La,",$$
+PTBTCD,"National Park,Sky Activities,Water Sports,","Death Valley National Park,Grand Canyon,The Grand Canyon,Yosemite National Park,Las Vegas,Most,San Francisco,San Francisco,Colorado,Grand Canyon National Park,",$$$$
+PDPBLS,"Water Sports,",,$$
+P0JAAW,,,$$
+PAMMVP,"Water Sports,","Langkawi,Anda,",$$
+PDVEGY,,"Miyajima,Hatsukaichi,Hiroshima,Japan,",$
+PPN04F,,"Gion,",$$$
+P9GG7U,,"Brisbane,Mountains,Sunshine Coast,Queensland,",$$
+PH6S5X,"National Park,","Bend,Gera,India,",$$
+PCPGNM,"Sky Activities,","Sanya,China,",$$$
+PQSPQP,,"Minato,Tokyo,Tokyo,",$
+PPDT1L,"Food Tour,","Sabah,Shangri-La,",$$
+PH0VTR,,,$$$
+PZPPBG,,"Jingmen,",$$$
+PMPW5C,,"Banda,Colombo,Yala,Sri Lanka,",$$$
+PVJ2BB,,"Dali,",$$$$
+PFBLQ6,,"Penang International,",$$$$
+PKHTLK,,,$$
+PQFVFP,"Museum,","Penang International,Central Market,Central Market,Central Market,Central Market (Psah Thmay),Gardens,Kota,Langkawi,Museo de la Nacion (National Museum),National Museum,National Museum,National Museum,National Museum (Muzium Negara),The National Museum,The Old Town,Tombstone,Banda,Goma,Hita,Independence,Kota,Kota Kinabalu,Kuala Lumpur,Malacca,Oran,Sabah,Sandakan,Santiago,Temple,Malaysia,",$$$$
+PLJY1M,,"Funicular,Colon,David,George Town,Malaysia,Colon,George Town,",$$
+PDBPNW,,"Funicular,George Town,Asia,George Town,",$$
+PNRXD9,"Outdoor Activities,Outdoor Activities,","Iquitos,Peru,",$$$$
+P4WMK0,,"The Perfume River,",$
+PHYLLH,,"Assis,Roman,",$$
+P7Z6P9,,"Miyajima,Hatsukaichi,Hiroshima,Japan,",$
+PP4KEL,"Museum,Museum,Museum,","Lincoln Memorial,National Gallery,National Gallery,National Gallery of Art,National Mall,US Capitol,Washington Monument,White House,Galle,Lincoln,Most,Vietnam,Washington,",$$
+P0S04Y,,,$$
+PJJRVC,,,$$
+P1ZXRK,"Museum,","Da Nang,Mountains,Vietnam,",$
+PHDLT1,,"The Old Town,Tombstone,Banda,Kuala Lumpur,Malacca,Santiago,Malaysia,",$$
+P58M90,,,$
+PJU0B1,"National Park,National Park,National Park,Outdoor Activities,Sky Activities,Water Sports,","Grand Canyon,National Parks,The Grand Canyon,Yosemite National Park,Yosemite National Park,San Francisco,San Francisco,Colorado,Grand Canyon National Park,Yosemite National Park,",$$$$
+PQO9BE,,"Golden Gate Bridge,Lombard Street,Russia,",$$
+PXUBHD,,"Los Angeles,Santa Monica,Venice,Venice,",$$
+PXK0FR,,,$$$
+PCBXFZ,"Sky Activities,World Heritage Site,","Lijiang,China,",$$$$
+P6FM64,,"Anda,Fuxin,Shanghai,Temple,",$$
+P57DLR,,"White House,Agri,Sepang,Malaysia,",$
+PEQZC2,,,$$
+PUFVG5,"Museum,","Australian War Memorial,Kota,Kota,Kota Kinabalu,Oran,Sandakan,Shangri-La,Australia,",$$$$
+POGCWN,"Outdoor Activities,","Bali,",$$
+PNACR1,,"Le Mans,",$$
+PZQP3T,,,$$
+P8KS22,"Sky Activities,","Beihai,China,",$$$
+PRB1RG,,"Colombo,",$
+PWMTWS,,,$$
+PWJX0K,,"Banda,Colombo,Sri Lanka,",$
+PY041P,,"Tokyo,Tokyo,",$
+PCTVGL,"Food Tour,","Thailand,Doi Suthep,Muay Thai,Royal Palace,Royal Palace,Royal Palace,Royal Palace (Haw Kham),Bangkok,Massa,Siem Reap,Angkor,",$$$$
+PLLS37,,"Beijing,China,",$$$$
+PSGHYM,,"Great Wall of China,Beijing,Jinsha,Yangshuo,China,The Great Wall,",$$$$
+PY0E0U,"Outdoor Activities,Outdoor Activities,","Iquitos,Tibet,Peru,",$$$$
+PZGDFT,,"Sunshine Coast,Antarctica,Antarctica,Queensland,",$$
+PIQJOM,"Museum,Museum,","Kennedy Center,Lincoln Memorial,National Archives,National Gallery,National Gallery,National Gallery of Art,National Mall,Washington Monument,Washington National Cathedral,White House,Arlington,Columbia,Galle,Hoover,Lincoln,Martin,Japan,Vietnam,Washington,",$$
+PLFJ2V,"Food Tour,","Thailand,Doi Suthep,Muay Thai,Royal Palace,Royal Palace,Royal Palace,Royal Palace (Haw Kham),Bangkok,Chia,Chiang Mai,Luang Prabang,Massa,",$$$$
+PKRVCC,"Museum,","Kentucky Derby Museum,Lexington,Derby,Kent,Lexington,Louisville,Kentucky,",$
+PMWTNS,"Museum,","Gardens,Museo de la Nacion (National Museum),National Museum,National Museum,National Museum,National Museum (Muzium Negara),Independence,Kuala Lumpur,Surprise,Malaysia,",$
+PLG1MA,"Outdoor Activities,","Dali,",$$$$
+PT70S1,,"Mountains,China,",$$$$
+P7WXUE,,"China,",$$$$
+PVBXZH,,"China,",$$
+PY4RCF,,,$$
+PZSKJW,,"Lijiang,",$$
+PH1ZEC,,"Shangri-La,Tibet,",$$$$
+P1KMV1,,"Chengdu,",$$
+PALVM7,,"Grand Canyon,Grand Canyon National Park,",$$
+PM9BDB,,"Alcatraz,Cable Cars,Coit Tower,Golden Gate Bridge,Lombard Street,North Beach,San Francisco Maritime National Historical Park,San Francisco,Europe,Italy,Russia,San Francisco,Washington,",$$$
+PCGQAT,,"Temple,",$
+PVDAKY,"Food Tour,","Merced,Napa,",$$
+PWALEW,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Lijiang,China,",$$$$
+P3UH01,,,$$$
+PTN00B,,,$$
+PCOKLH,"Outdoor Activities,","Bali,",$$
+PN0Y1U,,"Chengdu,Temple,",$$$$
+PNGKTS,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Lijiang,",$$$$
+PSEE0Z,,"Lijiang,Lima,",$$$
+PVACAM,,"Tokyo,Tokyo,",$
+PSAG3C,,"Lijiang,",$$$$
+PK7RZM,,,$$$$
+PFWD50,,"Chengdu,",$$$
+PU2G1S,,"Reed Flute Cave,City Center,Guilin,Lijiang,",$$$
+PP6EMJ,,,$$$
+PJ6CMF,"National Park,","Kuching,Sarawak,",$$
+PLAXQM,,"Mountains,China,",$$$
+PWU7XS,,"Santo Domingo,Chia,San Cristobal,San Cristobal de las Casas,Santo Domingo,Santo Domingo,",$
+PG5PW0,,"Miyajima,Hatsukaichi,Hiroshima,Japan,",$
+PZZWAP,,"Kyoto,Saga,",$$$
+PRQ0XP,,"Xi'an,",$$$
+PKG0TA,,,$$
+P3Z9DG,,"Chengdu,Temple,Tianfu,",$$$
+PB0D1M,,"Shanghai,",$$
+PL5Z40,,,$$$
+PJ1VK4,,,$
+P1BAGN,,"Leshan,Riverside,",$$$
+PVRJU0,,"Suzhou,",$$$
+PXWUWB,,"Guilin Liangjiang International Airport,Elephant Trunk Hill,Reed Flute Cave,City Center,Guilin,Hengyang,",$$$$
+PWE1WZ,,"The Bund,",$$$$
+PBT52M,"Food Tour,","Reed Flute Cave,City Center,Guilin,",$$$
+PEWN0B,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Forbidden City,Tiananmen Square,Metro,",$$$
+PHX1VR,,,$$
+PDBNL5,,"Beijing,",$$
+P5J1ZX,,"China,",$
+P5S9LB,,,$$
+PJ8SCJ,,,$$
+PJ90ME,,"Kunming,China,",$$$$
+PJUEGJ,,"Bell Tower (Campanile di San Marco),",$$$
+P58TAK,,,$$$
+P1ZY4H,,"The Bund,Shanghai,",$$
+PMDY10,,,$$
+PRT1GH,,,$$
+PTLEAR,,"The Bund,Shanghai,",$$$$
+PRSYP8,,"Shanghai,Zhuji,Zhujiajiao,",$$$
+P13EK1,,"The Bund,The Old Town,Nanjing,Shanghai,Suzhou,",$$$$
+P6EJ0F,"Food Tour,","Thailand,Doi Suthep,Muay Thai,Royal Palace,Royal Palace,Royal Palace,Royal Palace (Haw Kham),Bangkok,Massa,Siem Reap,Angkor,",$$$$
+PCYXBV,,"Lijiang,",$$
+PT65DT,,"Mountains,China,",$$$
+PL2TKL,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Forbidden City,Tiananmen Square,Beijing,Temple,",$$$$
+PKVVQJ,,"China,",$$
+P1WJUZ,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Forbidden City,Temple,",$$
+PKJERS,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Forbidden City,Tiananmen Square,Beijing,",$$$$
+PHK2Y0,"Outdoor Activities,","Jinsha,The Great Wall,",$$$
+PGSAEM,,"Chengdu,",$$
+PDMKTH,,"Beijing,",$$$
+P4E2A0,"Outdoor Activities,Outdoor Activities,Outdoor Activities,","Bend,Lijiang,",$$$$
+PKTWH7,,"Beijing,",$
+PK40PH,,,$$$$
+P0FFML,,"Jokhang Temple,Lhasa,Potala Palace,Lhasa,Temple,",$$$$
+PN9WP0,,"Lijiang,",$$$$
+PSJW2C,,"Chengdu International Airport,Chengdu,Jinjiang,Luxu,Tianfu,",$$$
+PLEAET,,"Guilin,Mountains,",$$$
+PSPJC2,,"Reed Flute Cave,White House,City Center,Guilin,",$$$$
+PUK7ST,,"Talat Sao (Morning Market),China,",$$
+PKGSMR,,"Xi'an,",$$$
+PDABZG,,"Bell Tower (Campanile di San Marco),Forest of Steles,Great Mosque,Warri,",$$$
+PG3YVW,,"Shanghai,Surprise,China,",$$$
+P1161D,,"The Bund,Shanghai,",$$$$
+PC4CVU,,"The Bund,Shanghai,",$$$
+PA041M,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,",,$$$$
+P9SUP1,,"The Great Wall,",$$$
+P1QZ8G,,"China,",$$
+PBGS58,"Outdoor Activities,Outdoor Activities,","Lhasa,Lhasa,Saga,",$$$$
+PQT1DS,,"Africa,",$$
+PQUTS0,,,$$
+PVXEYZ,,"Adelaide,",$
+P9CLUY,,"Adelaide,",$$
+PVEGVH,,,$
+PHH4VH,,,$$
+PSR8NH,,,$
+P4RJRH,,"Baja California,Mino,California,",$$
+PLGTYQ,,"Cabo,Cabo San Lucas,",$$
+P02NBM,"Water Sports,Water Sports,","Cabo,Colon,Cabo San Lucas,Colon,",$$
+PNKCEL,,"Merced,",$$
+PBZTRM,,"Merced,Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+PHLP3Z,,"Merced,Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+PFL01W,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PXBRWJ,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+P1LS8N,,"Mexico City,Mexico,",$
+P8UK1J,,"El Carmen,Paradise,Playa del Carmen,Surprise,Caribbean,Playa del Carmen,Playa del Carmen,",$$
+P7EMV1,,"Cancun,Caribbean,Mexico,Cancun,Cancun,",$$
+PURZY4,,"Yucatan Peninsula,Caribbean,",$$
+PF9WUW,,"El Carmen,Merced,Playa del Carmen,Mexico,Playa del Carmen,Playa del Carmen,",$$
+P8TPUY,"Water Sports,","El Carmen,Playa del Carmen,Caribbean,Playa del Carmen,Playa del Carmen,",$$$
+PVCZTY,"Outdoor Activities,Water Sports,","Isla Mujeres,",$$
+PEZKK0,,"Isla Mujeres,Caribbean,",$$$
+PHQWAU,,"Surprise,Mexico,",$$
+PGXZB0,"Water Sports,","Paradise,",$$
+PMJLSD,"Museum,","Paradise,Surprise,Yucatan Peninsula,Caribbean,Mexico,",$$$
+PVV5V8,,"Chichen Itza,Yucatan Peninsula,",$$
+P01PHE,,"Cancun,Cancun,Cancun,",$$$
+P2DGAJ,"Water Sports,Water Sports,","Paradise,South Coast,",$$
+PRKW6A,"Water Sports,","Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+PD1X1C,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+PZJDHD,,"Adelaide,Africa,",$$
+PLRJA1,,"Adelaide,Australia,",$$
+PW70RH,,"Australia,",$$
+P0UAFW,,,$$
+P6EGFQ,,"Bordeaux,Giron,",$$$
+P8XNQT,,,$
+PGDENQ,"Outdoor Activities,","Baja California,California,",$$
+PVSADH,,"Cabo,San Jose,",$$
+P7Z1ZG,"Water Sports,","Santa Maria,Cabo,Santa Maria,Chile,",$$
+PLZDFP,,"Baja California,Cabo,La Paz,Male,La Paz,Los Cabos,California,",$$$
+P4Q1LH,"Outdoor Activities,","Cabo,City Center,San Cristobal,California,",$$
+PMNJZV,,"Mexico City,Mexico,",$
+PTL9FH,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PFTB4V,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PQSL3M,,"Merced,Mexico City,Mexico,",$$
+PF9S81,,"Mexico City,Mexico,",$
+PJNPGU,,"El Carmen,Paradise,Playa del Carmen,Surprise,Caribbean,Playa del Carmen,Playa del Carmen,",$$
+PTAYR1,,"Cancun,Caribbean,Mexico,Cancun,Cancun,",$$
+PF0SQU,,"El Carmen,Merced,Playa del Carmen,Mexico,Playa del Carmen,Playa del Carmen,",$$$
+PKW70G,,"Columbus,Galle,",$$
+P2P7VX,,"El Carmen,Playa del Carmen,Playa del Carmen,Playa del Carmen,",$$
+PKTBCC,,,$$
+P1MM48,,"Teotihuacan,Mexico City,Mexico,",$$$
+PSTYXQ,"Museum,","Grand Place (Central Square),Corte,Gardens,Cuernavaca,Mexico City,Europe,Mexico,",$$
+PDX0B9,"Museum,","Mexico City,Texcoco,India,Mexico,",$
+PEHUJ3,,"Tel Aviv,Israel,",$$
+PE1LH2,,"Eilat,Jerash,Madaba,The Dead Sea,The Dead Sea,Allen,Amman,Jerusalem,Mountains,Petra,Tel Aviv,Jordan,Petra,",$$$$
+P1ARYA,,,$$$$
+P1ABJB,,,$$
+P1MN29,,"Tel Aviv,",$$$$
+PU1CHS,,,$$$$
+PRZF0V,,,$$$$
+P0YXG1,,,$$$$
+PYVHWJ,,"Assis,Montreal,Petra,Jordan,Petra,",$$$$
+PH9X10,,"Nazareth,Nazareth,Jordan,",$$$$
+P5S1C2,,"Bordeaux,Giron,",$$$
+PUHY0U,,,$$
+P0CSM0,,,$
+PQ5YMQ,,,$$$
+PXE2SF,"Museum,Museum,","Citadel,The Citadel,The Citadel,Amman,Aqaba,Lawrence,Roman,Jordan,",$$$$
+PPBTXY,"Museum,","Via Dolorosa,Western Wall (HaKotel HaMaaravi),Armenia,Jerusalem,Massa,Tel Aviv,Armenia,",$$$$
+P1BZNA,"Museum,","Bethlehem,Caesarea,Church of the Holy Sepulchre,Masada,Nazareth,Western Wall (HaKotel HaMaaravi),Bethlehem,Cair,Cairo,Galilee,Haifa,Jerusalem,Nazareth,Petra,Roman,Egypt,Israel,Masada,Petra,",$$$$
+P7HKZB,"Water Sports,Water Sports,","Isla Mujeres,Cancun,Caribbean,Mexico,Cancun,Cancun,",$$$
+P8V6J0,,,$$$
+PZAQUH,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Cancun,Mexico City,Paradise,Xochimilco,Caribbean,Mexico,Cancun,Cancun,",$$
+PK8LW0,,"Paradise,",$$
+PR0ZXL,,"Paradise,Caribbean,Mexico,",$$
+P1FMVT,,"Yucatan Peninsula,",$$
+P4GSC1,,"Cancun,Caribbean,Mexico,Cancun,Cancun,",$$
+PABHF1,,"El Carmen,Playa del Carmen,Playa del Carmen,Playa del Carmen,",$
+PNDAT1,"Water Sports,","Puerto Vallarta,Puerto Vallarta,Puerto Vallarta,",$$
+P11KYH,"Outdoor Activities,",,$$
+PBHJNE,,"South Coast,",$$
+PJK3P8,,"Mexico City,Mexico,",$$
+PTFW10,"World Heritage Site,World Heritage Site,World Heritage Site,","Templo Mayor,Teotihuacan,The Fortress,Guadalupe,Metro,Mexico City,Rivera,Temple,Mexico,",$$
+P1UEQY,,"Jerusalem,",$$$$
+PJBUE1,,"Church of the Holy Sepulchre,The Dead Sea,The Dead Sea,Via Dolorosa,Western Wall (HaKotel HaMaaravi),Armenia,Jerusalem,Tel Aviv,Armenia,",$$
+PMEUTY,,"Nazareth,Galilee,Jerusalem,Nazareth,Netanya,Roman,Tel Aviv,Jordan,",$$
+PX0HPN,,"Bethlehem,Via Dolorosa,Western Wall (HaKotel HaMaaravi),Bethlehem,Jerusalem,Tel Aviv,Temple,",$$
+PSZAQ8,"Museum,Outdoor Activities,","Archaeological Museum,Citadel,Jerash,Madaba,Roman Theatre,The Citadel,The Citadel,Amman,Aqaba,Petra,Roman,Middle East,Jordan,Petra,",$$$$
+PGBA1Z,,,$$
+PZMRXV,,,$$$$
+P20KYJ,,"Petra,Temple,Israel,Petra,",$$$$
+PWGWS3,,,$$$$
+PBDB60,,,$$$$
+P5B861,,"Lake District,Linz,Merced,Salzburg,Vienna,Austria,",$$$
+PNPDUZ,,"Fortifications,Mountains,Israel,Jordan,Syria,",$$$$
+PRFWN0,,,$$$
+PFELJ8,"Museum,","Cair,Cairo,Egypt,Israel,",$$$$
+P8EGLN,"Museum,","Cair,Cairo,Egypt,Israel,",$$$$
+PRYMQA,"Water Sports,",,$$
+PX0LJD,,"Wilderness,Florida,Asia,Florida,",$$$$
+PUXDQS,,,$
+PYWD0W,,,$$
+P3800T,,"Santo Domingo,Chia,Santo Domingo,Santo Domingo,",$$
+PFHVRB,,"Masada,Bath,Roman,Masada,",$$$
+PDJFRH,,"The Dead Sea,The Dead Sea,",$$$$
+PPJBF1,"Museum,","Via Dolorosa,Western Wall (HaKotel HaMaaravi),Armenia,Armenia,",$$
+PL6BVL,,"Bethlehem,Bethlehem,",$$$$
+PVUTDN,,"Nazareth,Nazareth,",$$$$
+P51N94,,"Caesarea,Nazareth,Galilee,Haifa,Jerusalem,Massa,Nazareth,",$$$$
+PXVXBZ,,"Assis,Cair,Cairo,Egypt,",$$$$
+PFRRJU,,,$$
+PSAGZC,,,$$$
+PJPM00,,"Florida,Florida,",$
+P1ES09,,,$$
+PJNVVB,,"Assis,",$$
+PKCYCA,,"Adelaide,",$$
+P8WQKE,,"Adelaide,",$$
+PL1YUQ,,"Bordeaux,Paris,",$$$
+PTB1FC,,,$
+P0UPPE,,"Santa Cruz,Santa Cruz,Mountains,Santa Cruz,",$
+PA2MJS,,"Baja California,California,",$$
+P3MDLJ,,"Cabo,Los Cabos,",$$
+PWCHHS,"Water Sports,Water Sports,Water Sports,","Corte,Cabo,Cabo San Lucas,",$$
+P4ZAM7,"Outdoor Activities,World Heritage Site,","Cabo,",$$
+PF01VA,,,$$
+PY1UQM,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PZJ03X,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PE0FRC,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PUUER1,,"Mexico City,Mexico,",$
+PZHMP8,,"El Carmen,Paradise,Playa del Carmen,Surprise,Caribbean,Playa del Carmen,Playa del Carmen,",$$
+PPTFQE,,"Cancun,Caribbean,Mexico,Cancun,Cancun,",$$
+PBSMTV,,"El Carmen,Cancun,Playa del Carmen,Cancun,Playa del Carmen,Cancun,Playa del Carmen,",$$
+PE51LE,,"Columbus,Galle,",$$
+PQJU24,,,$$$
+P0ASGV,,"Isla Mujeres,Cancun,Caribbean,Mexico,Cancun,Cancun,",$$
+P6MK1G,,"Isla Mujeres,Caribbean,",$$$
+PTTQJA,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Cancun,Mexico City,Paradise,Xochimilco,Caribbean,Mexico,Cancun,Cancun,",$$
+PAM1SS,"Water Sports,","Paradise,",$$
+PJXRAC,"Museum,","Paradise,Surprise,Yucatan Peninsula,Caribbean,Mexico,",$$
+PE8LBJ,,"Yucatan Peninsula,",$$
+PS1GNU,,"Caribbean,Mexico,",$$$
+PTR3S9,,"Mountains,Puerto Vallarta,Puerto Vallarta,Puerto Vallarta,",$$
+PBGM3U,"Water Sports,Water Sports,Water Sports,","Islands,Mexico,",$$
+PXHXB4,,"Botanical Gardens,Botanical Gardens,Gardens,Merced,Mountains,Puerto Vallarta,Puerto Vallarta,Puerto Vallarta,Botanical Garden (Orto Botanico), Padua,",$$
+PSCVHN,,"Paradise,",$$
+P9VJD5,,"Mexico City,San Juan,Mexico,",$$
+PE3USG,"Museum,","Coyoacan,Rivera,Mexico,",$$
+PQQST0,,"Tel Aviv,",$$$$
+PUTJPX,"Museum,Museum,Museum,","Bethlehem,Jaffa,Masada,Nazareth,The Dead Sea,The Dead Sea,Bethlehem,Galilee,Naha,Nazareth,Suita,Tel Aviv,Jordan,Masada,",$$$$
+P10N9G,,"Bethlehem,Church of the Holy Sepulchre,Temple Mount (Al-Haram al-Sharif),Via Dolorosa,Western Wall (HaKotel HaMaaravi),Armenia,Bethlehem,Jerusalem,Tel Aviv,Temple,Armenia,Israel,Jordan,",$$$$
+PZDFFF,,"Caesarea,Hippodrome,Jerusalem,Roman,Tel Aviv,",$$
+PU48G8,"Outdoor Activities,","Israel,Jordan,",$$$
+PMQ5A5,,"Bush,Israel,",$$
+P4DL0R,,"Eilat,",$$$
+PNPAZJ,,"Aqaba,Petra,Israel,Jordan,Petra,",$$$
+PQ5V0Y,,"Eilat,Tel Aviv,",$$$$
+PPF1HJ,,"Petra,Petra,",$$$$
+PSPZRT,,"Merced,Vienna,Austria,Russia,",$$$
+PJ0RP0,,"Eilat,",$
+PYLEYU,,,$
+PYW0HJ,,"Palenque,Tuxtla,",$$
+PW0PJP,,"Israel,",$$$
+PCZ8PV,,"Aqaba,Petra,Roman,Temple,Israel,Petra,",$$$$
+P2RVWM,,"Church of the Holy Sepulchre,Western Wall (HaKotel HaMaaravi),Jerusalem,",$$
+PAAZUK,,"Eilat,Cair,Cairo,Egypt,Israel,Jordan,",$$$$
+PW1LBW,,"Nazareth,Nazareth,Israel,",$$$
+PPZXBS,,"Masada,Bath,Jerusalem,Roman,Tel Aviv,Masada,",$$
+PZSQYU,,"West Bank,Cair,Cairo,Luxor,Egypt,Israel,",$$$$
+PPLAE6,,"Citadel,Pompeii,The Citadel,The Citadel,Cair,Cairo,Rome,Egypt,Israel,Jordan,Rome,",$$$$
+PHZYHA,,,$$$$
+P711XB,,,$
+P1VT8R,,"Adelaide,Australia,",$$$$
+PMM2V0,,"Australia,Tasmania,",$$
+PL7GDY,"Water Sports,","Adelaide,",$$
+PNSUEU,,"Adelaide,",$
+PFKZNW,,"Savannah,Australia,",$
+PB1XJP,,"Bordeaux,Martin,Paris,",$$$
+PALHTK,,,$
+PLACHX,,"Baja California,California,",$$
+PHZLCV,,"Corte,Cabo,Mountains,",$$$$
+PXSJF6,,"Isla Mujeres,Caribbean,",$$
+PFHE5P,"Water Sports,Water Sports,","The Rocks,Cabo,Cabo San Lucas,",$$
+PB1QUY,,"Merced,Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+P1KQA1,,"Merced,Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+PD56WZ,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PZVEUQ,,,$
+P1AG2B,,"Mexico City,Mexico,",$$
+PCB0BF,,"Cabo,Cabo San Lucas,",$$
+PBPLH3,,"Cancun,Caribbean,Mexico,Cancun,Cancun,",$$
+PGHPGQ,,"El Carmen,Playa del Carmen,Playa del Carmen,Playa del Carmen,",$$
+PT9G3G,,"El Carmen,Merced,Playa del Carmen,Mexico,Playa del Carmen,Playa del Carmen,",$$
+PM0CLE,"Water Sports,","El Carmen,Playa del Carmen,Caribbean,Playa del Carmen,Playa del Carmen,",$$
+PKWVDU,"Water Sports,Water Sports,",,$$$
+PJVBLH,,"Isla Mujeres,Caribbean,",$$
+P7XPBG,,,$$
+PBRKFE,,,$$
+PYYKKX,"Museum,","Paradise,Surprise,Yucatan Peninsula,Caribbean,Mexico,",$$
+PX1NLU,,"Isla Mujeres,Cancun,Manta,Caribbean,Cancun,Cancun,",$$$
+PUAX8N,"Museum,National Park,","Isla Mujeres,The Beaches,Barrie,Cancun,Caribbean,Russia,Cancun,Cancun,",$$
+PLG8GN,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Cancun,Yucatan Peninsula,Caribbean,Cancun,Cancun,Sian Ka'an,",$$
+PUPXXN,"Water Sports,Water Sports,","Islands,",$$
+PPNENH,,"Merced,Mountains,Mexico,",$$
+PYY7D3,,"The Old Town,Male,Puerto Vallarta,Puerto Vallarta,Puerto Vallarta,",$$
+PZVUQY,"National Park,Water Sports,Water Sports,","Islands,The Islands,",$$
+PPYT6K,"World Heritage Site,World Heritage Site,","Plaza de Armas,Plaza de Armas,Santa Maria,Santo Domingo,Cholula,Mexico City,Puebla,Rosario,Santa Maria,Santo Domingo,Mexico,Santo Domingo,",$$
+PTW1AM,,"Teotihuacan,The Fortress,Guadalupe,Temple,Mexico,",$$
+PT0NLP,,"Jaffa,Via Dolorosa,Western Wall (HaKotel HaMaaravi),Damascus,David,Jerusalem,Tel Aviv,",$$
+PFADYH,"Outdoor Activities,",,$$
+P1C2YE,,,$$
+PLAWDP,"Museum,","Cair,Cairo,Egypt,Israel,",$$$$
+PEHV96,,"Jerash,Madaba,Amman,Petra,Petra,",$$$$
+P7ZEC7,,"Petra,Petra,",$$$$
+PF0Q0V,,,$$$
+P7YNRK,,"Eilat,Aqaba,Petra,Egypt,Jordan,Petra,",$$$$
+P1ADA1,,,$$$$
+PWYAMF,,"Eilat,Jerusalem,Petra,Israel,Petra,",$$$$
+PRYJQG,,,$$$
+P1W2NZ,,,$$$
+P7FGK6,"World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,World Heritage Site,","Palenque,Tuxtla,",$$
+P27XJL,,,$
+PQS3B4,,"Masada,Bath,Masada,",$$$$
+PABJRE,,"Bethlehem,Bethlehem,Jerusalem,Israel,",$$$
+PK6JDG,,"Petra,Petra,",$$$$
+PKTKYV,,"Gardens,Galilee,Haifa,",$$$$
+PLPEWN,,"Eilat,The Dead Sea,The Dead Sea,Bath,",$$
+PMWWSS,,,$$$
+PCHYUU,,"Eilat,Pyramids of Giza,Pyramids of Giza,Cair,Cairo,Giza,Egypt,",$$$$
+PLKLN4,,"Jerash,Madaba,Amman,Petra,Israel,Petra,",$$$$
+PQGNL5,,,$$$$
+PL7S6C,,"Adelaide,",$$
+PR5DA0,,,$$
+PN1XEE,,"Adelaide,",$$
+PEE0CZ,,"Adelaide,Australia,",$
+PTC1WR,,,$$
+PXATM6,,"Plantations,Oaxaca,Paradise,Plantation,Mexico,",$
+PKFJSN,,"Caribbean,",$$
+PGYNJK,"Water Sports,Water Sports,","Baja California,Cabo,La Laguna,Mountains,Santos,Asia,Cabo San Lucas,Los Cabos,California,",$$$$
+P047QV,"Water Sports,","Corte,Baja California,California,",$$
+PRYHTD,,"Cabo,Cabo San Lucas,",$$
+PXZMTB,,"Cabo,Cabo San Lucas,",$$
+PSAJR4,,"Mexico City,Mexico,",$
+P32MN9,,"Puerto Vallarta,Mexico,Puerto Vallarta,Puerto Vallarta,",$
+PMGGRC,,"Merced,Mexico City,Mexico,",$$
+PTZX00,,"Merced,Mexico City,Mexico,",$$
+P6QVZP,,"Mexico City,Mexico,",$
+P0WDXA,,"El Carmen,Paradise,Playa del Carmen,Surprise,Caribbean,Playa del Carmen,Playa del Carmen,",$$
+P8UQ8Y,"Outdoor Activities,","El Carmen,Cancun,Playa del Carmen,Caribbean,Cancun,Playa del Carmen,Cancun,Playa del Carmen,",$$
+PN1DWY,,"El Carmen,Merced,Playa del Carmen,Mexico,Playa del Carmen,Playa del Carmen,",$$$
+PEBRA0,"National Park,","National Marine Park,Paradise,Caribbean,Cozumel,Cozumel,",$$
+PM012D,"Water Sports,","El Carmen,Playa del Carmen,Caribbean,Playa del Carmen,Playa del Carmen,",$$
+PJJE0J,"Water Sports,","Isla Mujeres,Cancun,Caribbean,Mexico,Cancun,Cancun,",$$$
+PSWLKB,,"Cancun,Cancun,Cancun,",$$
+PZPEV0,,,$$
+PMCTGY,,"Paradise,",$$
+PA3JCF,"Museum,","Paradise,Surprise,Yucatan Peninsula,Caribbean,Mexico,",$$
+PGH19P,,"Isla Mujeres,Cancun,Caribbean,Russia,Cancun,Cancun,",$$$
+PRHW4T,"National Park,","Isla Mujeres,Cancun,Caribbean,Mexico,Russia,Cancun,Cancun,",$$$
+P0RRSZ,"Water Sports,","Dive Sites,Dive Sites,Puerto Vallarta,Puerto Vallarta,Puerto Vallarta,",$$
+PKGARB,,"San Sebastian,Mountains,Puerto Vallarta,San Sebastian,Mexico,Puerto Vallarta,Puerto Vallarta,",$$
+P84SL7,"Water Sports,","Puerto Vallarta,Puerto Vallarta,Puerto Vallarta,",$$
+PAL8NK,"Water Sports,Water Sports,","Paradise,",$$
+PJ3BXN,,"Guadalajara,Mexico City,Mexico,",$$
+PVXVBG,"World Heritage Site,World Heritage Site,","David,Mexico City,Rivera,Xochimilco,Mexico,",$
+P5EV5B,,"The Dead Sea,The Dead Sea,Via Dolorosa,Western Wall (HaKotel HaMaaravi),Damascus,David,Jerusalem,Tel Aviv,",$$$$
+P3HZGN,,"Nazareth,Cair,Cairo,Jerusalem,Nazareth,Petra,Tel Aviv,Egypt,Israel,Petra,",$$$$
+PF0NN4,,"Luxor Airport,Royal Tombs,The Luxor,Aswan,Cair,Cairo,Islands,Luxor,Temple,The Islands,Egypt,",$$$$
+PE2YQV,"Museum,","Eilat,Pyramids of Giza,Pyramids of Giza,Cair,Cairo,Giza,Egypt,Israel,",$$$$
+PRT1LJ,,,$$
+PGKJAV,,"Amman,Aqaba,Bath,Petra,Petra,",$$$$
+P1Y7D6,,,$$$
+PRGSET,,"Eilat,Petra,Tel Aviv,Israel,Jordan,Petra,",$$$$
+PXH1T5,,,$$$$
+PUXDHK,,"Petra,Petra,",$$$$
+PZ16CU,,"Adelaide,Australia,",$
+PWMJAJ,,,$
+P0GJUS,,"Santo Domingo,Chia,Santo Domingo,Tuxtla,Santo Domingo,",$
+P3AWAF,,,$$$
+PSB1KF,,"Masada,Bath,Roman,Masada,",$$$$
+P06KJL,,,$$
+PGCL1V,,,$$
+PL02MA,,,$$
+PMUC02,,"Eilat,Aqaba,Roman,Jordan,",$$$$
+PMSATX,"Museum,","Bethlehem,Via Dolorosa,Western Wall (HaKotel HaMaaravi),Yad VaShem,Bethlehem,Jerusalem,",$$$$
+PZTJ5D,"Museum,","Old Cairo,Cair,Cairo,Egypt,Israel,Jordan,",$$$$
+P1BBNN,,"Bath,Petra,Petra,",$$$$
+PYF0GK,,"Eilat,",$$$$
+P43QXQ,,"Hoi An,Asia,Hoi An Ancient Town,",$

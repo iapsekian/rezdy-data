@@ -1,10 +1,12 @@
 /*jshint esversion: 6 */
 
-//This program will include a external json file - rezdytours.json as the updateing source for taxonomy Tour Destination, Themes and Price 
+//This program will include a external csv file - rezdytours.csv as the updateing source for taxonomy Tour Destination, Themes and Price 
 //if you want to update taxonomy Tour Type and Tour Category, you should use another one - updateToursTXTourTypeCategory.js
 //
 //csvtojson --delimiter=';' mapping/20170704RTours.csv > mapping/rezdytours.json
 //put the csv file into ./mapping directory then this program will convert it automatically
+//
+//usage: node updateRezdyToursTXThemesTourDestPrice.js PRODUCTION OPDB
 
 const fs = require('fs');
 const debug = require('debug');
@@ -16,6 +18,7 @@ const buUtil = require('./lib/bookurUtil.js')
 const csv = require('csvtojson')
 const csvFilePath = './mapping/rezdytours.csv'
 
+let execArgv = process.execArgv
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
 
@@ -393,7 +396,10 @@ var dataProcessing = () => {
 							var objID = ctn._id;
 							var filter = { _id: objID};
 							var updateField = {};
+
+							ctn.workspace.status = 'published'
 							updateField.online = true;
+
 							updateField.workspace = ctn.workspace;
 							updateField.live = ctn.workspace;
 							var update = { $set: updateField };
