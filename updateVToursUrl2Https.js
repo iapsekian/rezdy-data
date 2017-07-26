@@ -58,12 +58,12 @@ let start = async () => {
 		return
 	}
 
-	let count = contents.Tours.length
+	let count = contents.VTours.length
 	console.log('Total count = %s', count)
 	let i = 0
 	while(i < count){
 		let updateFlag = false
-		let content = contents.Tours[i]
+		let content = contents.VTours[i]
 		console.log('Index = %s, VTour name - %s', i+1, content.text)
 
 		if(content.workspace.fields.ProductImage){
