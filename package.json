@@ -4,6 +4,7 @@
   "description": "Get Rezdy data through API to store in bookur db",
   "main": "main.js",
   "dependencies": {
+    "bookur-util": "0.0.1",
     "bson-ext": "^1.0.5",
     "child_process": "^1.0.2",
     "csvtojson": "^1.1.7",
