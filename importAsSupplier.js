@@ -1,6 +1,16 @@
 #!/usr/bin/env node --max_old_space_size=4096
 /*jshint esversion: 6 */
 
+//usage: DEBUG=dev* node --max_old_space_size=4096 importAsSupplier.js PRODUCTION OPDB
+
+// This program is the starting point of automatic execution series. The order of the execution is as below
+// 1. importAsAgent.js (or importAsSupplier.js)
+// 2. getGeoInfoFromGMap.js
+// 3. updateTourTXByGeoInfo.js
+// 4. genRezdyToursTXThemesTourDestPrice.js
+// 5. updateRezdyToursTXThemesTourDestPriceAuto.js
+// 	5-1. may execute updateTXTerms.js
+
 var https = require('https');
 var fs = require('fs');
 var debug = require('debug');
@@ -23,6 +33,7 @@ let execArgv = process.execArgv;
 
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
+
 let operateDB = false;
 let mdbUrl = '';
 buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
@@ -40,7 +51,8 @@ let targetMyCategories = [
 	'Special offer for Gran Canaria',
 	'Special offer for Kathmandu',
 	'Special offer for UNESCO',
-	'Special offer for Jamaica'
+	'Special offer for Jamaica',
+	'Special offer for Africa'
 	];
 
 var conf = {
@@ -2224,7 +2236,7 @@ let saveToursProducts2MDB = () => {
 //Part 4 - execute getGeoInfoFromGMap.js and updateTourTXByGeoInfo.js
 
 let runExternalScripts = () => {
-	console.log('runExternalScripts Starting.....')
+	console.log('runExternalScripts - getGeoInfoFromGMap.js Starting.....')
 	let args = []
 	let options = {}
 

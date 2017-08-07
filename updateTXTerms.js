@@ -14,8 +14,8 @@ const buUtil = require('./lib/bookurUtil.js')
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
 
-var productionEnv = false;
-var testEnv = false;
+console.log('-------- updateTXTerms.js.js - args: targetEnv=%s, dbOPSwitch=%s', targetEnv, dbOPSwitch);
+
 var operateDB = false;
 let mdbUrl
 
@@ -45,6 +45,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 	var cltTXTerms = db.collection('TaxonomyTerms');
 
 	var preparingData = () => {
+		console.log('Enter data preparation ......')
 
 		// get taxonomy vovaculary and id mapping
 		var getTXVocId = ()=>{
@@ -84,6 +85,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 				if(!count){
 					//debugDev('txTermsId = ' + JSON.stringify(txTermsId));
 					fs.writeFileSync('./log/txTermsId-' + targetEnv + '.json', JSON.stringify(txTermsId));
+					console.log('Exit data preparation ......')
 					validateData();
 				}
 			};
@@ -143,6 +145,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		var states = require('./mapping/stateProvince.json');
 
 
+		console.log('Validate TX Tour Type ......')
 		types.forEach((type)=>{
 			if(!txTermsId['TourType'][type.TargetType]){
 				if(-1 === tourTypeToBeInserted.indexOf(type.TargetType))
@@ -150,6 +153,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX Tour Category ......')
 		cats.forEach((cat)=>{
 			if(!txTermsId['TourCategory'][cat.TargetCategory]){
 				if(-1 === tourCategoryToBeInserted.indexOf(cat.TargetCategory))
@@ -157,6 +161,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX Tour Destination ......')
 		dests.forEach((dest)=>{
 			if(!txTermsId['TourDestination'][dest.Title]){
 				if(-1 === tourDestinationToBeInserted.indexOf(dest.Title))
@@ -164,6 +169,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX City ......')
 		cities.forEach((city)=>{
 			if(!txTermsId['City'][city.Title]){
 				if(-1 === cityToBeInserted.indexOf(city.Title))
@@ -171,6 +177,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX Themes ......')
 		themes.forEach((theme)=>{
 			if(!txTermsId['Themes'][theme.Title]){
 				if(-1 === themesToBeInserted.indexOf(theme.Title))
@@ -178,6 +185,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX Attraction ......')
 		atts.forEach((att)=>{
 			if(!txTermsId['Attraction'][att.Title]){
 				if(-1 === attractionToBeInserted.indexOf(att.Title))
@@ -185,6 +193,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX Destination ......')
 		tduls.forEach((tdul)=>{
 			if(!txTermsId['Destination'][tdul.Title]){
 				if(-1 === destinationToBeInserted.indexOf(tdul.Title))
@@ -192,6 +201,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX Country ......')
 		countries.forEach((country)=>{
 			if(!txTermsId['Country'][country.Title]){
 				if(-1 === countryToBeInserted.indexOf(country.Title))
@@ -199,6 +209,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 			}
 		});
 
+		console.log('Validate TX State/Province ......')
 		states.forEach((state)=>{
 			if(!txTermsId['State/Province'][state.Title]){
 				if(-1 === stateToBeInserted.indexOf(state.Title))
@@ -230,6 +241,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 	}
 
 	var insertData = ()=>{
+		console.log('Enter insertData ......')
 
 		var insertOptions = {forceServerObjectId:true};
 		var txTermDocTemplate = {
@@ -289,7 +301,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 
 
 		if(tourTypeToBeInserted.length){
-			debugDev('Tour Type Insertion Starts......');
+			console.log('Tour Type Insertion Starts......');
 
 			var tourTypeInsertCount = tourTypeToBeInserted.length;
 			var wait4TourTypeInsertionEnd = () => {
@@ -329,7 +341,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}
 
 		if(tourCategoryToBeInserted.length){
-			debugDev('Tour Category Insertion Starts......');
+			console.log('Tour Category Insertion Starts......');
 
 			var tourCatInsertCount = tourCategoryToBeInserted.length;
 			var wait4TourCatInsertionEnd = () => {
@@ -370,7 +382,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}
 
 		if(tourDestinationToBeInserted.length){
-			debugDev('Tour Destination Insertion Starts......');
+			console.log('Tour Destination Insertion Starts......');
 
 			var tourDestInsertCount = tourDestinationToBeInserted.length;
 			var wait4TourDestInsertionEnd = () => {
@@ -411,7 +423,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}
 
 		if(cityToBeInserted.length){
-			debugDev('TX City Insertion Starts......');
+			console.log('TX City Insertion Starts......');
 
 			var cityInsertCount = cityToBeInserted.length;
 			var wait4CityInsertionEnd = () => {
@@ -452,7 +464,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}
 
 		if(themesToBeInserted.length){
-			debugDev('TX Themes Insertion Starts......');
+			console.log('TX Themes Insertion Starts......');
 
 			var themesInsertCount = themesToBeInserted.length;
 			var wait4ThemesInsertionEnd = () => {
@@ -493,7 +505,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}	
 
 		if(attractionToBeInserted.length){
-			debugDev('TX Attraction Insertion Starts......');
+			console.log('TX Attraction Insertion Starts......');
 
 			var attractionInsertCount = attractionToBeInserted.length;
 			var wait4AttractionInsertionEnd = () => {
@@ -534,7 +546,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}
 
 		if(destinationToBeInserted.length){
-			debugDev('TX Destination Insertion Starts......');
+			console.log('TX Destination Insertion Starts......');
 
 			var destinationInsertCount = destinationToBeInserted.length;
 			var wait4DestinationInsertionEnd = () => {
@@ -575,7 +587,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}
 
 		if(countryToBeInserted.length){
-			debugDev('TX Country Insertion Starts......');
+			console.log('TX Country Insertion Starts......');
 
 			var countryInsertCount = countryToBeInserted.length;
 			var wait4CountryInsertionEnd = () => {
@@ -616,7 +628,7 @@ MongoClient.connect(mdbUrl, (err, db) => {
 		}	
 
 		if(stateToBeInserted.length){
-			debugDev('TX State / Province Insertion Starts......');
+			console.log('TX State / Province Insertion Starts......');
 
 			var stateInsertCount = stateToBeInserted.length;
 			var wait4StateInsertionEnd = () => {

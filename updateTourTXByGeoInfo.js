@@ -16,7 +16,7 @@ let execArgv = process.execArgv;
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
 
-console.log('getGeoInfoFromGMap - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s', process.execArgv, targetEnv, dbOPSwitch);
+console.log('-------- updateTourTXByGeoInfo.js - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s', process.execArgv, targetEnv, dbOPSwitch);
 
 
 //for module exports
@@ -730,6 +730,8 @@ let main = () => {
 					console.log(' *************************************************************************************************');
 					console.log(' *** Taxonomies iso world region, State / Province, Country, City have been set to Tours ***');
 					console.log(' *************************************************************************************************');
+
+					runExternalScripts() //continue to run genRezdyToursTXThemesTourDestPrice.js
 				}
 			};
 
@@ -822,6 +824,28 @@ let main = () => {
 
 		//Starting point
 		preparingData();
+	})
+}
+
+let runExternalScripts = () => {
+	console.log('runExternalScripts - genRezdyToursTXThemesTourDestPrice.js Starting.....')
+	let args = []
+	let options = {}
+
+	options.execArgv = execArgv.slice()
+	args.push(targetEnv)
+	args.push(dbOPSwitch)
+
+	let d = new Date(Date.now())
+	let dateString = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() //dateString format: 2017-8-7
+	args.push(dateString)
+
+	buUtil.runScript('./genRezdyToursTXThemesTourDestPrice.js', args, options, err => {
+		if(err)
+			throw err
+		else {
+			console.log('--- Run genRezdyToursTXThemesTourDestPrice.js Completed!')
+		}
 	})
 }
 

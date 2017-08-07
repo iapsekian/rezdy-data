@@ -1,0 +1,16 @@
+{
+	"Airport": ["Tour Destination"],
+	"Attraction": ["Tour Destination"],
+	"Attraction-NP": ["Tour Destination"],
+	"Category": ["Themes"],
+	"City": ["Tour Destination"],
+	"Continent": ["Tour Destination"],
+	"Country": ["Tour Destination"],
+	"District": ["Tour Destination"],
+	"Port": ["Tour Destination","Themes"],
+	"Province": ["Tour Destination"],
+	"Resort": ["Tour Destination"],
+	"State / Province": ["Tour Destination"],
+	"UNESCO": ["Tour Destination","Themes"],
+	"National-Park": ["Tour Destination","Themes"]
+}

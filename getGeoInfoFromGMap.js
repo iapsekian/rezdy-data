@@ -15,7 +15,7 @@ let execArgv = process.execArgv;
 var targetEnv = process.argv.slice(2)[0];
 var dbOPSwitch = process.argv.slice(3)[0];
 
-console.log('getGeoInfoFromGMap - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s', process.execArgv, targetEnv, dbOPSwitch);
+console.log('-------- getGeoInfoFromGMap - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s', process.execArgv, targetEnv, dbOPSwitch);
 
 //for module exports
 // let targetEnv = '';
@@ -436,7 +436,7 @@ let main = () => {
 }
 
 let runExternalScripts = () => {
-	console.log('runExternalScripts Starting.....')
+	console.log('runExternalScripts - updateTourTXByGeoInfo.js Starting.....')
 	let args = []
 	let options = {}
 

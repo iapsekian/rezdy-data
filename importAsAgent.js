@@ -1,6 +1,16 @@
 #!/usr/bin/env node --max_old_space_size=4096
 /*jshint esversion: 6 */
 
+//usage: DEBUG=dev* node --max_old_space_size=4096 importAsAgent.js PRODUCTION OPDB
+
+// This program is the starting point of automatic execution series. The order of the execution is as below
+// 1. importAsAgent.js (or importAsSupplier.js)
+// 2. getGeoInfoFromGMap.js
+// 3. updateTourTXByGeoInfo.js
+// 4. genRezdyToursTXThemesTourDestPrice.js
+// 5. updateRezdyToursTXThemesTourDestPriceAuto.js
+// 	5-1. may execute updateTXTerms.js
+
 var https = require('https');
 var fs = require('fs');
 var debug = require('debug');
@@ -34,7 +44,7 @@ buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
 
 var apiCallComplete = false;
 var getExistingComplete = false;
-let targetMyCategories = ['ALL','New All Tours'/*,'2-New All Tours'*/];
+let targetMyCategories = ['ALL','New All Tours','2-New All Tours'];
 
 var conf = {
     host : 'api.rezdy.com',
@@ -2476,7 +2486,7 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 //Part 4 - execute getGeoInfoFromGMap.js and updateTourTXByGeoInfo.js
 
 let runExternalScripts = () => {
-	console.log('runExternalScripts Starting.....')
+	console.log('runExternalScripts - getGeoInfoFromGMap.js Starting.....')
 	let args = []
 	let options = {}
 
