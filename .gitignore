@@ -3,6 +3,6 @@
 jsonProducts.json
 node_modules
 datafiles
-logs
-log
+/logs/*
+/log/*
 *.log
