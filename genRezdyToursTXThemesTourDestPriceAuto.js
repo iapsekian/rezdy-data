@@ -114,7 +114,7 @@ let dataPreparation = () => {
 		// var getContents = require('./lib/getContents.js');
 		let options2 = {
 			ctnTypeId: ctnTypeId,
-			qryFilter: {createTime: {$gte: dateAfter}, online: false, 'workspace.status':'draft'},
+			qryFilter: {createTime: {$gte: dateAfter}, online: false, 'workspace.status':'draft', 'workspace.fields.marketplace': {$in: ['Rezdy','Rezdy Self-Created']}},
 			projection: ctnProjection,
 			targetEnv: targetEnv,
 			dbOPSwitch: dbOPSwitch

@@ -164,7 +164,7 @@ function step1GetCategories(){
 		    	});
 
 		    	tempJsonCategories.categories.forEach( (item) => {
-		    		if(item.name === 'Off-line temporarily'){
+		    		if(item.name === 'Off Line Temporary'){
 		    			catOfflineTemp.id = item.id;
 		    			catOfflineTemp.name = item.name;
 		    			catOfflineTemp.visible = item.visible;
