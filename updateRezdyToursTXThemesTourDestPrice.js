@@ -1,10 +1,8 @@
 /*jshint esversion: 6 */
 
-//This program will include a external csv file - rezdytours.csv as the updateing source for taxonomy Tour Destination, Themes and Price 
+//This program will include auto-generated json file - ./mapping/genRezdyToursTXThemesTourDestPrice.json as the updateing source for taxonomy Tour Destination, Themes and Price 
 //if you want to update taxonomy Tour Type and Tour Category, you should use another one - updateToursTXTourTypeCategory.js
 //
-//csvtojson --delimiter=';' mapping/20170704RTours.csv > mapping/rezdytours.json
-//put the csv file into ./mapping directory then this program will convert it automatically
 //
 //usage: node updateRezdyToursTXThemesTourDestPrice.js PRODUCTION OPDB
 
@@ -16,15 +14,14 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 // const buUtil = require('./lib/bookurUtil.js')
 const buUtil = require('bookur-util')
-const csv = require('csvtojson')
-const csvFilePath = './mapping/rezdytours.csv'
+const resultFilePath = './mapping/genRezdyToursTXThemesTourDestPrice.json'
 
 let execArgv = process.execArgv
-var targetEnv = process.argv.slice(2)[0];
-var dbOPSwitch = process.argv.slice(3)[0];
+var targetEnv = process.argv[2]
+var dbOPSwitch = process.argv[3]
 
-var productionEnv = false;
-var testEnv = false;
+console.log('-------- updateRezdyToursTXThemesTourDestPrice.js - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s', process.execArgv, targetEnv, dbOPSwitch);
+
 var operateDB = false;
 let mdbUrl
 
@@ -58,11 +55,20 @@ var cleanArray = (orig, callback) => {
 }
 
 var dataPreparation = () => {
+	console.log('Enter data preparation ......')
+
+	if(fs.existsSync(resultFilePath)){
+		rezdyTours = require(resultFilePath)
+	} else{
+		console.log('... Lacking of rezdy tours %s file! Abort!! ...', resultFilePath)
+		process.exist(1)
+	}
 
 	var dataReadyCount = 2;
 	var wait4DataReady = () => {
 		dataReadyCount--;
 		if(!dataReadyCount){
+			console.log('Exit data preparation ......')
 			dataValidation();
 		}
 	}
@@ -76,6 +82,7 @@ var dataPreparation = () => {
 		'dbOPSwitch': dbOPSwitch
 	};
 
+	console.log('Getting TX & Terms ......')
 	buUtil.getTxTermsMap(options, (vocs,terms)=>{
 		txVocId = vocs;
 		txTermsId = terms;
@@ -89,6 +96,7 @@ var dataPreparation = () => {
 		'dbOPSwitch': dbOPSwitch
 	};
 
+	console.log('Getting Contents ......')
 	buUtil.getContentTypesId(options1, (types)=>{
 		ctnTypeId = types;
 
@@ -114,28 +122,25 @@ var dataValidation = () => {
 	rezdyTours.forEach( (tour) => {
 		console.log('tour["Tour Code"] = ' + tour["Tour Code"]);
 
-		var themes = [];
-		if(tour.Themes.trim().length)	themes = tour.Themes.trim().split(',');
-		var tourDestinations = [];
-		if(tour['Tour Destination'].trim().length)	tourDestinations = tour['Tour Destination'].trim().split(',');
+		var themes = tour.Themes
+		var tourDestinations = tour['Tour Destination']
 
 		txVocName.forEach( (vocName) => {
 			var vocKey = vocName.replace(/\s+/g,'');
 			if(vocName === 'Tour Destination'){
 				if(tourDestinations.length){
 					tourDestinations.forEach( (tourDestination) => {
-						var tmpTourDestination = tourDestination.trim();
-						if(tmpTourDestination.length){
-							if(!txTermsId[vocKey][tmpTourDestination]){
+						if(tourDestination.length){
+							if(!txTermsId[vocKey][tourDestination]){
 								txShouldBeInserted = true;
-								txTDValidationLog += tmpTourDestination + '\n';
+								txTDValidationLog += tourDestination + '\n';
 								var tourDestinationAddFlag = true;
 								destJson.forEach( (t) => {
-									if(t.Title === tmpTourDestination)
+									if(t.Title === tourDestination)
 										tourDestinationAddFlag = false;
 								});
 								if(tourDestinationAddFlag)
-									destJson.push({"Title":tmpTourDestination});
+									destJson.push({"Title":tourDestination});
 							}																		
 						}
 					});
@@ -155,18 +160,17 @@ var dataValidation = () => {
 			} else if(vocName === 'Themes') {
 				if(themes.length){
 					themes.forEach( (theme) => {
-						var tmpTheme = theme.trim();
-						if(tmpTheme.length){
-							if(!txTermsId[vocKey][tmpTheme]){
+						if(theme.length){
+							if(!txTermsId[vocKey][theme]){
 								txShouldBeInserted = true;
-								txThemesValidationLog += tmpTheme + '\n';
+								txThemesValidationLog += theme + '\n';
 								var themeAddFlag = true;
 								themesJson.forEach( (t) => {
-									if(t.Title === tmpTheme)
+									if(t.Title === theme)
 										themeAddFlag = false;
 								});
 								if(themeAddFlag)
-									themesJson.push({"Title":tmpTheme});
+									themesJson.push({"Title":theme});
 							}																		
 						}
 					});
@@ -216,7 +220,7 @@ var dataValidation = () => {
 			if(err)	
 				throw err
 			else {
-				console.log('------------- Now continue to run the remaining ')
+				console.log('\n****** Now continue to run the remaining ******\n')
 				dataProcessing()
 			}
 		})
@@ -277,10 +281,8 @@ var dataProcessing = () => {
 						if(tour['Tour Code'] === productCode){
 							var tourProductCode = tour['Tour Code'];
 							var txPrice = tour.Price;
-							var txThemes = [];
-							if(tour.Themes.trim().length)	txThemes = tour.Themes.trim().split(',');
-							var txTourDestinations = [];
-							if(tour['Tour Destination'].trim().length)	txTourDestinations = tour['Tour Destination'].trim().split(',');
+							var txThemes = tour.Themes
+							var txTourDestinations = tour['Tour Destination']
 
 							txVocs.forEach( (txVoc) => {
 								var vocId = txVocId[txVoc];
@@ -329,9 +331,8 @@ var dataProcessing = () => {
 								} else if(txVoc === 'TourDestination'){
 									if(txTourDestinations.length){
 										txTourDestinations.forEach( (dest) => {
-											var tmpDest = dest.trim();
-											if(tmpDest.length){
-												termId = txTermsId[txVoc][tmpDest];
+											if(dest.length){
+												termId = txTermsId[txVoc][dest];
 
 												if(ctn.workspace.taxonomy[vocId]){
 													if(Array.isArray(ctn.workspace.taxonomy[vocId])){
@@ -360,9 +361,8 @@ var dataProcessing = () => {
 								} else if(txVoc === 'Themes'){
 									if(txThemes.length){
 										txThemes.forEach( (theme) => {
-											var tmpTheme = theme.trim();
-											if(tmpTheme.length){
-												termId = txTermsId[txVoc][tmpTheme];
+											if(theme.length){
+												termId = txTermsId[txVoc][theme];
 
 												if(ctn.workspace.taxonomy[vocId]){
 													if(Array.isArray(ctn.workspace.taxonomy[vocId])){
@@ -449,18 +449,6 @@ var endProgram = () => {
 }
 
 //Starting point
+//
 
-csv()
-.fromFile(csvFilePath)
-.on('json',(jsonObj)=>{
-    rezdyTours.push(jsonObj)
-})
-.on('done',(err)=>{
-	if(err){
-		console.log('****** Convert rezdytours.csv to json format ERROR! NOW ABORT!! ******')
-	} else{
-		dataPreparation();		
-	}
-})
-
-
+dataPreparation()

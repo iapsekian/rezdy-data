@@ -7,7 +7,7 @@
 // 1. importAsAgent.js (or importAsSupplier.js)
 // 2. getGeoInfoFromGMap.js
 // 3. updateTourTXByGeoInfo.js
-// 4. genRezdyToursTXThemesTourDestPrice.js
+// 4. genRezdyToursTXThemesTourDestPriceAuto.js
 // 5. updateRezdyToursTXThemesTourDestPriceAuto.js
 // 	5-1. may execute updateTXTerms.js
 

@@ -731,7 +731,7 @@ let main = () => {
 					console.log(' *** Taxonomies iso world region, State / Province, Country, City have been set to Tours ***');
 					console.log(' *************************************************************************************************');
 
-					runExternalScripts() //continue to run genRezdyToursTXThemesTourDestPrice.js
+					runExternalScripts() //continue to run genRezdyToursTXThemesTourDestPriceAuto.js
 				}
 			};
 
@@ -828,7 +828,7 @@ let main = () => {
 }
 
 let runExternalScripts = () => {
-	console.log('runExternalScripts - genRezdyToursTXThemesTourDestPrice.js Starting.....')
+	console.log('runExternalScripts - genRezdyToursTXThemesTourDestPriceAuto.js Starting.....')
 	let args = []
 	let options = {}
 
@@ -840,11 +840,11 @@ let runExternalScripts = () => {
 	let dateString = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() //dateString format: 2017-8-7
 	args.push(dateString)
 
-	buUtil.runScript('./genRezdyToursTXThemesTourDestPrice.js', args, options, err => {
+	buUtil.runScript('./genRezdyToursTXThemesTourDestPriceAuto.js', args, options, err => {
 		if(err)
 			throw err
 		else {
-			console.log('--- Run genRezdyToursTXThemesTourDestPrice.js Completed!')
+			console.log('--- Run genRezdyToursTXThemesTourDestPriceAuto.js Completed!')
 		}
 	})
 }

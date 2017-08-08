@@ -1,14 +1,10 @@
-#!/usr/bin/env node --max_old_space_size=4096
 /*jshint esversion: 6 */
 
-//This program will generate taxonomy term values for Themes, Tour Destination and Price. The tour searching criteria is provided and defined in command line.
-//The result will be saved as a json file for the next step - updateRezdyToursTXThemesTourDestPrice.js 
+//This program will generate taxonomy term values for Themes, Tour Destination and Price. The tour searching criteria is status=draft and online=No from content type Tours.
+//The result will be saved as a json file for the next step - updateRezdyToursTXThemesTourDestPriceAuto.js 
+//Now it will automatically call updateRezdyToursTXThemesTourDestPriceAuto.js
 //
-//
-//usage: 	node genRezdyToursTXThemesTourDestPrice.js targetEnv dbOPSwitch dateString online status
-//eg.: 		node genRezdyToursTXThemesTourDestPrice.js PRODUCTION OPDB
-//eg.: 		node genRezdyToursTXThemesTourDestPrice.js PRODUCTION OPDB ALL true draft
-//eg.: 		node genRezdyToursTXThemesTourDestPrice.js PRODUCTION OPDB 2017-08-04 true draft
+//usage: node genRezdyToursTXThemesTourDestPriceAuto.js PRODUCTION OPDB 2017-08-04
 
 const fs = require('fs');
 const debug = require('debug');
@@ -20,45 +16,19 @@ const ObjectID = require('mongodb').ObjectID;
 const buUtil = require('bookur-util')
 const dictionaryFilePath = './mapping/Dict-main.json'
 const dictTypeTXMappingFilePath = './mapping/Dict-typeTXVocName.json'
-const resultFilePath = './mapping/genRezdyToursTXThemesTourDestPrice.json'
+const resultFilePath = './mapping/genRezdyToursTXThemesTourDestPriceAuto.json'
 const curExTableFilePath = './mapping/curExTable.json'
 
 let execArgv = process.execArgv
 let targetEnv = process.argv[2]
 let dbOPSwitch = process.argv[3]
 let dateString = process.argv[4]
-let onlineString = process.argv[5]
-let statusString = process.argv[6]
 let dateAfter
-let qryFilter = {'workspace.fields.marketplace': {$in: ['Rezdy','Rezdy Self-Created']}}
-
-if(util.isNullOrUndefined(dateString)){
-	dateString = 'ALL'
-} else {
-	if(dateString.toLowerCase() === 'all'){
-		dateString = 'ALL'
-	} else{
-		dateAfter = parseInt(((new Date(dateString))/1000).toFixed(0))
-		qryFilter.createTime = {$gte: dateAfter}
-	}
-}
-if(util.isNullOrUndefined(onlineString)){
-	onlineString = 'ALL'
-} else if(onlineString === 'true'){
-	qryFilter.online = true
-} else if(onlineString === 'false'){
-	qryFilter.online = false	
-}
-if(util.isNullOrUndefined(statusString)){
-	statusString = 'ALL'
-} else if(statusString === 'draft'){
-	qryFilter['workspace.status'] = 'draft'
-} else if(statusString === 'published'){
-	qryFilter['workspace.status'] = 'published'	
+if(dateString.length){
+	dateAfter = parseInt(((new Date(dateString))/1000).toFixed(0))
 }
 
-console.log('-------- genRezdyToursTXThemesTourDestPrice.js - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s, dateString=%s, online=%s, status=%s', process.execArgv, targetEnv, dbOPSwitch, dateString, onlineString, statusString)
-console.log('-------- qryFilter = %s', JSON.stringify(qryFilter))
+console.log('-------- genRezdyToursTXThemesTourDestPriceAuto.js - execArgv=%s - args: targetEnv=%s, dbOPSwitch=%s, dateString=%s', process.execArgv, targetEnv, dbOPSwitch, dateString);
 
 
 let operateDB = false;
@@ -144,7 +114,7 @@ let dataPreparation = () => {
 		// var getContents = require('./lib/getContents.js');
 		let options2 = {
 			ctnTypeId: ctnTypeId,
-			qryFilter: qryFilter,
+			qryFilter: {createTime: {$gte: dateAfter}, online: false, 'workspace.status':'draft'},
 			projection: ctnProjection,
 			targetEnv: targetEnv,
 			dbOPSwitch: dbOPSwitch
@@ -293,43 +263,36 @@ let dataProcessing = () => {
 let endProgram = () => {
 	fs.writeFileSync('./log/genRezdyToursTXThemesTourDestPrice-Success-'+targetEnv+'.log', processingLog)
 	fs.writeFileSync('./log/genRezdyToursTXThemesTourDestPrice-Error-'+targetEnv+'.log', processingERRLog)
-
 	if(result.length){
 		fs.writeFileSync(resultFilePath, JSON.stringify(result))
 	}
-	console.log('*** genRezdyToursTXThemesTourDestPrice.js Finished!! ***')
+	console.log('*** genRezdyToursTXThemesTourDestPriceAuto.js Finished!! ***')
 
-	if(operateDB){
-		if(result.length){
-			console.log('***********************')
-			console.log('******	Next Step ******')
-			console.log('***********************')
-			console.log('\n-----------------------------------------------------------------------------------------')
-			console.log('****** Now will run "updateRezdyToursTXThemesTourDestPriceAuto.js" AUTOMATICALLY!! ******')
-			console.log('-----------------------------------------------------------------------------------------\n')
+	if(result.length){
+		console.log('***********************')
+		console.log('******	Next Step ******')
+		console.log('***********************')
+		console.log('\n-----------------------------------------------------------------------------------------')
+		console.log('****** Now will run "updateRezdyToursTXThemesTourDestPriceAuto.js" AUTOMATICALLY!! ******')
+		console.log('-----------------------------------------------------------------------------------------\n')
 
-			let args = []
-			let options = {}
+		let args = []
+		let options = {}
 
-			options.execArgv = execArgv.slice()
-			args.push(targetEnv)
-			args.push(dbOPSwitch)		
-			buUtil.runScript('./updateRezdyToursTXThemesTourDestPriceAuto.js', args, options, err => {
-				if(err)	
-					throw err
-				else {
-					console.log('\n--- updateRezdyToursTXThemesTourDestPriceAuto.js Completed!\n')
-				}
-			})
-		} else {
-			console.log('\n******************************************************************************************************************************************')
-			console.log('******	Since %s file is empty, there is no need to go next. ******', resultFilePath)
-			console.log('******************************************************************************************************************************************\n')
-		}
-	} else{
-		console.log('\n****************************************************************************************')
-		console.log('******	Since operateDB is false, there is no need to go next. Program Terminated! ******')
-		console.log('****************************************************************************************\n')		
+		options.execArgv = execArgv.slice()
+		args.push(targetEnv)
+		args.push(dbOPSwitch)		
+		buUtil.runScript('./updateRezdyToursTXThemesTourDestPriceAuto.js', args, options, err => {
+			if(err)	
+				throw err
+			else {
+				console.log('\n--- updateRezdyToursTXThemesTourDestPriceAuto.js Completed!\n')
+			}
+		})
+	} else {
+		console.log('\n******************************************************************************************************************************************')
+		console.log('******	Since %s file is empty, there is no need to go next. ******', resultFilePath)
+		console.log('******************************************************************************************************************************************\n')
 	}
 
 }
