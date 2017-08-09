@@ -29,8 +29,14 @@ let mdbUrl = '';
 //DB definition/value
 let txVocName = ['Country'];
 let txTermName = ['United States of America','United States'];
-let ctnTypeName = ['Tours'];
-let qryFilter = {"workspace.fields.marketplace":{$in:['Rezdy','Rezdy Self-Created']}};
+
+// let ctnTypeName = ['Tours'];
+// let qryFilter = {"workspace.fields.marketplace":{$in:['Rezdy','Rezdy Self-Created']}};
+// let ctnTypeName = ['City'];
+// let qryFilter = {};
+let ctnTypeName = ['Attraction'];
+let qryFilter = {};
+
 let txTermIdUSA = '', txTermIdUS = '';
 let ctnProjection = {'_id':1, 'text': 1, 'workspace':1};
 let txVocId = {}, txTermsId = {}, ctnTypeId = {}, contents = {};
@@ -38,7 +44,7 @@ let ctnsUpdateLog = ''
 let ctnsUpdateLogCount = 0
 
 let main = () => {
-	contents = contents.Tours;
+	contents = contents.Attraction;
 	let ctnsCount = contents.length
 	let wait4AllContentsEnd = () => {
 		ctnsCount--
