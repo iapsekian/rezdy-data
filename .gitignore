@@ -4,8 +4,8 @@ jsonProducts.json
 node_modules
 datafiles
 *.log
-#log/*.log
-#log/*.json
+log/*.log
+log/*.json
 logs/*.log
 logs/*.json
 
