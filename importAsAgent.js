@@ -1489,6 +1489,7 @@ let getExistingDataFromMDB = () => {
 			"workspace.fields.id":1,
 			"workspace.fields.calendarWidgetUrl":1,
 			"workspace.fields.productPageUrl":1,
+			"workspace.fields.photoPath":1,
 			"workspace.fields.badgeImage":1,
 			"workspace.fields.source":1,
 			"workspace.fields.badgeTargetUrl":1,
@@ -1510,6 +1511,7 @@ let getExistingDataFromMDB = () => {
 					i.productCode = item.workspace.fields.productCode;
 					i.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
 					i.productPageUrl = item.workspace.fields.productPageUrl;
+					i.photoPath = item.workspace.fields.photoPath;
 					i.badgeImage = item.workspace.fields.badgeImage;
 					i.source = item.workspace.fields.source;
 					i.badgeTargetUrl = item.workspace.fields.badgeTargetUrl;
@@ -1569,6 +1571,7 @@ let getExistingDataFromMDB = () => {
 						i.lastUpdateTime = item.lastUpdateTime;
 						i.calendarWidgetUrl = item.workspace.fields.calendarWidgetUrl;
 						i.productPageUrl = item.workspace.fields.productPageUrl;
+						i.photoPath = item.workspace.fields.photoPath;
 						i.marketplace = item.workspace.fields.marketplace;
 						i.promotionCode = item.workspace.fields.promotionCode;
 						i.discount = item.workspace.fields.discount;
@@ -1878,6 +1881,13 @@ let saveProducts2MDB = () => {
 			rzdItem.workspace.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 			rzdItem.live.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 
+			if(!util.isNullOrUndefined(existingItem.photoPath))
+				if(existingItem.photoPath !== '')
+					if(rzdItem.workspace.fields.photoPath !== existingItem.photoPath){
+						rzdItem.workspace.fields.photoPath = existingItem.photoPath
+						rzdItem.live.fields.photoPath = existingItem.photoPath
+					}
+
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
 					debugDev('updateOne r = ' + JSON.stringify(r));
@@ -2137,6 +2147,13 @@ let saveToursProducts2MDB = () => {
 			rzdItem.live.fields.badgeImage = existingItem.badgeImage;
 			rzdItem.workspace.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
 			rzdItem.live.fields.badgeTargetUrl = existingItem.badgeTargetUrl;
+
+			if(!util.isNullOrUndefined(existingItem.photoPath))
+				if(existingItem.photoPath !== '')
+					if(rzdItem.workspace.fields.photoPath !== existingItem.photoPath){
+						rzdItem.workspace.fields.photoPath = existingItem.photoPath
+						rzdItem.live.fields.photoPath = existingItem.photoPath
+					}
 
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
