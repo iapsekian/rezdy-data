@@ -73,7 +73,7 @@ var toursUpdateLogCount = 0, tourNoAttIdLogCount = 0, tourWAttIdWOThemesCount = 
 var mdbUrl = '';
 
 if(productionEnv){
-	mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
+	mdbUrl = 'mongodb://52.25.67.91:27017/tourbooks';
 } else if (testEnv){
 	mdbUrl = 'mongodb://tst.tourbooks.cc:27017/tourbooks';
 }

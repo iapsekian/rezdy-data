@@ -7,7 +7,7 @@ const util = require('util');
 var parseString = require('xml2js').parseString;
 var MongoClient = require('mongodb').MongoClient;
 
-var mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
+var mdbUrl = 'mongodb://52.25.67.91:27017/tourbooks';
 
 var contentTypeId = {
 	"city" : "57ed26a06d0e810b357b23c7",

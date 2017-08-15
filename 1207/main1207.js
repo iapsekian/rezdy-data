@@ -39,7 +39,7 @@ var existingToursProducts = [];
 
 //DB definition/value
 
-var mdbUrl = 'mongodb://52.39.111.227:27017/tourbooks';
+var mdbUrl = 'mongodb://52.25.67.91:27017/tourbooks';
 
 
 var rTypeId = {
