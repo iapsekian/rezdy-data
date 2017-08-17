@@ -171,51 +171,6 @@
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
-		},
-		{
-			"file": "importAsSupplier.js",
-			"settings":
-			{
-				"buffer_size": 77620,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "getGeoInfoFromGMap.js",
-			"settings":
-			{
-				"buffer_size": 16192,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "updateTourTXByGeoInfo.js",
-			"settings":
-			{
-				"buffer_size": 30783,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "genAutoCompletionData.js",
-			"settings":
-			{
-				"buffer_size": 10304,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/bookurUtil.js",
-			"settings":
-			{
-				"buffer_size": 31852,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
 		}
 	],
 	"build_system": "",
@@ -225,17 +180,33 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 212.0,
-		"last_filter": "install",
+		"height": 132.0,
+		"last_filter": "Boxy",
 		"selected_items":
 		[
+			[
+				"Boxy",
+				"Boxy Theme: Activation"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"boxy",
+				"Boxy Theme: Activation"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
+				"Box",
+				"Boxy Theme: Activation"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
 			],
 			[
 				"PackageResourceViewer",
@@ -300,10 +271,18 @@
 	},
 	"expanded_folders":
 	[
-		"/home/casper/code/rezdy-data"
+		"/home/casper/code/rezdy-data",
+		"/home/casper/code/rezdy-data/mapping"
 	],
 	"file_history":
 	[
+		"/home/casper/code/rezdy-data/mapping/BookUrContents.json",
+		"/home/casper/code/rezdy-data/genAutoCompletionData.js",
+		"/home/casper/code/rezdy-data/delVTours.js",
+		"/home/casper/code/rezdy-data/lib/bookurUtil.js",
+		"/home/casper/code/rezdy-data/updateTourTXByGeoInfo.js",
+		"/home/casper/code/rezdy-data/getGeoInfoFromGMap.js",
+		"/home/casper/code/rezdy-data/importAsSupplier.js",
 		"/home/casper/.config/sublime-text-3/Packages/Babel/Babel.sublime-settings",
 		"/Users/casper/code/rezdy-data/mapping/ccMap.json",
 		"/Users/casper/code/rezdy-data/mapping/BookUrContents.json",
@@ -424,14 +403,7 @@
 		"/Users/casper/.ssh/config",
 		"/Users/casper/code/rezdy-data/logs/syncCityImage.log",
 		"/Users/casper/code/rezdy-data/docs/Attraction and attraction id Mapping.txt",
-		"/Users/casper/code/rezdy-data/docs/City and region city id Mapping.txt",
-		"/Users/casper/Downloads/luna-youtube-tracking.json",
-		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1487929477/tst.tourbooks.cc/home/casper/uproxy.txt",
-		"/Users/casper/Downloads/id填入的方法.txt",
-		"/var/folders/cw/hqp5z38j7y9g5wyq6x4lppgc0000gn/T/sublime-sftp-browse-1487833445/tst.tourbooks.cc/home/casper/uproxy.txt",
-		"/Users/casper/code/rezdy-data/test.js",
-		"/Users/casper/code/rezdy-data/MongoDB shell script.txt",
-		"/Users/casper/code/rezdy-data/Deployment Procedures.txt"
+		"/Users/casper/code/rezdy-data/docs/City and region city id Mapping.txt"
 	],
 	"find":
 	{
@@ -597,7 +569,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -613,8 +585,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								593,
+								593
 							]
 						],
 						"settings":
@@ -623,191 +595,16 @@
 							"incomplete_sync": null,
 							"is_init_dirty_state": false,
 							"origin_encoding": "UTF-8",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 40184.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "importAsSupplier.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 77620,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13029,
-								13029
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"open_with_edit": true,
-							"origin_encoding": "UTF-8",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6435.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "getGeoInfoFromGMap.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16192,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1256,
-								1256
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5173.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "updateTourTXByGeoInfo.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 30783,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "genAutoCompletionData.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10304,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1967,
-								1967
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "lib/bookurUtil.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31852,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5641.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -906,7 +703,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 384.0,
+	"side_bar_width": 396.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
