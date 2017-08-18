@@ -11,22 +11,36 @@ var duplicatesLog = '--- Log started ---\n';
 var opContents = []
 var compareContents = []
 var contentsName = []
+var cntTypes = {}
+var validCntTypes = ['Country','Province','Attraction','City','Tours','City Details', 'Attraction Details','Country Details','RTours','Travel Article','Tour Suppliers']
 
 let dataPreparation = () => {
 	MongoClient.connect(mdbUrl, (err, db) => {
 		if(null === err) console.log("Connected successfully to server - " + mdbUrl);
 
 		var collection = db.collection('Contents');
+		var collection2 = db.collection('ContentTypes');
 
-		collection.find().project({_id:1, text:1, online:1}).toArray()
+		collection.find().project({_id:1, text:1, typeId:1, online:1}).toArray()
 		.then( (d)=>{
 			opContents = d.slice()
 			compareContents = d.slice()
 			d.forEach( item=>{
-				contentsName.push(item.text)
+				contentsName.push(item.text+'-'+item.typeId)
 			})
-			db.close()
-			dataComparison()
+
+			collection2.find().project({_id:1, type:1}).toArray()
+			.then( defs=>{
+				defs.forEach(def=>{
+					cntTypes[def._id.toString()] = def.type
+				})
+
+				db.close()
+				dataComparison()				
+			})
+			.catch(e=>{
+				console.log('find contnet Types error!');
+			})
 		})
 		.catch( (e)=>{
 			console.log('find all contents error!');
@@ -37,22 +51,26 @@ let dataPreparation = () => {
 let dataComparison = () => {
 	console.log('Compare Data Starting......');
 	opContents.forEach( (opCnt, opCntIdx) => {
-		let opCntLog = opCnt.text + ' - ' + opCnt._id.toString() + '\n'
+		if(validCntTypes.indexOf(cntTypes[opCnt.typeId]) === -1){
+			return
+		}
+		
+		let opCntLog = opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString() + '\n'
 
-		let startPos = contentsName.indexOf(opCnt.text)
-		if(contentsName.indexOf(opCnt.text, startPos+1) === -1){
+		let startPos = contentsName.indexOf(opCnt.text+'-'+opCnt.typeId)
+		if(contentsName.indexOf(opCnt.text+'-'+opCnt.typeId, startPos+1) === -1){
 			return
 		}
 
-		console.log(opCnt.text + ' - ' + opCnt._id.toString())
+		console.log(opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString())
 		compareContents.forEach( (compareCnt, compareCntIdx) => {
 			if(compareCntIdx === opCntIdx){
 				return
 			}
 
-			if(compareCnt.text === opCnt.text){
-				opCntLog += '----  ' + compareCnt.text + ' - ' + compareCnt._id.toString() + '\n'
-				console.log('----  ' + compareCnt.text + ' - ' + compareCnt._id.toString())
+			if(compareCnt.text === opCnt.text && compareCnt.typeId === opCnt.typeId){
+				opCntLog += '----  ' + compareCnt.text + ' - ' + cntTypes[compareCnt.typeId] + ' - ' + compareCnt._id.toString() + '\n'
+				console.log('----  ' + compareCnt.text + ' - ' + cntTypes[compareCnt.typeId] + ' - ' + compareCnt._id.toString())
 			}
 		})
 
