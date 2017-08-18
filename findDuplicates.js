@@ -38,7 +38,9 @@ let dataComparison = () => {
 	console.log('Compare Data Starting......');
 	opContents.forEach( (opCnt, opCntIdx) => {
 		let opCntLog = opCnt.text + ' - ' + opCnt._id.toString() + '\n'
-		if(contentsName.indexOf(opCnt.text) === -1){
+
+		let startPos = contentsName.indexOf(opCnt.text)
+		if(contentsName.indexOf(opCnt.text, startPos+1) === -1){
 			return
 		}
 
