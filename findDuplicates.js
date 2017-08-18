@@ -12,7 +12,7 @@ var opContents = []
 var compareContents = []
 var contentsName = []
 var cntTypes = {}
-var validCntTypes = ['Country','Province','Attraction','City','Tours','City Details', 'Attraction Details','Country Details','RTours','Travel Article','Tour Suppliers']
+var validCntTypes = ['Country','Province','Attraction','City','City Details', 'Attraction Details','Country Details']
 
 let dataPreparation = () => {
 	MongoClient.connect(mdbUrl, (err, db) => {
@@ -54,7 +54,7 @@ let dataComparison = () => {
 		if(validCntTypes.indexOf(cntTypes[opCnt.typeId]) === -1){
 			return
 		}
-		
+
 		let opCntLog = opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString() + '\n'
 
 		let startPos = contentsName.indexOf(opCnt.text+'-'+opCnt.typeId)
