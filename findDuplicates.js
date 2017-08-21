@@ -13,6 +13,7 @@ var compareContents = []
 var contentsName = []
 var cntTypes = {}
 var validCntTypes = ['Country','Province','Attraction','City','City Details', 'Attraction Details','Country Details']
+var validatedContents = []
 
 let dataPreparation = () => {
 	MongoClient.connect(mdbUrl, (err, db) => {
@@ -21,7 +22,7 @@ let dataPreparation = () => {
 		var collection = db.collection('Contents');
 		var collection2 = db.collection('ContentTypes');
 
-		collection.find().project({_id:1, text:1, typeId:1, online:1}).toArray()
+		collection.find().project({_id:1, text:1, typeId:1, online:1, createTime:1, lastUpdateTime:1}).toArray()
 		.then( (d)=>{
 			opContents = d.slice()
 			compareContents = d.slice()
@@ -55,22 +56,28 @@ let dataComparison = () => {
 			return
 		}
 
-		let opCntLog = opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString() + '\n'
+		if(validatedContents.indexOf(opCnt.text+'-'+opCnt.typeId) === -1){
+			validatedContents.push(opCnt.text+'-'+opCnt.typeId)
+		} else{
+			return
+		}
+
+		let opCntLog = opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString() + ' - ' +  opCnt.createTime + ' - ' +  opCnt.lastUpdateTime + '\n'
 
 		let startPos = contentsName.indexOf(opCnt.text+'-'+opCnt.typeId)
 		if(contentsName.indexOf(opCnt.text+'-'+opCnt.typeId, startPos+1) === -1){
 			return
 		}
 
-		console.log(opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString())
+		console.log(opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString() + ' - ' +  opCnt.createTime + ' - ' +  opCnt.lastUpdateTime )
 		compareContents.forEach( (compareCnt, compareCntIdx) => {
 			if(compareCntIdx === opCntIdx){
 				return
 			}
 
 			if(compareCnt.text === opCnt.text && compareCnt.typeId === opCnt.typeId){
-				opCntLog += '----  ' + compareCnt.text + ' - ' + cntTypes[compareCnt.typeId] + ' - ' + compareCnt._id.toString() + '\n'
-				console.log('----  ' + compareCnt.text + ' - ' + cntTypes[compareCnt.typeId] + ' - ' + compareCnt._id.toString())
+				opCntLog += '----  ' + compareCnt.text + ' - ' + cntTypes[compareCnt.typeId] + ' - ' + compareCnt._id.toString() + ' - ' +  compareCnt.createTime + ' - ' + compareCnt.lastUpdateTime + '\n'
+				console.log('----  ' + compareCnt.text + ' - ' + cntTypes[compareCnt.typeId] + ' - ' + compareCnt._id.toString() + ' - ' +  compareCnt.createTime + ' - ' +  compareCnt.lastUpdateTime)
 			}
 		})
 

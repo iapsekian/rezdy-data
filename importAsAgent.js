@@ -44,7 +44,7 @@ buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
 
 var apiCallComplete = false;
 var getExistingComplete = false;
-let targetMyCategories = ['ALL','New All Tours','2-New All Tours'];
+let targetMyCategories = ['ALL','New All Tours','2-New All Tours','3-New All Tours'];
 
 var conf = {
     host : 'api.rezdy.com',
