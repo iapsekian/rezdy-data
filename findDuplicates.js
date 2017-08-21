@@ -14,6 +14,7 @@ var contentsName = []
 var cntTypes = {}
 var validCntTypes = ['Country','Province','Attraction','City','City Details', 'Attraction Details','Country Details']
 var validatedContents = []
+var toBeOffLine = []
 
 let dataPreparation = () => {
 	MongoClient.connect(mdbUrl, (err, db) => {
@@ -22,7 +23,7 @@ let dataPreparation = () => {
 		var collection = db.collection('Contents');
 		var collection2 = db.collection('ContentTypes');
 
-		collection.find().project({_id:1, text:1, typeId:1, online:1, createTime:1, lastUpdateTime:1}).toArray()
+		collection.find().project({_id:1, text:1, typeId:1, online:1, workspace: 1, createTime:1, lastUpdateTime:1}).toArray()
 		.then( (d)=>{
 			opContents = d.slice()
 			compareContents = d.slice()
@@ -70,6 +71,8 @@ let dataComparison = () => {
 		}
 
 		console.log(opCnt.text + ' - ' + cntTypes[opCnt.typeId] + ' - ' + opCnt._id.toString() + ' - ' +  opCnt.createTime + ' - ' +  opCnt.lastUpdateTime )
+
+		let toBeKept = JSON.parse(JSON.stringify(opCnt))
 		compareContents.forEach( (compareCnt, compareCntIdx) => {
 			if(compareCntIdx === opCntIdx){
 				return

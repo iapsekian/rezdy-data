@@ -367,7 +367,7 @@ let main = () => {
 							}
 								
 						});
-					},2000); //wait for 100 ms in order to avoid error - over query limit
+					},3000); //wait for 100 ms in order to avoid error - over query limit
 				});
 			} else {
 				toursWithCoordinateCount = 1;
