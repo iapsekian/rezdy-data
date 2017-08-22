@@ -1036,9 +1036,9 @@ function step4GenerateMDBRecords(){
 					delete item.dateCreated;
 					delete item.pickupId;
 
-					if(item.workspace.fields.productCode === 'P785EE'){
-						console.log('### Debug break poit 2 ###');
-					}
+					// if(item.workspace.fields.productCode === 'P785EE'){
+					// 	console.log('### Debug break poit 2 ###');
+					// }
 
 
 				});
@@ -1047,9 +1047,9 @@ function step4GenerateMDBRecords(){
 		    	//for content type - tours
 		    	arrayJsonProducts.forEach( (item,index) => {
 
-					if(item.workspace.fields.productCode === 'P785EE'){
-						console.log('### Debug break poit 3 ###');
-					}
+					// if(item.workspace.fields.productCode === 'P785EE'){
+					// 	console.log('### Debug break poit 3 ###');
+					// }
 
 		    		var tours={};
 
@@ -1124,9 +1124,9 @@ function step4GenerateMDBRecords(){
 					tours.lastUpdateUser = crudUser;
 					tours.createUser = crudUser;
 
-					if(item.workspace.fields.productCode === 'P785EE'){
-						console.log('### Debug break poit 4 ###');
-					}
+					// if(item.workspace.fields.productCode === 'P785EE'){
+					// 	console.log('### Debug break poit 4 ###');
+					// }
 
 					arrayJsonToursProducts.push(tours);
 
@@ -1704,7 +1704,7 @@ let saveSuppliers2MDB = () => {
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
 					debugDev('updateOne r = ' + JSON.stringify(r));
-					debugDev('update count = ' + r.matchedCount);
+					// debugDev('update count = ' + r.matchedCount);
 					wait4UpdateSupplierComplete();
 				})
 				.catch( (e) => {
@@ -1891,7 +1891,7 @@ let saveProducts2MDB = () => {
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
 					debugDev('updateOne r = ' + JSON.stringify(r));
-					debugDev('update count = ' + r.matchedCount);
+					// debugDev('update count = ' + r.matchedCount);
 					wait4UpdateProductComplete();
 				})
 				.catch( (e) => {
@@ -1910,9 +1910,9 @@ let saveProducts2MDB = () => {
 
 		//insert RTours documents to db
 		let insertProduct = (rzdItem, rzdIndex) => {
-			if(rzdItem.workspace.fields.productCode === 'P785EE'){
-				console.log('### Debug break poit 6 ###');
-			}
+			// if(rzdItem.workspace.fields.productCode === 'P785EE'){
+			// 	console.log('### Debug break poit 6 ###');
+			// }
 			let options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
@@ -1943,7 +1943,7 @@ let saveProducts2MDB = () => {
 			collection.updateOne(filter, updates, options)
 				.then( (r) => {
 					debugDev('putOfflineProduct r = ' + JSON.stringify(r));
-					debugDev('putOfflineProduct count = ' + r.matchedCount);
+					// debugDev('putOfflineProduct count = ' + r.matchedCount);
 					wait4PutOfflineProductComplete();
 				})
 				.catch( (e) => {
@@ -2032,9 +2032,9 @@ let saveProducts2MDB = () => {
 		debugDev('init insertCount = ' + insertCount);
 		if(0 !== insertCount){
 			pInsertRecords.forEach( (piItem,piIndex) => {
-				if(piItem.workspace.fields.productCode === 'P785EE'){
-					console.log('### Debug break poit 5 ###');
-				}
+				// if(piItem.workspace.fields.productCode === 'P785EE'){
+				// 	console.log('### Debug break poit 5 ###');
+				// }
 				insertProduct(piItem, piIndex);
 			});
 		} else {
@@ -2158,7 +2158,7 @@ let saveToursProducts2MDB = () => {
 			collection.updateOne(filter, rzdItem, options)
 				.then( (r) => {
 					debugDev('updateOne r = ' + JSON.stringify(r));
-					debugDev('update count = ' + r.matchedCount);
+					// debugDev('update count = ' + r.matchedCount);
 					wait4UpdateProductComplete();
 				})
 				.catch( (e) => {
@@ -2167,9 +2167,9 @@ let saveToursProducts2MDB = () => {
 		};
 
 		let insertProduct = (rzdItem, rzdIndex) => {
-			if(rzdItem.workspace.fields.productCode === 'P785EE'){
-				console.log('### Debug break poit 7 ###');
-			}
+			// if(rzdItem.workspace.fields.productCode === 'P785EE'){
+			// 	console.log('### Debug break poit 7 ###');
+			// }
 			let options = {forceServerObjectId:true};
 		    
 	    	collection.insertOne(rzdItem,options)
@@ -2325,8 +2325,13 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 		  res.on('end', () => {
 		    try {
 				parseString(rawData, {explicitArray:false}, function (err, result) {
-					console.log('Cat - %s : Count = %s', catOfflineTemp.name, result.products.product.length);
-					total = result.products.product.length;
+					if(!util.isNullOrUndefined(result.products.product)){
+						console.log('Cat - %s : Count = %s', catOfflineTemp.name, result.products.product.length);
+						total = result.products.product.length;
+					} else{
+						console.log('Cat - %s : Count = 0', catOfflineTemp.name);
+						total = 0
+					}
 				});
 				step2();
 		    } catch (e) {
@@ -2340,61 +2345,65 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 
 	let step2 = () => {
 		let count = Math.ceil(total/100);
-		let wait4GetEnd = () => {
-			count--
-			if(!count){
-				step3()
-			}
-		}
-
-		let optionsProductsByCategory = {	
-		    host : conf.host,
-		    port : conf.port,
-		    method : 'GET',
-		    headers: conf.headers
-		}
-
-		let continueFlag = true
-		let offset = 0
-		let queryPath = conf.path + '/products/marketplace?apiKey=' + conf.apiKey + '&category=' + catOfflineTemp.id
-
-		while(continueFlag){
-			optionsProductsByCategory.path = queryPath + '&offset=' + offset;
-			offset += 100;
-			if(total-offset <= 0){
-				continueFlag = false;
+		if(count){
+			let wait4GetEnd = () => {
+				count--
+				if(!count){
+					step3()
+				}
 			}
 
-			let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
+			let optionsProductsByCategory = {	
+			    host : conf.host,
+			    port : conf.port,
+			    method : 'GET',
+			    headers: conf.headers
+			}
 
-				let tmpRawProducts = ''
-				let tmpJsonProducts = {}
+			let continueFlag = true
+			let offset = 0
+			let queryPath = conf.path + '/products/marketplace?apiKey=' + conf.apiKey + '&category=' + catOfflineTemp.id
 
-			    res.on('data', (d) => {
-			        tmpRawProducts += d
-			    });
+			while(continueFlag){
+				optionsProductsByCategory.path = queryPath + '&offset=' + offset;
+				offset += 100;
+				if(total-offset <= 0){
+					continueFlag = false;
+				}
 
-			    res.on('end', () => {
-			    	if(tmpRawProducts){
-				    	tmpJsonProducts = JSON.parse(tmpRawProducts);
-				    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+				let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
 
-				    	if (tmpJsonProducts.requestStatus.success === true) {	    		
-				    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
-				    		tmpJsonProducts.products.forEach( (item) => {
-						    	toursInPutOfflineCatCURR.push({text:item.name, productCode:item.productCode});
-				    		});
+					let tmpRawProducts = ''
+					let tmpJsonProducts = {}
+
+				    res.on('data', (d) => {
+				        tmpRawProducts += d
+				    });
+
+				    res.on('end', () => {
+				    	if(tmpRawProducts){
+					    	tmpJsonProducts = JSON.parse(tmpRawProducts);
+					    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+
+					    	if (tmpJsonProducts.requestStatus.success === true) {	    		
+					    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
+					    		tmpJsonProducts.products.forEach( (item) => {
+							    	toursInPutOfflineCatCURR.push({text:item.name, productCode:item.productCode});
+					    		});
+					    	}
 				    	}
-			    	}
-			    	wait4GetEnd()
-			    });
+				    	wait4GetEnd()
+				    });
 
-			});
+				});
 
-			getProductsByCategory.end();
-			getProductsByCategory.on('error', (e) => {
-			    console.error('putToursOfflineBasedOnCat Get Tours Error - '+e);
-			});
+				getProductsByCategory.end();
+				getProductsByCategory.on('error', (e) => {
+				    console.error('putToursOfflineBasedOnCat Get Tours Error - '+e);
+				});
+			}
+		} else{
+			step3()
 		}
 	}
 
@@ -2437,63 +2446,73 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 				}
 			}
 
-			toursInPutOfflineCatCURR.forEach( curr => {
-				let putOff = true;
-				toursInPutOfflineCatPAST.forEach( past => {
-					if(curr.productCode === past.productCode)	putOff = false
-				})
-
-				if(putOff){
-					let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : curr.productCode};
-					let options = {};
-					let updates = {$set:{online:false}};
-
-					collection.updateOne(filter, updates, options)
-						.then( (r) => {
-							putOffLog += 'Tours - ' + curr.text + ', Product Code - ' + curr.productCode + ', has been put off-line.\n'
-							wait4PutOff()
-							// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
-							// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
-						})
-						.catch( (e) => {
-							console.log("putToursOfflineBasedOnCat put off-line action Error = " + e);
-						});
-				}else{
-					wait4PutOff()
-				}
-			})
-
-			toursInPutOfflineCatPAST.forEach( past => {
-				let putOn = true;
+			if(toursInPutOfflineCatCURRCount){
 				toursInPutOfflineCatCURR.forEach( curr => {
-					if(past.productCode === curr.productCode)	putOn = false
-				})
-
-				if(putOn){
-					alreadyPutOff.forEach( aPutOff => {
-						if(past.productCode === aPutOff.productCode) putOn = false
+					let putOff = true;
+					toursInPutOfflineCatPAST.forEach( past => {
+						if(curr.productCode === past.productCode)	putOff = false
 					})
-				}
 
-				if(putOn){
-					let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : past.productCode};
-					let options = {};
-					let updates = {$set:{online:true}};
+					if(putOff){
+						let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : curr.productCode};
+						let options = {};
+						let updates = {$set:{online:false}};
 
-					collection.updateOne(filter, updates, options)
-						.then( (r) => {
-							putOnLog += 'Tours - ' + past.text + ', Product Code - ' + past.productCode + ', has been put off-line.\n'
-							wait4PutOn()
-							// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
-							// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
+						collection.updateOne(filter, updates, options)
+							.then( (r) => {
+								putOffLog += 'Tours - ' + curr.text + ', Product Code - ' + curr.productCode + ', has been put off-line.\n'
+								wait4PutOff()
+								// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
+								// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
+							})
+							.catch( (e) => {
+								console.log("putToursOfflineBasedOnCat put off-line action Error = " + e);
+							});
+					}else{
+						wait4PutOff()
+					}
+				})
+			} else{
+				toursInPutOfflineCatCURRCount = 1
+				wait4PutOff()
+			}
+
+			if(toursInPutOfflineCatPASTCount){
+				toursInPutOfflineCatPAST.forEach( past => {
+					let putOn = true;
+					toursInPutOfflineCatCURR.forEach( curr => {
+						if(past.productCode === curr.productCode)	putOn = false
+					})
+
+					if(putOn){
+						alreadyPutOff.forEach( aPutOff => {
+							if(past.productCode === aPutOff.productCode) putOn = false
 						})
-						.catch( (e) => {
-							console.log("putToursOfflineBasedOnCat put off-line action Error = " + e);
-						});
-				}else{
-					wait4PutOn()
-				}
-			})
+					}
+
+					if(putOn){
+						let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : past.productCode};
+						let options = {};
+						let updates = {$set:{online:true}};
+
+						collection.updateOne(filter, updates, options)
+							.then( (r) => {
+								putOnLog += 'Tours - ' + past.text + ', Product Code - ' + past.productCode + ', has been put off-line.\n'
+								wait4PutOn()
+								// debugDev('Tours putOfflineProduct r = ' + JSON.stringify(r));
+								// debugDev('Tours putOfflineProduct count = ' + r.matchedCount);
+							})
+							.catch( (e) => {
+								console.log("putToursOfflineBasedOnCat put off-line action Error = " + e);
+							});
+					}else{
+						wait4PutOn()
+					}
+				})
+			} else{
+				toursInPutOfflineCatPASTCount = 1
+				wait4PutOn()
+			}
 		})
 	}
 
