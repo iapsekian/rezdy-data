@@ -48,6 +48,9 @@ let main = () => {
 			let txTermsIdCountry = txTermsId[countryVocId]
 
 			contents.Tours.forEach( tour => {
+				if(tour.online === false || tour.workspace.status === 'draft'){
+					return
+				}
 				if(tour.workspace.fields.marketplace !== 'Rezdy' && tour.workspace.fields.marketplace !== 'Rezdy Self-Created'){
 					return
 				}
@@ -129,6 +132,10 @@ let main = () => {
 
 		let genJSON = () =>{
 			contents.TravelArticle.forEach( ta => {
+				if(ta.online === false || ta.workspace.status === 'draft'){
+					return
+				}
+
 				let item = {}
 
 				item.title = ta.text
@@ -178,6 +185,10 @@ let main = () => {
 			let txTermsIdCountryCode = txTermsId[countrycodeVocId]
 
 			contents.Attraction.forEach( att => {
+				if(att.online === false || att.workspace.status === 'draft'){
+					return
+				}
+
 				let item = {}
 				let cityTermId = ''
 				let cityName = ''
@@ -191,10 +202,12 @@ let main = () => {
 				if(att.workspace.taxonomy[countrycodeVocId]){
 					countrycodeTermId = att.workspace.taxonomy[countrycodeVocId][0]
 					countryCode = txTermsIdCountryCode[countrycodeTermId]
-					if(ccMap[countryCode])
-						countryName = ccMap[countryCode].countryName
-					else
-						console.log('Country Code: %s is not included in ccMap.json', countryCode)
+					if(!util.isNullOrUndefined(countryCode)){
+						if(ccMap[countryCode])
+							countryName = ccMap[countryCode].countryName
+						else
+							console.log('Country Code: %s is not included in ccMap.json', countryCode)
+					}
 				}
 
 				item.title = att.text
@@ -263,6 +276,10 @@ let main = () => {
 			let txTermsIdCountry = txTermsId[countryVocId]
 
 			contents.City.forEach( city => {
+				if(city.online === false || city.workspace.status === 'draft'){
+					return
+				}
+
 				let item = {}
 				let countryTermId = ''
 				let countryName = ''
