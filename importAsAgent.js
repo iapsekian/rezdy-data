@@ -2346,62 +2346,128 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 	let step2 = () => {
 		let count = Math.ceil(total/100);
 		if(count){
-			let wait4GetEnd = () => {
-				count--
-				if(!count){
-					step3()
-				}
-			}
-
-			let optionsProductsByCategory = {	
-			    host : conf.host,
-			    port : conf.port,
-			    method : 'GET',
-			    headers: conf.headers
-			}
-
-			let continueFlag = true
-			let offset = 0
-			let queryPath = conf.path + '/products/marketplace?apiKey=' + conf.apiKey + '&category=' + catOfflineTemp.id
-
-			while(continueFlag){
-				optionsProductsByCategory.path = queryPath + '&offset=' + offset;
-				offset += 100;
-				if(total-offset <= 0){
-					continueFlag = false;
+			let getFromMarketplace = () => {
+				let count1 = count
+				let wait4GetEnd = () => {
+					count1--
+					if(!count1){
+						getFromSelfCreated()
+					}
 				}
 
-				let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
+				let optionsProductsByCategory = {	
+				    host : conf.host,
+				    port : conf.port,
+				    method : 'GET',
+				    headers: conf.headers
+				}
 
-					let tmpRawProducts = ''
-					let tmpJsonProducts = {}
+				let continueFlag = true
+				let offset = 0
+				let queryPath = conf.path + '/products/marketplace?apiKey=' + conf.apiKey + '&category=' + catOfflineTemp.id
 
-				    res.on('data', (d) => {
-				        tmpRawProducts += d
-				    });
+				while(continueFlag){
+					optionsProductsByCategory.path = queryPath + '&offset=' + offset;
+					offset += 100;
+					if(total-offset <= 0){
+						continueFlag = false;
+					}
 
-				    res.on('end', () => {
-				    	if(tmpRawProducts.length){
-					    	tmpJsonProducts = JSON.parse(tmpRawProducts);
-					    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+					let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
 
-					    	if (tmpJsonProducts.requestStatus.success === true) {	    		
-					    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
-					    		tmpJsonProducts.products.forEach( (item) => {
-							    	toursInPutOfflineCatCURR.push({text:item.name, productCode:item.productCode});
-					    		});
+						let tmpRawProducts = ''
+						let tmpJsonProducts = {}
+
+					    res.on('data', (d) => {
+					        tmpRawProducts += d
+					    });
+
+					    res.on('end', () => {
+					    	if(tmpRawProducts.length){
+						    	tmpJsonProducts = JSON.parse(tmpRawProducts);
+						    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+
+						    	if (tmpJsonProducts.requestStatus.success === true) {	    		
+						    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
+						    		tmpJsonProducts.products.forEach( (item) => {
+								    	toursInPutOfflineCatCURR.push({text:item.name, productCode:item.productCode});
+						    		});
+						    	}
 					    	}
-				    	}
-				    	wait4GetEnd()
-				    });
+					    	wait4GetEnd()
+					    });
 
-				});
+					});
 
-				getProductsByCategory.end();
-				getProductsByCategory.on('error', (e) => {
-				    console.error('putToursOfflineBasedOnCat Get Tours Error - '+e);
-				});
+					getProductsByCategory.end();
+					getProductsByCategory.on('error', (e) => {
+					    console.error('putToursOfflineBasedOnCat Get Tours Error - '+e);
+					});
+				}
 			}
+
+			let getFromSelfCreated = () => {
+				let count1 = count
+				let wait4GetEnd = () => {
+					count1--
+					if(!count1){
+						step3()
+					}
+				}
+
+				let optionsProductsByCategory = {	
+				    host : conf.host,
+				    port : conf.port,
+				    method : 'GET',
+				    headers: conf.headers
+				}
+
+				let continueFlag = true
+				let offset = 0
+				// let queryPath = conf.path + '/products/marketplace?apiKey=' + conf.apiKey + '&category=' + catOfflineTemp.id
+				let queryPath = conf.path + '/categories/' + catOfflineTemp.id + '/products' + '?apiKey=' + conf.apiKey;
+
+				while(continueFlag){
+					optionsProductsByCategory.path = queryPath + '&offset=' + offset;
+					offset += 100;
+					if(total-offset <= 0){
+						continueFlag = false;
+					}
+
+					let getProductsByCategory = https.request(optionsProductsByCategory, function(res) {
+
+						let tmpRawProducts = ''
+						let tmpJsonProducts = {}
+
+					    res.on('data', (d) => {
+					        tmpRawProducts += d
+					    });
+
+					    res.on('end', () => {
+					    	if(tmpRawProducts.length){
+						    	tmpJsonProducts = JSON.parse(tmpRawProducts);
+						    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
+
+						    	if (tmpJsonProducts.requestStatus.success === true) {	    		
+						    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
+						    		tmpJsonProducts.products.forEach( (item) => {
+								    	toursInPutOfflineCatCURR.push({text:item.name, productCode:item.productCode});
+						    		});
+						    	}
+					    	}
+					    	wait4GetEnd()
+					    });
+
+					});
+
+					getProductsByCategory.end();
+					getProductsByCategory.on('error', (e) => {
+					    console.error('putToursOfflineBasedOnCat Get Tours Error - '+e);
+					});
+				}
+			}
+
+			getFromMarketplace()
 		} else{
 			step3()
 		}
