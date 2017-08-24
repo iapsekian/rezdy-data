@@ -9,3 +9,4 @@ log/*.json
 logs/*.log
 logs/*.json
 package-lock.json
+*.sublime-workspace
