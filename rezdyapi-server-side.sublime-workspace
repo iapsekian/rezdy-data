@@ -167,8 +167,16 @@
 			"file": "importAsAgent.js",
 			"settings":
 			{
-				"buffer_size": 85844,
+				"buffer_size": 86443,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "genRezdyToursTXThemesTourDestPrice.js",
+			"settings":
+			{
+				"buffer_size": 10635,
 				"line_ending": "Unix"
 			}
 		}
@@ -272,10 +280,13 @@
 	"expanded_folders":
 	[
 		"/home/casper/code/rezdy-data",
-		"/home/casper/code/rezdy-data/mapping"
+		"/home/casper/code/rezdy-data/node_modules",
+		"/home/casper/code/rezdy-data/node_modules/bookur-util",
+		"/home/casper/code/rezdy-data/node_modules/bookur-util/node_modules"
 	],
 	"file_history":
 	[
+		"/home/casper/code/rezdy-data/node_modules/bookur-util/package.json",
 		"/home/casper/code/rezdy-data/mapping/BookUrContents.json",
 		"/home/casper/code/rezdy-data/genAutoCompletionData.js",
 		"/home/casper/code/rezdy-data/delVTours.js",
@@ -402,8 +413,7 @@
 		"/Users/casper/.ssh/known_hosts",
 		"/Users/casper/.ssh/config",
 		"/Users/casper/code/rezdy-data/logs/syncCityImage.log",
-		"/Users/casper/code/rezdy-data/docs/Attraction and attraction id Mapping.txt",
-		"/Users/casper/code/rezdy-data/docs/City and region city id Mapping.txt"
+		"/Users/casper/code/rezdy-data/docs/Attraction and attraction id Mapping.txt"
 	],
 	"find":
 	{
@@ -569,7 +579,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -578,7 +588,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 85844,
+						"buffer_size": 86443,
 						"regions":
 						{
 						},
@@ -595,6 +605,41 @@
 							"incomplete_sync": null,
 							"is_init_dirty_state": false,
 							"origin_encoding": "UTF-8",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 855.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "genRezdyToursTXThemesTourDestPrice.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10635,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
@@ -703,7 +748,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 396.0,
+	"side_bar_width": 282.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
