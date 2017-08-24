@@ -2381,7 +2381,7 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 				    });
 
 				    res.on('end', () => {
-				    	if(tmpRawProducts){
+				    	if(tmpRawProducts.length){
 					    	tmpJsonProducts = JSON.parse(tmpRawProducts);
 					    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
 
@@ -2419,9 +2419,11 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 			let collection = db.collection('Contents')
 			let toursInPutOfflineCatPASTCount = toursInPutOfflineCatPAST.length
 			let toursInPutOfflineCatCURRCount = toursInPutOfflineCatCURR.length
+			let toursInPutOfflineCatPASTEnd = false
+			let toursInPutOfflineCatCURREnd = false
 
 			let wait4AllPutEnd = () => {
-				if(!toursInPutOfflineCatCURRCount && !toursInPutOfflineCatPASTCount){
+				if(toursInPutOfflineCatPASTEnd && toursInPutOfflineCatCURREnd){
 					db.close()
 					fs.writeFileSync('./log/putToursOfflineBasedOnCat-Put Off'+targetEnv+'.log', putOffLog)
 					fs.writeFileSync('./log/putToursOfflineBasedOnCat-Put On'+targetEnv+'.log', putOnLog)
@@ -2435,6 +2437,7 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 			let wait4PutOff = () => {
 				toursInPutOfflineCatCURRCount--
 				if(!toursInPutOfflineCatCURRCount){
+					toursInPutOfflineCatCURREnd = true
 					wait4AllPutEnd()
 				}
 			}
@@ -2442,6 +2445,7 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 			let wait4PutOn = () => {
 				toursInPutOfflineCatPASTCount--
 				if(!toursInPutOfflineCatPASTCount){
+					toursInPutOfflineCatPASTEnd = true
 					wait4AllPutEnd()
 				}
 			}
