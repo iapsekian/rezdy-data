@@ -34,8 +34,11 @@ let runGitCommand = () => {
 		stdio: [0,1,2]
 	}
 
+	console.log('$' + cmdGitAdd)
 	childProcess.execSync(cmdGitAdd, options)
+	console.log('\n$' + cmdGitCommit)
 	childProcess.execSync(cmdGitCommit, options)
+	console.log('\n$' + cmdGitPush)
 	childProcess.execSync(cmdGitPush, options)
 }
 
