@@ -66,8 +66,8 @@ let runExternalScripts = () => {
 
 let rule = new schedule.RecurrenceRule()
 rule.dayOfWeek = new schedule.Range(1, 5)
-rule.hour = 12
-rule.minute = 55
+rule.hour = 13
+rule.minute = 10
 
 console.log('### Scheduled jobs starting..... ###')
 let job = schedule.scheduleJob(rule,runExternalScripts)
