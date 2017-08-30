@@ -646,6 +646,7 @@
 						{
 							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
@@ -681,6 +682,7 @@
 						{
 							"git_gutter_is_enabled": true,
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
