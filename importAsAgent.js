@@ -2122,8 +2122,8 @@ let saveToursProducts2MDB = () => {
 			let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			let options = {};
 
-			rzdItem.online = existingItem.online;
-			// rzdItem.online = true;
+			// rzdItem.online = existingItem.online;
+			rzdItem.online = true;
 			rzdItem.version = existingItem.version;
 			rzdItem.createTime = existingItem.createTime;
 			rzdItem.lastUpdateTime = existingItem.lastUpdateTime;
