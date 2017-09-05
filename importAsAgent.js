@@ -1860,8 +1860,8 @@ let saveProducts2MDB = () => {
 			let filter = {"typeId" : contentTypeId.product, "workspace.fields.productCode" : rzdItem.workspace.fields.productCode};
 			let options = {};
 
-			rzdItem.online = existingItem.online;
-			// rzdItem.online = true;
+			// rzdItem.online = existingItem.online;
+			rzdItem.online = true;
 			rzdItem.version = existingItem.version;
 			rzdItem.workspace.taxonomy = existingItem.taxonomy;
 			rzdItem.live.taxonomy = existingItem.taxonomy;
