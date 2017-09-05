@@ -778,6 +778,9 @@ let main = () => {
 							wait4toursWithCoordinateComplete();
 						}
 					} else {
+						if(operateDB){
+							toursGeoCoded.push(tour._id);
+						}
 						wait4toursWithCoordinateComplete();
 					}
 				});
@@ -814,6 +817,9 @@ let main = () => {
 							wait4toursWithCityCountryCodeComplete();
 						}
 					} else {
+						if(operateDB){
+							toursGeoCoded.push(tour._id);
+						}
 						wait4toursWithCityCountryCodeComplete();
 					}
 				});
