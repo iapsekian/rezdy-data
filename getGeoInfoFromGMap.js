@@ -233,6 +233,7 @@ let main = () => {
 			if(0 !== toursWithCoordinateCount){
 				toursWithCoordinate.forEach((tour)=>{
 					var loc = {
+						'status': '',
 						'continent': '',
 						'country': '',
 						'countryCode':'',
@@ -256,6 +257,7 @@ let main = () => {
 							var go = false;
 
 							if(null === err){
+								loc.status = r.status;
 								switch(r.status){
 									case 'OK':
 										go = true;
@@ -360,6 +362,7 @@ let main = () => {
 								}
 
 							} else {
+								loc.status = 'ERR'
 								debugDev('Tour - ' + tour.text +' - Google Maps API - reverse Geocoding - ERR Exception Happened! - ' + err);
 								errLog += 'Tour - ' + tour.text +' - Google Maps API - reverse Geocoding - ERR Exception Happened! - ' + err +'\n';
 								tour.loc = loc;

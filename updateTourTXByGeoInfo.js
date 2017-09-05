@@ -779,7 +779,9 @@ let main = () => {
 						}
 					} else {
 						if(operateDB){
-							toursGeoCoded.push(tour._id);
+							if(tour.loc.status === 'OK'){
+								toursGeoCoded.push(tour._id);
+							}
 						}
 						wait4toursWithCoordinateComplete();
 					}
