@@ -2523,7 +2523,7 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 						if(curr.productCode === past.productCode)	putOff = false
 					})
 
-					if(putOff){
+					if(putOff) {
 						let filter = {"typeId" : contentTypeId.tours, "workspace.fields.productCode" : curr.productCode};
 						let options = {};
 						let updates = {$set:{online:false}};
