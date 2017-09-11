@@ -167,35 +167,7 @@
 			"file": "importAsAgent.js",
 			"settings":
 			{
-				"buffer_size": 88546,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 606,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nMarkdownEditing\n---------------\n\n  # MarkdownEditing 2.2.4 Changelog\n  \n  Your _MarkdownEditing_ plugin is updated. Enjoy new version. For any type of\n  feedback you can use [GitHub issues][issues].\n  \n  ## Bug Fixes\n  \n  * Fix an issue that occationally prevents creating link references with command.\n  * Fix an issue that breaks navigating through headers while front matter is present.\n  \n  ## New Features\n  \n  * Latex math expressions are highlighted now:\n      - $\\frac{d}{dx}\\left( \\int_{0}^{x} f(u)\\,du\\right)=f(x).$\n  * Front matter (yaml, coffee, json) highlight.\n  * Go Programming Language highlight in code blocks.\n  * Kotlin Programming Language highlight in code blocks (requires Kotlin package).\n  * Convert between inline links and references.\n      - Command: MarkdownEditing: Convert all inline links to references\n      - Command: MarkdownEditing: Convert inline link to references\n          + Only appear if cursor is on an inline link\n          + Also appear in context menu\n  \n  ## Changes\n  \n  [issues]: https://github.com/SublimeText-Markdown/MarkdownEditing/issues\n",
-			"settings":
-			{
-				"buffer_size": 1143,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "mapping/toursInPutOfflineCatPAST-PRODUCTION.json",
-			"settings":
-			{
-				"buffer_size": 2157,
+				"buffer_size": 88547,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -299,13 +271,11 @@
 	},
 	"expanded_folders":
 	[
-		"/home/casper/code/rezdy-data",
-		"/home/casper/code/rezdy-data/mapping",
-		"/home/casper/code/rezdy-data/node_modules/bookur-util",
-		"/home/casper/code/rezdy-data/node_modules/bookur-util/node_modules"
+		"/home/casper/code/rezdy-data"
 	],
 	"file_history":
 	[
+		"/home/casper/code/rezdy-data/package.json",
 		"/home/casper/code/rezdy-data/.gitignore",
 		"/home/casper/code/rezdy-data/node_modules/bookur-util/package.json",
 		"/home/casper/code/rezdy-data/mapping/BookUrContents.json",
@@ -432,8 +402,7 @@
 		"/Users/casper/algolia.json",
 		"/Users/casper/code/rezdy-data/syncImage2Details.js",
 		"/Users/casper/.ssh/known_hosts",
-		"/Users/casper/.ssh/config",
-		"/Users/casper/code/rezdy-data/logs/syncCityImage.log"
+		"/Users/casper/.ssh/config"
 	],
 	"find":
 	{
@@ -599,7 +568,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -608,15 +577,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 88546,
+						"buffer_size": 88547,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								86033,
+								86033
 							]
 						],
 						"settings":
@@ -631,108 +600,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 855.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								606,
-								606
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"is_init_dirty_state": false,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (NPM).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1143,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1143,
-								1143
-							]
-						],
-						"settings":
-						{
-							"auto_indent": false,
-							"default_dir": "/home/casper/code/rezdy-data",
-							"git_gutter_is_enabled": false,
-							"incomplete_sync": null,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "mapping/toursInPutOfflineCatPAST-PRODUCTION.json",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2157,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 37663.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
