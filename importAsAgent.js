@@ -1501,9 +1501,9 @@ let getExistingDataFromMDB = () => {
 			.then( (d) => {
 				var p = [];
 				d.forEach( (item,index) => {
-					if(item.workspace.fields.source !== 'Marketplace'){
-						return
-					}
+					// if(item.workspace.fields.source !== 'Marketplace'){
+					// 	return
+					// }
 
 					var i = {};
 					i.text = item.text;
@@ -1559,7 +1559,7 @@ let getExistingDataFromMDB = () => {
 				var p = [];
 				d.forEach( (item,index) => {
 					//added testing TourCMS tour
-					if(item.workspace.fields.marketplace === 'Rezdy' || (item.workspace.fields.marketplace === 'TourCMS' && item.workspace.fields.photoPath.split('.')[1] === 'rezdy')){
+					//if(item.workspace.fields.marketplace === 'Rezdy' || (item.workspace.fields.marketplace === 'TourCMS' && item.workspace.fields.photoPath.split('.')[1] === 'rezdy')){
 						var i = {};
 						i.text = item.text;
 						i.productCode = item.workspace.fields.productCode;
@@ -1579,7 +1579,7 @@ let getExistingDataFromMDB = () => {
 						i.badgeImage = item.workspace.fields.badgeImage;
 						i.badgeTargetUrl = item.workspace.fields.badgeTargetUrl;
 						p.push(i);
-					}
+					//}
 				});
 				callback(p);
 			})
@@ -1900,7 +1900,7 @@ let saveProducts2MDB = () => {
 
 			let wait4UpdateProductComplete = () => {
 				updateCount--;
-				debugDev('updateCount = ' + updateCount);
+				debugDev('RTours updateCount = ' + updateCount);
 				if(0 === updateCount){
 					updateComplete = true;
 					wait4IUDComplete();
@@ -1926,7 +1926,7 @@ let saveProducts2MDB = () => {
 
 		    let wait4InsertProductComplete = () =>{
 		    	insertCount--;
-				debugDev('wait4InsertProductComplete insertCount = ' + insertCount);
+				debugDev('RTours nsertCount = ' + insertCount);
 		    	if(0 === insertCount){
 		    		insertComplete = true;
 		    		wait4IUDComplete();
@@ -1952,7 +1952,7 @@ let saveProducts2MDB = () => {
 
 			let wait4PutOfflineProductComplete = () => {
 				putOfflineCount--;
-				debugDev('putOfflineCount = ' + putOfflineCount);
+				debugDev('RTours putOfflineCount = ' + putOfflineCount);
 				if(0 === putOfflineCount){
 					putOfflineComplete = true;
 					wait4IUDComplete();
@@ -2093,7 +2093,7 @@ let saveToursProducts2MDB = () => {
 
 		let wait4UpdateProductComplete = () => {
 			updateCount--;
-			debugDev('updateCount = ' + updateCount);
+			debugDev('Tours updateCount = ' + updateCount);
 			if(0 === updateCount){
 				updateComplete = true;
 				wait4IUDComplete();
@@ -2102,7 +2102,7 @@ let saveToursProducts2MDB = () => {
 
 	    let wait4InsertProductComplete = () =>{
 	    	insertCount--;
-			debugDev('wait4InsertProductComplete insertCount = ' + insertCount);
+			debugDev('Tours insertCount = ' + insertCount);
 	    	if(0 === insertCount){
 	    		insertComplete = true;
 	    		wait4IUDComplete();

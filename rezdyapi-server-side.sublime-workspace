@@ -167,7 +167,7 @@
 			"file": "importAsAgent.js",
 			"settings":
 			{
-				"buffer_size": 88547,
+				"buffer_size": 88538,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -406,7 +406,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 48.0
 	},
 	"find_in_files":
 	{
@@ -421,6 +421,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"updateCount = ",
 			"}]",
 			"RS",
 			"att",
@@ -547,8 +548,7 @@
 			"arrayJsonProducts",
 			"stage2Save2MDB",
 			"PHP_PACKAGES_UBUNTU14",
-			"PHP_PACKAGES",
-			"PHP_PACKAGES_UBUNTU14"
+			"PHP_PACKAGES"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -577,20 +577,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 88547,
+						"buffer_size": 88538,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								86033,
-								86033
+								65397,
+								65418
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": true,
+							"git_gutter_is_enabled": false,
 							"incomplete_sync": null,
 							"is_init_dirty_state": false,
 							"origin_encoding": "UTF-8",
@@ -600,7 +600,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 37663.0,
+						"translation.y": 27679.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
