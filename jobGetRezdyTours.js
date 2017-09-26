@@ -35,11 +35,23 @@ let runGitCommand = () => {
 	}
 
 	console.log('$' + cmdGitAdd)
-	childProcess.execSync(cmdGitAdd, options)
+	try{
+		childProcess.execSync(cmdGitAdd, options)
+	} catch(e){
+		console.log('Git command - ' + cmdGitAdd + ', execution error - ' + e)
+	}
 	console.log('\n$' + cmdGitCommit)
-	childProcess.execSync(cmdGitCommit, options)
+	try{
+		childProcess.execSync(cmdGitCommit, options)
+	} catch(e){
+		console.log('Git command - ' + cmdGitCommit + ', execution error - ' + e)
+	}
 	console.log('\n$' + cmdGitPush)
-	childProcess.execSync(cmdGitPush, options)
+	try{
+		childProcess.execSync(cmdGitPush, options)
+	} catch(e){
+		console.log('Git command - ' + cmdGitPush + ', execution error - ' + e)
+	}
 }
 
 let runExternalScripts = () => {

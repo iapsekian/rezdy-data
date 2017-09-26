@@ -305,7 +305,7 @@ let endProgram = () => {
 			console.log('******	Next Step ******')
 			console.log('***********************')
 			console.log('\n-----------------------------------------------------------------------------------------')
-			console.log('****** Now will run "updateRezdyToursTXThemesTourDestPriceAuto.js" AUTOMATICALLY!! ******')
+			console.log('****** Now will run "updateRezdyToursTXThemesTourDestPrice.js" AUTOMATICALLY!! ******')
 			console.log('-----------------------------------------------------------------------------------------\n')
 
 			let args = []
@@ -314,11 +314,11 @@ let endProgram = () => {
 			options.execArgv = execArgv.slice()
 			args.push(targetEnv)
 			args.push(dbOPSwitch)		
-			buUtil.runScript('./updateRezdyToursTXThemesTourDestPriceAuto.js', args, options, err => {
+			buUtil.runScript('./updateRezdyToursTXThemesTourDestPrice.js', args, options, err => {
 				if(err)	
 					throw err
 				else {
-					console.log('\n--- updateRezdyToursTXThemesTourDestPriceAuto.js Completed!\n')
+					console.log('\n--- updateRezdyToursTXThemesTourDestPrice.js Completed!\n')
 				}
 			})
 		} else {

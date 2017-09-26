@@ -44,12 +44,13 @@ buUtil.getMongoDBUrl(targetEnv, dbOPSwitch, (env, op, mUrl) => {
 
 var apiCallComplete = false;
 var getExistingComplete = false;
-let targetMyCategories = ['ALL','New All Tours','2-New All Tours','3-New All Tours','4-New All Tours'];
+let targetMyCategories = ['ALL','New All Tours','2-New All Tours','3-New All Tours','4-New All Tours','5-New All Tours'];
+// let targetMyCategories = ['5-New All Tours'];
 
 var conf = {
     host : 'api.rezdy.com',
     port : 443,
-    path : '/latest',
+    path : '/v1',
     apiKey : '71e6bdb078ba42bdb1c5ef23744f4b69',
     headers: {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -266,6 +267,8 @@ function step2GetProducts(){
 
 	let getProductsByXMLProducts = () => {
 
+		let totalCount = 0;
+
 		let optionsProductsByCategory = {	
 		    host : conf.host,
 		    port : conf.port,
@@ -280,6 +283,7 @@ function step2GetProducts(){
 		let wait4MyCatEnd = () => {
 			arrayJsonCategoriesCount--
 			if(!arrayJsonCategoriesCount){
+				debugDev('totalCount = ' + totalCount);
 				handleProductsResult()
 			}
 		}
@@ -295,7 +299,8 @@ function step2GetProducts(){
 
 			let continueFlag = true
 			let offset = 0;
-			let queryPath = conf.path + queryParam + '?apiKey=' + conf.apiKey + '&category=' + myCategory.id;
+			// let queryPath = conf.path + queryParam + '?apiKey=' + conf.apiKey + '&category=' + myCategory.id;
+			let queryPath = conf.path + '/categories/' + myCategory.id + '/products?apiKey=' + conf.apiKey;
 
 			while(continueFlag){
 				optionsProductsByCategory.path = queryPath + '&offset=' + offset;
@@ -316,12 +321,13 @@ function step2GetProducts(){
 				    });
 
 				    res.on('end', () => {
-				    	if(tmpRawProducts){
+				    	if(tmpRawProducts.length){
 					    	tmpJsonProducts = JSON.parse(tmpRawProducts);
 					    	debugDev('request status success = ' + tmpJsonProducts.requestStatus.success);
 
 					    	if (tmpJsonProducts.requestStatus.success === true) {	    		
 					    		debugDev('Products Count = ' + tmpJsonProducts.products.length);
+					    		totalCount += tmpJsonProducts.products.length;
 					    		// if(tmpJsonProducts.products.length < 100)	continueFlag = false
 					    		tmpJsonProducts.products.forEach( (item) => {
 							    	jsonProducts.products.push(item);
@@ -1973,7 +1979,7 @@ let saveProducts2MDB = () => {
 		arrayJsonProducts.forEach( (rzdItem,rzdIndex) => {
 			let existing = false;
 			existingProducts.forEach( (existingItem,existingIndex) => {
-				if(rzdItem.workspace.fields.productCode === existingItem.productCode ){
+				if(rzdItem.workspace.fields.productCode === existingItem.productCode){
 					existing = true;
 					pUpdateRecords.push(rzdItem);
 				}
@@ -2202,7 +2208,7 @@ let saveToursProducts2MDB = () => {
 		arrayJsonToursProducts.forEach( (rzdItem,rzdIndex) => {
 			let existing = false;
 			existingToursProducts.forEach( (existingItem,existingIndex) => {
-				if(rzdItem.workspace.fields.productCode === existingItem.productCode ){
+				if(rzdItem.workspace.fields.productCode === existingItem.productCode && !existing){
 					existing = true;
 					pUpdateRecords.push(rzdItem);
 				}
@@ -2351,7 +2357,9 @@ let putToursOfflineBasedOnCat = (alreadyPutOff) => {
 				let wait4GetEnd = () => {
 					count1--
 					if(!count1){
-						getFromSelfCreated()
+						//commented because Reazdy account had been downgraded to Agent plan
+						//getFromSelfCreated()
+						step3()
 					}
 				}
 
